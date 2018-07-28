@@ -30,7 +30,11 @@
  * The modules.
  * @const {Module}
  */
+const assert = require("assert");
 const engine = require("./engine.js");
+const fs = require("fs-extra");
+const os = require("os");
+const path = require("path");
 
 /*****************************************************************************/
 
@@ -45,6 +49,46 @@ const term = new engine.Term();
  * @var {bool}
  */
 let busy = false;
+
+/*****************************************************************************/
+
+/**
+ * The configuration object.
+ * @object
+ *     {Array.<string>} Patches - The patches, in order.
+ *     {string} Output - The patches output.
+ *     {string} Source - The original directory.
+ *     {string} Target - The development directory.
+ */
+const config = {};
+
+{
+    const data = JSON.parse(fs.readFileSync("./config.json"));
+
+    config.Patches = data.Patches;
+    data.Patches = data.Patches.map((patch) => path.resolve(patch));
+    if (os.platform() === "win32") {
+        config.Output = data.Output.Win;
+        config.Source = data.Source.Win;
+        config.Target = data.Target.Win;
+    } else {
+        config.Output = data.Output.Linux;
+        config.Source = data.Source.Linux;
+        config.Target = data.Target.Linux;
+    }
+
+    const validate_path = (p) => {
+        assert(typeof p === "string");
+        assert(path.isAbsolute(p));
+        const slashes = p.match(/\//g) || [];
+        assert(slashes.length >= 2);
+    };
+
+    assert(Array.isArray(config.Patches));
+    validate_path(config.Output);
+    validate_path(config.Source);
+    validate_path(config.Target);
+}
 
 /*****************************************************************************/
 
@@ -70,12 +114,45 @@ const cmd_listener = (cmd) => {
 };
 
 term.set_listener(cmd_listener);
+term.write_line("Nano Core 2 Terminal");
+term.ready();
 
 /*****************************************************************************/
 
-cmd_handlers.set("init", () => {
+cmd_handlers.set("reset", async () => {
     busy = true;
 
+    try {
+        await fs.remove(config.Target);
+        await fs.copy(config.Source, config.Target, {
+            overwrite: false,
+            errorOnExist: true,
+        });
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
+cmd_handlers.set("apply", async () => {
+    busy = true;
+
+    for (const patch of config.Patches) {
+        if (await term.exec("git", config.Target, "apply", patch) !== 0)
+            term.write("ERROR: Exit code is not 0, apply aborted.");
+    }
+
+    busy = false;
+    term.ready();
+});
+
+/*****************************************************************************/
+
+cmd_handlers.set("config", () => {
+    term.write_line(JSON.stringify(config, null, 2));
+    term.ready();
 });
 
 cmd_handlers.set("exit", () => {

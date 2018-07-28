@@ -1,9 +1,17 @@
 {
+  "Output": {
+    "Linux": "/tmp/",
+    "Win": "D:/!Temporary/"
+  },
   "Patches": [
 
   ],
-  "TempRoot": {
-    "Linux": "/tmp/",
-    "Win": "D:/!Temporary/"
+  "Source": {
+    "Linux": "/tmp/uBlock/",
+    "Win": "D:/!Temporary/uBlock/"
+  },
+  "Target": {
+    "Linux": "/tmp/NanoCore2DevEnv/",
+    "Win": "D:/!Temporary/NanoCore2DevEnv/"
   }
 }

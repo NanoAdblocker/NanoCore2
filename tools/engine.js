@@ -27,6 +27,14 @@
 /*****************************************************************************/
 
 /**
+ * The modules.
+ * @const {Module}
+ */
+const child_process = require("child_process");
+
+/*****************************************************************************/
+
+/**
  * Terminal class.
  * Only one instance can be active at any given time.
  * @class
@@ -43,7 +51,11 @@ exports.Term = class {
         else
             this.func = null;
 
+        this._paused = false;
         this._handler = (line) => {
+            if (this._paused)
+                return;
+
             if (this.func)
                 this.func(line.trim());
             else
@@ -61,6 +73,24 @@ exports.Term = class {
     destructor() {
         process.stdin.removeListener("data", this._handler);
         process.stdin.pause();
+    }
+
+    /**
+     * Set event listener. This will replace the previous listener.
+     * @method
+     * @param {Function} func - The listener.
+     */
+    set_listener(func) {
+        this.func = func;
+    }
+    /**
+     * Write prompt arrow.
+     * Note that the user can enter input at any time, this is purely for
+     * cosmetic purposes.
+     * @method
+     */
+    ready() {
+        this.write("> ");
     }
 
     /**
@@ -82,12 +112,37 @@ exports.Term = class {
     }
 
     /**
-     * Set event listener. This will replace the previous listener.
-     * @method
-     * @param {Function} func - The listener.
+     * Execute a command, with interactive shell.
+     * @async @method
+     * @param {string} cmd - The command.
+     * @return {integer} exit_code - The exit code
      */
-    set_listener(func) {
-        this.func = func;
+    exec(cmd, cwd, ...args) {
+        return new Promise((resolve, reject) => {
+            const child = child_process.spawn(cmd, {
+                cwd: cwd,
+            }, args);
+
+            child.stdout.on("data", (data) => {
+                this.write(data);
+            });
+            child.stderr.on("data", (data) => {
+                this.write(data);
+            });
+
+            const on_user_input = (data) => {
+                child.stdin.write(data);
+            };
+            process.stdin.on("data", on_user_input);
+
+            child.on("close", (code) => {
+                process.stdin.removeListener("data", on_user_input);
+
+                this.write_line("Child exited with exit code " +
+                    code.toString());
+                resolve(code);
+            });
+        });
     }
 };
 
