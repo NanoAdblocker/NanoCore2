@@ -8,7 +8,7 @@ Restarting fresh
 2. Navigate to `tools` directory and run `npm install`.
 3. Update `config.json` as appropriate.
 4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
-   appropriate directory to get upstream.
+   appropriate directory to get upstream. Check out a tag or commit if needed.
 5. Clone these repositories in the same parent directory as Nano Core 2 if
    appropriate: `NanoAdblocker/NanoFilters`, `jspenguin2017/uBlockProtector`,
    `jspenguin2017/Edgyfy`
