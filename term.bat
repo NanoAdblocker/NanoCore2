@@ -1,5 +1,5 @@
 @ECHO OFF
 
-NODE ./tools
+NODE ./term
 
 PAUSE

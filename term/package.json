@@ -1,6 +1,8 @@
 {
   "author": "jspenguin2017",
   "dependencies": {
+    "archiver": "~2.1.1",
+    "esprima": "~4.0.1",
     "fs-extra": "~7.0.0"
   },
   "description": "Nano Core 2 tools",

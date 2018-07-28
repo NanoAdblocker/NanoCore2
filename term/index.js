@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Entry point of tools.
+    Entry point of Nano Core 2 Terminal.
 
 ******************************************************************************/
 
@@ -27,7 +27,7 @@
 /*****************************************************************************/
 
 /**
- * The modules.
+ * Main modules.
  * @const {Module}
  */
 const assert = require("assert");
@@ -190,7 +190,20 @@ cmd_handlers.set("make", async () => {
 
     try {
         await fs.mkdir("./build");
-        await a(); // tODO
+        // TODO
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
+cmd_handlers.set("publish", async () => {
+    busy = true;
+
+    try {
+        // TODO
     } catch (err) {
         term.write_line(err.stack);
     }

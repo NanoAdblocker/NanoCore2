@@ -12,7 +12,7 @@ Restarting fresh
 5. Clone these repositories in the same parent directory as Nano Core 2 if
    appropriate: `NanoAdblocker/NanoFilters`, `jspenguin2017/uBlockProtector`,
    `jspenguin2017/Edgyfy`
-6. Run `node ./tools` to open Nano Core 2 Terminal.
+6. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
