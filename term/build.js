@@ -34,20 +34,84 @@ const archiver = require("archiver");
 const assert = require("assert");
 const crypto = require("crypto");
 const fs = require("fs-extra");
+const path = require("path");
 const syntax = require("./syntax.js");
-const store = require("./store.js");
 
 /**
- * Other modules.
+ * Optional modules.
+ * @const {Module}
+ */
+let store;
+let edge;
+
+/**
+ * Build data.
  * @const {Module}
  */
 const data = require("./data.js");
-let pack_edge; // Optional module for creating .appx package for Edge
+
+/*****************************************************************************/
+
+/**
+ * Find MD5 hash of a string.
+ * @function
+ * @param {string} data - The data to hash.
+ */
+const MD5 = (data) => {
+    assert(typeof data === "string");
+    return crypto.createHash("md5").update(data, "utf8").digest("hex");
+};
+
+/**
+ * Create ZIP archive.
+ * @async @function
+ * @param {string} in_dir - The directory to ZIP.
+ * @param {string} out_file - The file to write to.
+ */
+const ZIP = (in_dir, out_file) => {
+    assert(typeof in_dir === "string" && typeof out_file === "string");
+    return new Promise((resolve, reject) => {
+        const input = archiver.create("zip", {});
+        const output = fs.createWriteStream(out_file);
+
+        input.on("end", resolve);
+        input.on("warning", reject);
+        input.on("error", reject);
+
+        input.pipe(output);
+        input.directory(in_dir, false);
+        input.finalize();
+    });
+};
+
+/**
+ * Resolve path.
+ * @function
+ * @param {Any} ...args - Arguments for path.resolve().
+ */
+const R = (...args) => {
+    return path.resolve(...args);
+};
+
+/**
+ * Create file ending filter.
+ * @function
+ * @param {string} ext - The file ending to filter.
+ * @param {boolean} [match=true] - Whether the filter is a match filter.
+ */
+const F = (ext, match = true) => {
+    if (match)
+        return { filter: (f) => f.endsWith(ext) };
+    else
+        return { filter: (f) => !f.endsWith(ext) };
+};
 
 /*****************************************************************************/
 
 /**
  * Configuration.
+ * The source repository must be explicitly set before calling any of the
+ * functions.
  * @const {string}
  */
 exports.src_repo = null;
@@ -57,94 +121,93 @@ exports.edge_shim = "../Edgyfy/edgyfy.js";
 /*****************************************************************************/
 
 /**
- * Build Nano Adblocker core.
+ * Build Nano Core 2.
  * @function
  * @param {Enum} browser - One of "chromium", "edge".
  */
-exports.buildCore = async (browser) => {
+exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    let outputPath = "./build/nano_core_2_" + browser;
-    await fs.mkdir(outputPath);
+    const output = R("./build", browser);
+    await fs.mkdirp(output);
 
-    await smartBuild.copyDirectory(srcRepo + "/src/css", outputPath + "/css");
-    await smartBuild.copyDirectory(srcRepo + "/src/nano-img", outputPath + "/img");
-    await smartBuild.copyDirectory(srcRepo + "/src/js", outputPath + "/js");
-    await smartBuild.copyDirectory(srcRepo + "/src/lib", outputPath + "/lib");
-    await smartBuild.copyDirectory(srcRepo + "/src", outputPath, false);
-    await smartBuild.copyDirectory(srcRepo + "/platform/chromium", outputPath + "/js", false);
-    await Promise.all([
-        smartBuild.copyDirectory(srcRepo + "/platform/chromium/other", outputPath, false),
-        smartBuild.copyFile(srcRepo + "/LICENSE", outputPath + "/LICENSE"),
-    ]);
-    await smartBuild.buildFile(
-        ["./src/nano-adblocker-data.js"],
-        outputPath + "/manifest.json",
-        async () => {
-            await fs.writeFile(outputPath + "/manifest.json", data.manifest(browser), "utf8");
-        },
+    const src = exports.src_repo;
+    assert(src !== null);
+
+    await fs.copy(R(src, "src/css"), R(output, "css"));
+    await fs.copy(R(src, "src/js"), R(output, "js"));
+    await fs.copy(R(src, "src/lib"), R(output, "lib"));
+    await fs.copy(R(src, "src"), R(output), F(".html"));
+
+    await fs.copy(R(src, "platform/chromium"), R(output, "js"), F(".js"));
+    await fs.copy(R(src, "platform/chromium"), R(output), F(".js", false));
+
+    await fs.copy(R("./src/img"), R(output, "img"));
+    await fs.copy(R("./src/assets.json"), R(output, "assets/assets.json"));
+    await fs.copy(R("./LICENSE"), R(output, "LICENSE"));
+
+    await fs.writeFile(
+        R(output, "manifest.json"), data.manifest(browser), "utf8",
     );
 
-    if (browser === "firefox") {
-        await smartBuild.copyDirectory(srcRepo + "/platform/firefox", outputPath + "/js", false, true);
-    } else if (browser === "edge") {
-        await Promise.all([
-            smartBuild.copyDirectory(srcRepo + "/platform/edge", outputPath + "/js", false, true),
-            smartBuild.copyFile(edgeShim, outputPath + "/js/edgyfy.js"),
-        ]);
+    if (browser === "edge") {
+        await fs.copy(exports.edge_shim, R(output, "js/edgyfy.js"));
     }
 };
+
 /**
- * Build filters, requires the core to be already built.
+ * Build filters.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  */
-exports.buildFilter = async (browser) => {
-    console.log("Building Nano Adblocker Assets...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+exports.build_filters = async (browser) => {
+    assert(browser === "chromium" || browser === "edge");
 
-    const outputPath = "./dist/nano_adblocker_" + browser + "/assets";
-    await smartBuild.createDirectory(outputPath);
+    const output = R("./build", browser, "assets");
+    await fs.mkdirp(output);
 
-    await Promise.all([
-        smartBuild.copyFile(srcRepo + "/assets/assets.json", outputPath + "/assets.json"),
-        smartBuild.copyDirectory(assetsRepo + "/NanoFilters", outputPath + "/NanoFilters"),
-    ]);
-    await smartBuild.copyDirectory(assetsRepo + "/ThirdParty", outputPath + "/ThirdParty");
+    const assets = exports.assets_repo;
+
+    await fs.copy(R(assets, "NanoFilters"), R(output, "NanoFilters"));
+    await fs.copy(R(assets, "ThirdParty"), R(output, "ThirdParty"));
 };
+
 /**
- * Build web accessible resources, requires the core to be already built.
+ * Build web accessible resources.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  */
-exports.buildResources = async (browser) => {
-    console.log("Building Nano Adblocker Resources...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+exports.build_resources = async (browser) => {
+    assert(browser === "chromium" || browser === "edge");
 
-    const outputPath = "./dist/nano_adblocker_" + browser + "/web_accessible_resources";
-    await smartBuild.createDirectory(outputPath);
+    const output = R("./dist", browser, "web_accessible_resources");
+    await fs.mkdirp(output);
 
-    const metaFile = srcRepo + "/src/web_accessible_resources/to-import.txt";
-    const recordFile = srcRepo + "/src/web_accessible_resources/imported.txt";
-    const buildRecordFile = outputPath + "/imported.txt";
+    const src = exports.src_repo;
+    const assets = exports.assets_repo;
+    assert(src !== null);
 
-    const parseOneDatabase = (data) => {
-        const reNonEmptyLine = /\S/;
-        const reSplitFields = /\s+/;
+    const meta = R(src, "src/web_accessible_resources/to-import.txt");
+    const record = R(src, "src/web_accessible_resources/imported.txt");
+    const build_record = R(output, "imported.txt");
+
+    const db_parse_one = (data) => {
+        const re_non_empty_line = /\S/;
+        const re_split_fields = /\s+/;
 
         data = data.split("\n");
 
         let fields = null;
         let encoded = null;
         let database = {};
-        const registerEntry = () => {
+        const register_entry = () => {
             const [name, mime] = fields.splice(0, 2);
+
             let content;
-            if (encoded) {
+            if (encoded)
                 content = fields.join("");
-            } else {
+            else
                 content = fields.join("\n");
-            }
 
             database[name] = {
                 mime: mime,
@@ -156,232 +219,252 @@ exports.buildResources = async (browser) => {
         };
 
         for (let line of data) {
-            if (line.startsWith("#")) {
+            if (line.startsWith("#"))
                 continue;
-            }
 
             if (fields === null) {
+
                 line = line.trim();
-                if (!line) {
+                if (!line)
                     continue;
-                }
-                fields = line.split(reSplitFields);
+
+                fields = line.split(re_split_fields);
                 assert(fields.length === 2);
                 encoded = fields[1].includes(";");
-                continue;
-            }
+            } else if (re_non_empty_line.test(line)) {
 
-            if (reNonEmptyLine.test(line)) {
-                if (encoded) {
+                if (encoded)
                     fields.push(line.trim());
-                } else {
+                else
                     fields.push(line);
-                }
-                continue;
+            } else {
+
+                register_entry();
             }
 
-            registerEntry();
         }
-        if (fields) {
-            registerEntry();
-        }
+        if (fields)
+            register_entry();
 
         return database;
     };
 
-    const processOne = async (name, dbEntry, recordStream) => {
-        const reExtractMime = /^[^/]+\/([^\s;]+)/;
+    const process_one = async (name, db_entry, record_stream) => {
+        const re_extract_mime = /^[^/]+\/([^\s;]+)/;
 
-        recordStream.write(name);
-        recordStream.write("\n");
+        record_stream.write(name);
+        record_stream.write("\n");
 
-        let md5 = forge.md.md5.create();
-        md5.update(name);
-        name = md5.digest().toHex();
+        name = MD5(name);
 
-        let suffix = reExtractMime.exec(dbEntry.mime);
-        assert(suffix);
-        name += "." + suffix[1];
+        const suffix = re_extract_mime.exec(db_entry.mime);
+        assert(suffix !== null);
+        name = name + "." + suffix[1];
 
-        recordStream.write(name);
-        recordStream.write("\n");
+        record_stream.write(name);
+        record_stream.write("\n");
 
-        const isBinay = dbEntry.mime.endsWith(";base64");
-        if (isBinay) {
-            await fs.writeFile(outputPath + "/" + name, Buffer.from(dbEntry.content, "base64"), "binary");
+        if (db_entry.mime.endsWith(";base64")) {
+            await fs.writeFile(
+                R(output, name),
+                Buffer.from(db_entry.content, "base64"),
+                "binary",
+            );
         } else {
-            await fs.writeFile(outputPath + "/" + name, dbEntry.content + "\n", "utf8");
+            await fs.writeFile(
+                R(output, name),
+                db_entry.content + "\n",
+                "utf8",
+            );
         }
     };
-    const processAll = async () => {
-        let data = await fs.readFile(metaFile, "utf8");
-        data = data.split("\n");
-        let toImport = [];
+    const process_all = async () => {
+        const data = (await fs.readFile(meta, "utf8")).split("\n");
+
+        let to_import = [];
         for (let d of data) {
             d = d.trim();
-            if (!d) {
+            if (!d || d.startsWith("#"))
                 continue;
-            }
-            if (d.startsWith("#")) {
-                continue;
-            }
-            toImport.push(d);
+
+            to_import.push(d);
         }
 
-        let [ublock, nano] = await Promise.all([
-            fs.readFile(assetsRepo + "/ThirdParty/uBlockResources.txt", "utf8"),
-            fs.readFile(assetsRepo + "/NanoFilters/NanoResources.txt", "utf8"),
-        ]);
-        ublock = parseOneDatabase(ublock);
-        nano = parseOneDatabase(nano);
+        const [ublock, nano] = (await Promise.all([
+            fs.readFile(R(assets, "ThirdParty/uBlockResources.txt"), "utf8"),
+            fs.readFile(R(assets, "NanoFilters/NanoResources.txt"), "utf8"),
+        ])).map(db_parse_one);
 
-        await fs.copyFile(recordFile, buildRecordFile);
-        let recordStream = fs.createWriteStream(buildRecordFile, {
+        await fs.copy(record, build_record);
+        const record_stream = fs.createWriteStream(buildRecordFile, {
             flags: "a",
             encoding: "utf8",
         });
+        record_stream.on("error", (err) => { // Important
+            throw err;
+        });
 
-        for (const file of toImport) {
-            if (file in nano) {
-                await processOne(file, nano[file], recordStream);
-            } else if (file in ublock) {
-                await processOne(file, ublock[file], recordStream);
-            } else {
+        for (const file of to_import) {
+            if (nano.hasOwnProperty(file))
+                await process_one(file, nano[file], record_stream);
+            else if (ublock.hasOwnProperty(file))
+                await process_one(file, ublock[file], record_stream);
+            else
                 assert(false);
-            }
         }
 
         await new Promise((resolve) => {
-            recordStream.end("\n", resolve);
+            record_stream.end("\n", resolve);
         });
     };
 
-    await smartBuild.buildFile([metaFile, recordFile], buildRecordFile, processAll);
+    await process_all();
 };
+
 /**
- * Build locale files, requires the core to be already built.
+ * Build locale files.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  */
 exports.buildLocale = async (browser) => {
-    console.log("Building Nano Adblocker Locale...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge");
 
-    const outputPath = "./dist/nano_adblocker_" + browser + "/_locales";
-    await smartBuild.createDirectory(outputPath);
+    const output = R("./dist", browser, "/_locales");
+    await fs.mkdirp(output);
 
-    let allKeys = [];
-    let [enOriginal, enExtra] = await Promise.all([
-        fs.readFile(srcRepo + "/src/_locales/en/messages.json", "utf8"),
-        fs.readFile(srcRepo + "/src/_nano-locales/en/messages.nano.js", "utf8"),
-    ]);
-    enOriginal = JSON.parse(enOriginal);
-    enExtra = eval(enExtra); // Trust me, it will be fine
+    const src = exports.src_repo;
+    assert(src !== null);
 
-    assert(enOriginal && typeof enOriginal === "object");
-    assert(enExtra && typeof enExtra === "object");
+    let all_keys = [];
+    const en_ubo = JSON.parse(
+        await fs.readFile(R(src, "src/_locales/en/messages.json"), "utf8"),
+    );
+    const en_nano = eval( // This is fine
+        await fs.readFile(R("./src/_locales/en/messages.nano.js"), "utf8"),
+    );
+    assert(typeof en_ubo === "object" && en_ubo !== null);
+    assert(typeof en_nano === "object" && en_nano !== null);
 
-    for (const key in enOriginal) {
+    for (const key in en_ubo) {
         if (key === "dummy") {
             continue;
         }
 
-        if (enOriginal.hasOwnProperty(key)) {
-            assert(!allKeys.includes(key));
-            assert(enOriginal[key] && typeof enOriginal[key] === "object" && typeof enOriginal[key].message === "string");
-            allKeys.push(key);
+        if (en_ubo.hasOwnProperty(key)) {
+            assert(!all_keys.includes(key));
+            assert(
+                en_ubo[key] &&
+                typeof en_ubo[key] === "object" &&
+                typeof en_ubo[key].message === "string",
+            );
+
+            all_keys.push(key);
         }
     }
-    for (const key in enExtra) {
-        if (enExtra.hasOwnProperty(key)) {
-            assert(!allKeys.includes(key));
-            assert(enExtra[key] && typeof enExtra[key] === "object" && typeof enExtra[key].message === "string");
-            allKeys.push(key);
+    for (const key in en_nano) {
+        if (en_nano.hasOwnProperty(key)) {
+            assert(!all_keys.includes(key));
+            assert(
+                en_nano[key] &&
+                typeof en_nano[key] === "object" &&
+                typeof en_nano[key].message === "string",
+            );
+
+            all_keys.push(key);
         }
     }
 
-    const processOne = async (lang, hasExtra) => {
-        await smartBuild.createDirectory(outputPath + "/" + lang);
+    const process_one = async (lang, has_nano) => {
+        await fs.mkdirp(R(output, lang));
 
-        let original, extra;
-        if (hasExtra) {
-            [original, extra] = await Promise.all([
-                fs.readFile(srcRepo + "/src/_locales/" + lang + "/messages.json", "utf8"),
-                fs.readFile(srcRepo + "/src/_nano-locales/" + lang + "/messages.nano.js", "utf8"),
-            ]);
+        const ubo = JSON.parse(await fs.readFile(
+            R(src, "src/_locales", lang, "messages.json"), "utf8",
+        ));
+        let nano;
+        if (has_nano) {
+            nano = eval(await fs.readFile(
+                R("./src/_locales", lang, "messages.nano.js"), "utf8",
+            ));
         } else {
-            original = await fs.readFile(srcRepo + "/src/_locales/" + lang + "/messages.json", "utf8");
-            extra = "(() => { 'use strict'; return { }; })();";
+            nano = {};
         }
-        original = JSON.parse(original);
-        extra = eval(extra);
 
         let result = {};
-        for (const key of allKeys) {
-            const originalHas = original.hasOwnProperty(key);
-            const extraHas = extra.hasOwnProperty(key);
+        for (const key of all_keys) {
+            const ubo_has = ubo.hasOwnProperty(key);
+            const nano_has = nano.hasOwnProperty(key);
 
-            assert(!originalHas || !extraHas);
-            if (originalHas) {
-                assert(original[key] && typeof original[key] === "object" && typeof original[key].message === "string");
-                result[key] = original[key];
-            } else if (extraHas) {
-                assert(extra[key] && typeof extra[key] === "object" && typeof extra[key].message === "string");
-                result[key] = extra[key];
+            assert(!ubo_has || !nano_has);
+            if (ubo_has) {
+                assert(
+                    ubo[key] &&
+                    typeof ubo[key] === "object" &&
+                    typeof ubo[key].message === "string",
+                );
+
+                result[key] = ubo[key];
+            } else if (nano_has) {
+                assert(
+                    nano[key] &&
+                    typeof nano[key] === "object" &&
+                    typeof nano[key].message === "string",
+                );
+
+                result[key] = nano[key];
             } else {
                 // Fallback to English
-                const originalHas = enOriginal.hasOwnProperty(key);
-                const extraHas = enExtra.hasOwnProperty(key);
+                const ubo_has = en_ubo.hasOwnProperty(key);
+                const nano_has = en_nano.hasOwnProperty(key);
 
-                assert(originalHas !== extraHas);
-                if (originalHas) {
-                    result[key] = enOriginal[key];
-                } else {
-                    result[key] = enExtra[key];
-                }
+                assert(ubo_has !== nano_has);
+                if (ubo_has)
+                    result[key] = en_ubo[key];
+                else
+                    result[key] = en_nano[key];
             }
 
-            result[key].message = result[key].message.replace(/uBlock Origin|uBlock\u2080|uBlock(?!\/)|uBO/g, "Nano").replace(/ublock/g, "nano");
+            result[key].message = result[key].message
+                .replace(/uBlock Origin|uBlock\u2080|uBlock(?!\/)|uBO/g, "Nano")
+                .replace(/ublock/g, "nano");
+
             if (key === "1pResourcesOriginal") {
-                result[key].message = result[key].message.replace("Nano", "uBlock Origin");
+                result[key].message = result[key].message
+                    .replace("Nano", "uBlock Origin");
             }
             if (key === "aboutBasedOn") {
-                let basedOn = data.basedOn;
-                if (browser === "firefox") {
-                    basedOn = basedOn.replace(" UserCSS/disabled", "");
-                }
-                result[key].message = result[key].message.replace("{{@data}}", basedOn);
+                let based_on = data.based_on;
+                assert(typeof based_on === "string");
+
+                result[key].message = result[key].message
+                    .replace("{{@data}}", based_on);
             }
         }
 
-        await fs.writeFile(outputPath + "/" + lang + "/messages.json", JSON.stringify(result, null, 2), "utf8");
+        await fs.writeFile(
+            R(output, lang, "messages.json"),
+            JSON.stringify(result, null, 2),
+            "utf8",
+        );
     };
 
-    const [langsOriginal, langsExtra] = await Promise.all([
-        fs.readdir(srcRepo + "/src/_locales"),
-        fs.readdir(srcRepo + "/src/_nano-locales"),
+    const [langs_ubo, langs_nano] = await Promise.all([
+        fs.readdir(R(src, "src/_locales")),
+        fs.readdir(R("./src/_locales")),
     ]);
     let tasks = [];
-    for (const lang of langsOriginal) {
-        if (langsExtra.includes(lang)) {
-            tasks.push(smartBuild.buildFile([
-                "./src/nano-adblocker-data.js",
-                srcRepo + "/src/_locales/" + lang + "/messages.json",
-                srcRepo + "/src/_nano-locales/" + lang + "/messages.nano.js",
-            ], outputPath + "/" + lang + "/messages.json", processOne, lang, true));
-        } else {
-            tasks.push(smartBuild.buildFile([
-                "./src/nano-adblocker-data.js",
-                srcRepo + "/src/_locales/" + lang + "/messages.json",
-            ], outputPath + "/" + lang + "/messages.json", processOne, lang, false));
-        }
+    for (const lang of langs_ubo) {
+        if (langs_nano.includes(lang))
+            tasks.push(process_one(lang, true));
+        else
+            tasks.push(process_one(lang, false));
     }
     await Promise.all(tasks);
 
-    if (browser === "chromium") {
-        await smartBuild.copyDirectory(outputPath + "/nb", outputPath + "/no");
-    }
+    if (browser === "chromium")
+        await fs.copy(R(output, "nb"), R(output, "no"));
 };
+
+/*****************************************************************************/
 
 /**
  * Test the build package.
@@ -395,6 +478,7 @@ exports.test = async (browser) => {
     const inputPath = "./dist/nano_adblocker_" + browser;
     await checkSyntax.validateDirectory(inputPath);
 };
+
 /**
  * Create zip package.
  * @async @function
@@ -408,6 +492,7 @@ exports.pack = async (browser) => {
     const outputPath = inputPath + ".zip";
     await makeArchive.zip(inputPath, outputPath);
 };
+
 /**
  * Publish package to extension store.
  * @async @function
@@ -446,3 +531,5 @@ exports.publish = async (browser) => {
         console.warn(".appx package created, automatic upload is NOT yet implemented");
     }
 };
+
+/*****************************************************************************/

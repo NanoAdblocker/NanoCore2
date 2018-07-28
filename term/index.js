@@ -189,7 +189,6 @@ cmd_handlers.set("make", async () => {
     busy = true;
 
     try {
-        await fs.mkdir("./build");
         // TODO
     } catch (err) {
         term.write_line(err.stack);
