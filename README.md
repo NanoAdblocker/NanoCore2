@@ -1,2 +1,3 @@
-# NanoCore2
-Starting fresh
+# Nano Core 2
+
+Restarting fresh
