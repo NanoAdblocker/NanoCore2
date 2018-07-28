@@ -46,9 +46,22 @@ const term = new engine.Term();
 
 /**
  * System busy flag.
- * @var {bool}
+ * @var {boolean}
  */
-let busy = false;
+let busy = true;
+
+/**
+ * Execute a command with expected exit code.
+ * @async @function
+ * @param {integer} expected - The expected exit code.
+ * @param {any} ...args - Arguments for term.exec().
+ * @throws When exit code does not match.
+ */
+const exec = async (expected, ...args) => {
+    const exit_code = await term.exec(...args);
+    if (exit_code !== expected)
+        throw new Error("ERROR: Exit code not 0.");
+};
 
 /*****************************************************************************/
 
@@ -62,11 +75,15 @@ let busy = false;
  */
 const config = {};
 
-{
-    const data = JSON.parse(fs.readFileSync("./config.json"));
+/**
+ * Load the configuration.
+ * @async @function
+ * @throws When configuration file could not be opened or is invalid.
+ */
+const config_load = async () => {
+    const data = JSON.parse(await fs.readFile("./config.json"));
 
-    config.Patches = data.Patches;
-    data.Patches = data.Patches.map((patch) => path.resolve(patch));
+    config.Patches = data.Patches.map((p) => path.resolve(p));
     if (os.platform() === "win32") {
         config.Output = data.Output.Win;
         config.Source = data.Source.Win;
@@ -80,15 +97,14 @@ const config = {};
     const validate_path = (p) => {
         assert(typeof p === "string");
         assert(path.isAbsolute(p));
-        const slashes = p.match(/\//g) || [];
-        assert(slashes.length >= 2);
+        const slashes = p.match(/\//g);
+        assert(slashes !== null && slashes.length >= 2);
     };
-
     assert(Array.isArray(config.Patches));
     validate_path(config.Output);
     validate_path(config.Source);
     validate_path(config.Target);
-}
+};
 
 /*****************************************************************************/
 
@@ -106,16 +122,14 @@ const cmd_handlers = new Map();
  */
 const cmd_listener = (cmd) => {
     if (busy)
-        term.write_line("ERROR: System busy.");
+        term.write_line("ERROR: System busy.").ready();
     else if (cmd_handlers.has(cmd))
         cmd_handlers.get(cmd)();
     else
-        term.write_line("ERROR: Unknown command.");
+        term.write_line("ERROR: Unknown command.").ready();
 };
 
 term.set_listener(cmd_listener);
-term.write_line("Nano Core 2 Terminal");
-term.ready();
 
 /*****************************************************************************/
 
@@ -139,10 +153,40 @@ cmd_handlers.set("reset", async () => {
 cmd_handlers.set("apply", async () => {
     busy = true;
 
-    for (const patch of config.Patches) {
-        if (await term.exec("git", config.Target, "apply", patch) !== 0)
-            term.write("ERROR: Exit code is not 0, apply aborted.");
+    try {
+        for (const p of config.Patches)
+            await exec(0, "git", { cwd: config.Target }, "apply", p);
+
+        await exec(0, "git", { cwd: config.Target }, "add", "-A");
+        await exec(0, "git", { cwd: config.Target }, "commit", "-m", "Apply");
+    } catch (err) {
+        term.write_line(err.stack);
     }
+
+    busy = false;
+    term.ready();
+});
+
+cmd_handlers.set("mark", async () => {
+    busy = true;
+
+    const stream = fs.createWriteStream(config.Output);
+    stream.on("error", (err) => {
+        term.write_line(err.stack);
+    });
+
+    try {
+        await exec(0, "git", {
+            cwd: config.Target,
+            on_data: (data) => {
+                stream.write(data);
+            },
+        }, "diff");
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    stream.end();
 
     busy = false;
     term.ready();
@@ -155,9 +199,31 @@ cmd_handlers.set("config", () => {
     term.ready();
 });
 
+cmd_handlers.set("reload", async () => {
+    busy = true;
+
+    await config_load();
+
+    busy = false;
+    term.ready();
+});
+
 cmd_handlers.set("exit", () => {
     busy = true;
     term.destructor();
 });
+
+/*****************************************************************************/
+
+process.on("unhandledRejection", (err) => {
+    throw err;
+});
+
+(async () => {
+    await config_load();
+
+    busy = false;
+    term.write_line("Nano Core 2 Terminal").ready();
+})();
 
 /*****************************************************************************/

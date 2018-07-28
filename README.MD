@@ -7,7 +7,7 @@ Restarting fresh
 1. Install latest version of Git and Node.js.
 2. Navigate to `tools` directory and run `npm install`.
 3. Update `config.json` as appropriate.
-4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in the
+4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream.
 5. Run `node ./tools` to open Nano Core 2 Terminal.
 
@@ -25,5 +25,6 @@ apply   Apply existing patches
 mark    Create a patch based on the difference between tip of existing patches
         and your current development environment
 config  Print the active configuration data
+reload  Reload configuration data
 exit    Exit the terminal
 ```

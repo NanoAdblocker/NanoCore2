@@ -37,6 +37,7 @@ const child_process = require("child_process");
 /**
  * Terminal class.
  * Only one instance can be active at any given time.
+ * Unless otherwise mentioned, all methods return the keyword this.
  * @class
  */
 exports.Term = class {
@@ -49,15 +50,15 @@ exports.Term = class {
         if (func)
             this.set_listener(func);
         else
-            this.func = null;
+            this._func = null;
 
         this._paused = false;
         this._handler = (line) => {
             if (this._paused)
                 return;
 
-            if (this.func)
-                this.func(line.trim());
+            if (this._func)
+                this._func(line.trim());
             else
                 this.write_line("ERROR: No command handler.");
         };
@@ -73,24 +74,7 @@ exports.Term = class {
     destructor() {
         process.stdin.removeListener("data", this._handler);
         process.stdin.pause();
-    }
-
-    /**
-     * Set event listener. This will replace the previous listener.
-     * @method
-     * @param {Function} func - The listener.
-     */
-    set_listener(func) {
-        this.func = func;
-    }
-    /**
-     * Write prompt arrow.
-     * Note that the user can enter input at any time, this is purely for
-     * cosmetic purposes.
-     * @method
-     */
-    ready() {
-        this.write("> ");
+        return this;
     }
 
     /**
@@ -101,6 +85,7 @@ exports.Term = class {
      */
     write(data) {
         process.stdout.write(data);
+        return this;
     }
     /**
      * Write a line to the terminal output.
@@ -108,28 +93,56 @@ exports.Term = class {
      * @param {string} line - The line to write.
      */
     write_line(line) {
-        this.write(line + "\n");
+        return this.write(line + "\n");
+    }
+
+    /**
+     * Set event listener. This will replace the previous listener.
+     * @method
+     * @param {Function} func - The listener.
+     */
+    set_listener(func) {
+        this._func = func;
+        return this;
+    }
+    /**
+     * Write prompt arrow.
+     * Note that the user can enter input at any time, this is purely for
+     * cosmetic purposes.
+     * @method
+     */
+    ready() {
+        return this.write("> ");
     }
 
     /**
      * Execute a command, with interactive shell.
      * @async @method
-     * @param {string} cmd - The command.
+     * @param {Object} opt - The options.
+     *     @object
+     *     {string} cwd - The working directory for the child.
+     *     {Function} [on_data] - The listener for stdout.
      * @return {integer} exit_code - The exit code
      */
-    exec(cmd, cwd, ...args) {
+    exec(cmd, opt, ...args) {
         return new Promise((resolve, reject) => {
-            const child = child_process.spawn(cmd, {
-                cwd: cwd,
-            }, args);
+            const child = child_process.spawn(cmd, args, {
+                cwd: opt.cwd,
+            });
 
+            child.stdout.setEncoding("utf8");
             child.stdout.on("data", (data) => {
                 this.write(data);
+
+                if (opt.on_data)
+                    opt.on_data(data);
             });
+            child.stderr.setEncoding("utf8");
             child.stderr.on("data", (data) => {
                 this.write(data);
             });
 
+            this._paused = true;
             const on_user_input = (data) => {
                 child.stdin.write(data);
             };
@@ -137,9 +150,9 @@ exports.Term = class {
 
             child.on("close", (code) => {
                 process.stdin.removeListener("data", on_user_input);
+                this._paused = false;
 
-                this.write_line("Child exited with exit code " +
-                    code.toString());
+                this.write_line("Command exited with code " + code.toString());
                 resolve(code);
             });
         });

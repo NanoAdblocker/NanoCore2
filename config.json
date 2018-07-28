@@ -1,10 +1,9 @@
 {
   "Output": {
-    "Linux": "/tmp/",
-    "Win": "D:/!Temporary/"
+    "Linux": "/tmp/NanoCore2Latest.patch",
+    "Win": "D:/!Temporary/NanoCore2Latest.patch"
   },
   "Patches": [
-
   ],
   "Source": {
     "Linux": "/tmp/uBlock/",
