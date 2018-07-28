@@ -1,0 +1,9 @@
+{
+  "Patches": [
+
+  ],
+  "TempRoot": {
+    "Linux": "/tmp/",
+    "Win": "D:/!Temporary/"
+  }
+}

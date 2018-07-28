@@ -1,0 +1,16 @@
+{
+  "author": "jspenguin2017",
+  "dependencies": {
+    "fs-extra": "~7.0.0"
+  },
+  "description": "Nano Core 2 tools",
+  "engines": {
+    "node": ">=10.7.0"
+  },
+  "homepage": "https://github.com/jspenguin2017/NanoCore2",
+  "license": "GPL-3.0",
+  "name": "nano-core-2-tools",
+  "private": true,
+  "repository": "https://github.com/jspenguin2017/NanoCore2",
+  "version": "1.0.0"
+}

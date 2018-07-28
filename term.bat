@@ -1,0 +1,5 @@
+@ECHO OFF
+
+NODE ./tools
+
+PAUSE
