@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Core utilities.
+    Terminal utilities.
 
 ******************************************************************************/
 
@@ -40,7 +40,7 @@ const child_process = require("child_process");
  * Unless otherwise mentioned, all methods return the keyword this.
  * @class
  */
-exports.Term = class {
+module.exports = class {
     /**
      * Constructor, setup terminal.
      * @constructor

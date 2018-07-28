@@ -31,7 +31,6 @@
  * @const {Module}
  */
 const assert = require("assert");
-const engine = require("./engine.js");
 const fs = require("fs-extra");
 const os = require("os");
 const path = require("path");
@@ -42,7 +41,7 @@ const path = require("path");
  * The terminal engine instance.
  * @const {engine.Term}
  */
-const term = new engine.Term();
+const term = new (require("./term.js"))();
 
 /**
  * System busy flag.
@@ -81,7 +80,7 @@ const config = {};
  * @throws When configuration file could not be opened or is invalid.
  */
 const config_load = async () => {
-    const data = JSON.parse(await fs.readFile("./config.json"));
+    const data = JSON.parse(await fs.readFile("./config.json", "utf8"));
 
     config.Patches = data.Patches.map((p) => path.resolve(p));
     if (os.platform() === "win32") {
@@ -118,7 +117,7 @@ term.set_listener((cmd) => {
     if (busy)
         term.write_line("ERROR: System busy.").ready();
     else if (cmd_handlers.has(cmd))
-        cmd_handlers.get(cmd)();
+        (cmd_handlers.get(cmd))();
     else
         term.write_line("ERROR: Unknown command.").ready();
 });
@@ -162,7 +161,7 @@ cmd_handlers.set("apply", async () => {
 cmd_handlers.set("mark", async () => {
     busy = true;
 
-    const stream = fs.createWriteStream(config.Output);
+    const stream = fs.createWriteStream(config.Output, { encoding: "utf8" });
     stream.on("error", (err) => {
         term.write_line(err.stack);
     });
@@ -179,6 +178,22 @@ cmd_handlers.set("mark", async () => {
     }
 
     stream.end();
+
+    busy = false;
+    term.ready();
+});
+
+/*****************************************************************************/
+
+cmd_handlers.set("make", async () => {
+    busy = true;
+
+    try {
+        await fs.mkdir("./build");
+        await a(); // tODO
+    } catch (err) {
+        term.write_line(err.stack);
+    }
 
     busy = false;
     term.ready();
