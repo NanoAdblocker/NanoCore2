@@ -55,7 +55,7 @@ let busy = true;
  * @async @function
  * @param {integer} expected - The expected exit code.
  * @param {any} ...args - Arguments for term.exec().
- * @throws When exit code does not match.
+ * @throws When exit code does not match expectation.
  */
 const exec = async (expected, ...args) => {
     const exit_code = await term.exec(...args);
@@ -69,9 +69,9 @@ const exec = async (expected, ...args) => {
  * The configuration object.
  * @object
  *     {Array.<string>} Patches - The patches, in order.
- *     {string} Output - The patches output.
  *     {string} Source - The original directory.
  *     {string} Target - The development directory.
+ *     {string} Output - The patches output.
  */
 const config = {};
 
@@ -85,13 +85,13 @@ const config_load = async () => {
 
     config.Patches = data.Patches.map((p) => path.resolve(p));
     if (os.platform() === "win32") {
-        config.Output = data.Output.Win;
         config.Source = data.Source.Win;
         config.Target = data.Target.Win;
+        config.Output = data.Output.Win;
     } else {
-        config.Output = data.Output.Linux;
         config.Source = data.Source.Linux;
         config.Target = data.Target.Linux;
+        config.Output = data.Output.Linux;
     }
 
     const validate_path = (p) => {
@@ -101,9 +101,9 @@ const config_load = async () => {
         assert(slashes !== null && slashes.length >= 2);
     };
     assert(Array.isArray(config.Patches));
-    validate_path(config.Output);
     validate_path(config.Source);
     validate_path(config.Target);
+    validate_path(config.Output);
 };
 
 /*****************************************************************************/
@@ -114,22 +114,14 @@ const config_load = async () => {
  */
 const cmd_handlers = new Map();
 
-/**
- * The main command handler.
- * @function
- * @listens Terminal input.
- * @param {string} cmd - The command from the user.
- */
-const cmd_listener = (cmd) => {
+term.set_listener((cmd) => {
     if (busy)
         term.write_line("ERROR: System busy.").ready();
     else if (cmd_handlers.has(cmd))
         cmd_handlers.get(cmd)();
     else
         term.write_line("ERROR: Unknown command.").ready();
-};
-
-term.set_listener(cmd_listener);
+});
 
 /*****************************************************************************/
 
