@@ -28,6 +28,9 @@
 
 (() => {
     return {
+
+        /*********************************************************************/
+
         Patches: [
             // Housekeeping
             "./patches/housekeeping/update_about_page.patch",
@@ -46,6 +49,8 @@
             "./patches/link_resources.patch",
         ],
 
+        /*********************************************************************/
+
         Source: {
             Linux: "/tmp/uBlock/",
             Win: "D:/!Temporary/uBlock/",
@@ -60,6 +65,9 @@
             Linux: "/tmp/NanoCore2Latest.patch",
             Win: "D:/!Temporary/NanoCore2Latest.patch",
         },
+
+        /*********************************************************************/
+
     };
 })();
 
