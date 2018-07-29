@@ -1,0 +1,2 @@
+# Make sure patch files have corrent line ending
+*.patch text eol=lf
