@@ -31,6 +31,7 @@
         Patches: [
             // Housekeeping
             "./patches/housekeeping/fix_version_parsing.patch",
+            "./patches/housekeeping/fix_vapi_icon.patch",
         ],
 
         Source: {
