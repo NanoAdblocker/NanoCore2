@@ -152,8 +152,8 @@ exports.manifest = (browser) => {
     };
 
     if (browser === "edge") {
-        // Edge does not care if the size is actually right but do care if the
-        // key name is right
+        // Edge does not care if the size is actually right but does care if
+        // the key name is right
         manifest["-ms-preload"] = {
             "backgroundScript": "js/edgyfy.js",
             "contentScript": "js/edgyfy.js",

@@ -40,9 +40,9 @@ const url = require("url");
 /**
  * Credentials.
  * @object
- *     {string} client - Google API application client.
- *     {string} secret - Google API application secret.
- *     {string} account - Google developer account refresh token.
+ * {string} client - Google API application client.
+ * {string} secret - Google API application secret.
+ * {string} account - Google developer account refresh token.
  */
 const credentials = require("../../Prototype/NanoCore2/credentials.js");
 
@@ -74,7 +74,7 @@ const serialize = (obj) => {
  * @param {ReadableStream} stream - The stream to read.
  * @param {Function} on_done - The done handler, text read will be passed in.
  * @param {Function} on_error - The error handler, error object will be passed
- *     in.
+ * in.
  */
 const stream_to_text = (stream, on_done, on_error) => {
     let data = "";
@@ -142,7 +142,8 @@ exports.publish = async (file, ext_id, term) => {
         payload.on("error", reject);
 
         const opt = url.parse(
-            "https://www.googleapis.com/upload/chromewebstore/v1.1/items/" + ext_id,
+            "https://www.googleapis.com/upload/chromewebstore/v1.1/items/" +
+            ext_id,
         );
         opt.method = "PUT";
         opt.headers = {
@@ -168,7 +169,8 @@ exports.publish = async (file, ext_id, term) => {
 
     await new Promise((resolve, reject) => {
         const opt = url.parse(
-            "https://www.googleapis.com/chromewebstore/v1.1/items/" + ext_id + "/publish",
+            "https://www.googleapis.com/chromewebstore/v1.1/items/" +
+            ext_id + "/publish",
         );
         opt.method = "POST";
         opt.headers = {

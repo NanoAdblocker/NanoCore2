@@ -68,7 +68,7 @@ exports.validate_dir = async (dir) => {
         files.map((f) => fs.lstat(path.resolve(dir, f)))
     );
 
-    let validate_tasks = [];
+    const validate_tasks = [];
     for (let i = 0; i < files.length; i++) {
         assert(!tasks[i].isSymbolicLink());
 

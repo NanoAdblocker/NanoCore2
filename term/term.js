@@ -27,7 +27,7 @@
 /*****************************************************************************/
 
 /**
- * The modules.
+ * Modules.
  * @const {Module}
  */
 const child_process = require("child_process");
@@ -37,14 +37,16 @@ const child_process = require("child_process");
 /**
  * Terminal class.
  * Only one instance can be active at any given time.
- * Unless otherwise mentioned, all methods return the keyword this.
+ * Unless otherwise mentioned, all methods return the keyword this. Note that
+ * the constructor and destructor are not considered to be methods.
  * @class
  */
 module.exports = class {
     /**
      * Constructor, setup terminal.
      * @constructor
-     * @param {Function} [func] - The command handler.
+     * @param {Function} [func] - Command handler.
+     *     @param {string} cmd - The command, trimmed.
      */
     constructor(func) {
         if (func)
@@ -61,43 +63,43 @@ module.exports = class {
                 this.write_line("ERROR: No command handler.");
         };
 
-        process.stdin.resume();
         process.stdin.setEncoding("utf8");
         process.stdin.on("data", this._handler);
+        process.stdin.resume();
     }
     /**
      * Destructor.
      * @destructor
-     * @returns {undefined} Nothing.
      */
     destructor() {
-        process.stdin.removeListener("data", this._handler);
         process.stdin.pause();
+        process.stdin.removeListener("data", this._handler);
     }
 
     /**
      * Write raw data to terminal output.
      * @method
-     * @param {string|Buffer} data - The data to write.
-     *    @param {string} cmd - The command from the user.
+     * @param {string|Buffer} data - Data to write.
      */
     write(data) {
         process.stdout.write(data);
         return this;
     }
     /**
-     * Write a line to the terminal output.
+     * Write a line to terminal output.
      * @method
-     * @param {string} line - The line to write.
+     * @param {string} line - Line to write.
      */
     write_line(line) {
         return this.write(line + "\n");
     }
 
     /**
-     * Set event listener. This will replace the previous listener.
+     * Set event listener.
+     * This will replace the current listener if there is one.
      * @method
-     * @param {Function} func - The listener.
+     * @param {Function} func - Command handler.
+     *     @param {string} cmd - The command, trimmed.
      */
     set_listener(func) {
         this._func = func;
@@ -114,13 +116,16 @@ module.exports = class {
     }
 
     /**
-     * Execute a command, with interactive shell.
+     * Execute a command.
+     * The terminal will become an interactive shell until the command
+     * finishes.
      * @async @method
      * @param {Object} opt - The options.
      *     @object
-     *     {string} cwd - The working directory for the child.
-     *     {Function} [on_data] - The listener for stdout.
-     * @return {integer} exit_code - The exit code
+     *     {string} cwd - Working directory to execute the command.
+     *     {Function} [on_data] - Listener for stdout.
+     *         @param {string} data - Data from stdout of the command.
+     * @return {integer} exit_code - Exit code.
      */
     exec(cmd, opt, ...args) {
         return new Promise((resolve, reject) => {

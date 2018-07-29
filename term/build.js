@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Main build script.
+    Build script.
 
 ******************************************************************************/
 
@@ -27,7 +27,7 @@
 /*****************************************************************************/
 
 /**
- * Main modules.
+ * Required modules.
  * @const {Module}
  */
 const archiver = require("archiver");
@@ -41,8 +41,8 @@ const syntax = require("./syntax.js");
  * Optional modules.
  * @const {Module}
  */
-let store;
-let edge;
+let edge = null;
+let store = null;
 
 /**
  * Build data.
@@ -96,7 +96,8 @@ const r = (...args) => {
 /**
  * Create a one level file ending filter.
  * @function
- * @param {string} ext - The file ending to filter.
+ * @param {string} root - Path to root level
+ * @param {string} ext - File ending to filter.
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
 const f = (root, ext, match = true) => {
@@ -106,6 +107,9 @@ const f = (root, ext, match = true) => {
         return {
             async filter(f) {
                 const stat = await fs.lstat(f);
+
+                assert(!stat.isSymbolicLink());
+
                 if (stat.isDirectory())
                     return root === r(f);
                 else if (stat.isFile())
@@ -118,6 +122,9 @@ const f = (root, ext, match = true) => {
         return {
             async filter(f) {
                 const stat = await fs.lstat(f);
+
+                assert(!stat.isSymbolicLink());
+
                 if (stat.isDirectory())
                     return root === r(f);
                 else if (stat.isFile())
@@ -216,8 +223,7 @@ exports.build_resources = async (browser) => {
 
     const src = exports.src_repo;
     const assets = exports.assets_repo;
-    assert(typeof src === "string");
-    assert(typeof assets === "string");
+    assert(typeof src === "string" && typeof assets === "string");
 
     const meta = r(src, "src/web_accessible_resources/to-import.txt");
     const record = r(src, "src/web_accessible_resources/imported.txt");
@@ -324,7 +330,7 @@ exports.build_resources = async (browser) => {
             to_import.push(d);
         }
 
-        const [ublock, nano] = (await Promise.all([
+        const [ubo, nano] = (await Promise.all([
             fs.readFile(r(assets, "ThirdParty/uBlockResources.txt"), "utf8"),
             fs.readFile(r(assets, "NanoFilters/NanoResources.txt"), "utf8"),
         ])).map(db_parse_one);
@@ -334,15 +340,15 @@ exports.build_resources = async (browser) => {
             flags: "a",
             encoding: "utf8",
         });
-        record_stream.on("error", (err) => { // Important
+        record_stream.on("error", (err) => { // Not sure if this will work
             throw err;
         });
 
         for (const file of to_import) {
             if (nano.hasOwnProperty(file))
                 await process_one(file, nano[file], record_stream);
-            else if (ublock.hasOwnProperty(file))
-                await process_one(file, ublock[file], record_stream);
+            else if (ubo.hasOwnProperty(file))
+                await process_one(file, ubo[file], record_stream);
             else
                 assert(false);
         }
@@ -368,7 +374,7 @@ exports.build_locale = async (browser) => {
     const src = exports.src_repo;
     assert(typeof src === "string");
 
-    let all_keys = [];
+    const all_keys = [];
     const en_ubo = JSON.parse(
         await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"),
     );
@@ -385,8 +391,8 @@ exports.build_locale = async (browser) => {
         if (en_ubo.hasOwnProperty(key)) {
             assert(!all_keys.includes(key));
             assert(
-                en_ubo[key] &&
                 typeof en_ubo[key] === "object" &&
+                en_ubo[key] !== null &&
                 typeof en_ubo[key].message === "string",
             );
 
@@ -397,8 +403,8 @@ exports.build_locale = async (browser) => {
         if (en_nano.hasOwnProperty(key)) {
             assert(!all_keys.includes(key));
             assert(
-                en_nano[key] &&
                 typeof en_nano[key] === "object" &&
+                en_nano[key] !== null &&
                 typeof en_nano[key].message === "string",
             );
 
@@ -421,7 +427,7 @@ exports.build_locale = async (browser) => {
             nano = {};
         }
 
-        let result = {};
+        const result = {};
         for (const key of all_keys) {
             const ubo_has = ubo.hasOwnProperty(key);
             const nano_has = nano.hasOwnProperty(key);
@@ -464,7 +470,7 @@ exports.build_locale = async (browser) => {
                     .replace("Nano", "uBlock Origin");
             }
             if (key === "aboutBasedOn") {
-                let based_on = data.based_on;
+                const based_on = data.based_on;
                 assert(typeof based_on === "string");
 
                 result[key].message = result[key].message
@@ -538,7 +544,7 @@ exports.publish = async (browser, term) => {
         if (!store)
             store = require("./store.js");
 
-        await store.publish(input, data.chromium_id);
+        await store.publish(input, data.chromium_id, term);
     } else if (browser === "edge") {
         if (!edge)
             edge = require("../../Prototype/NanoCore2/edge.js");
@@ -548,7 +554,7 @@ exports.publish = async (browser, term) => {
         await fs.remove("./build/NanoAdblocker");
         await fs.copy("./build/edge", "./build/edge_appx");
 
-        await edge.packAdblocker(
+        await edge.pack(
             fs, term,
             r("./src/edge"), r("./build"),
             r("./build/edge_appx"),

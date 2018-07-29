@@ -70,10 +70,10 @@ const exec = async (expected, ...args) => {
 /**
  * Configuration object.
  * @object
- *     {Array.<string>} Patches - Patches, in order.
- *     {string} Source - Original directory.
- *     {string} Target - Development directory.
- *     {string} Output - Patch output.
+ * {Array.<string>} Patches - Patches, in order.
+ * {string} Source - Original directory.
+ * {string} Target - Development directory.
+ * {string} Output - Patch output.
  */
 const config = {};
 
