@@ -34,9 +34,18 @@ nano.ub = window["\xB5Block"];
 
 /*****************************************************************************/
 
-nano.my_id = () => {
-    return chrome.runtime.id;
+nano.recompile_filters = () => {
+    const on_done = () => {
+        vAPI.app.restart();
+    };
+
+    vAPI.storage.set({
+        compiledMagic: -1,
+        selfieMagic: -1
+    }, on_done);
 };
+
+/*****************************************************************************/
 
 nano.is_trusted_ext = (id) => {
     return (
@@ -44,8 +53,6 @@ nano.is_trusted_ext = (id) => {
         sender.id === nano_defender_ext_id_edge
     );
 };
-
-/*****************************************************************************/
 
 chrome.runtime.onMessageExternal.addListener((msg, sender, response) => {
     if (typeof msg !== "object" || msg === null)

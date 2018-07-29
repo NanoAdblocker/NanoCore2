@@ -24,3 +24,6 @@ special keys.
 
 `link_resources.patch`: Link useful resources in the dashboard. Depends on
 housekeeping changes.
+
+`force_recompile_filters.patch`: Add button to advanced settings page to force
+recompile filters.

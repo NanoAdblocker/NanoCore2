@@ -48,6 +48,11 @@
             "description": "English: Soft wrap long lines in filter viewer",
         },
 
+        "nano_d_recompile_filters": {
+            "message": "Force recompile filters",
+            "description": "Button in advanced settings to recompile filters",
+        },
+
         "nano_d_resources_links": {
             "message": "Nano comes with two sets of resources, " +
             "<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a>" +
