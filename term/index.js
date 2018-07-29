@@ -83,7 +83,7 @@ const config = {};
  * @throws When configuration file could not be opened or is invalid.
  */
 const config_load = async () => {
-    const data = JSON.parse(await fs.readFile("./config.json", "utf8"));
+    const data = eval(await fs.readFile("./config.nano.js", "utf8"));
 
     config.Patches = data.Patches.map((p) => path.resolve(p));
     if (os.platform() === "win32") {
@@ -107,6 +107,8 @@ const config_load = async () => {
     validate_path(config.Source);
     validate_path(config.Target);
     validate_path(config.Output);
+
+    build.src_repo = config.Target;
 };
 
 /*****************************************************************************/
@@ -206,10 +208,10 @@ const browsers = ["chromium", "edge"];
  */
 const make = async () => {
     for (const b of browsers) {
-        build.build_core(b);
-        build.build_filters(b);
-        build.build_resources(b);
-        build.build_locale(b);
+        await build.build_core(b);
+        await build.build_filters(b);
+        await build.build_resources(b);
+        await build.build_locale(b);
     }
 };
 
@@ -220,7 +222,7 @@ const make = async () => {
  */
 const test = async () => {
     for (const b of browsers)
-        build.test(b);
+        await build.test(b);
 };
 
 /**
@@ -230,7 +232,7 @@ const test = async () => {
  */
 const pack = async () => {
     for (const b of browsers)
-        build.pack(b);
+        await build.pack(b);
 };
 
 /**
@@ -240,7 +242,7 @@ const pack = async () => {
  */
 const publish = async () => {
     for (const b of browsers)
-        build.publish(b, term);
+        await build.publish(b, term);
 };
 
 /*****************************************************************************/
