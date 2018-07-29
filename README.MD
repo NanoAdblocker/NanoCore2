@@ -40,8 +40,8 @@ exit     Exit the terminal
 
 ## Tips
 
-Do not forget to copy and commit generated patch to make it permanent, you also
-need to adjust the configuration file as appropriate.
+Do not forget to copy and commit the generated patches from `mark` to make them
+permanent, you also need to adjust the configuration file as appropriate.
 
 To update a patch, disable that patch along with patches after it, update the
 patch, enable all patches, verify that later patches are still working, then
