@@ -19,5 +19,8 @@ the Logger.
 `force_scroll_mode.patch`: Implement force scroll mode. Depends on housekeeping
 changes.
 
+`make_hard_purge_any_key.patch`: Make hard purge cached assets to be any
+special keys.
+
 `link_resources.patch`: Link useful resources in the dashboard. Depends on
 housekeeping changes.

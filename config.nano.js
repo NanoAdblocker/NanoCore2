@@ -48,6 +48,7 @@
 
             // Features
             "./patches/force_scroll_mode.patch",
+            "./patches/make_hard_purge_any_key.patch",
             "./patches/link_resources.patch",
         ],
 

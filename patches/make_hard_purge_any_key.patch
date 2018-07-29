@@ -1,0 +1,13 @@
+diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
+index a853a9f..beee457 100644
+--- a/src/js/3p-filters.js
++++ b/src/js/3p-filters.js
+@@ -507,7 +507,7 @@ var buttonPurgeAllHandler = function(ev) {
+         'dashboard',
+         {
+             what: 'purgeAllCaches',
+-            hard: ev.ctrlKey && ev.shiftKey
++            hard: ev.ctrlKey || ev.metaKey || ev.shiftKey
+         },
+         function() { renderFilterLists(true); }
+     );
