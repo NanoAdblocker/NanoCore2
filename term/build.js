@@ -100,10 +100,29 @@ const r = (...args) => {
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
 const f = (ext, match = true) => {
-    if (match)
-        return { filter: (f) => f.endsWith(ext) };
-    else
-        return { filter: (f) => !f.endsWith(ext) };
+    const apply_filter = async (f) => {
+        const stat = await fs.lstat(f);
+        if (stat.isDirectory())
+            return true;
+        else if (stat.isFile())
+            return f.endsWith(ext);
+        else
+            assert(false);
+    };
+
+    if (match) {
+        return {
+            async filter(f) {
+                return await apply_filter(f);
+            },
+        };
+    } else {
+        return {
+            async filter(f) {
+                return !(await apply_filter(f));
+            },
+        };
+    }
 };
 
 /*****************************************************************************/
@@ -168,7 +187,7 @@ exports.build_filters = async (browser) => {
     const assets = exports.assets_repo;
     assert(typeof assets === "string");
 
-    await fs.copy(r("./src/assets.json"), r(output, "assets/assets.json"));
+    await fs.copy(r("./src/assets.json"), r(output, "assets.json"));
     await fs.copy(r(assets, "NanoFilters"), r(output, "NanoFilters"));
     await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
 };
@@ -265,6 +284,8 @@ exports.build_resources = async (browser) => {
         record_stream.write(name);
         record_stream.write("\n");
 
+        name = name.trim();
+
         if (db_entry.mime.endsWith(";base64")) {
             await fs.writeFile(
                 r(output, name),
@@ -298,7 +319,7 @@ exports.build_resources = async (browser) => {
         ])).map(db_parse_one);
 
         await fs.copy(record, build_record);
-        const record_stream = fs.createWriteStream(buildRecordFile, {
+        const record_stream = fs.createWriteStream(build_record, {
             flags: "a",
             encoding: "utf8",
         });
@@ -316,7 +337,7 @@ exports.build_resources = async (browser) => {
         }
 
         await new Promise((resolve) => {
-            record_stream.end("\n", resolve);
+            record_stream.end(resolve);
         });
     };
     await process_all();
@@ -330,7 +351,7 @@ exports.build_resources = async (browser) => {
 exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = r("./build", browser, "/_locales");
+    const output = r("./build", browser, "_locales");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -474,7 +495,7 @@ exports.build_locale = async (browser) => {
 exports.test = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    await checkSyntax.validateDirectory(r("./build", browser));
+    await syntax.validate_dir(r("./build", browser));
 };
 
 /**
@@ -488,7 +509,7 @@ exports.pack = async (browser) => {
     const in_dir = r("./build", browser);
     const out_file = in_dir + ".zip";
 
-    await makeArchive.zip(in_dir, out_file);
+    await zip(in_dir, out_file);
 };
 
 /**

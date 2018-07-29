@@ -291,6 +291,19 @@ cmd_handlers.set("publish", async () => {
     term.ready();
 });
 
+cmd_handlers.set("clean", async () => {
+    busy = true;
+
+    try {
+        await fs.remove("./build/");
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
 /*****************************************************************************/
 
 cmd_handlers.set("config", () => {

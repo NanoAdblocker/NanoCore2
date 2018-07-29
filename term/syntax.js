@@ -75,7 +75,7 @@ exports.validate_dir = async (dir) => {
         if (tasks[i].isDirectory()) {
             // One directory at a time to make sure things will not get
             // overloaded
-            await exports.validateDirectory(path.resolve(dir, files[i]));
+            await exports.validate_dir(path.resolve(dir, files[i]));
             continue;
         }
 

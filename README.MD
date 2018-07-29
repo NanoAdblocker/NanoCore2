@@ -34,6 +34,7 @@ mark     Create a patch based on the difference between tip of applied patches
 make     Build extension from development environment
 pack     Build, test, then package the extension
 publish  Build, test, package, then publish the extension
+clean    Remove all build files
 
 config   Print active configuration data
 reload   Reload configuration data
