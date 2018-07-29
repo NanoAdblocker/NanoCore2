@@ -164,6 +164,7 @@ exports.build_core = async (browser) => {
     await fs.copy(r(src, "platform/chromium"), r(output), f(".js", false));
 
     await fs.copy(r("./src/img"), r(output, "img"));
+    await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.writeFile(
