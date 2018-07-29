@@ -50,9 +50,9 @@
 
         "nano_d_resources_links": {
             "message": "Nano comes with two sets of resources, " +
-            "<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library' target='_blank'>uBlock Origin Resources</a>" +
+            "<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a>" +
             " and " +
-            "<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt' target='_blank'>Nano Extra Resources</a>" +
+            "<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>" +
             ".",
             "description": "Resources reference links",
         },

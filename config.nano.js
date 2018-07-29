@@ -34,7 +34,10 @@
             "./patches/housekeeping/fix_vapi_icon.patch",
 
             // Undo regression
-            "./patches/disable_user_css.patch"
+            "./patches/disable_user_css.patch",
+
+            // Other
+            "./patches/link_resources.patch",
         ],
 
         Source: {

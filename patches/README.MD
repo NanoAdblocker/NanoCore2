@@ -7,3 +7,7 @@ are in `housekeeping` directory.
 
 `disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector of
 the Logger.
+
+## Other
+
+`link_resources.patch`: Link useful resources in the dashboard.
