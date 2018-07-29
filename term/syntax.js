@@ -27,7 +27,7 @@
 /*****************************************************************************/
 
 /**
- * The modules.
+ * Modules.
  * @const {Module}
  */
 const assert = require("assert");
@@ -42,7 +42,7 @@ const path = require("path");
  * @async @function
  * @param {string} file - The path to the file to check.
  */
-const validateJS = async (file) => {
+const validate_js = async (file) => {
     esprima.parse(await fs.readFile(file, "utf8"));
 };
 
@@ -51,7 +51,7 @@ const validateJS = async (file) => {
  * @async @function
  * @param {string} file - The path to the file to check.
  */
-const validateJSON = async (file) => {
+const validate_json = async (file) => {
     JSON.parse(await fs.readFile(file, "utf8"));
 };
 
@@ -62,35 +62,36 @@ const validateJSON = async (file) => {
  * @async @function
  * @param {string} directory - The path to the directory to check.
  */
-exports.validateDirectory = async (directory) => {
-    const files = await fs.readdir(directory);
+exports.validate_dir = async (dir) => {
+    const files = await fs.readdir(dir);
     const tasks = await Promise.all(
-        files.map((f) => fs.lstat(path.resolve(directory, f)))
+        files.map((f) => fs.lstat(path.resolve(dir, f)))
     );
 
-    let validateTasks = [];
+    let validate_tasks = [];
     for (let i = 0; i < files.length; i++) {
         assert(!tasks[i].isSymbolicLink());
 
         if (tasks[i].isDirectory()) {
             // One directory at a time to make sure things will not get
             // overloaded
-            await exports.validateDirectory(path.resolve(directory, files[i]));
+            await exports.validateDirectory(path.resolve(dir, files[i]));
             continue;
         }
 
         assert(tasks[i].isFile());
         if (files[i].endsWith(".js")) {
-            validateTasks.push(
-                validateJS(path.resolve(directory, files[i]))
+            validate_tasks.push(
+                validate_js(path.resolve(dir, files[i]))
             );
         } else if (files[i].endsWith(".json")) {
-            validateTasks.push(
-                validateJSON(path.resolve(directory, files[i]))
+            validate_tasks.push(
+                validate_json(path.resolve(dir, files[i]))
             );
         }
     }
-    await Promise.all(validateTasks);
+
+    await Promise.all(validate_tasks);
 };
 
 /*****************************************************************************/

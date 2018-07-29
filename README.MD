@@ -25,25 +25,25 @@ You should not modify the upstream repository, instead, use Nano Core 2
 Terminal to create and manage development environment.
 
 ```
-reset    Nuke the development environment and create a fresh one without any
+reset    Nuke development environment and create a fresh one without any
          patches applied
 apply    Apply all existing patches, in proper order
 mark     Create a patch based on the difference between tip of applied patches
-         and current code in the development environment
+         and current code in development environment
 
-make     Build extension from the development environment
+make     Build extension from development environment
 pack     Build, test, then package the extension
 publish  Build, test, package, then publish the extension
 
-config   Print the active configuration data
+config   Print active configuration data
 reload   Reload configuration data
 exit     Exit the terminal
 ```
 
 ## Tips
 
-Do not forget to copy and commit the generated patches from `mark` to make them
-permanent. Also adjust the configuration file as appropriate.
+Do not forget to copy and commit generated patches from `mark` to make them
+permanent. Also adjust configuration file as appropriate.
 
 To update a patch, disable that patch along with patches after it, update the
 patch, enable all patches, verify that later patches are still working, then

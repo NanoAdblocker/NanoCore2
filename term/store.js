@@ -27,7 +27,18 @@
 /*****************************************************************************/
 
 /**
- * The credentials.
+ * Modules.
+ * @const {Module}
+ */
+const assert = require("assert");
+const fs = require("fs-extra");
+const https = require("https");
+const url = require("url");
+
+/*****************************************************************************/
+
+/**
+ * Credentials.
  * @object
  *     {string} WebStoreClient - Google API application client.
  *     {string} WebStoreSecret - Google API application secret.
@@ -35,30 +46,23 @@
  */
 const credentials = require("../../Prototype/NanoBuild/credentials.js");
 
-/**
- * Load modules.
- * @const {Module}
- */
-const assert = require("assert");
-const fs = require("./promise-fs.js");
-const https = require("https");
-const url = require("url");
+/*****************************************************************************/
 
 /**
  * Serialize an object.
  * @function
- * @param {Object} obj - The object to serialize.
- * @return {string} The serialized string.
+ * @param {Object} obj - Object to serialize.
+ * @return {string} Serialized string.
  */
 const serialize = (obj) => {
     let str = "";
 
-    for (let key in obj) {
-        if (str !== "") {
+    for (const key in obj) {
+        if (str !== "")
             str += "&";
-        }
+
         assert(typeof obj[key] === "string");
-        str += key + "=" + encodeURIComponent(obj[key]);
+        str = str + key + "=" + encodeURIComponent(obj[key]);
     }
 
     return str;
@@ -68,36 +72,43 @@ const serialize = (obj) => {
  * Read a stream into text.
  * @function
  * @param {ReadableStream} stream - The stream to read.
- * @param {Function} onDone - The done handler, text read will be passed in.
- * @param {Function} onError - The error handler, error object will be passed in.
+ * @param {Function} on_done - The done handler, text read will be passed in.
+ * @param {Function} on_error - The error handler, error object will be passed
+ *     in.
  */
-const streamToText = (stream, onDone, onError) => {
+const stream_to_text = (stream, on_done, on_error) => {
     let data = "";
+
     stream.setEncoding("utf8");
     stream.on("data", (c) => {
         data += c;
     });
+
     stream.on("end", () => {
-        onDone(data);
+        on_done(data);
     });
-    stream.on("error", onError);
+    stream.on("error", on_error);
 };
+
+/*****************************************************************************/
 
 /**
  * Publish an extension package.
  * @async @function
- * @param {string} file - The path to the package file to upload.
- * @param {string} extId - The ID of the extension.
+ * @param {string} file - Path to the package file to upload.
+ * @param {string} ext_id - Identification string of the extension.
+ * @param {Term} [term] - Terminal for output.
  */
-exports.publish = async (file, extId) => {
-    assert(credentials && typeof credentials === "object");
+exports.publish = async (file, ext_id, term) => {
     assert(typeof credentials.WebStoreClient === "string");
     assert(typeof credentials.WebStoreSecret === "string");
     assert(typeof credentials.WebStoreAccount === "string");
 
+    const file_stat = await fs.lstat(file);
     assert(file.endsWith(".zip"));
-    const fileStat = await fs.lstat(file);
-    assert(!fileStat.isSymbolicLink() && fileStat.isFile());
+    assert(!file_stat.isSymbolicLink() && file_stat.isFile());
+
+    assert(typeof ext_id === "string");
 
     const token = await new Promise((resolve, reject) => {
         const payload = serialize({
@@ -107,16 +118,17 @@ exports.publish = async (file, extId) => {
             grant_type: "refresh_token",
         });
 
-        let options = url.parse("https://accounts.google.com/o/oauth2/token");
-        options.method = "POST";
-        options.headers = {
+        const opt = url.parse("https://accounts.google.com/o/oauth2/token");
+        opt.method = "POST";
+        opt.headers = {
             "Content-Type": "application/x-www-form-urlencoded",
             "Content-Length": Buffer.byteLength(payload),
-        }
+        };
 
-        let req = https.request(options, (res) => {
-            streamToText(res, (data) => {
+        const req = https.request(opt, (res) => {
+            stream_to_text(res, (data) => {
                 data = JSON.parse(data);
+
                 assert(typeof data.access_token === "string");
                 resolve(data.access_token);
             }, reject);
@@ -127,18 +139,25 @@ exports.publish = async (file, extId) => {
 
     await new Promise((resolve, reject) => {
         const payload = fs.createReadStream(file);
+        payload.on("error", reject);
 
-        let options = url.parse("https://www.googleapis.com/upload/chromewebstore/v1.1/items/" + extId);
-        options.method = "PUT";
-        options.headers = {
+        const opt = url.parse(
+            "https://www.googleapis.com/upload/chromewebstore/v1.1/items/" + ext_id,
+        );
+        opt.method = "PUT";
+        opt.headers = {
             "Authorization": "Bearer " + token,
             "X-Goog-API-Version": "2",
         };
 
-        let req = https.request(options, (res) => {
-            streamToText(res, (data) => {
+        const req = https.request(opt, (res) => {
+            stream_to_text(res, (data) => {
                 data = JSON.parse(data);
-                console.log("Item uploaded, server response:", data);
+                if (term) {
+                    term.write_line("Package sent.");
+                    term.write_line(JSON.stringify(data, null, 2));
+                }
+
                 assert(data.uploadState === "SUCCESS");
                 resolve();
             }, reject);
@@ -148,19 +167,28 @@ exports.publish = async (file, extId) => {
     });
 
     await new Promise((resolve, reject) => {
-        let options = url.parse("https://www.googleapis.com/chromewebstore/v1.1/items/" + extId + "/publish");
-        options.method = "POST";
-        options.headers = {
+        const opt = url.parse(
+            "https://www.googleapis.com/chromewebstore/v1.1/items/" + ext_id + "/publish",
+        );
+        opt.method = "POST";
+        opt.headers = {
             "Authorization": "Bearer " + token,
             "X-Goog-API-Version": "2",
             "Content-Length": "0",
         };
 
-        let req = https.request(options, (res) => {
-            streamToText(res, (data) => {
+        const req = https.request(opt, (res) => {
+            stream_to_text(res, (data) => {
                 data = JSON.parse(data);
-                console.log("Publish requested, server response:", data);
-                assert(data.status.includes("OK") || data.status.includes("ITEM_PENDING_REVIEW"));
+                if (term) {
+                    term.write_line("Publish requested.");
+                    term.write_line(JSON.stringify(data, null, 2));
+                }
+
+                assert(
+                    data.status.includes("OK") ||
+                    data.status.includes("ITEM_PENDING_REVIEW")
+                );
                 resolve();
             }, reject);
         });
@@ -168,3 +196,5 @@ exports.publish = async (file, extId) => {
         req.end();
     });
 };
+
+/*****************************************************************************/

@@ -27,7 +27,7 @@
 /*****************************************************************************/
 
 /**
- * Main modules.
+ * Modules.
  * @const {Module}
  */
 const assert = require("assert");
@@ -38,8 +38,8 @@ const path = require("path");
 /*****************************************************************************/
 
 /**
- * The terminal engine instance.
- * @const {engine.Term}
+ * Terminal instance.
+ * @const {Term}
  */
 const term = new (require("./term.js"))();
 
@@ -50,32 +50,34 @@ const term = new (require("./term.js"))();
 let busy = true;
 
 /**
- * Execute a command with expected exit code.
+ * Execute a command and validate exit code.
  * @async @function
  * @param {integer} expected - The expected exit code.
- * @param {any} ...args - Arguments for term.exec().
+ * @param {Any} ...args - Arguments for term.exec().
  * @throws When exit code does not match expectation.
  */
 const exec = async (expected, ...args) => {
+    assert(typeof expected === "number");
+
     const exit_code = await term.exec(...args);
     if (exit_code !== expected)
-        throw new Error("ERROR: Exit code not 0.");
+        throw new Error("ERROR: Exit code not " + expected.toString() + ".");
 };
 
 /*****************************************************************************/
 
 /**
- * The configuration object.
+ * Configuration object.
  * @object
- *     {Array.<string>} Patches - The patches, in order.
- *     {string} Source - The original directory.
- *     {string} Target - The development directory.
- *     {string} Output - The patches output.
+ *     {Array.<string>} Patches - Patches, in order.
+ *     {string} Source - Original directory.
+ *     {string} Target - Development directory.
+ *     {string} Output - Patch output.
  */
 const config = {};
 
 /**
- * Load the configuration.
+ * Load or reload configuration file.
  * @async @function
  * @throws When configuration file could not be opened or is invalid.
  */
@@ -96,6 +98,7 @@ const config_load = async () => {
     const validate_path = (p) => {
         assert(typeof p === "string");
         assert(path.isAbsolute(p));
+
         const slashes = p.match(/\//g);
         assert(slashes !== null && slashes.length >= 2);
     };
@@ -108,14 +111,16 @@ const config_load = async () => {
 /*****************************************************************************/
 
 /**
- * The command handlers registry.
+ * Command handlers registry.
  * @var {Map}
  */
 const cmd_handlers = new Map();
 
 term.set_listener((cmd) => {
+    assert(typeof cmd === "string");
+
     if (busy)
-        term.write_line("ERROR: System busy.").ready();
+        term.write_line("ERROR: System busy.");
     else if (cmd_handlers.has(cmd))
         (cmd_handlers.get(cmd))();
     else
@@ -129,10 +134,7 @@ cmd_handlers.set("reset", async () => {
 
     try {
         await fs.remove(config.Target);
-        await fs.copy(config.Source, config.Target, {
-            overwrite: false,
-            errorOnExist: true,
-        });
+        await fs.copy(config.Source, config.Target);
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -144,12 +146,16 @@ cmd_handlers.set("reset", async () => {
 cmd_handlers.set("apply", async () => {
     busy = true;
 
+    const opt = {
+        cwd: config.Target,
+    };
+
     try {
         for (const p of config.Patches)
-            await exec(0, "git", { cwd: config.Target }, "apply", p);
+            await exec(0, "git", opt, "apply", p);
 
-        await exec(0, "git", { cwd: config.Target }, "add", "-A");
-        await exec(0, "git", { cwd: config.Target }, "commit", "-m", "Apply");
+        await exec(0, "git", opt, "add", "-A");
+        await exec(0, "git", opt, "commit", "-m", "Apply patch");
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -173,11 +179,12 @@ cmd_handlers.set("mark", async () => {
                 stream.write(data);
             },
         }, "diff");
+        await new Promise((resolve, reject) => {
+            stream.end(resolve);
+        });
     } catch (err) {
         term.write_line(err.stack);
     }
-
-    stream.end();
 
     busy = false;
     term.ready();
@@ -186,6 +193,19 @@ cmd_handlers.set("mark", async () => {
 /*****************************************************************************/
 
 cmd_handlers.set("make", async () => {
+    busy = true;
+
+    try {
+        // TODO
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
+cmd_handlers.set("pack", async () => {
     busy = true;
 
     try {
@@ -221,6 +241,7 @@ cmd_handlers.set("config", () => {
 cmd_handlers.set("reload", async () => {
     busy = true;
 
+    // TODO: Restore last configuration data on error?
     await config_load();
 
     busy = false;

@@ -49,8 +49,6 @@ module.exports = class {
     constructor(func) {
         if (func)
             this.set_listener(func);
-        else
-            this._func = null;
 
         this._paused = false;
         this._handler = (line) => {
@@ -70,11 +68,11 @@ module.exports = class {
     /**
      * Destructor.
      * @destructor
+     * @returns {undefined} Nothing.
      */
     destructor() {
         process.stdin.removeListener("data", this._handler);
         process.stdin.pause();
-        return this;
     }
 
     /**

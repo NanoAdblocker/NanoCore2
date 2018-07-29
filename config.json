@@ -1,8 +1,4 @@
 {
-  "Output": {
-    "Linux": "/tmp/NanoCore2Latest.patch",
-    "Win": "D:/!Temporary/NanoCore2Latest.patch"
-  },
   "Patches": [
   ],
   "Source": {
@@ -12,5 +8,9 @@
   "Target": {
     "Linux": "/tmp/NanoCore2DevEnv/",
     "Win": "D:/!Temporary/NanoCore2DevEnv/"
+  },
+  "Output": {
+    "Linux": "/tmp/NanoCore2Latest.patch",
+    "Win": "D:/!Temporary/NanoCore2Latest.patch"
   }
 }

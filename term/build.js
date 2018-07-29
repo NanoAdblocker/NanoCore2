@@ -57,7 +57,7 @@ const data = require("./data.js");
  * @function
  * @param {string} data - The data to hash.
  */
-const MD5 = (data) => {
+const md5 = (data) => {
     assert(typeof data === "string");
     return crypto.createHash("md5").update(data, "utf8").digest("hex");
 };
@@ -68,7 +68,7 @@ const MD5 = (data) => {
  * @param {string} in_dir - The directory to ZIP.
  * @param {string} out_file - The file to write to.
  */
-const ZIP = (in_dir, out_file) => {
+const zip = (in_dir, out_file) => {
     assert(typeof in_dir === "string" && typeof out_file === "string");
     return new Promise((resolve, reject) => {
         const input = archiver.create("zip", {});
@@ -89,7 +89,7 @@ const ZIP = (in_dir, out_file) => {
  * @function
  * @param {Any} ...args - Arguments for path.resolve().
  */
-const R = (...args) => {
+const r = (...args) => {
     return path.resolve(...args);
 };
 
@@ -99,7 +99,7 @@ const R = (...args) => {
  * @param {string} ext - The file ending to filter.
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
-const F = (ext, match = true) => {
+const f = (ext, match = true) => {
     if (match)
         return { filter: (f) => f.endsWith(ext) };
     else
@@ -128,30 +128,30 @@ exports.edge_shim = "../Edgyfy/edgyfy.js";
 exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = R("./build", browser);
+    const output = r("./build", browser);
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
     assert(src !== null);
 
-    await fs.copy(R(src, "src/css"), R(output, "css"));
-    await fs.copy(R(src, "src/js"), R(output, "js"));
-    await fs.copy(R(src, "src/lib"), R(output, "lib"));
-    await fs.copy(R(src, "src"), R(output), F(".html"));
+    await fs.copy(r(src, "src/css"), r(output, "css"));
+    await fs.copy(r(src, "src/js"), r(output, "js"));
+    await fs.copy(r(src, "src/lib"), r(output, "lib"));
+    await fs.copy(r(src, "src"), r(output), f(".html"));
 
-    await fs.copy(R(src, "platform/chromium"), R(output, "js"), F(".js"));
-    await fs.copy(R(src, "platform/chromium"), R(output), F(".js", false));
+    await fs.copy(r(src, "platform/chromium"), r(output, "js"), f(".js"));
+    await fs.copy(r(src, "platform/chromium"), r(output), f(".js", false));
 
-    await fs.copy(R("./src/img"), R(output, "img"));
-    await fs.copy(R("./src/assets.json"), R(output, "assets/assets.json"));
-    await fs.copy(R("./LICENSE"), R(output, "LICENSE"));
+    await fs.copy(r("./src/img"), r(output, "img"));
+    await fs.copy(r("./src/assets.json"), r(output, "assets/assets.json"));
+    await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.writeFile(
-        R(output, "manifest.json"), data.manifest(browser), "utf8",
+        r(output, "manifest.json"), data.manifest(browser), "utf8",
     );
 
     if (browser === "edge") {
-        await fs.copy(exports.edge_shim, R(output, "js/edgyfy.js"));
+        await fs.copy(exports.edge_shim, r(output, "js/edgyfy.js"));
     }
 };
 
@@ -163,13 +163,13 @@ exports.build_core = async (browser) => {
 exports.build_filters = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = R("./build", browser, "assets");
+    const output = r("./build", browser, "assets");
     await fs.mkdirp(output);
 
     const assets = exports.assets_repo;
 
-    await fs.copy(R(assets, "NanoFilters"), R(output, "NanoFilters"));
-    await fs.copy(R(assets, "ThirdParty"), R(output, "ThirdParty"));
+    await fs.copy(r(assets, "NanoFilters"), r(output, "NanoFilters"));
+    await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
 };
 
 /**
@@ -180,16 +180,16 @@ exports.build_filters = async (browser) => {
 exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = R("./dist", browser, "web_accessible_resources");
+    const output = r("./dist", browser, "web_accessible_resources");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
     const assets = exports.assets_repo;
     assert(src !== null);
 
-    const meta = R(src, "src/web_accessible_resources/to-import.txt");
-    const record = R(src, "src/web_accessible_resources/imported.txt");
-    const build_record = R(output, "imported.txt");
+    const meta = r(src, "src/web_accessible_resources/to-import.txt");
+    const record = r(src, "src/web_accessible_resources/imported.txt");
+    const build_record = r(output, "imported.txt");
 
     const db_parse_one = (data) => {
         const re_non_empty_line = /\S/;
@@ -255,7 +255,7 @@ exports.build_resources = async (browser) => {
         record_stream.write(name);
         record_stream.write("\n");
 
-        name = MD5(name);
+        name = md5(name);
 
         const suffix = re_extract_mime.exec(db_entry.mime);
         assert(suffix !== null);
@@ -266,13 +266,13 @@ exports.build_resources = async (browser) => {
 
         if (db_entry.mime.endsWith(";base64")) {
             await fs.writeFile(
-                R(output, name),
+                r(output, name),
                 Buffer.from(db_entry.content, "base64"),
                 "binary",
             );
         } else {
             await fs.writeFile(
-                R(output, name),
+                r(output, name),
                 db_entry.content + "\n",
                 "utf8",
             );
@@ -291,8 +291,8 @@ exports.build_resources = async (browser) => {
         }
 
         const [ublock, nano] = (await Promise.all([
-            fs.readFile(R(assets, "ThirdParty/uBlockResources.txt"), "utf8"),
-            fs.readFile(R(assets, "NanoFilters/NanoResources.txt"), "utf8"),
+            fs.readFile(r(assets, "ThirdParty/uBlockResources.txt"), "utf8"),
+            fs.readFile(r(assets, "NanoFilters/NanoResources.txt"), "utf8"),
         ])).map(db_parse_one);
 
         await fs.copy(record, build_record);
@@ -329,7 +329,7 @@ exports.build_resources = async (browser) => {
 exports.buildLocale = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = R("./dist", browser, "/_locales");
+    const output = r("./dist", browser, "/_locales");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -337,10 +337,10 @@ exports.buildLocale = async (browser) => {
 
     let all_keys = [];
     const en_ubo = JSON.parse(
-        await fs.readFile(R(src, "src/_locales/en/messages.json"), "utf8"),
+        await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"),
     );
     const en_nano = eval( // This is fine
-        await fs.readFile(R("./src/_locales/en/messages.nano.js"), "utf8"),
+        await fs.readFile(r("./src/_locales/en/messages.nano.js"), "utf8"),
     );
     assert(typeof en_ubo === "object" && en_ubo !== null);
     assert(typeof en_nano === "object" && en_nano !== null);
@@ -375,15 +375,15 @@ exports.buildLocale = async (browser) => {
     }
 
     const process_one = async (lang, has_nano) => {
-        await fs.mkdirp(R(output, lang));
+        await fs.mkdirp(r(output, lang));
 
         const ubo = JSON.parse(await fs.readFile(
-            R(src, "src/_locales", lang, "messages.json"), "utf8",
+            r(src, "src/_locales", lang, "messages.json"), "utf8",
         ));
         let nano;
         if (has_nano) {
             nano = eval(await fs.readFile(
-                R("./src/_locales", lang, "messages.nano.js"), "utf8",
+                r("./src/_locales", lang, "messages.nano.js"), "utf8",
             ));
         } else {
             nano = {};
@@ -441,15 +441,15 @@ exports.buildLocale = async (browser) => {
         }
 
         await fs.writeFile(
-            R(output, lang, "messages.json"),
+            r(output, lang, "messages.json"),
             JSON.stringify(result, null, 2),
             "utf8",
         );
     };
 
     const [langs_ubo, langs_nano] = await Promise.all([
-        fs.readdir(R(src, "src/_locales")),
-        fs.readdir(R("./src/_locales")),
+        fs.readdir(r(src, "src/_locales")),
+        fs.readdir(r("./src/_locales")),
     ]);
     let tasks = [];
     for (const lang of langs_ubo) {
@@ -461,7 +461,7 @@ exports.buildLocale = async (browser) => {
     await Promise.all(tasks);
 
     if (browser === "chromium")
-        await fs.copy(R(output, "nb"), R(output, "no"));
+        await fs.copy(r(output, "nb"), r(output, "no"));
 };
 
 /*****************************************************************************/

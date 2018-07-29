@@ -1,71 +1,90 @@
-/**
- * Nano Adblocker build data.
- */
+/******************************************************************************
+
+    Nano Core 2 - An adblocker
+    Copyright (C) 2018  Nano Core 2 contributors
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*******************************************************************************
+
+    Build data.
+
+******************************************************************************/
+
 "use strict";
 
+/*****************************************************************************/
+
 /**
- * Load modules.
+ * Modules.
  * @const {Module}
  */
 const assert = require("assert");
 
+/*****************************************************************************/
+
 /**
- * The version number.
+ * Version number.
  * @const {string}
  */
 exports.version = "1.0.0.58";
+
 /**
  * The based on string.
  * @const {string}
  */
-exports.basedOn = "uBlock Origin Version/1.16.14 Commit/4af5c22 UserCSS/disabled";
+exports.based_on = "uBlock Origin Version/1.16.14 Commit/4af5c22 UserCSS/disabled";
 
 /**
- * Extra information specific to Chromium.
- * @const {Object}
+ * Chromium extension identification string.
+ * @const {string}
  */
-exports.chromium = {
-    id: "gabbbocakeomblphkmmnoamkioajlkfo",
-};
-/**
- * Extra information specific to Firefox.
- * @const {Object}
- */
-exports.firefox = {
-    id: "{acf5b849-adb0-4004-b4ff-7f5332f48567}",
-};
+exports.chromium_id = "gabbbocakeomblphkmmnoamkioajlkfo";
+
+/*****************************************************************************/
 
 /**
  * Generate manifest.
  * @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  * @return {string} The manifest
  */
 exports.manifest = (browser) => {
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge");
 
-    let manifest = {
+    const manifest = {
         "author": "All Nano Adblocker and uBlock Origin contributors",
         "background": {
-            "page": "background.html"
+            "page": "background.html",
         },
         "browser_action": {
             "default_icon": {
-                "128": "img/128_on.png"
+                "128": "img/128_on.png",
             },
             "default_popup": "popup.html",
-            "default_title": "Nano Adblocker"
+            "default_title": "Nano Adblocker",
         },
         "commands": {
             "launch-element-picker": {
-                "description": "__MSG_popupTipPicker__"
+                "description": "__MSG_popupTipPicker__",
             },
             "launch-element-zapper": {
-                "description": "__MSG_popupTipZapper__"
+                "description": "__MSG_popupTipZapper__",
             },
             "launch-logger": {
-                "description": "__MSG_popupTipLog__"
-            }
+                "description": "__MSG_popupTipLog__",
+            },
         },
         "content_scripts": [
             {
@@ -76,13 +95,13 @@ exports.manifest = (browser) => {
                     "js/vapi-usercss.js",
                     "js/vapi-usercss.real.js",
                     "js/vapi-usercss.pseudo.js",
-                    "js/contentscript.js"
+                    "js/contentscript.js",
                 ],
                 "matches": [
                     "http://*/*",
-                    "https://*/*"
+                    "https://*/*",
                 ],
-                "run_at": "document_start"
+                "run_at": "document_start",
             },
             {
                 "all_frames": false,
@@ -91,26 +110,26 @@ exports.manifest = (browser) => {
                 ],
                 "matches": [
                     "http://*/*",
-                    "https://*/*"
+                    "https://*/*",
                 ],
-                "run_at": "document_idle"
-            }
+                "run_at": "document_idle",
+            },
         ],
         "default_locale": "en",
-        "description": "Just another adblocker",
+        "description": "An adblocker",
         "icons": {
-            "128": "img/128_on.png"
+            "128": "img/128_on.png",
         },
         "incognito": "split",
         "manifest_version": 2,
         "minimum_chrome_version": "45.0",
         "name": "Nano Adblocker",
         "optional_permissions": [
-            "file:///*"
+            "file:///*",
         ],
         "options_page": "dashboard.html",
         "options_ui": {
-            "page": "options_ui.html"
+            "page": "options_ui.html",
         },
         "permissions": [
             "<all_urls>",
@@ -121,78 +140,36 @@ exports.manifest = (browser) => {
             "unlimitedStorage",
             "webNavigation",
             "webRequest",
-            "webRequestBlocking"
+            "webRequestBlocking",
         ],
         "storage": {
-            "managed_schema": "managed_storage.json"
+            "managed_schema": "managed_storage.json",
         },
         "version": exports.version,
         "web_accessible_resources": [
-            "web_accessible_resources/*"
-        ]
+            "web_accessible_resources/*",
+        ],
     };
 
-    if (browser === "firefox") {
-        // TODO: Sidebar action seems to be back upstream
-        // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
-        manifest.applications = {
-            "gecko": {
-                "id": exports.firefox.id,
-                "strict_min_version": "52.0"
-            }
-        };
-        manifest.browser_action.browser_style = false;
-        manifest.content_scripts[0].js = [
-            "js/vapi.js",
-            "js/vapi-client.js",
-            "js/vapi-usercss.js",
-            "js/vapi-usercss.real.js",
-            "js/contentscript.js"
-        ];
-        manifest.content_scripts[0].matches = [
-            "http://*/*",
-            "https://*/*",
-            "file://*/*"
-        ];
-        manifest.incognito = "spanning";
-        delete manifest.minimum_chrome_version;
-        delete manifest.optional_permissions;
-        delete manifest.options_page;
-        manifest.options_ui = {
-            "open_in_tab": true,
-            "page": "dashboard.html",
-            "browser_style": true
-        };
-        manifest.permissions = [
-            "contextMenus",
-            "privacy",
-            "storage",
-            "tabs",
-            "webNavigation",
-            "webRequest",
-            "webRequestBlocking",
-            "<all_urls>"
-        ];
-        delete manifest.storage;
-    } else if (browser === "edge") {
+    if (browser === "edge") {
         // Edge does not care if the size is actually right but do care if the
         // key name is right
         manifest["-ms-preload"] = {
             "backgroundScript": "js/edgyfy.js",
-            "contentScript": "js/edgyfy.js"
+            "contentScript": "js/edgyfy.js",
         };
         manifest.background.persistent = true;
         manifest.browser_action.default_icon = {
-            "38": "img/128_on.png"
+            "38": "img/128_on.png",
         };
         manifest.browser_specific_settings = {
             "edge": {
-                "browser_action_next_to_addressbar": true
-            }
+                "browser_action_next_to_addressbar": true,
+            },
         };
         manifest.icons = {
             "128": "img/128_on.png",
-            "16": "img/128_on.png"
+            "16": "img/128_on.png",
         };
         delete manifest.minimum_chrome_version;
         manifest.minimum_edge_version = "41.16299.248.0";
@@ -204,3 +181,5 @@ exports.manifest = (browser) => {
 
     return JSON.stringify(manifest, null, 2);
 };
+
+/*****************************************************************************/
