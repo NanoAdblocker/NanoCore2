@@ -62,7 +62,7 @@ const exec = async (expected, ...args) => {
 
     const exit_code = await term.exec(...args);
     if (exit_code !== expected)
-        throw new Error("ERROR: Exit code not " + expected.toString() + ".");
+        throw new Error("Exit code not " + expected.toString() + ".");
 };
 
 /*****************************************************************************/
@@ -147,6 +147,9 @@ cmd_handlers.set("reset", async () => {
 });
 
 cmd_handlers.set("apply", async () => {
+    if (config.Patches.length === 0)
+        return term.ready();
+
     busy = true;
 
     const opt = {
