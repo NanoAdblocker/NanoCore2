@@ -59,6 +59,22 @@ nano.recompile_filters = () => {
 
 /*****************************************************************************/
 
+nano.enable_integration_filter = () => {
+    if (nano.ub.selectedFilterLists.includes("nano-defender"))
+        return true;
+
+    if (nano.ub.loadingFilterLists)
+        return false;
+    if (nano.ub.selectedFilterLists.length < 10)
+        return false;
+
+    nano.ub.saveSelectedFilterLists(["nano-defender"], true);
+    nano.ub.loadFilterLists();
+    return true;
+};
+
+/*****************************************************************************/
+
 nano.is_trusted_ext = (id) => {
     return (
         sender.id === nano_defender_ext_id_chrome ||
@@ -70,8 +86,13 @@ nano.handle_public_api = (msg) => {
     if (typeof msg.data !== "string")
         return false;
 
-    // TODO
-    return true;
+    switch (msg.data) {
+        case "Nano Defender Enabled":
+            return nano.enable_integration_filter();
+
+        default:
+            return false;
+    }
 };
 
 nAPI.add_public_api_handler(nano.is_trusted_ext, nano.handle_public_api);
