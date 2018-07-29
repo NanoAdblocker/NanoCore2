@@ -31,6 +31,7 @@
  * @const {Module}
  */
 const assert = require("assert");
+const build = require("./build.js");
 const fs = require("fs-extra");
 const os = require("os");
 const path = require("path");
@@ -192,11 +193,63 @@ cmd_handlers.set("mark", async () => {
 
 /*****************************************************************************/
 
+/**
+ * Supported browsers.
+ * @const {Array.<string>}
+ */
+const browsers = ["chromium", "edge"];
+
+/**
+ * Build the package.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const make = async () => {
+    for (const b of browsers) {
+        build.build_core(b);
+        build.build_filters(b);
+        build.build_resources(b);
+        build.build_locale(b);
+    }
+};
+
+/**
+ * Test build output.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const test = async () => {
+    for (const b of browsers)
+        build.test(b);
+};
+
+/**
+ * Create ZIP packages.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const pack = async () => {
+    for (const b of browsers)
+        build.pack(b);
+};
+
+/**
+ * Publish to extension store.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const publish = async () => {
+    for (const b of browsers)
+        build.publish(b, term);
+};
+
+/*****************************************************************************/
+
 cmd_handlers.set("make", async () => {
     busy = true;
 
     try {
-        // TODO
+        await make();
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -209,7 +262,9 @@ cmd_handlers.set("pack", async () => {
     busy = true;
 
     try {
-        // TODO
+        await make();
+        await test();
+        await pack();
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -222,7 +277,10 @@ cmd_handlers.set("publish", async () => {
     busy = true;
 
     try {
-        // TODO
+        await make();
+        await test();
+        await pack();
+        await publish();
     } catch (err) {
         term.write_line(err.stack);
     }
