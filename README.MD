@@ -12,8 +12,7 @@ A patch driven fork of uBlock Origin.
 4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit if needed.
 5. Clone these repositories in the same parent directory as Nano Core 2 if
-   needed: `NanoAdblocker/NanoFilters`, `jspenguin2017/uBlockProtector`,
-   `jspenguin2017/Edgyfy`
+   needed: `NanoAdblocker/NanoFilters`, `jspenguin2017/Edgyfy`
 6. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
