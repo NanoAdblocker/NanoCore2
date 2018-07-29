@@ -14,3 +14,17 @@ index d198b74..9396b47 100644
      // Don't starve potential listeners
      if ( !async ) {
          vAPI.setTimeout(dispatch, 97);
+diff --git a/platform/chromium/vapi-usercss.js b/platform/chromium/vapi-usercss.js
+index 72b9c23..cebc2d1 100644
+--- a/platform/chromium/vapi-usercss.js
++++ b/platform/chromium/vapi-usercss.js
+@@ -29,8 +29,7 @@
+ // https://github.com/gorhill/uBlock/issues/3588
+ 
+ if ( typeof vAPI === 'object' ) {
+-    vAPI.supportsUserStylesheets =
+-        /\bChrom(?:e|ium)\/(?:6[6789]|[789]|1\d\d)/.test(navigator.userAgent);
++    vAPI.supportsUserStylesheets = false;
+ }
+ 
+ 
