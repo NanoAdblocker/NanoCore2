@@ -461,15 +461,13 @@ exports.build_locale = async (browser) => {
                     result[key] = en_nano[key];
             }
 
-            result[key].message = result[key].message
-                .replace(/uBlock Origin|uBlock\u2080|uBlock(?!\/)|uBO/g, "Nano")
-                .replace(/ublock/g, "nano");
-
-            if (key === "1pResourcesOriginal") {
+            if (!key.startsWith("nano_")) {
                 result[key].message = result[key].message
-                    .replace("Nano", "uBlock Origin");
+                    .replace(/uBlock Origin|uBlock\u2080|uBlock(?!\/)|uBO/g, "Nano")
+                    .replace(/ublock/g, "nano");
             }
-            if (key === "aboutBasedOn") {
+
+            if (key === "nano_d_about_based_on") {
                 const based_on = data.based_on;
                 assert(typeof based_on === "string");
 

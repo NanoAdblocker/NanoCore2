@@ -28,359 +28,338 @@
 
 (() => {
     return {
-        // Dialog buttons
-        "genericYes": {
-            "message": "Yes",
-            "description": "Button 'Yes' for dialogs"
-        },
-        "genericNo": {
-            "message": "No",
-            "description": "Button 'No' for dialogs"
-        },
-        "genericOK": {
-            "message": "OK",
-            "description": "Button 'OK' for dialogs"
-        },
-        // Generic messages
-        "genericUnsavedChange": {
-            "message": "Do you want to leave this tab? Changes you made will not be saved.",
-            "description": "Unsaved change warning"
-        },
-        "genericFilterReadError": {
-            "message": "Could not load data, please refresh.",
-            "description": "Error when filter data could not be loaded"
-        },
-        "genericDataSaveError": {
-            "message": "Could not save data, please try again.",
-            "description": "Error when changes could not be saved"
-        },
-        "genericNothingToExport": {
-            "message": "Nothing to export.",
-            "description": "Error when nothing to export"
-        },
 
-        // New cloud UI
-        "nanoCloudNoData": {
-            "message": "No cloud data",
-            "description": "English: No cloud data"
-        },
-        "nanoCloudLastSync": {
-            "message": "Last sync: {{device}} at {{time}}",
-            "description": "English: Last sync: {{device}} at {{time}}"
-        },
-        "nanoCloudSyncFailed": {
-            "message": "Something went wrong:\n{{error}}",
-            "description": "English: Something went wrong:\n{{error}}"
-        },
+        /*********************************************************************/
 
-        // Dashboard dialog messages
-        "dashboardMutexError": {
-            "message": "Could not obtain mutex lock, do you have another dashboard open?",
-            "description": "Error when mutex locked by another dashboard"
-        },
+        // Dashboard
 
-        // Settings groups
-        "settingGeneralGroup": {
-            "message": "General",
-            "description": "Group 'General' of settings tab"
-        },
-        "settingUserInterfaceGroup": {
+        "nano_d_ui_group": {
             "message": "User interface",
-            "description": "Group 'User interface' of settings tab"
+            "description": "Group 'User interface' of settings tab",
         },
-        "settingOtherGroup": {
-            "message": "Other",
-            "description": "Group 'Other' of settings tab"
-        },
-        // Settings prompts
-        "settingsDashboardAllowSelectionPrompt": {
-            "message": "Allow text selection in dashboard",
-            "description": "English: Allow text selection in dashboard"
-        },
-        "settingsEditorWordWrapPrompt": {
+
+        "nano_d_line_wrap_e": {
             "message": "Soft wrap long lines in filter editor",
-            "description": "English: Soft wrap long lines in filter editor"
+            "description": "English: Soft wrap long lines in filter editor",
         },
-        "settingsViewerWordWrapPrompt": {
+
+        "nano_d_line_wrap_v": {
             "message": "Soft wrap long lines in filter viewer",
-            "description": "English: Soft wrap long lines in filter viewer"
-        },
-        // Extra strings for new dashboard
-        "settingDiskUsage": {
-            "message": "Disk usage: ",
-            "description": "English: Disk usage: "
-        },
-        "settingMebibyte": {
-            "message": " MiB",
-            "description": "English: MiB"
-        },
-        "settingsLastBackedupFilePrompt": {
-            "message": "Last backed up file: ",
-            "description": "English: Last backed up file: "
-        },
-        "settingsLastRestoredFilePrompt": {
-            "message": "Last restored file: ",
-            "description": "English: Last restored file: "
+            "description": "English: Soft wrap long lines in filter viewer",
         },
 
-        // The tab name of advanced settings
-        "advancedPageName": {
-            "message": "Advanced",
-            "description": "Advanced settings tab name"
+        "nano_d_resources_links": {
+            "message": "Nano comes with two sets of resources, " +
+            "<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library' target='_blank'>uBlock Origin Resources</a>" +
+            " and " +
+            "<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt' target='_blank'>Nano Extra Resources</a>" +
+            ".",
+            "description": "Resources reference links",
         },
 
-        // Extra help messages for user filters
-        "1pResourcesReference": {
-            "message": "Nano comes with two sets of resources,",
-            "description": "English: Nano comes with two sets of resources,"
-        },
-        "1pResourcesOriginal": {
-            "message": "uBlock Origin Resources",
-            "description": "English: uBlock Origin Resources"
-        },
-        "1pResourcesAnd": {
-            "message": "and",
-            "description": "English: and"
-        },
-        "1pResourcesNano": {
-            "message": "Nano Extra Resources",
-            "description": "English: Nano Extra Resources"
-        },
-        "1pResourcesPeriod": {
-            "message": ".",
-            "description": "English: ."
-        },
-        "1pFilterEditorHelp": {
+        "nano_d_ace_help": {
             "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
-            "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
+            "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys",
         },
 
-        // Whitelist linter limit warnings
-        "whitelistLinterAborted": {
-            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
-            "description": "Warning when too many errors"
-        },
-        "whitelistLinterTooManyWarnings": {
-            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
-            "description": "Warning when too many warnings"
-        },
-        // Whitelist linter errors
-        "whitelistLinterInvalidHostname": {
-            "message": "This host name is not valid.",
-            "description": "Error when hostname not valid"
-        },
-        "whitelistLinterInvalidRegExp": {
-            "message": "This regular expression has syntax errors.",
-            "description": "Error when regular expression has syntax errors"
-        },
-        "whitelistLinterInvalidURL": {
-            "message": "This URL is not valid.",
-            "description": "Error when a URL not valid"
-        },
-        // Whitelist linter warnings
-        "whitelistLinterSuspeciousRegExp": {
-            "message": "This line is treated as a regular expression, is that intended?",
-            "description": "Warning when parsed as regular expression but is unlikely the intention of user"
+        "nano_d_unsaved_warning": {
+            "message": "Leave tab?\nChanges you made will not be saved.",
+            "description": "Unsaved change warning",
         },
 
-        // Filter linter limit warnings
-        "filterLinterTooManyErrors": {
-            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
-            "description": "Error when too many errors"
-        },
-        "filterLinterTooManyWarnings": {
-            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
-            "description": "Warning when too many warnings"
-        },
-        // Filter linter special deprecation warnings
-        "filterLinterDeprecatedCommentBracket": {
-            "message": "Using '[' to denote comment is deprecated, use '!' instead.",
-            "description": "Deprecation when '[' used for comments"
-        },
-        "filterLinterDeprecatedInlineComment": {
-            "message": "Inline comments are deprecated.",
-            "description": "Deprecation when inline comments"
-        },
-        // Filter linter special errors
-        "filterLinterInternalErrorCosmeticFilterPassedThrough": {
-            "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
-            "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
-        },
-        // Extended filtering warnings
-        "filterLinterDeprecatedScriptContains": {
-            "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
-            "description": "Deprecation when 'script:contains' is used"
-        },
-        "filterLinterWarningScriptSnippetDoubleException": {
-            "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
-            "description": "Warning when negated domain used with script snippet exception"
-        },
-        "filterLinterWarningConvertedToException": {
-            "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
-            "description": "Warning when a rule is convered to exception because all negated domains"
-        },
-        "filterLinterWarningNegatedHTMLFiltering": {
-            "message": "Negated domain is not yet supported for HTML filtering.",
-            "description": "Warning when negated domain used with HTML filtering"
-        },
-        // Extended filtering errors
-        "filterLinterRejectedAdguardJSInjection": {
-            "message": "Raw JavaScript injection is not accepted due to security concerns.",
-            "description": "Error when raw JavaScript injection"
-        },
-        "filterLinterRejectedBadSelector": {
-            "message": "The selector in this rule has syntax errors.",
-            "description": "Error when selector has syntax errors"
-        },
-        "filterLinterRejectedTooExpensive": {
-            "message": "This rule cannot be generic.",
-            "description": "Error when expensive cosmetic is generic"
-        },
-        "filterLinterRejectedStyleInjection": {
-            "message": "This CSS injection rule has syntax errors.",
-            "description": "Error when CSS injection has syntax errors"
-        },
-        "filterLinterRejectedAssetsAccessViolation": {
-            "message": "Unprivileged filters may not reference privileged resources.",
-            "description": "Error when unprivileged filter references a privileged resources"
-        },
-        // Network filtering warnings
-        "filterLinterWarningDiscardedNonNegatableType": {
-            "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
-            "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
-        },
-        "filterLinterWarningExpandedMp4Option": {
-            "message": "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
-            "description": "Warning when 'mp4' is replaced"
-        },
-        "filterLinterWarningDeprecatedMp4Option": {
-            "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
-            "description": "Deprecation when 'mp4'"
-        },
-        "filterLinterWarningUnsupportedTypeIgnored": {
-            "message": "Nano discarded type options that are not yet supported.",
-            "description": "Warning when unsupported type options discarded but not entire rule"
-        },
-        "filterLinterWarningRedirectNoType": {
-            "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
-            "description": "Warning when 'redirect=' has no type"
-        },
-        "filterLinterWarningRedirectTooManyTypes": {
-            "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
-            "description": "Warning when 'redirect=' has too many types"
-        },
-        "filterLinterWarningRedirectNoResourceToken": {
-            "message": "Nano discarded the option 'redirect=...' because it has no arguments.",
-            "description": "Warning when 'redirect=' has no arguments"
-        },
-        "filterLinterWarningRedirectNoSupportedType": {
-            "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
-            "description": "Warning when 'redirect=' has no supported type"
-        },
-        "filterLinterWarningRedirectNegatedDomain": {
-            "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
-            "description": "Warning when negated domain used with 'redirect='"
-        },
-        "filterLinterWarningRedirectNoValidDestinationDomain": {
-            "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
-            "description": "Warning when 'redirect=' has no destination"
-        },
-        "filterLinterWarningRedirectPureHostname": {
-            "message": "Nano discarded the option 'redirect=...' because it cannot be used with a pure host name rule.",
-            "description": "Warning when 'redirect=' pure host name"
-        },
-        "filterLinterWarningRedirectDoesNotMatchRegExp": {
-            // TODO 2017-12-28: Think of a better warning message
-            "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
-            "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
-        },
-        // Network filtering errors
-        "filterLinterDiscardedLocalhostHostEntry": {
-            "message": "This host file entry is discarded because it is localhost declaration.",
-            "description": "Error when localhost declaration"
-        },
-        "filterLinterRejectedAdguardElementRemove": {
-            "message": "Element remove rules with Adguard syntax are not yet supported.",
-            "description": "Error when Adguard style element remove rule"
-        },
-        "filterLinterRejectedNegatedGenerichide": {
-            "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
-            "description": "Error when 'generichide' is negated"
-        },
-        "filterLinterRejectedRedirectInException": {
-            "message": "The option 'redirect=...' cannot be used in exception rules.",
-            "description": "Error when 'redirect=' used in exception"
-        },
-        "filterLinterRejectedBadDomainOptionArguments": {
-            "message": "The option 'domain=...' has invalid arguments.",
-            "description": "Error when 'domain=' has invalid arguments"
-        },
-        "filterLinterRejectedBadCspOptionArguments": {
-            "message": "The option 'csp=...' has invalid arguments.",
-            "description": "Error when 'csp=' has invalid arguments"
-        },
-        "filterLinterRejectedUnknownOption": {
-            "message": "The option '{{option}}' is not recognized.",
-            "description": "English: The option '{{option}}' is not recognized."
-        },
-        "filterLinterRejectedOnlyUnsupportedType": {
-            // TODO 2018-01-15: This was phrased like this due to weird
-            // behavior of the type option 'webrtc', but turns out to be a bug:
-            // https://github.com/gorhill/uBlock/issues/3433
-            // Need to investigate whether this should be changed.
-            "message": "A type option is not yet supported.",
-            "description": "Error when unsupported type option used and entire rule discarded"
-        },
-        "filterLinterRejectedNetworkBadRegExp": {
-            "message": "This network rule has regular expression syntax errors.",
-            "description": "Error when network has regular expression syntax errors"
-        },
-        "filterLinterRejectedInterventionForSMed79": {
-            // https://github.com/chrisaljoudi/uBlock/issues/1096
-            "message": "The domain anchor may not be immediately followed by '^'.",
-            "description": "Error when the bad rule from SMed79 is discarded"
+        "nano_d_about_based_on": {
+            "message": "Based on {{@data}}",
+            "description": "English: Based on {{@data}}",
         },
 
-        // Tab name of hosts matrix
-        "matrixPageName": {
-            "message": "Hosts matrix",
-            "description": "Hosts matrix tab name"
-        },
+        /*********************************************************************/
 
-        // Title of filter viewer
-        "filterViewerPageName": {
+        // Filter viewer
+        
+        "nano_v_title": {
             "message": "Nano — Filter Viewer",
-            "description": "Title of the filter viewer"
+            "description": "Title of the filter viewer",
         },
 
-        // Popup tooltips
-        "popupCacheControlPrompt": {
+        "nano_v_read_error": {
+            "message": "Could not load data, please refresh.",
+            "description": "Error when filter data could not be loaded",
+        },
+
+        /*********************************************************************/
+
+        // Popup panel
+
+        "nano_p_cache_control": {
             "message": "cache control",
-            "description": "The cache control strip name"
+            "description": "The cache control strip name",
         },
-        "popupTipOpenFirewallPane": {
+
+        "nano_p_open_firewall_pane": {
             "message": "Toggle the firewall pane",
-            "description": "Tooltip for toggle firewall pane button"
+            "description": "Tooltip for toggle firewall pane button",
         },
-        "popupTipRefreshButton": {
+
+        "nano_p_refresh_button": {
             "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
-            "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
+            "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
         },
-        // TODO 2018-02-02: Beta stage, do not translate!
-        "popupTipForceEnableScroll": {
+
+        // Beta buttons
+
+        "nano_p_force_scroll": {
             "message": "(beta) Enter force scroll mode (will break layout)",
             "description": "Tooltip for force scroll button"
         },
-        "popupTipBugReporter": {
+
+        "nano_p_bug_reporter": {
             "message": "(beta) Open the bug reporter",
             "description": "Tooltip for bug reporter button"
         },
 
-        // Based on message of about page
-        "aboutBasedOn": {
-            "message": "Based on {{@data}}",
-            "description": "English: Based on {{@data}}"
-        }
+        /*********************************************************************/
+
+        // Whitelist linter warnings
+        // TODO: Not used for now
+
+        "nano_l_whitelist_aborted_e": {
+            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+            "description": "Warning when too many errors",
+        },
+
+        "nano_l_whitelist_aborted_w": {
+            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+            "description": "Warning when too many warnings",
+        },
+
+        "nano_l_whitelist_suspecious_re": {
+            "message": "This line is treated as a regular expression, is that intended?",
+            "description": "Warning when parsed as regular expression but is unlikely the intention of user",
+        },
+
+        /*********************************************************************/
+
+        // Whitelist linter errors
+        // TODO: Not used for now
+
+        "nano_l_whitelist_invalid_hostname": {
+            "message": "This host name is not valid.",
+            "description": "Error when hostname not valid",
+        },
+
+        "nano_l_whitelist_invalid_re": {
+            "message": "This regular expression has syntax errors.",
+            "description": "Error when regular expression has syntax errors",
+        },
+
+        "nano_l_whitelist_invalid_url": {
+            "message": "This URL is not valid.",
+            "description": "Error when a URL not valid",
+        },
+
+        /*********************************************************************/
+
+        // Filter linter warnings
+
+        "nano_l_filter_aborted_e": {
+            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+            "description": "Error when too many errors",
+        },
+
+        "nano_l_filter_aborted_w": {
+            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+            "description": "Warning when too many warnings",
+        },
+
+        "nano_l_filter_script_snippet_double_exception": {
+            "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+            "description": "Warning when negated domain used with script snippet exception",
+        },
+
+        "nano_l_filter_converted_to_exception": {
+            "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+            "description": "Warning when a rule is convered to exception because all negated domains",
+        },
+
+        "nano_l_filter_negated_html_filtering": {
+            "message": "Negated domain is not yet supported for HTML filtering.",
+            "description": "Warning when negated domain used with HTML filtering",
+        },
+
+        "nano_l_filter_discarded_non_negatable_type": {
+            "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
+            "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated.",
+        },
+
+        "nano_l_filter_expanded_mp4_option": {
+            "message": "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
+            "description": "Warning when 'mp4' is replaced",
+        },
+
+        "nano_l_filter_unsupported_type_ignored": {
+            "message": "Nano discarded type options that are not yet supported.",
+            "description": "Warning when unsupported type options discarded but not entire rule",
+        },
+
+        /*********************************************************************/
+
+        // Filter linter deprecations
+
+        "nano_l_filter_comment_bracket": {
+            "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+            "description": "Deprecation when '[' used for comments",
+        },
+
+        "nano_l_filter_inline_comment": {
+            "message": "Inline comments are deprecated.",
+            "description": "Deprecation when inline comments",
+        },
+
+        "nano_l_filter_script_contains": {
+            "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+            "description": "Deprecation when 'script:contains' is used",
+        },
+
+        "nano_l_filter_mp4_option": {
+            "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+            "description": "Deprecation when 'mp4'",
+        },
+
+        /*********************************************************************/
+
+        // Filter linter errors
+
+        "nano_l_filter_ag_js_injection": {
+            "message": "Raw JavaScript injection is not accepted due to security concerns.",
+            "description": "Error when raw JavaScript injection",
+        },
+
+        "nano_l_filter_bad_selector": {
+            "message": "The selector in this rule has syntax errors.",
+            "description": "Error when selector has syntax errors",
+        },
+
+        "nano_l_filter_too_expensive": {
+            "message": "This rule cannot be generic.",
+            "description": "Error when expensive cosmetic is generic",
+        },
+
+        "nano_l_filter_style_injection_syntax_error": {
+            "message": "This CSS injection rule has syntax errors.",
+            "description": "Error when CSS injection has syntax errors",
+        },
+
+        "nano_l_filter_assets_access_violation": {
+            "message": "Unprivileged filters may not reference privileged resources.",
+            "description": "Error when unprivileged filter references a privileged resources",
+        },
+
+        "nano_l_filter_localhost_entry": {
+            "message": "This host file entry is discarded because it is localhost declaration.",
+            "description": "Error when localhost declaration",
+        },
+
+        "nano_l_filter_ag_element_remove": {
+            "message": "Element remove rules with Adguard syntax are not yet supported.",
+            "description": "Error when Adguard style element remove rule",
+        },
+
+        "nano_l_filter_negated_generichide": {
+            "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
+            "description": "Error when 'generichide' is negated",
+        },
+
+        "nano_l_filter_bad_domain_option_arguments": {
+            "message": "The option 'domain=...' has invalid arguments.",
+            "description": "Error when 'domain=' has invalid arguments",
+        },
+
+        "nano_l_filter_bad_csp_option_arguments": {
+            "message": "The option 'csp=...' has invalid arguments.",
+            "description": "Error when 'csp=' has invalid arguments",
+        },
+
+        "nano_l_filter_unknown_option": {
+            "message": "The option '{{option}}' is not recognized.",
+            "description": "English: The option '{{option}}' is not recognized.",
+        },
+
+        "nano_l_filter_only_unsupported_type": {
+            // TODO: This was phrased like this due to weird behavior of the
+            // type option 'webrtc', but turns out to be a bug:
+            // https://github.com/gorhill/uBlock/issues/3433
+            // Need to investigate whether this should be changed.
+            "message": "A type option is not yet supported.",
+            "description": "Error when unsupported type option used and entire rule discarded",
+        },
+
+        "nano_l_filter_bad_re": {
+            "message": "This network rule has regular expression syntax errors.",
+            "description": "Error when network has regular expression syntax errors",
+        },
+
+        "nano_l_filter_intervention_smed79": {
+            // https://github.com/chrisaljoudi/uBlock/issues/1096
+            "message": "The domain anchor may not be immediately followed by '^'.",
+            "description": "Error when the bad rule from SMed79 is discarded",
+        },
+
+        /*********************************************************************/
+
+        // Redirect rule warnings
+
+        "nano_r_no_type": {
+            "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
+            "description": "Warning when 'redirect=' has no type",
+        },
+
+        "nano_r_too_many_types": {
+            "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
+            "description": "Warning when 'redirect=' has too many types",
+        },
+
+        "nano_r_no_resource_token": {
+            "message": "Nano discarded the option 'redirect=...' because it has no arguments.",
+            "description": "Warning when 'redirect=' has no arguments",
+        },
+
+        "nano_r_no_supported_type": {
+            "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
+            "description": "Warning when 'redirect=' has no supported type",
+        },
+
+        "nano_r_negated_domain": {
+            "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
+            "description": "Warning when negated domain used with 'redirect='",
+        },
+
+        "nano_r_no_destination": {
+            "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
+            "description": "Warning when 'redirect=' has no destination",
+        },
+
+        "nano_r_redirect_in_exception": {
+            "message": "The option 'redirect=...' cannot be used in exception rules.",
+            "description": "Error when 'redirect=' used in exception",
+        },
+
+        "nano_r_does_not_match_re": {
+            // TODO: Think of a better warning message
+            "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
+            "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed",
+        },
+
+        /*********************************************************************/
+
+        // Known bugs warnings
+
+        "nano_b_cosmetic_filter_passed_through": {
+            "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+            "description": "https://github.com/NanoAdblocker/NanoCore/issues/77",
+        },
+
+        /*********************************************************************/
+
     };
 })();
 
