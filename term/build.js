@@ -100,26 +100,28 @@ const r = (...args) => {
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
 const f = (ext, match = true) => {
-    const apply_filter = async (f) => {
-        const stat = await fs.lstat(f);
-        if (stat.isDirectory())
-            return true;
-        else if (stat.isFile())
-            return f.endsWith(ext);
-        else
-            assert(false);
-    };
-
     if (match) {
         return {
             async filter(f) {
-                return await apply_filter(f);
+                const stat = await fs.lstat(f);
+                if (stat.isDirectory())
+                    return true;
+                else if (stat.isFile())
+                    return f.endsWith(ext);
+                else
+                    assert(false);
             },
         };
     } else {
         return {
             async filter(f) {
-                return !(await apply_filter(f));
+                const stat = await fs.lstat(f);
+                if (stat.isDirectory())
+                    return true;
+                else if (stat.isFile())
+                    return !f.endsWith(ext);
+                else
+                    assert(false);
             },
         };
     }
