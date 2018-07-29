@@ -1,11 +1,12 @@
 diff --git a/src/about.html b/src/about.html
-index 210278e..a4078b7 100644
+index 210278e..a969560 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -13,10 +13,15 @@
+@@ -13,10 +13,16 @@
  <div class="body">
      <p id="aboutNameVer"></p>
      <ul>
++        <li><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore" data-i18n="aboutCode"></a>
 +        <li><a href="https://github.com/ajaxorg/ace">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a>
