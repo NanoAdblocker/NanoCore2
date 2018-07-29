@@ -1,0 +1,79 @@
+diff --git a/src/js/messaging.js b/src/js/messaging.js
+index b1e0d85..b47cc4e 100644
+--- a/src/js/messaging.js
++++ b/src/js/messaging.js
+@@ -143,6 +143,21 @@ var onMessage = function(request, sender, callback) {
+         µb.elementPickerExec(request.tabId, request.targetURL, request.zap);
+         break;
+ 
++    case 'nanoInjectForceScrollCSS':
++        if ( vAPI.supportsUserStylesheets ) {
++            vAPI.insertCSS(request.tabId, {
++                code: '*{overflow:auto!important;}',
++                cssOrigin: 'user',
++                runAt: 'document_start'
++            });
++        } else {
++            vAPI.insertCSS(request.tabId, {
++                code: '*{overflow:auto!important;}',
++                runAt: 'document_start'
++            });
++        }
++        break;
++
+     case 'gotoURL':
+         µb.openNewTab(request.details);
+         break;
+diff --git a/src/js/popup.js b/src/js/popup.js
+index 0d3178e..bd6aff2 100644
+--- a/src/js/popup.js
++++ b/src/js/popup.js
+@@ -409,6 +409,7 @@ var renderPopup = function() {
+     // If you think the `=== true` is pointless, you are mistaken
+     uDom.nodeFromId('gotoPick').classList.toggle('enabled', popupData.canElementPicker === true);
+     uDom.nodeFromId('gotoZap').classList.toggle('enabled', popupData.canElementPicker === true);
++    uDom.nodeFromId('nanoForceEnableScroll').classList.toggle('enabled', popupData.canElementPicker === true);
+ 
+     var blocked = popupData.pageBlockedRequestCount,
+         total = popupData.pageAllowedRequestCount + blocked;
+@@ -686,6 +687,20 @@ var gotoPick = function() {
+ 
+ /******************************************************************************/
+ 
++var nanoForceEnableScroll = function() {
++    messaging.send(
++        'popupPanel',
++        {
++            what: 'nanoInjectForceScrollCSS',
++            tabId: popupData.tabId
++        }
++    );
++
++    vAPI.closePopup();
++};
++
++/******************************************************************************/
++
+ var gotoURL = function(ev) {
+     if ( this.hasAttribute('href') === false ) { return; }
+ 
+@@ -1075,6 +1090,7 @@ var onHideTooltip = function() {
+ uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
+ uDom('#gotoZap').on('click', gotoZap);
+ uDom('#gotoPick').on('click', gotoPick);
++uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
+ uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
+ uDom('#refresh').on('click', reloadTab);
+ uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+diff --git a/src/popup.html b/src/popup.html
+index 6fd5c1a..7cc3fc7 100644
+--- a/src/popup.html
++++ b/src/popup.html
+@@ -23,6 +23,7 @@
+         </p>
+         <p id="basicTools2">
+             <span id="gotoZap" class="fa tool" data-i18n-tip="popupTipZapper" data-tip-position="under">&#xf0e7;</span>
++            <span id="nanoForceEnableScroll" class="fa tool" data-i18n-tip="nano_p_force_scroll" data-tip-position="under">&#xf103;</span>
+         </p>
+         <h2 id="dfToggler" data-i18n="popupBlockedRequestPrompt">&nbsp;</h2>
+         <p class="statName">

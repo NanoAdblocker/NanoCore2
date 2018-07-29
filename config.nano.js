@@ -45,7 +45,8 @@
             // Undo regression
             "./patches/disable_user_css.patch",
 
-            // Other
+            // Features
+            "./patches/force_scroll_mode.patch",
             "./patches/link_resources.patch",
         ],
 

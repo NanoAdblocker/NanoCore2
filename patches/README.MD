@@ -14,7 +14,10 @@ default to a monospace font.
 `disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector of
 the Logger.
 
-## Other
+## Features
+
+`force_scroll_mode.patch`: Implement force scroll mode. Depends on housekeeping
+changes.
 
 `link_resources.patch`: Link useful resources in the dashboard. Depends on
 housekeeping changes.
