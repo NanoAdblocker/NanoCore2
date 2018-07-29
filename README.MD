@@ -27,10 +27,11 @@ reset    Nuke the development environment and create a fresh one without any
          patches applied
 apply    Apply all existing patches, in proper order
 mark     Create a patch based on the difference between tip of applied patches
-         and current version in the development environment
+         and current code in the development environment
 
 make     Build extension from the development environment
-publish  Publish the extension
+pack     Build, test, then package the extension
+publish  Build, test, package, then publish the extension
 
 config   Print the active configuration data
 reload   Reload configuration data
