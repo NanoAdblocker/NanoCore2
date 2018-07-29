@@ -51,4 +51,5 @@ commit to make the change permanent. This is also the workflow for fixing
 conflicts.
 
 Each patch should only do one thing. If the thing is too complex, split it into
-smaller pieces.
+smaller pieces. As a rule of thumb, keep changes below 100 lines per patch.
+Also patches should be kept independent of each other if possible.
