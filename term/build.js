@@ -554,7 +554,7 @@ exports.publish = async (browser, term) => {
 
         await edge.pack(
             fs, term,
-            r("./src/edge"), r("./build"),
+            r("./src/icons"), r("./build"),
             r("./build/edge_appx"),
         );
 
