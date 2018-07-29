@@ -180,6 +180,7 @@ exports.build_core = async (browser) => {
 
     await fs.copy(r("./src/img"), r(output, "img"));
     await fs.copy(r("./src/js"), r(output, "js"));
+    await fs.copy(r("./src/fonts"), r(output, "css/fonts"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.writeFile( // This must be after copying platform files
