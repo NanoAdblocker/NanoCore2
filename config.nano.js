@@ -36,6 +36,7 @@
             "./patches/housekeeping/update_about_page.patch",
             "./patches/housekeeping/fix_version_parsing.patch",
             "./patches/housekeeping/fix_vapi_icon.patch",
+            "./patches/housekeeping/fix_favicon.patch",
             "./patches/housekeeping/load_bg_scripts.patch",
             "./patches/housekeeping/popup_cosmetic_tweak.patch",
 

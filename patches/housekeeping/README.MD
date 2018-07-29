@@ -5,16 +5,15 @@ very interesting, but are important to keep the extension working properly.
 
 ## Pure Housekeeping
 
-`update_about_page.patch`: Update the about panel of dashboard to fit Nano Core
-2.
+`update_about_page.patch`: Update the about panel of dashboard.
 
-`fix_version_parsing.patch`: Change the way version string is presented to fit
-the different version convention of Nano Core 2.
+`fix_version_parsing.patch`: Fix version string parsing.
 
-`fix_vapi_icon.patch`: Change icon handling in `vAPI` scripts to fit different
-icon size of Nano Core 2.
+`fix_vapi_icon.patch`: Fix `vAPI` icon handling.
 
-`load_bg_scripts.patch`: Load background scripts of Nano Core 2.
+`fix_favicon.patch`: Fix Favicon and dashboard icon.
+
+`load_bg_scripts.patch`: Load background scripts.
 
 ## Cosmetic Changes
 

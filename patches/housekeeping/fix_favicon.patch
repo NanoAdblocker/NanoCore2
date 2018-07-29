@@ -1,0 +1,26 @@
+diff --git a/src/asset-viewer.html b/src/asset-viewer.html
+index 57437fb..4899334 100644
+--- a/src/asset-viewer.html
++++ b/src/asset-viewer.html
+@@ -8,7 +8,7 @@
+ <link rel="stylesheet" href="lib/codemirror/addon/search/matchesonscrollbar.css">
+ <link rel="stylesheet" href="css/common.css">
+ <link rel="stylesheet" href="css/codemirror.css">
+-<link rel="shortcut icon" type="image/png" href="img/icon_32.png"/>
++<link rel="shortcut icon" type="image/png" href="img/icon_16.png"/>
+ <style>
+ body {
+     border: 0;
+diff --git a/src/dashboard.html b/src/dashboard.html
+index 0c653a5..b6fc26a 100644
+--- a/src/dashboard.html
++++ b/src/dashboard.html
+@@ -12,7 +12,7 @@
+ <body>
+ <div id="dashboard-nav">
+     <div id="dashboard-nav-widgets">
+-        <span class="hverbose" title="extName"><img src="img/ublock.svg"></span><!--
++        <span class="hverbose" title="extName"><img src="img/128_on.png"></span><!--
+      --><a class="tabButton" href="#settings.html" data-i18n="settingsPageName"></a><!--
+      --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
+      --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
