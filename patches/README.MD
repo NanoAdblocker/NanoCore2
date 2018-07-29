@@ -1,7 +1,7 @@
 # Patches
 
 Below are patches that could be interesting, other less interesting patches
-are in `housekeeping` directory. Note that some housekeeping tasks may be
+are in `housekeeping` directory. Note that some housekeeping tasks are
 included in the build script.
 
 ## Bug Fixes
