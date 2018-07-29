@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Configuration.
+    Background script.
 
 ******************************************************************************/
 
@@ -26,28 +26,31 @@
 
 /*****************************************************************************/
 
-(() => {
-    return {
-        Patches: [
-            // Housekeeping
-            "./patches/housekeeping/fix_version_parsing.patch",
-        ],
+var nano = {};
 
-        Source: {
-            Linux: "/tmp/uBlock/",
-            Win: "D:/!Temporary/uBlock/",
-        },
+/*****************************************************************************/
 
-        Target: {
-            Linux: "/tmp/NanoCore2DevEnv/",
-            Win: "D:/!Temporary/NanoCore2DevEnv/",
-        },
+nano.is_trusted_ext = (id) => {
+    return (
+        sender.id === nano_defender_ext_id_chrome ||
+        sender.id === nano_defender_ext_id_edge
+    );
+};
 
-        Output: {
-            Linux: "/tmp/NanoCore2Latest.patch",
-            Win: "D:/!Temporary/NanoCore2Latest.patch",
-        },
-    };
-})();
+/*****************************************************************************/
+
+chrome.runtime.onMessageExternal.addListener((msg, sender, response) => {
+    if (typeof msg !== "object" || msg === null)
+        return;
+    if (typeof msg.data !== "string")
+        return;
+    if (!nano.is_trusted_ext(sender.id))
+        return;
+
+    // TODO: Enable integration filter
+
+    if (typeof response === "function")
+        response({ data: "ok" });
+});
 
 /*****************************************************************************/

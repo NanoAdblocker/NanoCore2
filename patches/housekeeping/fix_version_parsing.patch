@@ -1,0 +1,23 @@
+diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
+index fc204f1..7209193 100644
+--- a/platform/chromium/vapi-background.js
++++ b/platform/chromium/vapi-background.js
+@@ -65,16 +65,9 @@ var noopFunc = function(){};
+ /******************************************************************************/
+ 
+ vAPI.app = (function() {
+-    let version = manifest.version;
+-    let match = /(\d+\.\d+\.\d+)(?:\.(\d+))?/.exec(version);
+-    if ( match && match[2] ) {
+-        let v = parseInt(match[2], 10);
+-        version = match[1] + (v < 100 ? 'b' + v : 'rc' + (v - 100));
+-    }
+-
+     return {
+-        name: manifest.name.replace(/ dev\w+ build/, ''),
+-        version: version
++        name: manifest.name,
++        version: manifest.version
+     };
+ })();
+ 
