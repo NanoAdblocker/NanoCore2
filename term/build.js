@@ -59,6 +59,7 @@ const data = require("./data.js");
  */
 const md5 = (data) => {
     assert(typeof data === "string");
+
     return crypto.createHash("md5").update(data, "utf8").digest("hex");
 };
 
@@ -70,17 +71,16 @@ const md5 = (data) => {
  */
 const zip = (in_dir, out_file) => {
     assert(typeof in_dir === "string" && typeof out_file === "string");
+
     return new Promise((resolve, reject) => {
         const input = archiver.create("zip", {});
         const output = fs.createWriteStream(out_file);
 
-        input.on("end", resolve);
-        input.on("warning", reject);
-        input.on("error", reject);
+        input.on("end", resolve).on("warning", reject).on("error", reject);
+        output.on("error", reject);
 
         input.pipe(output);
-        input.directory(in_dir, false);
-        input.finalize();
+        input.directory(in_dir, false).finalize();
     });
 };
 
@@ -132,7 +132,7 @@ exports.build_core = async (browser) => {
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
-    assert(src !== null);
+    assert(typeof src === "string");
 
     await fs.copy(r(src, "src/css"), r(output, "css"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
@@ -143,7 +143,6 @@ exports.build_core = async (browser) => {
     await fs.copy(r(src, "platform/chromium"), r(output), f(".js", false));
 
     await fs.copy(r("./src/img"), r(output, "img"));
-    await fs.copy(r("./src/assets.json"), r(output, "assets/assets.json"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.writeFile(
@@ -167,7 +166,9 @@ exports.build_filters = async (browser) => {
     await fs.mkdirp(output);
 
     const assets = exports.assets_repo;
+    assert(typeof assets === "string");
 
+    await fs.copy(r("./src/assets.json"), r(output, "assets/assets.json"));
     await fs.copy(r(assets, "NanoFilters"), r(output, "NanoFilters"));
     await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
 };
@@ -180,12 +181,13 @@ exports.build_filters = async (browser) => {
 exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = r("./dist", browser, "web_accessible_resources");
+    const output = r("./build", browser, "web_accessible_resources");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
     const assets = exports.assets_repo;
-    assert(src !== null);
+    assert(typeof src === "string");
+    assert(typeof assets === "string");
 
     const meta = r(src, "src/web_accessible_resources/to-import.txt");
     const record = r(src, "src/web_accessible_resources/imported.txt");
@@ -223,7 +225,6 @@ exports.build_resources = async (browser) => {
                 continue;
 
             if (fields === null) {
-
                 line = line.trim();
                 if (!line)
                     continue;
@@ -231,17 +232,17 @@ exports.build_resources = async (browser) => {
                 fields = line.split(re_split_fields);
                 assert(fields.length === 2);
                 encoded = fields[1].includes(";");
-            } else if (re_non_empty_line.test(line)) {
 
+            } else if (re_non_empty_line.test(line)) {
                 if (encoded)
                     fields.push(line.trim());
                 else
                     fields.push(line);
+
             } else {
-
                 register_entry();
-            }
 
+            }
         }
         if (fields)
             register_entry();
@@ -259,7 +260,7 @@ exports.build_resources = async (browser) => {
 
         const suffix = re_extract_mime.exec(db_entry.mime);
         assert(suffix !== null);
-        name = name + "." + suffix[1];
+        name = "\t" + name + "." + suffix[1];
 
         record_stream.write(name);
         record_stream.write("\n");
@@ -278,6 +279,7 @@ exports.build_resources = async (browser) => {
             );
         }
     };
+
     const process_all = async () => {
         const data = (await fs.readFile(meta, "utf8")).split("\n");
 
@@ -317,7 +319,6 @@ exports.build_resources = async (browser) => {
             record_stream.end("\n", resolve);
         });
     };
-
     await process_all();
 };
 
@@ -326,29 +327,28 @@ exports.build_resources = async (browser) => {
  * @async @function
  * @param {Enum} browser - One of "chromium", "edge".
  */
-exports.buildLocale = async (browser) => {
+exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
-    const output = r("./dist", browser, "/_locales");
+    const output = r("./build", browser, "/_locales");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
-    assert(src !== null);
+    assert(typeof src === "string");
 
     let all_keys = [];
     const en_ubo = JSON.parse(
         await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"),
     );
-    const en_nano = eval( // This is fine
+    const en_nano = eval(
         await fs.readFile(r("./src/_locales/en/messages.nano.js"), "utf8"),
     );
     assert(typeof en_ubo === "object" && en_ubo !== null);
     assert(typeof en_nano === "object" && en_nano !== null);
 
     for (const key in en_ubo) {
-        if (key === "dummy") {
+        if (key === "dummy")
             continue;
-        }
 
         if (en_ubo.hasOwnProperty(key)) {
             assert(!all_keys.includes(key));
@@ -467,68 +467,63 @@ exports.buildLocale = async (browser) => {
 /*****************************************************************************/
 
 /**
- * Test the build package.
+ * Test the build result.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  */
 exports.test = async (browser) => {
-    console.log("Testing Nano Adblocker...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge");
 
-    const inputPath = "./dist/nano_adblocker_" + browser;
-    await checkSyntax.validateDirectory(inputPath);
+    await checkSyntax.validateDirectory(r("./build", browser));
 };
 
 /**
- * Create zip package.
+ * Create ZIP package.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  */
 exports.pack = async (browser) => {
-    console.log("Packaging Nano Adblocker...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge");
 
-    const inputPath = "./dist/nano_adblocker_" + browser;
-    const outputPath = inputPath + ".zip";
-    await makeArchive.zip(inputPath, outputPath);
+    const in_dir = r("./build", browser);
+    const out_file = in_dir + ".zip";
+
+    await makeArchive.zip(in_dir, out_file);
 };
 
 /**
  * Publish package to extension store.
  * @async @function
  * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Term} term - Terminal for child process.
  */
-exports.publish = async (browser) => {
-    console.log("Publishing Nano Adblocker...");
-    assert(browser === "chromium" || browser === "firefox" || browser === "edge");
+exports.publish = async (browser, term) => {
+    assert(browser === "chromium" || browser === "edge");
 
-    const inputPath = "./dist/nano_adblocker_" + browser + ".zip";
+    const input = r("./build", browser + ".zip");
 
     if (browser === "chromium") {
-        await webStore.publish(inputPath, data.chromium.id);
-    } else if (browser === "firefox") {
-        await addonsServer.publish(inputPath, data.version, data.firefox.id, "./dist/");
+        if (!store)
+            store = require("./store.js");
+
+        await store.publish(input, data.chromium_id);
     } else if (browser === "edge") {
-        if (packEdge === undefined) {
-            packEdge = require("../../Prototype/NanoBuild/pack-edge.js");
-        }
+        if (!edge)
+            edge = require("../../Prototype/NanoCore2/edge.js");
 
         // The packaging module can break the directory structure
-        await del("./dist/nano_adblocker_edge_appx");
-        await del("./dist/NanoAdblocker");
-        await smartBuild.copyDirectory(
-            "./dist/nano_adblocker_" + browser,
-            "./dist/nano_adblocker_" + browser + "_appx",
+        await fs.remove("./build/edge_appx");
+        await fs.remove("./build/NanoAdblocker");
+        await fs.copy("./build/edge", "./build/edge_appx");
+
+        await edge.packAdblocker(
+            fs, term,
+            r("./src/edge"), r("./build"),
+            r("./build/edge_appx"),
         );
 
-        await packEdge.packAdblocker(
-            fs, childProcess,
-            srcRepo + "/platform/edge/package-img",
-            "./dist",
-            "./nano_adblocker_" + browser + "_appx",
-        );
-
-        console.warn(".appx package created, automatic upload is NOT yet implemented");
+        term.write_line("APPX package created. Automatic publishing of Edge " +
+            "extensions is not yet implemented.");
     }
 };
 

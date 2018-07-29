@@ -40,11 +40,11 @@ const url = require("url");
 /**
  * Credentials.
  * @object
- *     {string} WebStoreClient - Google API application client.
- *     {string} WebStoreSecret - Google API application secret.
- *     {string} WebStoreAccount - Google developer account refresh token.
+ *     {string} client - Google API application client.
+ *     {string} secret - Google API application secret.
+ *     {string} account - Google developer account refresh token.
  */
-const credentials = require("../../Prototype/NanoBuild/credentials.js");
+const credentials = require("../../Prototype/NanoCore2/credentials.js");
 
 /*****************************************************************************/
 
@@ -100,9 +100,9 @@ const stream_to_text = (stream, on_done, on_error) => {
  * @param {Term} [term] - Terminal for output.
  */
 exports.publish = async (file, ext_id, term) => {
-    assert(typeof credentials.WebStoreClient === "string");
-    assert(typeof credentials.WebStoreSecret === "string");
-    assert(typeof credentials.WebStoreAccount === "string");
+    assert(typeof credentials.client === "string");
+    assert(typeof credentials.secret === "string");
+    assert(typeof credentials.account === "string");
 
     const file_stat = await fs.lstat(file);
     assert(file.endsWith(".zip"));
@@ -112,9 +112,9 @@ exports.publish = async (file, ext_id, term) => {
 
     const token = await new Promise((resolve, reject) => {
         const payload = serialize({
-            client_id: credentials.WebStoreClient,
-            client_secret: credentials.WebStoreSecret,
-            refresh_token: credentials.WebStoreAccount,
+            client_id: credentials.client,
+            client_secret: credentials.secret,
+            refresh_token: credentials.account,
             grant_type: "refresh_token",
         });
 
