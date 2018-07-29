@@ -32,6 +32,9 @@
             // Housekeeping
             "./patches/housekeeping/fix_version_parsing.patch",
             "./patches/housekeeping/fix_vapi_icon.patch",
+
+            // Undo regression
+            "./patches/disable_user_css.patch"
         ],
 
         Source: {

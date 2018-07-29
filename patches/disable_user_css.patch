@@ -1,0 +1,16 @@
+diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
+index d198b74..9396b47 100644
+--- a/platform/chromium/vapi-common.js
++++ b/platform/chromium/vapi-common.js
+@@ -103,11 +103,6 @@ vAPI.webextFlavor = {
+         soup.add('apple').add('safari');
+     }
+ 
+-    // https://github.com/gorhill/uBlock/issues/3588
+-    if ( soup.has('chromium') && flavor.major >= 66 ) {
+-        soup.add('user_stylesheet');
+-    }
+-
+     // Don't starve potential listeners
+     if ( !async ) {
+         vAPI.setTimeout(dispatch, 97);

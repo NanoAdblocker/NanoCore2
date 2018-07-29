@@ -30,6 +30,10 @@ var nano = {};
 
 /*****************************************************************************/
 
+nano.my_id = () => {
+    return chrome.runtime.id;
+};
+
 nano.is_trusted_ext = (id) => {
     return (
         sender.id === nano_defender_ext_id_chrome ||
