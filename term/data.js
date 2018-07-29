@@ -64,7 +64,7 @@ exports.manifest = (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const manifest = {
-        "author": "All Nano Adblocker and uBlock Origin contributors",
+        "author": "Nano Core 2 contributors",
         "background": {
             "page": "background.html",
         },

@@ -94,18 +94,20 @@ const r = (...args) => {
 };
 
 /**
- * Create file ending filter.
+ * Create a one level file ending filter.
  * @function
  * @param {string} ext - The file ending to filter.
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
-const f = (ext, match = true) => {
+const f = (root, ext, match = true) => {
+    root = r(root);
+
     if (match) {
         return {
             async filter(f) {
                 const stat = await fs.lstat(f);
                 if (stat.isDirectory())
-                    return true;
+                    return root === r(f);
                 else if (stat.isFile())
                     return f.endsWith(ext);
                 else
@@ -117,7 +119,7 @@ const f = (ext, match = true) => {
             async filter(f) {
                 const stat = await fs.lstat(f);
                 if (stat.isDirectory())
-                    return true;
+                    return root === r(f);
                 else if (stat.isFile())
                     return !f.endsWith(ext);
                 else
@@ -158,16 +160,22 @@ exports.build_core = async (browser) => {
     await fs.copy(r(src, "src/css"), r(output, "css"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
-    await fs.copy(r(src, "src"), r(output), f(".html"));
+    await fs.copy(r(src, "src"), r(output), f(r(src, "src"), ".html"));
 
-    await fs.copy(r(src, "platform/chromium"), r(output, "js"), f(".js"));
-    await fs.copy(r(src, "platform/chromium"), r(output), f(".js", false));
+    await fs.copy(
+        r(src, "platform/chromium"), r(output, "js"),
+        f(r(src, "platform/chromium"), ".js"),
+    );
+    await fs.copy(
+        r(src, "platform/chromium"), r(output),
+        f(r(src, "platform/chromium"), ".js", false),
+    );
 
     await fs.copy(r("./src/img"), r(output, "img"));
     await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
-    await fs.writeFile(
+    await fs.writeFile( // This must be after copying platform files
         r(output, "manifest.json"), data.manifest(browser), "utf8",
     );
 
