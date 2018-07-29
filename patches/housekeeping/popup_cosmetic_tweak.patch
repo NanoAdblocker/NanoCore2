@@ -1,0 +1,163 @@
+diff --git a/src/css/popup.css b/src/css/popup.css
+index 922b249..108334e 100644
+--- a/src/css/popup.css
++++ b/src/css/popup.css
+@@ -16,7 +16,6 @@ h2 {
+     background-color: #eee;
+     border: 0;
+     color: #666;
+-    cursor: pointer;
+     font-size: 100%;
+     font-weight: normal;
+     padding: 0.2em;
+@@ -100,18 +99,21 @@ p {
+ #switch .fa {
+     color: #0046ff;
+     cursor: pointer;
+-    font-size: 700%;
++    font-size: 600%;
+     margin: 0;
+     }
+ #switch .fa:hover {
+-    opacity: 0.9;
++    opacity: 0.8;
+     }
+ body.off #switch .fa {
+     color: #ccc;
+     }
+-#basicTools {
++#basicTools, #basicTools2 {
+     margin: 0.8em 0 0.4em 0;
+     }
++#basicTools {
++    margin-bottom: 1.2em;
++    }
+ .tool:first-child {
+     margin-left: 0;
+     }
+@@ -119,7 +121,7 @@ body.off #switch .fa {
+     color: #aaa;
+     cursor: pointer;
+     visibility: hidden;
+-    margin-left: 0.4em;
++    margin-left: 0.6em;
+     min-width: 1em;
+     padding: 0 0.2em;
+     unicode-bidi: embed;
+@@ -189,26 +191,18 @@ body[dir="rtl"] #extraTools > span > span.badge {
+     color: #333;
+     }
+ 
+-#refresh {
+-    background-color: #ffe;
+-    border: 1px solid #ddc;
+-    border-radius: 4px;
+-    color: #888;
+-    cursor: pointer;
+-    display: none;
+-    font-size: 3.5em;
+-    left: 4px;
+-    line-height: 1;
+-    padding: 4px 8px;
+-    position: absolute;
+-    right: 4px;
+-    text-align: center;
++#nanoCacheControlStrip {
++    font-size: 2em;
++    margin: 0px;
++    }
++#nanoCacheControlStrip .tool {
++    margin-left: 0px;
+     }
+ body.dirty #refresh {
+-    display: block;
++    color: red;
+     }
+ body.dirty #refresh:hover {
+-    color: black;
++    color: #444;
+     }
+ 
+ #tooltip {
+@@ -238,8 +232,6 @@ body[dir="rtl"] #tooltip {
+     direction: rtl;
+     }
+ #tooltip.show {
+-    transition: opacity 0.15s 0.5s;
+-    -webkit-transition: opacity 0.15s 0.5s;
+     visibility: visible;
+     opacity: 1;
+     }
+diff --git a/src/js/popup.js b/src/js/popup.js
+index 5a5a2f6..0d3178e 100644
+--- a/src/js/popup.js
++++ b/src/js/popup.js
+@@ -506,7 +506,7 @@ var renderTooltips = function(selector) {
+ 
+ var tooltipTargetSelectors = new Map([
+     [
+-        '#switch',
++        '#switch .fa',
+         {
+             state: 'body.off',
+             i18n: 'popupPowerSwitchInfo',
+@@ -651,7 +651,7 @@ var toggleNetFilteringSwitch = function(ev) {
+             tabId: popupData.tabId
+         }
+     );
+-    renderTooltips('#switch');
++    renderTooltips('#switch .fa');
+     hashFromPopupData();
+ };
+ 
+@@ -1072,10 +1072,10 @@ var onHideTooltip = function() {
+     getPopupData(tabId);
+ })();
+ 
+-uDom('#switch').on('click', toggleNetFilteringSwitch);
++uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
+ uDom('#gotoZap').on('click', gotoZap);
+ uDom('#gotoPick').on('click', gotoPick);
+-uDom('h2').on('click', toggleFirewallPane);
++uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
+ uDom('#refresh').on('click', reloadTab);
+ uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+ uDom('#saveRules').on('click', saveFirewallRules);
+diff --git a/src/popup.html b/src/popup.html
+index 872bf1d..6fd5c1a 100644
+--- a/src/popup.html
++++ b/src/popup.html
+@@ -14,23 +14,29 @@
+ <span id="appinfo"><span id="appname">&nbsp;</span> <span id="version">&nbsp;</span></span>
+ <div id="panes">
+     <div class="tooltipContainer">
+-        <p id="switch" role="button" aria-label data-tip-position="under" tabindex="0"><span class="fa">&#xf011;</span></p>
++        <p id="switch" role="button" aria-label tabindex="0"><span class="fa" data-tip-position="under">&#xf011;</span></p>
+         <p id="basicTools">
+-            <span id="gotoZap" class="fa tool" data-i18n-tip="popupTipZapper" data-tip-position="under">&#xf0e7;</span>
+             <span id="gotoPick" class="fa tool" data-i18n-tip="popupTipPicker" data-tip-position="under">&#xf1fb;</span>
++            <span id="nanoFirewallPaneToggle" class="fa tool enabled" data-i18n-tip="nano_p_open_firewall_pane" data-tip-position="under">&#xf0db;</span>
+             <a href="logger-ui.html#tab_active" class="fa tool enabled" aria-label="data-tip" data-i18n-tip="popupTipLog" data-tip-position="under" target="uBOLogger" tabindex="0">&#xf022;</a>
+-            <a href="dashboard.html" class="fa tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">&#xf1de;</a>
++            <a href="dashboard.html" class="fa tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">&#xf0ad;</a>
++        </p>
++        <p id="basicTools2">
++            <span id="gotoZap" class="fa tool" data-i18n-tip="popupTipZapper" data-tip-position="under">&#xf0e7;</span>
+         </p>
+         <h2 id="dfToggler" data-i18n="popupBlockedRequestPrompt">&nbsp;</h2>
+         <p class="statName">
+             <span data-i18n="popupBlockedOnThisPagePrompt">&nbsp;</span>
+         </p>
+         <p class="statValue" id="page-blocked">?</p>
+-        <div id="refresh" class="fa">&#xf021;</div>
+         <p class="statName">
+             <span data-i18n="popupBlockedSinceInstallPrompt">&nbsp;</span>
+         </p>
+         <p class="statValue" id="total-blocked">?</p>
++        <h2 data-i18n="nano_p_cache_control">&nbsp;</h2>
++        <p id="nanoCacheControlStrip">
++            <span id="refresh" class="fa tool enabled" data-i18n-tip="nano_p_refresh_button">&#xf021;</span>
++        </p>
+         <h2 data-i18n="popupHitDomainCountPrompt">&nbsp;</h2>
+         <p class="statValue" id="popupHitDomainCount">&nbsp;</p>
+         <div id="extraTools">
