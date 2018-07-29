@@ -2,7 +2,7 @@ diff --git a/src/background.html b/src/background.html
 index cf7838b..0f5a07e 100644
 --- a/src/background.html
 +++ b/src/background.html
-@@ -7,12 +7,14 @@
+@@ -7,12 +7,15 @@
  <body>
  <script src="lib/punycode.js"></script>
  <script src="lib/publicsuffixlist.js"></script>
@@ -12,6 +12,7 @@ index cf7838b..0f5a07e 100644
  <script src="js/vapi-background.js"></script>
  <script src="js/vapi-webrequest.js"></script><!-- Forks can pick the webext, chromium, or their own implementation -->
  <script src="js/vapi-cachestorage.js"></script><!-- Optional -->
++<script src="js/nano-vapi.js"></script>
  <script src="js/background.js"></script>
 +<script src="js/nano-background.js"></script>
  <script src="js/hntrie.js"></script>

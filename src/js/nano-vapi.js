@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Background script.
+    vAPI binding.
 
 ******************************************************************************/
 
@@ -26,32 +26,18 @@
 
 /*****************************************************************************/
 
-var nano = {};
+chrome.runtime.onMessageExternal.addListener((msg, sender, response) => {
+    if (typeof msg !== "object" || msg === null)
+        return;
+    if (typeof msg.data !== "string")
+        return;
+    if (!nano.is_trusted_ext(sender.id))
+        return;
 
-/*****************************************************************************/
+    // TODO: Enable integration filter
 
-nano.ub = window["\xB5Block"];
-
-/*****************************************************************************/
-
-nano.recompile_filters = () => {
-    const on_done = () => {
-        vAPI.app.restart();
-    };
-
-    vAPI.storage.set({
-        compiledMagic: -1,
-        selfieMagic: -1
-    }, on_done);
-};
-
-/*****************************************************************************/
-
-nano.is_trusted_ext = (id) => {
-    return (
-        sender.id === nano_defender_ext_id_chrome ||
-        sender.id === nano_defender_ext_id_edge
-    );
-};
+    if (typeof response === "function")
+        response({ data: "ok" });
+});
 
 /*****************************************************************************/
