@@ -22,8 +22,6 @@ Note: The private repository `Prototype` is required for publishing.
 You should not modify the upstream repository, instead, use Nano Core 2
 Terminal to create and manage development environment.
 
-Commands that the terminal accepts are as follows:
-
 ```
 reset    Nuke the development environment and create a fresh one without any
          patches applied
