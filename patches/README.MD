@@ -3,6 +3,11 @@
 Below are patches that could be interesting, other less interesting patches
 are in `housekeeping` directory.
 
+## Bug Fixes
+
+`fix_textarea_spacing.patch`: Fix spacing of textarea, not all user agents
+default to a monospace font.
+
 ## Undo Regression
 
 `disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector of

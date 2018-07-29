@@ -35,6 +35,9 @@
             "./patches/housekeeping/load_bg_scripts.patch",
             "./patches/housekeeping/update_about_page.patch",
 
+            // Bug fixes
+            "./patches/fix_textarea_spacing.patch",
+
             // Undo regression
             "./patches/disable_user_css.patch",
 
