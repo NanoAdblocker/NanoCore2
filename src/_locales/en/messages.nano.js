@@ -146,14 +146,6 @@
         /*********************************************************************/
 
         // Whitelist linter warnings
-        // TODO: Not used for now
-
-        "nano_l_whitelist_aborted_e": {
-            "message": "Nano did not scan the rest of the lines for errors " +
-            "because there are too many errors.",
-
-            "description": "Warning when too many errors",
-        },
 
         "nano_l_whitelist_aborted_w": {
             "message": "Nano did not scan the rest of the lines for " +
@@ -173,7 +165,13 @@
         /*********************************************************************/
 
         // Whitelist linter errors
-        // TODO: Not used for now
+
+        "nano_l_whitelist_aborted_e": {
+            "message": "Nano did not scan the rest of the lines for errors " +
+            "because there are too many errors.",
+
+            "description": "Error when too many errors",
+        },
 
         "nano_l_whitelist_invalid_hostname": {
             "message": "This host name is not valid.",
@@ -193,13 +191,6 @@
         /*********************************************************************/
 
         // Filter linter warnings
-
-        "nano_l_filter_aborted_e": {
-            "message": "Nano did not scan the rest of the lines for errors " +
-            "because there are too many errors.",
-
-            "description": "Error when too many errors",
-        },
 
         "nano_l_filter_aborted_w": {
             "message": "Nano did not scan the rest of the lines for " +
@@ -288,6 +279,13 @@
         /*********************************************************************/
 
         // Filter linter errors
+
+        "nano_l_filter_aborted_e": {
+            "message": "Nano did not scan the rest of the lines for errors " +
+            "because there are too many errors.",
+
+            "description": "Error when too many errors",
+        },
 
         "nano_l_filter_ag_js_injection": {
             "message": "Raw JavaScript injection is not accepted due to " +
