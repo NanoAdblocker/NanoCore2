@@ -5,5 +5,5 @@ are in `housekeeping` directory.
 
 ## Undo Regression
 
-`disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector in
+`disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector of
 the Logger.
