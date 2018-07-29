@@ -1,0 +1,22 @@
+diff --git a/src/about.html b/src/about.html
+index 210278e..a4078b7 100644
+--- a/src/about.html
++++ b/src/about.html
+@@ -13,10 +13,15 @@
+ <div class="body">
+     <p id="aboutNameVer"></p>
+     <ul>
++        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
++        <li><a href="https://github.com/NanoAdblocker/NanoCore" data-i18n="aboutCode"></a>
++        <li><a href="https://github.com/ajaxorg/ace">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a>
++    </ul>
++
++    <p data-i18n="nano_d_about_based_on"></p>
++    <ul>
+         <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
+         <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
+-        <li><a href="https://old.reddit.com/r/uBlockOrigin/" data-i18n="aboutSupport"></a>
+-        <li><a href="https://github.com/uBlockOrigin/uBlock-issues/issues" data-i18n="aboutIssues"></a>
+         <li><a href="https://github.com/gorhill/uBlock" data-i18n="aboutCode"></a>
+         <li><span data-i18n="aboutContributors"></span>
+             <ul>
