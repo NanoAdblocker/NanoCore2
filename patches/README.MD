@@ -27,3 +27,5 @@ housekeeping changes.
 
 `force_recompile_filters.patch`: Add button to advanced settings page to force
 recompile filters. Depends on housekeeping changes.
+
+`tweak_default_config.patch`: Tweak default configuration.
