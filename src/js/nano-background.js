@@ -43,7 +43,7 @@ nano.inject_force_scroll = (tab) => {
     if (vAPI.supportsUserStylesheets)
         payload.cssOrigin = "user";
 
-    vAPI.insertCSS(request.tabId, payload);
+    vAPI.insertCSS(tab, payload);
 };
 
 nano.recompile_filters = () => {

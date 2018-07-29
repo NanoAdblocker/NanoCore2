@@ -2,23 +2,12 @@ diff --git a/src/js/messaging.js b/src/js/messaging.js
 index b1e0d85..b47cc4e 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -143,6 +143,21 @@ var onMessage = function(request, sender, callback) {
+@@ -143,6 +143,10 @@ var onMessage = function(request, sender, callback) {
          µb.elementPickerExec(request.tabId, request.targetURL, request.zap);
          break;
  
 +    case 'nanoInjectForceScrollCSS':
-+        if ( vAPI.supportsUserStylesheets ) {
-+            vAPI.insertCSS(request.tabId, {
-+                code: '*{overflow:auto!important;}',
-+                cssOrigin: 'user',
-+                runAt: 'document_start'
-+            });
-+        } else {
-+            vAPI.insertCSS(request.tabId, {
-+                code: '*{overflow:auto!important;}',
-+                runAt: 'document_start'
-+            });
-+        }
++        nano.inject_force_scroll(request.tabId);
 +        break;
 +
      case 'gotoURL':
