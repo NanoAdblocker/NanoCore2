@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    vAPI binding.
+    nAPI binding.
 
 ******************************************************************************/
 
@@ -26,18 +26,23 @@
 
 /*****************************************************************************/
 
-chrome.runtime.onMessageExternal.addListener((msg, sender, response) => {
-    if (typeof msg !== "object" || msg === null)
-        return;
-    if (typeof msg.data !== "string")
-        return;
-    if (!nano.is_trusted_ext(sender.id))
-        return;
+var nAPI = {};
 
-    // TODO: Enable integration filter
+/*****************************************************************************/
 
-    if (typeof response === "function")
-        response({ data: "ok" });
-});
+nAPI.add_public_api_handler = (trusted, handler) => {
+    chrome.runtime.onMessageExternal.addListener((msg, sender, res) => {
+        if (typeof msg !== "object" || msg === null)
+            return;
+
+        if (!trusted(sender.id))
+            return;
+        if (!handler(msg))
+            return;
+
+        if (typeof res === "function")
+            res({ data: "ok" });
+    });
+};
 
 /*****************************************************************************/

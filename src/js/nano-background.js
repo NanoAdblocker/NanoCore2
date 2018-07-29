@@ -34,6 +34,18 @@ nano.ub = window["\xB5Block"];
 
 /*****************************************************************************/
 
+nano.inject_force_scroll = (tab) => {
+    const payload = {
+        code: "* { overflow: auto !important; }",
+        runAt: "document_start"
+    };
+
+    if (vAPI.supportsUserStylesheets)
+        payload.cssOrigin = "user";
+
+    vAPI.insertCSS(request.tabId, payload);
+};
+
 nano.recompile_filters = () => {
     const on_done = () => {
         vAPI.app.restart();
@@ -53,5 +65,15 @@ nano.is_trusted_ext = (id) => {
         sender.id === nano_defender_ext_id_edge
     );
 };
+
+nano.handle_public_api = (msg) => {
+    if (typeof msg.data !== "string")
+        return false;
+
+    // TODO
+    return true;
+};
+
+nAPI.add_public_api_handler(nano.is_trusted_ext, nano.handle_public_api);
 
 /*****************************************************************************/
