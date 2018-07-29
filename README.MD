@@ -4,6 +4,8 @@ Restarting fresh
 
 A patch driven fork of uBlock Origin.
 
+Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
+
 ## Setup
 
 1. Install latest version of Git and Node.js.
