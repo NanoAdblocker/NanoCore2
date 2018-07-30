@@ -29,3 +29,6 @@ housekeeping changes.
 recompile filters. Depends on housekeeping changes.
 
 `tweak_default_config.patch`: Tweak default configuration.
+
+`add_extended_resources.patch`: Add extended resources and implement privileged
+filters system.

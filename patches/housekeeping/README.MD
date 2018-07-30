@@ -19,9 +19,6 @@ These patches must be applied in order.
 
 `implement_compile_flags.patch`: Implement compile flags.
 
-`integrate_extended_resources.patch`: Integrate extended resources, and
-implement privileged resources handling.
-
 ## Cosmetic Changes
 
 `popup_cosmetic_tweak.patch`: Cosmetic changes to the popup. Does not add nor

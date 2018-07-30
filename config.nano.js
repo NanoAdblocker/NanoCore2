@@ -40,7 +40,6 @@
             "./patches/housekeeping/load_bg_scripts.patch",
             "./patches/housekeeping/popup_cosmetic_tweak.patch",
             "./patches/housekeeping/implement_compile_flags.patch",
-            "./patches/housekeeping/integrate_extended_resources.patch",
 
             // Bug fixes
             "./patches/fix_textarea_spacing.patch",
@@ -54,6 +53,7 @@
             "./patches/link_resources.patch",
             "./patches/force_recompile_filters.patch",
             "./patches/tweak_default_config.patch",
+            "./patches/add_extended_resources.patch",
         ],
 
         /*********************************************************************/
