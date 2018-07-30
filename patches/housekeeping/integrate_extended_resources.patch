@@ -69,7 +69,7 @@ index f8c429d..d8741a3 100644
      };
  
 -    var onResourcesLoaded = function(details) {
-+    var nanoHasChange = 
++    var nanoHasChange =
 +        typeof updatedContent === 'string' && updatedContent.length !== 0;
 +
 +    var nanoFetchResourceByKey = function(key, callback) {

@@ -5,6 +5,8 @@ very interesting, but are important to keep the extension working properly.
 
 ## Pure Housekeeping
 
+These patches must be applied in order.
+
 `update_about_page.patch`: Update the about panel of dashboard.
 
 `fix_version_parsing.patch`: Fix version string parsing.
@@ -14,6 +16,8 @@ very interesting, but are important to keep the extension working properly.
 `fix_favicon.patch`: Fix Favicon and dashboard icon.
 
 `load_bg_scripts.patch`: Load background scripts.
+
+`implement_compile_flags.patch`: Implement compile flags.
 
 `integrate_extended_resources.patch`: Integrate extended resources, and
 implement privileged resources handling.

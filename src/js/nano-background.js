@@ -123,6 +123,30 @@ nano.CompileFlag.prototype.reset = function () {
     this.is_privileged = false;
 };
 
+nano.CompileFlag.prototype.update = function (key) {
+    this.first_party = (
+        key === nano.ub.userFiltersPath ||
+        key === nano.ub.nanoPartialUserFiltersPath
+    );
+    this.strip_whitelist = (
+        !this.first_party &&
+        nano.ub.userSettings.advancedUserEnabled &&
+        nano.ub.hiddenSettings.nanoIgnoreThirdPartyWhitelist
+    );
+
+    this.is_partial = (
+        key === nano.ub.nanoPartialUserFiltersPath
+    );
+    this.is_privileged = (
+        nano.privileged_filters.has(key) ||
+        (
+            this.first_party &&
+            nano.ub.userSettings.advancedUserEnabled &&
+            nano.ub.hiddenSettings.nanoMakeUserFiltersPrivileged
+        )
+    );
+};
+
 /*****************************************************************************/
 
 nano.cf = new nano.CompileFlag();

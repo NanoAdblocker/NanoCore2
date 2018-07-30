@@ -39,6 +39,7 @@
             "./patches/housekeeping/fix_favicon.patch",
             "./patches/housekeeping/load_bg_scripts.patch",
             "./patches/housekeeping/popup_cosmetic_tweak.patch",
+            "./patches/housekeeping/implement_compile_flags.patch",
             "./patches/housekeeping/integrate_extended_resources.patch",
 
             // Bug fixes
