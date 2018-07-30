@@ -77,6 +77,15 @@ module.exports = class {
     }
 
     /**
+     * Set terminal title.
+     * @method
+     * @param {string} name - Title.
+     */
+    title(name) {
+        return this.write("\x1B]0;" + name + "\x07");
+    }
+
+    /**
      * Write raw data to terminal output.
      * @method
      * @param {string|Buffer} data - Data to write.

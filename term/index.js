@@ -338,8 +338,11 @@ process.on("unhandledRejection", (err) => {
 (async () => {
     await config_load();
 
+    const name = "Nano Core 2 Terminal";
+    term.title(name).write_line(name);
+
     busy = false;
-    term.write_line("Nano Core 2 Terminal").ready();
+    term.ready();
 })();
 
 /*****************************************************************************/
