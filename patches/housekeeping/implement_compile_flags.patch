@@ -5,7 +5,7 @@ index 1f360dd..c7cf1c9 100644
 @@ -46,6 +46,8 @@ var µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
-         manualUpdateAssetFetchPeriod: 1,
+         manualUpdateAssetFetchPeriod: 500,
 +        nanoIgnoreThirdPartyWhitelist: false,
 +        nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',

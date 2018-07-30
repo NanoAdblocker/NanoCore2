@@ -37,9 +37,9 @@ index d711a61..1f360dd 100644
          ignoreScriptInjectFilters: false,
 -        manualUpdateAssetFetchPeriod: 500,
 +        manualUpdateAssetFetchPeriod: 1,
+         nanoIgnoreThirdPartyWhitelist: false,
+         nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
-         suspendTabsUntilReady: false,
-         userResourcesLocation: 'unset'
 @@ -56,6 +56,7 @@ var µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
