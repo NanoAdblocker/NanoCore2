@@ -15,6 +15,9 @@ very interesting, but are important to keep the extension working properly.
 
 `load_bg_scripts.patch`: Load background scripts.
 
+`integrate_extended_resources.patch`: Integrate extended resources, and
+implement privileged filters handling.
+
 ## Cosmetic Changes
 
 `popup_cosmetic_tweak.patch`: Cosmetic changes to the popup. Does not add nor

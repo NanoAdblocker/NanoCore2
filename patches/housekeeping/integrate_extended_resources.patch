@@ -1,0 +1,147 @@
+diff --git a/src/js/assets.js b/src/js/assets.js
+index d7ee1a1..fbe4a61 100644
+--- a/src/js/assets.js
++++ b/src/js/assets.js
+@@ -956,6 +956,9 @@ var updateNext = function() {
+             if ( assetKey === 'ublock-resources' && noRemoteResources ) {
+                 continue;
+             }
++            if ( assetKey === 'nano-resources' && noRemoteResources ) {
++                continue;
++            }
+             if (
+                 fireNotification(
+                     'before-asset-updated',
+diff --git a/src/js/messaging.js b/src/js/messaging.js
+index e6043fc..3664073 100644
+--- a/src/js/messaging.js
++++ b/src/js/messaging.js
+@@ -1013,10 +1013,14 @@ var onMessage = function(request, sender, callback) {
+         µb.assets.purge(request.assetKey);
+         µb.assets.remove('compiled/' + request.assetKey);
+         // https://github.com/gorhill/uBlock/pull/2314#issuecomment-278716960
+-        if ( request.assetKey === 'ublock-filters' ) {
++        if ( request.assetKey.startsWith('ublock-') ) {
+             µb.assets.purge('ublock-resources');
+             µb.redirectEngine.invalidateResourcesSelfie();
+         }
++        if ( request.assetKey.startsWith('nano-') ) {
++            µb.assets.purge('nano-resources');
++            µb.redirectEngine.invalidateResourcesSelfie();
++        }
+         break;
+ 
+     case 'readHiddenSettings':
+diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
+index 52fc700..03c6c5b 100644
+--- a/src/js/scriptlet-filtering.js
++++ b/src/js/scriptlet-filtering.js
+@@ -249,6 +249,14 @@
+             return;
+         }
+ 
++        var nanoInjectArgs = parsed.suffix.slice(14, -1);
++        if (
++            !nano.cf.is_privileged &&
++            nanoInjectArgs.startsWith(nano.privileged_assets_previx)
++        ) {
++            return;
++        }
++
+         // https://github.com/gorhill/uBlock/issues/3375
+         //   Ignore instances of exception filter with negated hostnames,
+         //   because there is no way to create an exception to an exception.
+diff --git a/src/js/storage.js b/src/js/storage.js
+index f8c429d..d8741a3 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -925,7 +925,7 @@
+ 
+ /******************************************************************************/
+ 
+-µBlock.loadRedirectResources = function(updatedContent) {
++µBlock.loadRedirectResources = function(updatedContent, nanoIsExtended) {
+     var µb = this,
+         content = '';
+ 
+@@ -940,9 +940,28 @@
+         onDone();
+     };
+ 
+-    var onResourcesLoaded = function(details) {
++    var nanoHasChange = 
++        typeof updatedContent === 'string' && updatedContent.length !== 0;
++
++    var nanoFetchResourceByKey = function(key, callback) {
++        if ( !nanoHasChange ) {
++            µb.assets.get(key, callback);
++            return;
++        }
++        if ( key === 'ublock-resources' && !nanoIsExtended ) {
++            callback({ content: updatedContent });
++            return;
++        }
++        if ( key === 'nano-resources' && nanoIsExtended ) {
++            callback({ content: updatedContent });
++            return;
++        }
++        µb.assets.get(key, callback);
++    };
++
++    var nanoOnExtendedResourcesLoaded = function(details) {
+         if ( details.content !== '' ) {
+-            content = details.content;
++            content += '\n\n' + details.content;
+         }
+         if ( µb.hiddenSettings.userResourcesLocation === 'unset' ) {
+             return onDone();
+@@ -950,16 +969,24 @@
+         µb.assets.fetchText(µb.hiddenSettings.userResourcesLocation, onUserResourcesLoaded);
+     };
+ 
+-    if ( typeof updatedContent === 'string' && updatedContent.length !== 0 ) {
+-        return onResourcesLoaded({ content: updatedContent });
+-    }
++    var nanoOnResourcesLoaded = function(details) {
++        if ( details.content !== '' ) {
++            content = details.content;
++        }
++        nanoFetchResourceByKey('nano-resources', nanoOnExtendedResourcesLoaded);
++    };
+ 
+     var onSelfieReady = function(success) {
+         if ( success !== true ) {
+-            µb.assets.get('ublock-resources', onResourcesLoaded);
++            nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
+         }
+     };
+ 
++    if ( nanoHasChange ) {
++        nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
++        return;
++    }
++
+     µb.redirectEngine.resourcesFromSelfie(onSelfieReady);
+ };
+ 
+@@ -1236,7 +1263,7 @@
+             }
+         }
+         // https://github.com/gorhill/uBlock/issues/2594
+-        if ( details.assetKey === 'ublock-resources' ) {
++        if ( details.assetKey === 'ublock-resources' || details.assetKey === 'nano-resources' ) {
+             if (
+                 this.hiddenSettings.ignoreRedirectFilters === true &&
+                 this.hiddenSettings.ignoreScriptInjectFilters === true
+@@ -1274,6 +1301,11 @@
+             if ( cached ) {
+                 this.loadRedirectResources(details.content);
+             }
++        } else if ( details.assetKey === 'nano-resources' ) {
++            this.redirectEngine.invalidateResourcesSelfie();
++            if ( cached ) {
++                this.loadRedirectResources(details.content, true);
++            }
+         }
+         vAPI.messaging.broadcast({
+             what: 'assetUpdated',
