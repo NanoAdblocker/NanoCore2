@@ -13,9 +13,11 @@ Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
 3. Update `config.json` as appropriate.
 4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit if needed.
-5. Clone these repositories in the same parent directory as Nano Core 2 if
-   needed: `NanoAdblocker/NanoFilters`, `jspenguin2017/Edgyfy`
-6. Run `node ./term` to open Nano Core 2 Terminal.
+5. Run `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
+   to get assets.
+6. Run `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git` to
+   get Edge shim.
+7. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
