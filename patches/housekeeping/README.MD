@@ -16,7 +16,7 @@ very interesting, but are important to keep the extension working properly.
 `load_bg_scripts.patch`: Load background scripts.
 
 `integrate_extended_resources.patch`: Integrate extended resources, and
-implement privileged filters handling.
+implement privileged resources handling.
 
 ## Cosmetic Changes
 
