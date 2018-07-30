@@ -143,11 +143,10 @@ nano.FilterLinter.prototype.restore_result = function () {
         if (this.changed)
             return;
 
-        const payload = result[that.cache_key];
+        const payload = result[this.cache_key];
         if (!payload)
             return;
-
-        let result;
+        
         try {
             result = JSON.parse(payload);
         } catch (err) {
