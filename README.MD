@@ -9,7 +9,7 @@ Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
 ## Setup
 
 1. Install latest version of Git and Node.js.
-2. Navigate to `tools` directory and run `npm install`.
+2. Navigate to `term` directory and run `npm install`.
 3. Update `config.json` as appropriate.
 4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit if needed.
