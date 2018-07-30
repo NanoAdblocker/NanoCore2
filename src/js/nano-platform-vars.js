@@ -26,7 +26,11 @@
 
 /*****************************************************************************/
 
-window.nano_defender_ext_id_chrome = "ggolfgbegefeeoocgjbmkembbncoadlb";
-window.nano_defender_ext_id_edge = "";
+var nano = nano || {};
+
+/*****************************************************************************/
+
+nano.defender_ext_id_chrome = "ggolfgbegefeeoocgjbmkembbncoadlb";
+nano.defender_ext_id_edge = "";
 
 /*****************************************************************************/

@@ -26,7 +26,7 @@
 
 /*****************************************************************************/
 
-var nano = {};
+var nano = nano || {};
 
 /*****************************************************************************/
 
@@ -77,8 +77,8 @@ nano.enable_integration_filter = () => {
 
 nano.is_trusted_ext = (id) => {
     return (
-        sender.id === nano_defender_ext_id_chrome ||
-        sender.id === nano_defender_ext_id_edge
+        sender.id === nano.defender_ext_id_chrome ||
+        sender.id === nano.defender_ext_id_edge
     );
 };
 
@@ -99,12 +99,40 @@ nAPI.add_public_api_handler(nano.is_trusted_ext, nano.handle_public_api);
 
 /*****************************************************************************/
 
+nano.privileged_filters = new Set([
+    "nano-filters",
+    "nano-timer",
+    "nano-annoyance",
+    "nano-whitelist",
+    "nano-defender"
+]);
+
+nano.privileged_assets_previx = "nanop-";
+
+/*****************************************************************************/
+
+nano.CompileFlag = function () {
+    this.reset();
+};
+
+nano.CompileFlag.prototype.reset = function () {
+    this.first_party = false;
+    this.strip_whitelist = false; // For third party filters
+
+    this.is_partial = false;
+    this.is_privileged = false;
+};
+
+/*****************************************************************************/
+
+nano.cf = new nano.CompileFlag();
+
+/*****************************************************************************/
+
 nano.FilterLinter = function () {
     this.cache_key = "nano/cache/user-filters-linting-result";
     this.reset();
 };
-
-/*****************************************************************************/
 
 nano.FilterLinter.prototype.reset = function () {
     // IMPORTANT! Any change in this function must be reflected in cache_result
@@ -146,7 +174,7 @@ nano.FilterLinter.prototype.restore_result = function () {
         const payload = result[this.cache_key];
         if (!payload)
             return;
-        
+
         try {
             result = JSON.parse(payload);
         } catch (err) {
@@ -223,8 +251,6 @@ nano.WhitelistLinter = function () {
     this.re_suspecious_re = /^\/[0-9a-zA-Z-_.]+\/$/;
     this.reset();
 };
-
-/*****************************************************************************/
 
 nano.WhitelistLinter.prototype.reset = function () {
     this.warnings = [];
