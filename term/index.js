@@ -164,7 +164,7 @@ cmd_handlers.set("apply", async () => {
             await exec(0, "git", opt, "apply", p);
 
         await exec(0, "git", opt, "add", "-A");
-        await exec(0, "git", opt, "commit", "-m", "Apply patch");
+        await exec(0, "git", opt, "commit", "-m", "Apply patches");
     } catch (err) {
         term.write_line(err.stack);
     }

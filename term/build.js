@@ -105,7 +105,7 @@ const f = (root, ext, match = true) => {
 
     if (match) {
         return {
-            async filter(f) {
+            filter: async (f) => {
                 const stat = await fs.lstat(f);
 
                 assert(!stat.isSymbolicLink());
@@ -120,7 +120,7 @@ const f = (root, ext, match = true) => {
         };
     } else {
         return {
-            async filter(f) {
+            filter: async (f) => {
                 const stat = await fs.lstat(f);
 
                 assert(!stat.isSymbolicLink());
