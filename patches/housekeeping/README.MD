@@ -19,4 +19,4 @@ These patches must be applied in order.
 
 `int_compile_flags.patch`: Integrate with compile flags.
 
-`cos_popup_tweaks.patch`: Cosmetic changes to the popup.
+`cos_popup_tweaks.patch`: Cosmetic tweaks to the popup.

@@ -45,15 +45,17 @@
             "./patches/fix_textarea_spacing.patch",
 
             // Undo regression
-            "./patches/disable_user_css.patch",
+            "./patches/reg_user_css.patch",
 
             // Features
-            "./patches/force_scroll_mode.patch",
-            "./patches/make_hard_purge_any_key.patch",
-            "./patches/link_resources.patch",
-            "./patches/force_recompile_filters.patch",
-            "./patches/tweak_default_config.patch",
-            "./patches/add_extended_resources.patch",
+            "./patches/upd_config_tweaks.patch",
+            "./patches/upd_hard_purge_any_key.patch",
+            "./patches/int_extended_resources.patch",
+            "./patches/int_force_recompile.patch",
+            "./patches/int_force_scroll.patch",
+
+            // Live documentation
+            "./patches/doc_link_resources.patch",
         ],
 
         /*********************************************************************/

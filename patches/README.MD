@@ -11,24 +11,26 @@ default to a monospace font.
 
 ## Undo Regression
 
-`disable_user_css.patch`: Disable UserCSS, this unbreak the DOM inspector of
+`reg_user_css.patch`: Disable UserCSS, this will unbreak the DOM inspector of
 the Logger.
 
 ## Features
 
-`force_scroll_mode.patch`: Implement force scroll mode. Depends on housekeeping
-changes.
+`upd_config_tweaks.patch`: Update default configuration.
 
-`make_hard_purge_any_key.patch`: Make hard purge cached assets to be any
-special keys.
+`upd_hard_purge_any_key.patch`: Update purge button for cached assets to accept
+any special keys for hard purge mode.
 
-`link_resources.patch`: Link useful resources in the dashboard. Depends on
+`int_extended_resources.patch`: Integrate with extended resources and implement
+privileged filters system. Depends on housekeeping changes.
+
+`int_force_recompile.patch`: Enable force recompile filters button in advanced
+settings page. Depends on housekeeping changes.
+
+`int_force_scroll.patch`: Enable force scroll mode button in popup panel.
+Depend on housekeeping changes.
+
+## Live Documentation
+
+`doc_link_resources.patch`: Link useful resources in the dashboard. Depends on
 housekeeping changes.
-
-`force_recompile_filters.patch`: Add button to advanced settings page to force
-recompile filters. Depends on housekeeping changes.
-
-`tweak_default_config.patch`: Tweak default configuration.
-
-`add_extended_resources.patch`: Add extended resources and implement privileged
-filters system.
