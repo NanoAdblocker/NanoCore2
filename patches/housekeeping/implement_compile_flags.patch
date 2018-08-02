@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 1f360dd..c7cf1c9 100644
+index d711a61..e70090a 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -46,6 +46,8 @@ var µBlock = (function() { // jshint ignore:line
@@ -11,7 +11,7 @@ index 1f360dd..c7cf1c9 100644
          popupFontSize: 'unset',
          suspendTabsUntilReady: false,
          userResourcesLocation: 'unset'
-@@ -157,6 +159,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -156,6 +158,7 @@ var µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
@@ -20,7 +20,7 @@ index 1f360dd..c7cf1c9 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/storage.js b/src/js/storage.js
-index e50044a..80d7b2c 100644
+index f8c429d..856abab 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -411,7 +411,7 @@
@@ -63,7 +63,7 @@ index e50044a..80d7b2c 100644
      return writer.toString();
  };
  
-@@ -1286,7 +1290,7 @@
+@@ -1259,7 +1263,7 @@
                      );
                      this.assets.put(
                          'compiled/' + details.assetKey,
