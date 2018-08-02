@@ -29,7 +29,7 @@ Terminal to create and manage development environment.
 ```
 reset    Nuke development environment and create a fresh one without any
          patches applied
-sync     Resynchronize line number of patches
+sync     Resynchronize line numbers of patches
 apply    Apply all existing patches, in order
 mark     Create a patch based on the difference between tip of applied patches
          and current code in development environment
