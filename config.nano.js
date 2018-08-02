@@ -33,13 +33,13 @@
 
         Patches: [
             // Housekeeping
-            "./patches/housekeeping/update_about_page.patch",
+            "./patches/housekeeping/upd_about_page.patch",
             "./patches/housekeeping/fix_version_parsing.patch",
             "./patches/housekeeping/fix_vapi_icon.patch",
             "./patches/housekeeping/fix_favicon.patch",
-            "./patches/housekeeping/load_bg_scripts.patch",
-            "./patches/housekeeping/popup_cosmetic_tweak.patch",
-            "./patches/housekeeping/implement_compile_flags.patch",
+            "./patches/housekeeping/int_nano_background.patch",
+            "./patches/housekeeping/int_compile_flags.patch",
+            "./patches/housekeeping/cos_popup_tweaks.patch",
 
             // Bug fixes
             "./patches/fix_textarea_spacing.patch",

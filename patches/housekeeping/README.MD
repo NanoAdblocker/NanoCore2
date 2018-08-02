@@ -3,11 +3,11 @@
 These patches are for rebranding and other housekeeping changes. They are not
 very interesting, but are important to keep the extension working properly.
 
-## Pure Housekeeping
+## Available Patches
 
 These patches must be applied in order.
 
-`update_about_page.patch`: Update the about panel of dashboard.
+`upd_about_page.patch`: Update the about panel of dashboard.
 
 `fix_version_parsing.patch`: Fix version string parsing.
 
@@ -15,11 +15,8 @@ These patches must be applied in order.
 
 `fix_favicon.patch`: Fix Favicon and dashboard icon.
 
-`load_bg_scripts.patch`: Load background scripts.
+`int_nano_background.patch`: Integrate with Nano Adblocker background scripts.
 
-`implement_compile_flags.patch`: Implement compile flags.
+`int_compile_flags.patch`: Integrate with compile flags.
 
-## Cosmetic Changes
-
-`popup_cosmetic_tweak.patch`: Cosmetic changes to the popup. Does not add nor
-remove anything, only change the way things look.
+`cos_popup_tweaks.patch`: Cosmetic changes to the popup.
