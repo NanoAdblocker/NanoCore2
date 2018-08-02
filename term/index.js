@@ -136,8 +136,10 @@ term.set_listener((cmd) => {
 /*****************************************************************************/
 
 /**
- * Default option for execution command.
- * @const {Option}
+ * Default options for executing commands.
+ * May change when the configuration file is reloaded.
+ * @function
+ * @return {Option} Default options.
  */
 const exec_opt = () => {
     return {
