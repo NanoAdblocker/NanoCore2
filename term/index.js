@@ -217,6 +217,23 @@ cmd_handlers.set("reset", async () => {
     term.ready();
 });
 
+cmd_handlers.set("sync", async () => {
+    busy = true;
+
+    try {
+        for (const p of config.Patches) {
+            await apply(p);
+            await diff(p);
+            await commit();
+        }
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
 cmd_handlers.set("apply", async () => {
     if (config.Patches.length === 0)
         return term.ready();
