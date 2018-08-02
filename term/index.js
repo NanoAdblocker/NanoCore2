@@ -62,7 +62,7 @@ const exec = async (expected, ...args) => {
 
     const exit_code = await term.exec(...args);
     if (exit_code !== expected)
-        throw new Error("Exit code not " + expected.toString() + ".");
+        throw new Error("Exit code is not " + expected.toString() + ".");
 };
 
 /*****************************************************************************/
@@ -135,6 +135,74 @@ term.set_listener((cmd) => {
 
 /*****************************************************************************/
 
+/**
+ * Default option for execution command.
+ * @const {Option}
+ */
+const exec_opt = () => {
+    return {
+        cwd: config.Target,
+    };
+};
+
+/**
+ * Apply a patch.
+ * @async @function
+ * @param {string} p - Path to the patch.
+ * @throws When things go wrong.
+ */
+const apply = async (p) => {
+    term.write_line("Applying " + p);
+    await exec(0, "git", exec_opt(), "apply", p);
+}
+
+/**
+ * Commit current changes.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const commit = async () => {
+    await exec(0, "git", exec_opt(), "add", "-A");
+    await exec(0, "git", exec_opt(), "commit", "-m", "Apply patches");
+};
+
+/**
+ * Create a patch and write it to a fil.
+ * @async @function
+ * @param {string} p - Path to the file.
+ * @throws When things go wrong.
+ */
+const diff = async (p) => {
+    let has_error = false;
+
+    const stream = fs.createWriteStream(p, {
+        encoding: "utf8",
+    });
+    stream.on("error", (err) => {
+        has_error = true;
+        term.write_line(err.stack);
+    });
+
+    await exec(0, "git", Object.assign(
+        {
+            on_data: (data) => {
+                stream.write(data);
+            },
+        },
+        exec_opt(),
+    ), "diff");
+    await new Promise((resolve, reject) => {
+        stream.end(() => {
+            if (has_error)
+                reject();
+            else
+                resolve();
+        });
+    });
+};
+
+/*****************************************************************************/
+
 cmd_handlers.set("reset", async () => {
     busy = true;
 
@@ -155,16 +223,11 @@ cmd_handlers.set("apply", async () => {
 
     busy = true;
 
-    const opt = {
-        cwd: config.Target,
-    };
-
     try {
         for (const p of config.Patches)
-            await exec(0, "git", opt, "apply", p);
+            await apply(p);
 
-        await exec(0, "git", opt, "add", "-A");
-        await exec(0, "git", opt, "commit", "-m", "Apply patches");
+        await commit();
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -176,21 +239,8 @@ cmd_handlers.set("apply", async () => {
 cmd_handlers.set("mark", async () => {
     busy = true;
 
-    const stream = fs.createWriteStream(config.Output, { encoding: "utf8" });
-    stream.on("error", (err) => {
-        term.write_line(err.stack);
-    });
-
     try {
-        await exec(0, "git", {
-            cwd: config.Target,
-            on_data: (data) => {
-                stream.write(data);
-            },
-        }, "diff");
-        await new Promise((resolve, reject) => {
-            stream.end(resolve);
-        });
+        await diff(config.Output);
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -338,11 +388,13 @@ process.on("unhandledRejection", (err) => {
     throw err;
 });
 
-(async () => {
-    await config_load();
-
+{
     const name = "Nano Core 2 Terminal";
     term.title(name).write_line(name);
+}
+
+(async () => {
+    await config_load();
 
     busy = false;
     term.ready();
