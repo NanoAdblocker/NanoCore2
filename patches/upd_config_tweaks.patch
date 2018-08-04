@@ -49,10 +49,10 @@ index e70090a..c7cf1c9 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index e6099f4..44b5278 100644
+index 220da63..606927a 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -295,6 +295,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -254,6 +254,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
