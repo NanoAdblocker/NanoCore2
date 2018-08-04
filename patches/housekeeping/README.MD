@@ -15,6 +15,8 @@ These patches must be applied in order.
 
 `fix_favicon.patch`: Fix Favicon and dashboard icon.
 
+`fix_settings_migration.patch`: Fix settings migration.
+
 `int_nano_background.patch`: Integrate with Nano Adblocker background scripts.
 
 `int_compile_flags.patch`: Integrate with compile flags.

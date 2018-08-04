@@ -37,6 +37,7 @@
             "./patches/housekeeping/fix_version_parsing.patch",
             "./patches/housekeeping/fix_vapi_icon.patch",
             "./patches/housekeeping/fix_favicon.patch",
+            "./patches/housekeeping/fix_settings_migration.patch",
             "./patches/housekeeping/int_nano_background.patch",
             "./patches/housekeeping/int_compile_flags.patch",
             "./patches/housekeeping/cos_popup_tweaks.patch",
