@@ -1,6 +1,6 @@
 # Dashboard - Whitelist
 
-If you are not familiar with whitelisting in uBlock Origin,
+If you are not familiar with whitelists in uBlock Origin,
 [**please read this first**](https://github.com/gorhill/uBlock/wiki/Dashboard:-Whitelist).
 
 ## Differences
