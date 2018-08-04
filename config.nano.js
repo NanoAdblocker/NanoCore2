@@ -41,6 +41,7 @@
             "./patches/housekeeping/int_nano_background.patch",
             "./patches/housekeeping/int_compile_flags.patch",
             "./patches/housekeeping/cos_popup_tweaks.patch",
+            "./patches/housekeeping/cos_dashboard_settings.patch",
             "./patches/housekeeping/doc_link_differences.patch",
 
             // Bug fixes

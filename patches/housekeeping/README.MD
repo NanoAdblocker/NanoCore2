@@ -23,5 +23,7 @@ These patches must be applied in order.
 
 `cos_popup_tweaks.patch`: Cosmetic tweaks to the popup.
 
+`cos_dashboard_settings.patch`: Cosmetic tweaks to dashboard settings tab.
+
 `doc_link_differences.patch`: Link documentation to differences between Nano
 Adblocker and uBlock Origin.
