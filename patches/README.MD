@@ -22,17 +22,18 @@ the Logger.
 any special keys for hard purge mode.
 
 `int_extended_resources.patch`: Integrate with extended resources and implement
-privileged filters system. Depends on housekeeping changes.
+privileged filters system. Depend on housekeeping changes.
 
 `int_force_recompile.patch`: Enable force recompile filters button in advanced
-settings page. Depends on housekeeping changes.
+settings page. Depend on housekeeping changes.
 
 `int_force_scroll.patch`: Enable force scroll mode button in popup panel.
 Depend on housekeeping changes.
 
-`int_edgyfy.patch`: Integrate with Edgyfy.
+`int_edgyfy.patch`: Integrate with Edgyfy. Only needed for Edge browser,
+although it is safe on other browsers. Depend on housekeeping changes.
 
 ## Live Documentation
 
-`doc_link_resources.patch`: Link useful resources in the dashboard. Depends on
+`doc_link_resources.patch`: Link useful resources in the dashboard. Depend on
 housekeeping changes.
