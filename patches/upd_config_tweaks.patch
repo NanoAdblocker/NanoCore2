@@ -49,10 +49,24 @@ index 2fd1db0..f2856f8 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 220da63..606927a 100644
+index 220da63..9d802ee 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -254,6 +254,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -166,13 +166,6 @@ var onUserSettingsReady = function(fetched) {
+     µb.permanentURLFiltering.fromString(fetched.urlFilteringString);
+     µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
+     µb.hnSwitches.fromString(fetched.hostnameSwitchesString);
+-
+-    // https://github.com/gorhill/uBlock/issues/1892
+-    // For first installation on a battery-powered device, disable generic
+-    // cosmetic filtering.
+-    if ( µb.firstInstall && vAPI.webextFlavor.soup.has('mobile') ) {
+-        userSettings.ignoreGenericCosmeticFilters = true;
+-    }
+ };
+ 
+ /******************************************************************************/
+@@ -254,6 +247,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
