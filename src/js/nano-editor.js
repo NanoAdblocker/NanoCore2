@@ -26,6 +26,10 @@
 
 /*****************************************************************************/
 
+var nano = nano || {};
+
+/*****************************************************************************/
+
 ace.define("ace/mode/nano_filters", function(require, exports, module) {
     const oop = ace.require("ace/lib/oop");
     const unicode = require("ace/unicode");
@@ -536,5 +540,64 @@ ace.define("ace/mode/nano_filters_hr", function(require, exports, module) {
     };
     oop.inherits(exports.HighlightRules, TextHighlightRules);
 });
+
+/*****************************************************************************/
+
+nano.Editor = function(elem, highlight, readonly) {
+    this.editor = ace.edit(elem);
+    this.session = this.editor.session;
+    this.is_win = navigator.userAgent.includes("Windows");
+
+    if (highlight)
+        this.session.setMode("ace/mode/nano_filters");
+    else
+        this.session.setMode("ace/mode/text");
+
+    this.editor.setReadOnly(readonly);
+
+    const useless_commands = [
+        "blockindent",
+        "blockoutdent",
+        "indent",
+        "outdent"
+    ];
+    for (const cmd of useless_commands)
+        this.editor.commands.removeCommand(cmd);
+
+    if (this.is_win)
+        this.session.setNewLineMode("windows");
+    else
+        this.session.setNewLineMode("unix");
+
+    this.editor.$blockScrolling = Infinity;
+};
+
+nano.Editor.prototype.set_line_wrap = function(wrap) {
+    this.session.setUseWrapMode(lineWrap);
+};
+
+nano.Editor.prototype.get_unix_value = function() {
+    if (this.is_win)
+        this.session.setNewLineMode("unix");
+
+    const data = this.editor.getValue();
+
+    if (this.is_win)
+        this.session.setNewLineMode("windows");
+
+    return data;
+};
+
+nano.Editor.prototype.set_value_focus = function(val, cursor, keep_anno) {
+    if (cursor !== -1)
+        cursor = 1;
+
+    this.editor.setValue(val, cursor);
+    this.editor.renderer.scrollCursorIntoView();
+    this.editor.focus();
+
+    if (!keep_anno)
+        this.session.clearAnnotations();
+};
 
 /*****************************************************************************/
