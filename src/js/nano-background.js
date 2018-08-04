@@ -51,10 +51,13 @@ nano.recompile_filters = () => {
         vAPI.app.restart();
     };
 
-    vAPI.storage.set({
-        compiledMagic: -1,
-        selfieMagic: -1
-    }, on_done);
+    vAPI.storage.set(
+        {
+            compiledMagic: -1,
+            selfieMagic: -1
+        },
+        on_done
+    );
 };
 
 /*****************************************************************************/
@@ -268,6 +271,8 @@ nano.FilterLinter.prototype.warn = function (message) {
 
 nano.fl = new nano.FilterLinter();
 nano.fl.restore_result();
+
+/*****************************************************************************/
 
 nano.flint = (is_err, key, placeholders) => {
     if (!nano.cf.first_party)

@@ -30,7 +30,7 @@ var nano = nano || {};
 
 /*****************************************************************************/
 
-ace.define("ace/mode/nano_filters", function(require, exports, module) {
+ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const oop = ace.require("ace/lib/oop");
     const unicode = require("ace/unicode");
 
@@ -38,10 +38,10 @@ ace.define("ace/mode/nano_filters", function(require, exports, module) {
     const HighlightRules =
         ace.require("ace/mode/nano_filters_hr").HighlightRules;
 
-    // The way tokenRe works seems to have changed, must test if Ace is
-    // updated
+    // The way tokenRe works seems to have changed, must test when updating
+    // Ace
     // https://github.com/ajaxorg/ace/pull/3454/files#diff-2a8db065be808cdb78daf80b97fcb4aa
-    exports.Mode = function() {
+    exports.Mode = function () {
         this.HighlightRules = HighlightRules;
         this.lineCommentStart = "!";
         this.tokenRe = new RegExp(
@@ -58,13 +58,13 @@ ace.define("ace/mode/nano_filters", function(require, exports, module) {
 
 /*****************************************************************************/
 
-ace.define("ace/mode/nano_filters_hr", function(require, exports, module) {
+ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
     var oop = ace.require("ace/lib/oop");
     var TextHighlightRules =
         ace.require("ace/mode/text_highlight_rules").TextHighlightRules;
 
     // Order is important
-    exports.HighlightRules = function() {
+    exports.HighlightRules = function () {
         this.$rules = {
 
             /*****************************************************************/
@@ -160,6 +160,9 @@ ace.define("ace/mode/nano_filters_hr", function(require, exports, module) {
                 {
                     defaultToken: "string"
                 }
+
+                /*************************************************************/
+
             ],
 
             /*****************************************************************/
@@ -543,7 +546,7 @@ ace.define("ace/mode/nano_filters_hr", function(require, exports, module) {
 
 /*****************************************************************************/
 
-nano.Editor = function(elem, highlight, readonly) {
+nano.Editor = function (elem, highlight, readonly) {
     this.editor = ace.edit(elem);
     this.session = this.editor.session;
     this.is_win = navigator.userAgent.includes("Windows");
@@ -572,11 +575,35 @@ nano.Editor = function(elem, highlight, readonly) {
     this.editor.$blockScrolling = Infinity;
 };
 
-nano.Editor.prototype.set_line_wrap = function(wrap) {
+/*****************************************************************************/
+
+nano.Editor.prototype.set_line_wrap = function (wrap) {
     this.session.setUseWrapMode(lineWrap);
 };
 
-nano.Editor.prototype.get_unix_value = function() {
+nano.Editor.prototype.set_value_focus = function (val, cursor, keep_anno) {
+    if (cursor !== -1)
+        cursor = 1;
+
+    this.editor.setValue(val, cursor);
+    this.editor.renderer.scrollCursorIntoView();
+    this.editor.focus();
+
+    if (!keep_anno)
+        this.session.clearAnnotations();
+};
+
+nano.Editor.prototype.set_anno = function (anno) {
+    this.session.setAnnotations(anno);
+};
+
+/*****************************************************************************/
+
+nano.Editor.prototype.get_platform_value = function () {
+    return this.editor.getValue();
+};
+
+nano.Editor.prototype.get_unix_value = function () {
     if (this.is_win)
         this.session.setNewLineMode("unix");
 
@@ -588,16 +615,24 @@ nano.Editor.prototype.get_unix_value = function() {
     return data;
 };
 
-nano.Editor.prototype.set_value_focus = function(val, cursor, keep_anno) {
-    if (cursor !== -1)
-        cursor = 1;
+/*****************************************************************************/
 
-    this.editor.setValue(val, cursor);
-    this.editor.renderer.scrollCursorIntoView();
-    this.editor.focus();
+nano.Editor.prototype.on = function (ev, callback) {
+    this.session.on(ev, callback);
+};
 
-    if (!keep_anno)
-        this.session.clearAnnotations();
+nano.Editor.prototype.on_key = function (name, key, callback) {
+    if (typeof key === "string") {
+        key = {
+            win: key
+        };
+    }
+
+    this.editor.commands.addCommand({
+        name: name,
+        bindKey: key,
+        exec: callback
+    });
 };
 
 /*****************************************************************************/
