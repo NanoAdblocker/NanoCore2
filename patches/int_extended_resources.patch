@@ -52,7 +52,7 @@ index 52fc700..03c6c5b 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 856abab..80d7b2c 100644
+index 529484a..c68fa46 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -929,7 +929,7 @@

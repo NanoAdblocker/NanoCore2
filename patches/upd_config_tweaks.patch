@@ -60,3 +60,25 @@ index 220da63..606927a 100644
              'no-large-media: behind-the-scene false'
          ].join('\n'),
          'lastRestoreFile': '',
+diff --git a/src/js/storage.js b/src/js/storage.js
+index 856abab..529484a 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -1220,7 +1220,7 @@
+             next = 0;
+             var µb = µBlock;
+             µb.assets.updateStart({
+-                delay: µb.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 || 120000
++                delay: µb.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 || 300000
+             });
+         }, updateDelay);
+     };
+@@ -1308,7 +1308,7 @@
+             this.loadFilterLists();
+         }
+         if ( this.userSettings.autoUpdate ) {
+-            this.scheduleAssetUpdater(this.hiddenSettings.autoUpdatePeriod * 3600000 || 25200000);
++            this.scheduleAssetUpdater(this.hiddenSettings.autoUpdatePeriod * 3600000 || 10800000);
+         } else {
+             this.scheduleAssetUpdater(0);
+         }
