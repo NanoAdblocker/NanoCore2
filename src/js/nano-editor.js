@@ -599,6 +599,13 @@ nano.Editor.prototype.set_anno = function (anno) {
 
 /*****************************************************************************/
 
+nano.Editor.prototype.get_platform_line_break = function () {
+    if (this.is_win)
+        return "\r\n";
+    else
+        return "\n";
+};
+
 nano.Editor.prototype.get_platform_value = function () {
     return this.editor.getValue();
 };

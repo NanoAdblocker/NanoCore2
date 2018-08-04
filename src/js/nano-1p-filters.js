@@ -153,7 +153,11 @@ nano.filters_apply = () => {
 };
 
 nano.filters_revert = () => {
-    nano.editor.set_value_focus(nano.filters_cache + "\n");
+    let content = nano.filters_cache;
+    if (content.length > 0)
+        content += "\n";
+
+    nano.editor.set_value_focus(content);
     nano.filters_changed(false);
 };
 
@@ -223,7 +227,7 @@ nano.export_filters = () => {
 
     vAPI.download({
         "url": "data:text/plain;charset=utf-8," +
-        encodeURIComponent(val + "\n"),
+        encodeURIComponent(val + nano.editor.get_platform_line_break()),
 
         "filename": filename
     });
