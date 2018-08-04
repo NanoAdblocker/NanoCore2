@@ -100,12 +100,20 @@ nano.filters_changed = (changed) => {
     if (typeof changed !== "boolean")
         changed = nano.editor.get_unix_value().trim() !== nano.filters_cache;
 
-    document.getElementById("userFiltersApply").disabled = !changed;
-    document.getElementById("userFiltersRevert").disabled = !changed;
+    const apply_disable = (id, disabled) => {
+        const elem = document.getElementById(id);
+        if (disabled)
+            elem.setAttribute("disabled", "");
+        else
+            elem.removeAttribute("disabled");
+    };
+
+    apply_disable("userFiltersApply", !changed);
+    apply_disable("userFiltersRevert", !changed);
 };
 
 nano.filters_saved = () => {
-    messaging.send(
+    vAPI.messaging.send(
         "dashboard",
         {
             what: "reloadAllFilters"
@@ -127,7 +135,7 @@ nano.filters_apply = () => {
         nano.filters_cache = details.content.trim();
         nano.editor.set_value_focus(details.content);
 
-        userFiltersChanged(false);
+        nano.filters_changed(false);
         nano.filters_saved();
 
         // TODO: Set the cursor back to its original position?
@@ -185,10 +193,10 @@ nano.import_picked = function () {
     };
 
     const file = this.files[0];
+
     if (file === undefined || file.name === "")
         return;
-
-    if (file.type.indexOf("text") !== 0)
+    if (!file.type.startsWith("text"))
         return;
 
     const fr = new FileReader();
@@ -204,7 +212,7 @@ nano.import_filters = () => {
 
 /*****************************************************************************/
 
-nano.export_filters = function () {
+nano.export_filters = () => {
     var val = nano.editor.get_platform_value().trim();
     if (val === "")
         return;
@@ -262,13 +270,13 @@ cloud.onPull = (data, append) => {
 
     nano.editor.set_value_focus(data);
     nano.filters_changed();
-}
+};
 
 /*****************************************************************************/
 
 nano.init();
 
-nano.editor.on_key("save", "Ctrl-S", function () {
+nano.editor.on_key("save", "Ctrl-S", () => {
     const btn = document.getElementById("userFiltersApply");
     btn.click();
 });
