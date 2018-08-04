@@ -22,3 +22,6 @@ These patches must be applied in order.
 `int_compile_flags.patch`: Integrate with compile flags.
 
 `cos_popup_tweaks.patch`: Cosmetic tweaks to the popup.
+
+`doc_link_differences.patch`: Link documentation to differences between Nano
+Adblocker and uBlock Origin.
