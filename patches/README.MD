@@ -30,6 +30,8 @@ settings page. Depends on housekeeping changes.
 `int_force_scroll.patch`: Enable force scroll mode button in popup panel.
 Depend on housekeeping changes.
 
+`int_edgyfy.patch`: Integrate with Edgyfy.
+
 ## Live Documentation
 
 `doc_link_resources.patch`: Link useful resources in the dashboard. Depends on

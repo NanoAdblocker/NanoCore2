@@ -54,6 +54,7 @@
             "./patches/int_extended_resources.patch",
             "./patches/int_force_recompile.patch",
             "./patches/int_force_scroll.patch",
+            "./patches/int_edgyfy.patch",
 
             // Live documentation
             "./patches/doc_link_resources.patch",
