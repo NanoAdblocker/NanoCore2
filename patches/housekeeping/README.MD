@@ -25,5 +25,7 @@ These patches must be applied in order.
 
 `cos_dashboard_settings.patch`: Cosmetic tweaks to dashboard settings tab.
 
+`add_editor_settings.patch`: Add editor settings to dashboard.
+
 `doc_link_differences.patch`: Link documentation to differences between Nano
 Adblocker and uBlock Origin.
