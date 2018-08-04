@@ -29,3 +29,80 @@
 var nano = nano || {};
 
 /*****************************************************************************/
+
+nano.active_asset = "";
+nano.editor = new nano.Editor("content", true, true);
+
+/*****************************************************************************/
+
+nano.load_settings = () => {
+    const on_msg = (wrap) => {
+        nano.editor.set_line_wrap(wrap !== false);
+        nano.render_filter();
+    };
+
+    vAPI.messaging.send(
+        "dashboard",
+        {
+            what: "userSettings",
+            name: "nanoViewerSoftWrap"
+        },
+        on_msg
+    );
+};
+
+/*****************************************************************************/
+
+nano.render_filter = () => {
+    const on_msg = (details) => {
+        if (details && details.content) {
+            let content = details.content;
+            if (!content.endsWith("\n"))
+                content += "\n";
+
+            nano.editor.set_value_focus(content, -1);
+        } else {
+            nano.editor.set_value_focus("", -1);
+
+            if (nano.active_asset !== "user-filters") {
+                const anno = [
+                    {
+                        row: 0,
+                        type: "error",
+                        text: vAPI.i18n("nano_v_read_error")
+                    }
+                ];
+                nano.editor.set_anno(anno);
+            }
+        }
+    };
+
+    if (nano.active_asset === "") {
+        on_msg();
+    } else {
+        vAPI.messaging.send(
+            "default",
+            {
+                what: "etAssetContent",
+                url: decodeURIComponent(nano.active_asset)
+            },
+            on_msg
+        );
+    }
+};
+
+/*****************************************************************************/
+
+nano.init = () => {
+    const matche = location.search.match(/^\?url=([^&]+)/);
+    if (matche !== null)
+        nano.active_asset = match[1];
+
+    nano.load_settings();
+};
+
+/*****************************************************************************/
+
+nano.init();
+
+/*****************************************************************************/
