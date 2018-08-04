@@ -269,12 +269,12 @@ nano.FilterLinter.prototype.warn = function (message) {
 nano.fl = new nano.FilterLinter();
 nano.fl.restore_result();
 
-nano.flint = (is_err, key, ...rest) => {
+nano.flint = (is_err, key, placeholders) => {
     if (!nano.cf.first_party)
         return;
 
     let msg = vAPI.i18n(key);
-    for (const pair of reset)
+    for (const pair of placeholders)
         msg = msg.replace(...pair);
 
     if (is_err)
@@ -283,12 +283,12 @@ nano.flint = (is_err, key, ...rest) => {
         nano.fl.warn(msg);
 };
 
-nano.flinte = (...args) => {
-    flint(true, ...args);
+nano.flinte = (key, ...placeholders) => {
+    nano.flint(true, key, placeholders);
 };
 
-nano.flintw = (...args) => {
-    flint(false, ...args);
+nano.flintw = (key, ...placeholders) => {
+    nano.flint(false, key, placeholders);
 };
 
 /*****************************************************************************/
