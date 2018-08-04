@@ -32,8 +32,15 @@ iframe -> subdocument
    xhr -> xmlhttprequest
 ```
 
-When any of these convenience options are used, uBlock Origin will discard the
-filter.
+uBlock Origin will instead map options as follows:
+```
+    3p -> third-party
+    1p -> first-party
+
+   css -> stylesheet
+ frame -> subdocument
+   xhr -> xmlhttprequest
+```
 
 Although unlikely, this mapping **may change** if any of the mapped options get
 another meaning in uBlock Origin.
