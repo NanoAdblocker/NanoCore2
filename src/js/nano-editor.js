@@ -329,134 +329,209 @@ ace.define("ace/mode/nano_filters_hr", function(require, exports, module) {
 
                 // Exit
                 {
-                    token: 'text',
+                    token: "text",
                     regex: /$/,
-                    next: 'start'
+                    next: "start"
                 },
-                // Operators
+
+                // Options separator
                 {
-                    token: 'keyword.operator',
+                    token: "keyword.operator",
                     regex: /,/
                 },
+
                 // Modifiers
                 {
-                    token: 'keyword',
-                    regex: /document|~?(?:third-party|3p|first-party|1p)|important|badfilter/
+                    token: "keyword",
+                    regex: new RegExp([
+                        "document",
+                        "~?(?:" + [
+                            "third-party",
+                            "3p",
+                            "first-party",
+                            "1p"
+                        ].join("|") + ")",
+                        "important",
+                        "badfilter"
+                    ].join("|"))
                 },
+
                 // Actions
                 {
-                    token: 'variable',
-                    // inline-font and inline-script must be before font and script
-                    regex: /elemhide|generichide|inline-font|inline-script|popunder|popup|ghide/
+                    // inline-font and inline-script must be before font
+                    // and script
+                    token: "variable",
+                    regex: new RegExp([
+                        "elemhide",
+                        "generichide",
+                        "inline-font",
+                        "inline-script",
+                        "popunder",
+                        "popup",
+
+                        "ghide"
+                    ].join("|"))
                 },
-                // Types
+
+                // Resource type
                 {
-                    // Resource type
-                    token: 'variable',
                     // object-subrequest must be before object
-                    regex: /~?(?:font|image|media|object-subrequest|object|script|stylesheet|subdocument|xmlhttprequest|css|iframe|xhr|mp4)/
+                    token: "variable",
+                    regex: new RegExp("~?(?:" + [
+                        "css",
+                        "font",
+                        "image",
+                        "media",
+                        "object-subrequest",
+                        "object",
+                        "script",
+                        "stylesheet",
+                        "subdocument",
+                        "xhr",
+                        "xmlhttprequest",
+
+                        "iframe",
+                        "mp4"
+                    ].join("|") + ")")
                 },
+
+                // Special types
                 {
-                    // Special types
-                    token: 'variable',
-                    regex: /beacon|data|other|ping|websocket/
+                    token: "variable",
+                    regex: new RegExp([
+                        "beacon",
+                        "data",
+                        "other",
+                        "ping",
+                        "websocket"
+                    ].join("|"))
                 },
+
                 // Redirect
                 {
-                    token: 'keyword',
+                    token: "keyword",
                     regex: /redirect=/,
-                    next: 'options_redirect'
+                    next: "options_redirect"
                 },
+
                 // Domains restriction
                 {
-                    token: 'keyword',
+                    token: "keyword",
                     regex: /domain=/,
-                    next: 'options_domain'
+                    next: "options_domain"
                 },
-                // CSP
+
+                // CSP injection
                 {
-                    token: 'keyword',
+                    token: "keyword",
                     regex: /csp=/,
-                    next: 'options_csp'
+                    next: "options_csp"
                 },
+
+                // Plain CSP option, for whitelist only
                 {
-                    token: 'keyword',
+                    token: "keyword",
                     regex: /csp/
                 },
+
                 // Invalid (default)
                 {
-                    defaultToken: 'invalid'
+                    defaultToken: "invalid"
                 }
             ],
+
+            /*****************************************************************/
+
             options_redirect: [
+                // Trailing comma
+                {
+                    token: "invalid",
+                    regex: /,$/,
+                    next: "start"
+                },
+
                 // Exit
                 {
-                    token: 'invalid',
-                    regex: /,$/,
-                    next: 'start'
-                },
-                {
-                    token: 'text',
+                    token: "text",
                     regex: /$/,
-                    next: 'start'
+                    next: "start"
                 },
-                // Operators
+
+                // Options separator
                 {
-                    token: 'keyword.operator',
+                    token: "keyword.operator",
                     regex: /,/,
-                    next: 'options'
+                    next: "options"
                 },
+
                 // Redirect resource name (default)
                 {
-                    defaultToken: 'variable',
+                    defaultToken: "variable"
                 }
             ],
+
+            /*****************************************************************/
+
             options_domain: [
+                // Trailing comma
+                {
+                    token: "invalid",
+                    regex: /,$/,
+                    next: "start"
+                },
+
                 // Exit
                 {
-                    token: 'invalid',
-                    regex: /,$/,
-                    next: 'start'
-                },
-                {
-                    token: 'text',
+                    token: "text",
                     regex: /$/,
-                    next: 'start'
+                    next: "start"
                 },
-                // Operators
+
+                // Options separator
                 {
-                    token: 'keyword.operator',
+                    token: "keyword.operator",
                     regex: /,/,
-                    next: 'options'
+                    next: "options"
                 },
+
                 // Domains (default)
                 {
-                    defaultToken: 'string'
+                    defaultToken: "string"
                 }
             ],
+
+            /*****************************************************************/
+
             options_csp: [
+                // Trailing comma
+                {
+                    token: "invalid",
+                    regex: /,$/,
+                    next: "start"
+                },
+
                 // Exit
                 {
-                    token: 'invalid',
-                    regex: /,$/,
-                    next: 'start'
-                },
-                {
-                    token: 'text',
+                    token: "text",
                     regex: /$/,
-                    next: 'start'
+                    next: "start"
                 },
-                // Operators
+
+                // Options separator
                 {
-                    token: 'keyword.operator',
+                    token: "keyword.operator",
                     regex: /,/,
-                    next: 'options'
+                    next: "options"
                 },
+
                 // CSP text (default)
                 {
-                    defaultToken: 'constant'
+                    defaultToken: "constant"
                 }
             ]
+
+            /*****************************************************************/
+
         };
     };
     oop.inherits(exports.HighlightRules, TextHighlightRules);
