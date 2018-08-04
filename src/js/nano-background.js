@@ -269,6 +269,28 @@ nano.FilterLinter.prototype.warn = function (message) {
 nano.fl = new nano.FilterLinter();
 nano.fl.restore_result();
 
+nano.flint = (is_err, key, ...rest) => {
+    if (!nano.cf.first_party)
+        return;
+
+    let msg = vAPI.i18n(key);
+    for (const pair of reset)
+        msg = msg.replace(...pair);
+
+    if (is_err)
+        nano.fl.error(msg);
+    else
+        nano.fl.warn(msg);
+};
+
+nano.flinte = (...args) => {
+    flint(true, ...args);
+};
+
+nano.flintw = (...args) => {
+    flint(false, ...args);
+};
+
 /*****************************************************************************/
 
 nano.WhitelistLinter = function () {
