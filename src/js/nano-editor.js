@@ -387,6 +387,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     regex: new RegExp("~?(?:" + [
                         "css",
                         "font",
+                        "frame",
                         "image",
                         "media",
                         "object-subrequest",
