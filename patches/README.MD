@@ -38,3 +38,6 @@ everything.
 ## Group `90`: Other Changes
 
 `90_0_optimizations.patch`: Minor optimizations and typo fixes.
+
+`90_1_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
+category because a pull request is opened upstream.

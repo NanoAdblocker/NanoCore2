@@ -75,6 +75,7 @@
             "./patches/30_0_link_resources.patch",
 
             "./patches/90_0_optimizations.patch",
+            "./patches/90_1_warn_unsaved.patch",
 
             /*****************************************************************/
 

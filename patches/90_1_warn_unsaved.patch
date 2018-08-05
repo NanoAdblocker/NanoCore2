@@ -1,0 +1,185 @@
+diff --git a/src/_locales/en/messages.json b/src/_locales/en/messages.json
+index 58e9d7a..a32f17f 100644
+--- a/src/_locales/en/messages.json
++++ b/src/_locales/en/messages.json
+@@ -11,6 +11,10 @@
+     "message":"uBlock₀ — Dashboard",
+     "description":"English: uBlock₀ — Dashboard"
+   },
++  "dashboardUnsavedWarning":{
++    "message":"Leave tab?\nChanges you made will not be saved.",
++    "description":"warning message for unsaved changes"
++  },
+   "settingsPageName":{
+     "message":"Settings",
+     "description":"appears as tab name in dashboard"
+diff --git a/src/js/1p-filters.js b/src/js/1p-filters.js
+index 73682ae..8450216 100644
+--- a/src/js/1p-filters.js
++++ b/src/js/1p-filters.js
+@@ -25,6 +25,10 @@
+ 
+ /******************************************************************************/
+ 
++window.hasUnsavedChanges = false;
++
++/******************************************************************************/
++
+ (function() {
+ 
+ /******************************************************************************/
+@@ -54,6 +58,7 @@ function userFiltersChanged(changed) {
+     }
+     uDom.nodeFromId('userFiltersApply').disabled = !changed;
+     uDom.nodeFromId('userFiltersRevert').disabled = !changed;
++    hasUnsavedChanges = changed;
+ }
+ 
+ /******************************************************************************/
+diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
+index beee457..b4d5d1d 100644
+--- a/src/js/3p-filters.js
++++ b/src/js/3p-filters.js
+@@ -25,6 +25,10 @@
+ 
+ /******************************************************************************/
+ 
++window.hasUnsavedChanges = false;
++
++/******************************************************************************/
++
+ (function() {
+ 
+ /******************************************************************************/
+@@ -316,9 +320,11 @@ var renderFilterLists = function(soft) {
+ /******************************************************************************/
+ 
+ var renderWidgets = function() {
++    var isClean = filteringSettingsHash === hashFromCurrentFromSettings();
++    hasUnsavedChanges = !isClean;
+     uDom('#buttonApply').toggleClass(
+         'disabled',
+-        filteringSettingsHash === hashFromCurrentFromSettings()
++        isClean
+     );
+     uDom('#buttonPurgeAll').toggleClass(
+         'disabled',
+diff --git a/src/js/dashboard.js b/src/js/dashboard.js
+index d038c5d..6139711 100644
+--- a/src/js/dashboard.js
++++ b/src/js/dashboard.js
+@@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
+         url = url.slice(0, pos);
+     }
+     url += this.hash;
+-    if ( url !== window.location.href ) {
++    if (
++        url !== window.location.href &&
++        ( !checkUnsavedChanges() || confirm(checkUnsavedChanges.msg) )
++    ) { 
+         window.location.replace(url);
+         loadDashboardPanel();
+     }
+@@ -81,4 +84,31 @@ loadDashboardPanel();
+ 
+ /******************************************************************************/
+ 
++let checkUnsavedChanges = function() {
++    const iframe = checkUnsavedChanges.iframe;
++    if ( iframe.src == '' ) {
++        return false;
++    } else {
++        return iframe.contentWindow.hasUnsavedChanges === true;
++    }
++};
++checkUnsavedChanges.iframe = document.getElementById('iframe');
++checkUnsavedChanges.msg = vAPI.i18n('dashboardUnsavedWarning');
++
++addEventListener('beforeunload', function(e) {
++    if ( checkUnsavedChanges() ) {
++        const msg = checkUnsavedChanges.msg;
++        // Old standard
++        e.returnValue = msg;
++        // New standard
++        if ( typeof e.preventDefault === 'function' ) {
++            e.preventDefault();
++        }
++        // Just in case
++        return msg;
++    }
++});
++
++/******************************************************************************/
++
+ })();
+diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
+index eb1d704..36ee7dd 100644
+--- a/src/js/dyna-rules.js
++++ b/src/js/dyna-rules.js
+@@ -25,6 +25,10 @@
+ 
+ /******************************************************************************/
+ 
++window.hasUnsavedChanges = false;
++
++/******************************************************************************/
++
+ (function() {
+ 
+ /******************************************************************************/
+@@ -339,6 +343,7 @@ var onTextChanged = (function() {
+             input.setAttribute('disabled', '');
+             CodeMirror.commands.save = editSaveHandler;
+         }
++        hasUnsavedChanges = !isClean;
+     };
+ 
+     return function(now) {
+diff --git a/src/js/udom.js b/src/js/udom.js
+index dc85e6b..553b4b3 100644
+--- a/src/js/udom.js
++++ b/src/js/udom.js
+@@ -675,20 +675,6 @@ DOMList.prototype.trigger = function(etype) {
+ 
+ /******************************************************************************/
+ 
+-// Cleanup
+-
+-var onBeforeUnload = function() {
+-    var entry;
+-    while ( (entry = listenerEntries.pop()) ) {
+-        entry.dispose();
+-    }
+-    window.removeEventListener('beforeunload', onBeforeUnload);
+-};
+-
+-window.addEventListener('beforeunload', onBeforeUnload);
+-
+-/******************************************************************************/
+-
+ return DOMListFactory;
+ 
+ })();
+diff --git a/src/js/whitelist.js b/src/js/whitelist.js
+index 13456f0..db7e9af 100644
+--- a/src/js/whitelist.js
++++ b/src/js/whitelist.js
+@@ -25,6 +25,10 @@
+ 
+ /******************************************************************************/
+ 
++window.hasUnsavedChanges = false;
++
++/******************************************************************************/
++
+ (function() {
+ 
+ /******************************************************************************/
+@@ -90,6 +94,7 @@ var whitelistChanged = function() {
+     uDom.nodeFromId('whitelistApply').disabled = !changed || bad;
+     uDom.nodeFromId('whitelistRevert').disabled = !changed;
+     CodeMirror.commands.save = changed && !bad ? applyChanges : noopFunc;
++    hasUnsavedChanges = changed;
+ };
+ 
+ cmEditor.on('changes', whitelistChanged);
