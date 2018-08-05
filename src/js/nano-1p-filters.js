@@ -35,6 +35,10 @@ nano.editor = new nano.Editor("userFilters", true, false);
 
 /*****************************************************************************/
 
+window.hasUnsavedChanges = false;
+
+/*****************************************************************************/
+
 nano.load_settings = () => {
     const on_msg = (wrap) => {
         nano.editor.set_line_wrap(wrap === true);
@@ -111,6 +115,8 @@ nano.filters_changed = (changed) => {
 
     apply_disable("userFiltersApply", !changed);
     apply_disable("userFiltersRevert", !changed);
+
+    hasUnsavedChanges = changed;
 };
 
 nano.filters_saved = () => {
