@@ -37,20 +37,20 @@
 
             // Housekeeping
 
-            "./patches/housekeeping/upd_about_page.patch",
-            "./patches/housekeeping/fix_version_parsing.patch",
-            "./patches/housekeeping/fix_vapi_icon.patch",
-            "./patches/housekeeping/fix_favicon.patch",
-            "./patches/housekeeping/fix_settings_migration.patch",
+            "./patches/housekeeping/00_0_about.patch",
+            "./patches/housekeeping/00_1_version_parsing.patch",
+            "./patches/housekeeping/00_2_vapi_icon.patch",
+            "./patches/housekeeping/00_3_favicon.patch",
+            "./patches/housekeeping/10_0_load_scripts.patch",
 
-            "./patches/housekeeping/int_nano_background.patch",
-            "./patches/housekeeping/int_compile_flags.patch",
-            "./patches/housekeeping/int_linter_results.patch",
-            "./patches/housekeeping/cos_popup_tweaks.patch",
-            "./patches/housekeeping/cos_dashboard_settings.patch",
+            "./patches/housekeeping/10_1_compile_flags.patch",
+            "./patches/housekeeping/10_2_linters.patch",
+            "./patches/housekeeping/20_0_popup_tweaks.patch",
+            "./patches/housekeeping/30_0_settings_tweaks.patch",
+            "./patches/housekeeping/30_1_editor_settings.patch",
 
-            "./patches/housekeeping/add_editor_settings.patch",
-            "./patches/housekeeping/doc_link_differences.patch",
+            "./patches/housekeeping/30_2_link_differences.patch",
+            "./patches/housekeeping/90_0_settings_migration.patch",
 
             /*****************************************************************/
 

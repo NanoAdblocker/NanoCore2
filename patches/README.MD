@@ -1,49 +1,34 @@
 # Patches
 
-Below are patches that could be interesting, other less interesting patches
-are in `housekeeping` directory. Note that some housekeeping tasks are
-included in the build script.
+More changes can be found in the `integration` directory. Note that some
+integration changes are handled by the build scripts.
 
-These patches must be applied after housekeeping changes. The order should not
-really matter.
+These patches must be applied after integration changes. The order *sometimes*
+matters, keep them in the same order when possible.
 
-## Bug Fixes
+## Group `00`: Bug Fixes
 
-`fix_textarea_spacing.patch`: Fix spacing of textarea, not all user agents
+`00_0_textarea_spacing.patch`: Fix spacing of textarea, not all user agents
 default to a monospace font.
 
-## Undo Regression
+## Group `10`: Undo Regression
 
-`reg_user_css.patch`: Disable UserCSS, this will unbreak the DOM inspector of
+`10_0_user_css.patch`: Disable UserCSS, this will unbreak the DOM inspector of
 the Logger.
 
-## Features
+## Group `20`: Minor Behavior Changes
 
-`upd_config_tweaks.patch`: Update default configuration.
+`20_0_configuration_tweaks.patch`: Update default configuration.
 
-`upd_hard_purge_any_key.patch`: Update purge button for cached assets to accept
-any special keys for hard purge mode.
+`20_1_header_parsing.patch`: Update header parsing to reset update period when
+filters loses the header entry.
 
-`upd_reset_hard.patch`: Update factory reset functionality to hard reset
+`20_2_hard_purge_any_key.patch`: Update purge button for cached assets to
+accept any special keys for hard purge mode.
+
+`20_3_reset_hard.patch`: Update factory reset functionality to hard reset
 everything.
 
-`upd_header_parsing.patch`: Update header parsing.
+## Group `30`: User Interface Changes
 
-`int_extended_resources.patch`: Integrate with extended resources and implement
-privileged filters system.
-
-`int_force_recompile.patch`: Enable force recompile filters button in advanced
-settings page.
-
-`int_force_scroll.patch`: Enable force scroll mode button in popup panel.
-
-`int_filter_linter.patch`: Integrate with filter linter.
-
-`int_filter_editor.patch`: Integrate with syntax highlighter and filter linter.
-
-`int_edgyfy.patch`: Integrate with Edgyfy. Only needed for Edge browser,
-although it is safe on other browsers.
-
-## Live Documentation
-
-`doc_link_resources.patch`: Link useful resources in the dashboard.
+`30_0_link_resources.patch`: Link useful resources in the dashboard.
