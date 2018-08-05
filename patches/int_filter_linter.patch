@@ -1,0 +1,462 @@
+diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
+index 58d56ff..b0fc1a0 100644
+--- a/src/js/cosmetic-filtering.js
++++ b/src/js/cosmetic-filtering.js
+@@ -621,7 +621,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
+         this.compileSpecificSelector(hostname, parsed, writer);
+     }
+     if ( applyGlobally ) {
+-        this.compileGenericSelector(parsed, writer);
++        this.compileGenericSelector(parsed, writer, true);
+     }
+ 
+     return true;
+@@ -639,7 +639,11 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
+ 
+ /******************************************************************************/
+ 
+-FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer) {
++FilterContainer.prototype.compileGenericHideSelector = function(
++    parsed,
++    writer,
++    nanoIsGlobal
++) {
+     let selector = parsed.suffix;
+ 
+     // For some selectors, it is mandatory to have a hostname or entity:
+@@ -661,6 +665,11 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+             'error',
+             'Cosmetic filtering – invalid generic filter: ##' + selector
+         );
++        if ( nanoIsGlobal === true ) {
++            nano.flintw('nano_l_filter_converted_to_exception');
++        } else {
++            nano.flinte('nano_l_filter_too_expensive');
++        }
+         return;
+     }
+ 
+@@ -668,7 +677,10 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+ 
+     if ( type === 0x23 /* '#' */ ) {
+         let key = this.keyFromSelector(selector);
+-        if ( key === undefined ) { return; }
++        if ( key === undefined ) {
++            nano.flinte('nano_l_filter_bad_selector');
++            return;
++        }
+         // Simple selector-based CSS rule: no need to test for whether the
+         // selector is valid, the regex took care of this. Most generic
+         // selector falls into that category.
+@@ -679,13 +691,18 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+         // Complex selector-based CSS rule.
+         if ( µb.staticExtFilteringEngine.compileSelector(selector) !== undefined ) {
+             writer.push([ 1 /* lg+ */, key.slice(1), selector ]);
++        } else {
++            nano.flinte('nano_l_filter_bad_selector');
+         }
+         return;
+     }
+ 
+     if ( type === 0x2E /* '.' */ ) {
+         let key = this.keyFromSelector(selector);
+-        if ( key === undefined ) { return; }
++        if ( key === undefined ) {
++            nano.flinte('nano_l_filter_bad_selector');
++            return;
++        }
+         // Simple selector-based CSS rule: no need to test for whether the
+         // selector is valid, the regex took care of this. Most generic
+         // selector falls into that category.
+@@ -696,12 +713,17 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+         // Complex selector-based CSS rule.
+         if ( µb.staticExtFilteringEngine.compileSelector(selector) !== undefined ) {
+             writer.push([ 3 /* lg+ */, key.slice(1), selector ]);
++        } else {
++            nano.flinte('nano_l_filter_bad_selector');
+         }
+         return;
+     }
+ 
+     let compiled = µb.staticExtFilteringEngine.compileSelector(selector);
+-    if ( compiled === undefined ) { return; }
++    if ( compiled === undefined ) {
++        nano.flinte('nano_l_filter_bad_selector');
++        return;
++    }
+     // TODO: Detect and error on procedural cosmetic filters.
+ 
+     // https://github.com/gorhill/uBlock/issues/909
+@@ -744,7 +766,10 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+ ) {
+     // Procedural cosmetic filters are acceptable as generic exception filters.
+     let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
+-    if ( compiled === undefined ) { return; }
++    if ( compiled === undefined ) {
++        nano.flinte('nano_l_filter_bad_selector');
++        return;
++    }
+ 
+     // https://github.com/chrisaljoudi/uBlock/issues/497
+     //   All generic exception filters are put in the same bucket: they are
+@@ -767,7 +792,10 @@ FilterContainer.prototype.compileSpecificSelector = function(
+     }
+ 
+     let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
+-    if ( compiled === undefined ) { return; }
++    if ( compiled === undefined ) {
++        nano.flinte('nano_l_filter_bad_selector');
++        return;
++    }
+ 
+     // https://github.com/chrisaljoudi/uBlock/issues/188
+     // If not a real domain as per PSL, assign a synthetic one
+diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
+index f4d2c39..ea2d22b 100644
+--- a/src/js/html-filtering.js
++++ b/src/js/html-filtering.js
+@@ -228,7 +228,10 @@
+     api.compile = function(parsed, writer) {
+         var selector = parsed.suffix.slice(1).trim(),
+             compiled = µb.staticExtFilteringEngine.compileSelector(selector);
+-        if ( compiled === undefined ) { return; }
++        if ( compiled === undefined ) {
++            nano.flinte('nano_l_filter_bad_selector');
++            return;
++        }
+ 
+         // 1002 = html filtering
+         writer.select(1002);
+@@ -236,7 +239,10 @@
+         // TODO: Mind negated hostnames, they are currently discarded.
+ 
+         for ( var hostname of parsed.hostnames ) {
+-            if ( hostname.charCodeAt(0) === 0x7E /* '~' */ ) { continue; }
++            if ( hostname.charCodeAt(0) === 0x7E /* '~' */ ) {
++                nano.flintw('nano_l_filter_negated_html_filtering');
++                continue;
++            }
+             var domain = µb.URI.domainFromHostname(hostname);
+             writer.push([
+                 compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
+diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
+index 14a47bc..ccb54b6 100644
+--- a/src/js/redirect-engine.js
++++ b/src/js/redirect-engine.js
+@@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+     var matches = this.reFilterParser.exec(line);
+     if ( matches === null || matches.length !== 4 ) {
++        nano.flintw(
++            'nano_r_does_not_match_re',
++            ['{{regexp}}', this.reFilterParser.toString()]
++        );
+         return;
+     }
+     var µburi = µBlock.URI,
+@@ -329,6 +333,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+         // One and only one type must be specified.
+         if ( option in this.supportedTypes ) {
+             if ( type !== undefined ) {
++                nano.flintw('nano_r_too_many_types');
+                 return;
+             }
+             type = this.supportedTypes[option];
+@@ -338,11 +343,13 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+ 
+     // Need a resource token.
+     if ( redirect === '' ) {
++        nano.flintw('nano_r_no_resource_token');
+         return;
+     }
+ 
+     // Need one single type -- not negated.
+     if ( type === undefined || type.startsWith('~') ) {
++        nano.flintw('nano_r_no_supported_type');
+         return;
+     }
+ 
+@@ -362,11 +369,16 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+             continue;
+         }
+         if ( src.startsWith('~') ) {
++            nano.flintw('nano_r_negated_domain');
+             continue;
+         }
+         out.push(src + '\t' + des + '\t' + type + '\t' + pattern + '\t' + redirect);
+     }
+ 
++    if ( out.length === 0 ) {
++        nano.flintw('nano_r_no_destination');
++    }
++
+     return out;
+ };
+ 
+diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
+index 03c6c5b..2e1b2ea 100644
+--- a/src/js/scriptlet-filtering.js
++++ b/src/js/scriptlet-filtering.js
+@@ -245,6 +245,8 @@
+         if ( parsed.hostnames.length === 0 ) {
+             if ( parsed.exception ) {
+                 writer.push([ 32, '!', '', parsed.suffix ]);
++            } else {
++                nano.flinte('nano_l_filter_too_expensive');
+             }
+             return;
+         }
+@@ -254,6 +256,7 @@
+             !nano.cf.is_privileged &&
+             nanoInjectArgs.startsWith(nano.privileged_assets_previx)
+         ) {
++            nano.flinte('nano_l_filter_assets_access_violation');
+             return;
+         }
+ 
+@@ -270,7 +273,10 @@
+             }
+             var hash = µburi.domainFromHostname(hostname);
+             if ( parsed.exception ) {
+-                if ( negated ) { continue; }
++                if ( negated ) {
++                    nano.flintw('nano_l_filter_script_snippet_double_exception');
++                    continue;
++                }
+                 hash = '!' + hash;
+             } else if ( negated ) {
+                 hash = '!' + hash;
+diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
+index dea5ad3..1ac5a40 100644
+--- a/src/js/static-ext-filtering.js
++++ b/src/js/static-ext-filtering.js
+@@ -628,7 +628,10 @@
+         var cCode = raw.charCodeAt(rpos - 1);
+         if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
+             // Adguard's scriptlet injection: not supported.
+-            if ( cCode === 0x25 /* '%' */ ) { return true; }
++            if ( cCode === 0x25 /* '%' */ ) {
++                nano.flinte('nano_l_filter_ag_js_injection');
++                return true;
++            }
+             // Not a known extended filter.
+             if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
+                 return false;
+@@ -636,7 +639,10 @@
+             // Adguard's style injection: translate to uBO's format.
+             if ( cCode === 0x24 /* '$' */ ) {
+                 suffix = translateAdguardCSSInjectionFilter(suffix);
+-                if ( suffix === '' ) { return true; }
++                if ( suffix === '' ) {
++                    nano.flinte('nano_l_filter_style_injection_syntax_error');
++                    return true;
++                }
+                 parsed.suffix = suffix;
+             }
+         }
+@@ -669,6 +675,7 @@
+                 );
+                 suffix = suffix.replace(/^script:contains/, '^script:has-text');
+                 parsed.suffix = suffix;
++                nano.flintw('nano_l_filter_script_contains');
+             }
+         }
+ 
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index 5849efa..e6bfa24 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -1468,6 +1468,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+ 
+     // Non-discrete network types can't be negated.
+     if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
++        nano.flintw(
++            'nano_l_filter_discarded_non_negatable_type',
++            ['{{type}}', raw]
++        );
+         return;
+     }
+ 
+@@ -1540,6 +1544,7 @@ FilterParser.prototype.parseOptions = function(s) {
+                 continue;
+             }
+             this.unsupported = true;
++            nano.flinte('nano_l_filter_negated_generichide');
+             break;
+         }
+         // Test before handling all other types.
+@@ -1549,6 +1554,7 @@ FilterParser.prototype.parseOptions = function(s) {
+                 continue;
+             }
+             this.unsupported = true;
++            nano.flinte('nano_r_redirect_in_exception');
+             break;
+         }
+         if ( this.toNormalizedType.hasOwnProperty(opt) ) {
+@@ -1562,6 +1568,7 @@ FilterParser.prototype.parseOptions = function(s) {
+             this.domainOpt = this.parseDomainOption(opt.slice(7));
+             if ( this.domainOpt === '' ) {
+                 this.unsupported = true;
++                nano.flinte('nano_l_filter_bad_domain_option_arguments');
+                 break;
+             }
+             continue;
+@@ -1579,6 +1586,8 @@ FilterParser.prototype.parseOptions = function(s) {
+                 this.parseTypeOption('data', not);
+                 this.dataType = 'csp';
+                 this.dataStr = opt.slice(4).trim();
++            } else {
++                nano.flinte('nano_l_filter_bad_csp_option_arguments');
+             }
+             continue;
+         }
+@@ -1599,6 +1608,7 @@ FilterParser.prototype.parseOptions = function(s) {
+         }
+         // Unrecognized filter option: ignore whole filter.
+         this.unsupported = true;
++        nano.flinte('nano_l_filter_unknown_option', ['{{option}}', opt]);
+         break;
+     }
+ };
+@@ -1726,6 +1736,7 @@ FilterParser.prototype.parse = function(raw) {
+         if ( c === '#' || c === '@' ) {
+             console.error('static-net-filtering.js > unexpected cosmetic filters');
+             this.elemHiding = true;
++            nano.flinte('nano_b_cosmetic_filter_passed_through');
+             return this;
+         }
+     }
+@@ -1748,6 +1759,7 @@ FilterParser.prototype.parse = function(raw) {
+             //   Discard Adguard-specific `$$` filters.
+             if ( s.indexOf('$$') !== -1 ) {
+                 this.unsupported = true;
++                nano.flinte('nano_l_filter_ag_element_remove');
+                 return this;
+             }
+             this.parseOptions(s.slice(pos + 1));
+@@ -1758,7 +1770,10 @@ FilterParser.prototype.parse = function(raw) {
+                 this.types &= ~this.unsupportedTypeBit;
+                 if ( this.types === 0 ) {
+                     this.unsupported = true;
++                    nano.flinte('nano_l_filter_only_unsupported_type');
+                     return this;
++                } else {
++                    nano.flintw('nano_l_filter_unsupported_type_ignored');
+                 }
+             }
+             s = s.slice(0, pos);
+@@ -1780,6 +1795,7 @@ FilterParser.prototype.parse = function(raw) {
+                 normalizeRegexSource.message
+             );
+             this.unsupported = true;
++            nano.flinte('nano_l_filter_bad_re');
+         }
+         return this;
+     }
+@@ -1804,6 +1820,7 @@ FilterParser.prototype.parse = function(raw) {
+         // https://github.com/chrisaljoudi/uBlock/issues/1096
+         if ( s.startsWith('^') ) {
+             this.unsupported = true;
++            nano.flinte('nano_l_filter_intervention_smed79');
+             return this;
+         }
+ 
+@@ -2216,6 +2233,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+     // Typeless
+     if ( type === 0 ) {
+         writer.push([ descBits, parsed.tokenHash, fdata ]);
++        if ( parsed.redirect ) {
++            nano.flintw('nano_r_no_type');
++        }
+         return;
+     }
+ 
+diff --git a/src/js/storage.js b/src/js/storage.js
+index c68fa46..7fb4da3 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -394,7 +394,11 @@
+     // https://github.com/gorhill/uBlock/issues/1022
+     // Be sure to end with an empty line.
+     content = content.trim();
+-    if ( content !== '' ) { content += '\n'; }
++    if ( content !== '' ) {
++        content += '\n';
++    } else {
++        nano.fl.clear_result();
++    }
+     this.assets.put(this.userFiltersPath, content, callback);
+     this.removeCompiledFilterList(this.userFiltersPath);
+ };
+@@ -792,6 +796,12 @@
+     var writer = new this.CompiledLineWriter();
+ 
+     nano.cf.update(nanoKey);
++    if ( nanoKey === nano.ub.userFiltersPath ) {
++        nano.fl.reset();
++        nano.fl.changed = true;
++    } else if ( nanoKey === nano.ub.nanoPartialUserFiltersPath ) {
++        nano.fl.line++;
++    }
+ 
+     // Useful references:
+     //    https://adblockplus.org/en/filter-cheatsheet
+@@ -806,6 +816,10 @@
+         lineIter = new this.LineIterator(this.processDirectives(rawText));
+ 
+     while ( lineIter.eot() === false ) {
++        if ( nano.cf.first_party ) {
++            nano.fl.line++;
++        }
++
+         // rhill 2014-04-18: The trim is important here, as without it there
+         // could be a lingering `\r` which would cause problems in the
+         // following parsing code.
+@@ -814,7 +828,11 @@
+ 
+         // Strip comments
+         c = line.charAt(0);
+-        if ( c === '!' || c === '[' ) { continue; }
++        if ( c === '!' ) { continue; }
++        if ( c === '[' ) {
++            nano.flintw('nano_l_filter_comment_bracket');
++            continue;
++        }
+ 
+         // Parse or skip cosmetic filters
+         // All cosmetic filters are caught here
+@@ -835,6 +853,7 @@
+         pos = line.indexOf('#');
+         if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
+             line = line.slice(0, pos).trim();
++            nano.flintw('nano_l_filter_inline_comment');
+         }
+ 
+         // https://github.com/gorhill/httpswitchboard/issues/15
+@@ -844,15 +863,24 @@
+             // Ignore hosts file redirect configuration
+             // 127.0.0.1 localhost
+             // 255.255.255.255 broadcasthost
+-            if ( reIsLocalhostRedirect.test(line) ) { continue; }
++            if ( reIsLocalhostRedirect.test(line) ) {
++                nano.flinte('nano_l_filter_localhost_entry');
++                continue;
++            }
+             line = line.replace(reLocalIp, '').trim();
+         }
+ 
+-        if ( line.length === 0 ) { continue; }
++        if ( line.length === 0 ) {
++            nano.flinte('nano_l_filter_localhost_entry');
++            continue;
++        }
+ 
+         staticNetFilteringEngine.compile(line, writer);
+     }
+ 
++    if ( nano.cf.first_party ) {
++        nano.fl.cache_result();
++    }
+     nano.cf.reset();
+ 
+     return writer.toString();
