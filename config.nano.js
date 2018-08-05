@@ -47,6 +47,7 @@
             "./patches/integration/10_5_linters.patch",
             "./patches/integration/10_6_lint_filters.patch",
             "./patches/integration/10_7_filter_editor.patch",
+            "./patches/integration/10_8_filter_viewer.patch",
 
             "./patches/integration/20_0_popup_tweaks.patch",
             "./patches/integration/20_1_force_scroll.patch",

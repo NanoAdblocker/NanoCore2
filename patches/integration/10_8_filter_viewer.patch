@@ -1,0 +1,44 @@
+diff --git a/src/asset-viewer.html b/src/asset-viewer.html
+index 4899334..4a4cbe7 100644
+--- a/src/asset-viewer.html
++++ b/src/asset-viewer.html
+@@ -3,11 +3,7 @@
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+-<title>uBlock — Asset</title>
+-<link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+-<link rel="stylesheet" href="lib/codemirror/addon/search/matchesonscrollbar.css">
+-<link rel="stylesheet" href="css/common.css">
+-<link rel="stylesheet" href="css/codemirror.css">
++<title data-i18n="nano_v_title"></title>
+ <link rel="shortcut icon" type="image/png" href="img/icon_16.png"/>
+ <style>
+ body {
+@@ -25,22 +21,16 @@ body {
+ 
+ <div id="content" class="codeMirrorContainer"></div>
+ 
+-<script src="lib/codemirror/lib/codemirror.js"></script>
+-<script src="lib/codemirror/addon/display/panel.js"></script>
+-<script src="lib/codemirror/addon/scroll/annotatescrollbar.js"></script>
+-<script src="lib/codemirror/addon/search/matchesonscrollbar.js"></script>
+-<script src="lib/codemirror/addon/search/searchcursor.js"></script>
+-<script src="lib/codemirror/addon/selection/active-line.js"></script>
+-
+-<script src="js/codemirror/search.js"></script>
+-<script src="js/codemirror/ubo-static-filtering.js"></script>
++<script src="lib/ace/ace-1.2.9.js"></script>
++<script src="lib/ace/ext-searchbox-1.2.9.js"></script>
++<script src="js/nano-editor.js"></script>
+ 
+ <script src="js/vapi.js"></script>
+ <script src="js/vapi-common.js"></script>
+ <script src="js/vapi-client.js"></script>
+ <script src="js/udom.js"></script>
+ <script src="js/dashboard-common.js"></script>
+-<script src="js/asset-viewer.js"></script>
++<script src="js/nano-asset-viewer.js"></script>
+ 
+ </body>
+ </html>

@@ -83,7 +83,7 @@ nano.render_filter = () => {
         vAPI.messaging.send(
             "default",
             {
-                what: "etAssetContent",
+                what: "getAssetContent",
                 url: decodeURIComponent(nano.active_asset)
             },
             on_msg
@@ -94,8 +94,8 @@ nano.render_filter = () => {
 /*****************************************************************************/
 
 nano.init = () => {
-    const matche = location.search.match(/^\?url=([^&]+)/);
-    if (matche !== null)
+    const match = location.search.match(/^\?url=([^&]+)/);
+    if (match !== null)
         nano.active_asset = match[1];
 
     nano.load_settings();

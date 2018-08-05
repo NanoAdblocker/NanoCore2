@@ -32,6 +32,8 @@ settings page.
 
 `10_7_filter_editor.patch`: Enable new filter editor.
 
+`10_8_filter_viewer.patch`: Enable new filter viewer.
+
 ## Group `20`: Popup Changes
 
 `20_0_popup_tweaks.patch`: Cosmetic tweaks to the popup.
