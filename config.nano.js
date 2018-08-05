@@ -32,39 +32,58 @@
         /*********************************************************************/
 
         Patches: [
+
+            /*****************************************************************/
+
             // Housekeeping
+
             "./patches/housekeeping/upd_about_page.patch",
             "./patches/housekeeping/fix_version_parsing.patch",
             "./patches/housekeeping/fix_vapi_icon.patch",
             "./patches/housekeeping/fix_favicon.patch",
             "./patches/housekeeping/fix_settings_migration.patch",
+
             "./patches/housekeeping/int_nano_background.patch",
             "./patches/housekeeping/int_compile_flags.patch",
+            "./patches/housekeeping/int_linter_results.patch",
             "./patches/housekeeping/cos_popup_tweaks.patch",
             "./patches/housekeeping/cos_dashboard_settings.patch",
+
             "./patches/housekeeping/add_editor_settings.patch",
             "./patches/housekeeping/doc_link_differences.patch",
 
+            /*****************************************************************/
+
             // Bug fixes
+
             "./patches/fix_textarea_spacing.patch",
 
+
             // Undo regression
+
             "./patches/reg_user_css.patch",
 
+
             // Features
+
             "./patches/upd_config_tweaks.patch",
             "./patches/upd_hard_purge_any_key.patch",
             "./patches/upd_reset_hard.patch",
             "./patches/upd_header_parsing.patch",
             "./patches/int_extended_resources.patch",
+
             "./patches/int_force_recompile.patch",
             "./patches/int_force_scroll.patch",
-            "./patches/int_linter_results.patch",
             "./patches/int_filter_linter.patch",
+            "./patches/int_filter_editor.patch",
             "./patches/int_edgyfy.patch",
 
             // Live documentation
+
             "./patches/doc_link_resources.patch",
+
+            /*****************************************************************/
+
         ],
 
         /*********************************************************************/

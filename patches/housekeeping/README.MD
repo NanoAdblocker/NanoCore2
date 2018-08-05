@@ -21,6 +21,8 @@ These patches must be applied in order.
 
 `int_compile_flags.patch`: Integrate with compile flags.
 
+`int_linter_results.patch`: Enable linter results passing.
+
 `cos_popup_tweaks.patch`: Cosmetic tweaks to the popup.
 
 `cos_dashboard_settings.patch`: Cosmetic tweaks to dashboard settings tab.
