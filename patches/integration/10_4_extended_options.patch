@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index ccb54b6..d1a273b 100644
+index 14a47bc..259bf5c 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -326,7 +326,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -322,7 +322,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
              srcs = option.slice(7).split('|');
              continue;
          }
@@ -11,7 +11,7 @@ index ccb54b6..d1a273b 100644
              srcs.push(µburi.domainFromHostname(des) || des);
              continue;
          }
-@@ -396,6 +396,12 @@ RedirectEngine.prototype.supportedTypes = (function() {
+@@ -384,6 +384,12 @@ RedirectEngine.prototype.supportedTypes = (function() {
      types.stylesheet = 'stylesheet';
      types.subdocument = 'sub_frame';
      types.xmlhttprequest = 'xmlhttprequest';
@@ -25,7 +25,7 @@ index ccb54b6..d1a273b 100644
  })();
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index e6bfa24..a646d51 100644
+index 5849efa..0bf13be 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1416,7 +1416,10 @@ FilterParser.prototype.toNormalizedType = {
@@ -40,7 +40,7 @@ index e6bfa24..a646d51 100644
  };
  
  /******************************************************************************/
-@@ -1538,7 +1541,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1534,7 +1537,7 @@ FilterParser.prototype.parseOptions = function(s) {
          // https://issues.adblockplus.org/ticket/616
          // `generichide` concept already supported, just a matter of
          // adding support for the new keyword.
@@ -49,7 +49,7 @@ index e6bfa24..a646d51 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -1597,9 +1600,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1588,9 +1591,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }

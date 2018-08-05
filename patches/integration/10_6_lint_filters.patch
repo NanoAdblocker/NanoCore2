@@ -140,7 +140,7 @@ index f4d2c39..ea2d22b 100644
              writer.push([
                  compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 14a47bc..ccb54b6 100644
+index 259bf5c..d1a273b 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -263,10 +263,10 @@ index dea5ad3..1ac5a40 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5849efa..e6bfa24 100644
+index 0bf13be..a646d51 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1468,6 +1468,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+@@ -1471,6 +1471,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
  
      // Non-discrete network types can't be negated.
      if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
@@ -277,7 +277,7 @@ index 5849efa..e6bfa24 100644
          return;
      }
  
-@@ -1540,6 +1544,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1543,6 +1547,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -285,7 +285,7 @@ index 5849efa..e6bfa24 100644
              break;
          }
          // Test before handling all other types.
-@@ -1549,6 +1554,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1552,6 +1557,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -293,7 +293,7 @@ index 5849efa..e6bfa24 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1562,6 +1568,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1565,6 +1571,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -301,7 +301,7 @@ index 5849efa..e6bfa24 100644
                  break;
              }
              continue;
-@@ -1579,6 +1586,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1582,6 +1589,8 @@ FilterParser.prototype.parseOptions = function(s) {
                  this.parseTypeOption('data', not);
                  this.dataType = 'csp';
                  this.dataStr = opt.slice(4).trim();
@@ -310,7 +310,7 @@ index 5849efa..e6bfa24 100644
              }
              continue;
          }
-@@ -1599,6 +1608,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1604,6 +1613,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -318,7 +318,7 @@ index 5849efa..e6bfa24 100644
          break;
      }
  };
-@@ -1726,6 +1736,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1731,6 +1741,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -326,7 +326,7 @@ index 5849efa..e6bfa24 100644
              return this;
          }
      }
-@@ -1748,6 +1759,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1753,6 +1764,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -334,7 +334,7 @@ index 5849efa..e6bfa24 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1758,7 +1770,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1763,7 +1775,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -345,7 +345,7 @@ index 5849efa..e6bfa24 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1780,6 +1795,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1785,6 +1800,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -353,7 +353,7 @@ index 5849efa..e6bfa24 100644
          }
          return this;
      }
-@@ -1804,6 +1820,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1809,6 +1825,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -361,7 +361,7 @@ index 5849efa..e6bfa24 100644
              return this;
          }
  
-@@ -2216,6 +2233,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2221,6 +2238,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
