@@ -579,7 +579,7 @@ nano.Editor = function (elem, highlight, readonly) {
 /*****************************************************************************/
 
 nano.Editor.prototype.set_line_wrap = function (wrap) {
-    this.session.setUseWrapMode(lineWrap);
+    this.session.setUseWrapMode(wrap);
 };
 
 nano.Editor.prototype.set_value_focus = function (val, cursor, keep_anno) {
