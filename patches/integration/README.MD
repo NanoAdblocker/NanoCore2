@@ -1,9 +1,6 @@
 # Housekeeping Patches
 
-These patches are for rebranding and other housekeeping changes. They are not
-very interesting, but are important to keep the extension working properly.
-
-Must be applied in order.
+These patches must be applied in order.
 
 ## Group `00`: Rebranding
 
@@ -26,6 +23,8 @@ implement privileged filters system.
 
 `10_3_force_recompile.patch`: Enable force recompile filters button in advanced
 settings page.
+
+(Missing 4, TODO)
 
 `10_5_linters.patch`: Integrate with linters.
 

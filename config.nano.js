@@ -35,52 +35,41 @@
 
             /*****************************************************************/
 
-            // Housekeeping
+            "./patches/integration/00_0_about.patch",
+            "./patches/integration/00_1_version_parsing.patch",
+            "./patches/integration/00_2_vapi_icon.patch",
+            "./patches/integration/00_3_favicon.patch",
 
-            "./patches/housekeeping/00_0_about.patch",
-            "./patches/housekeeping/00_1_version_parsing.patch",
-            "./patches/housekeeping/00_2_vapi_icon.patch",
-            "./patches/housekeeping/00_3_favicon.patch",
-            "./patches/housekeeping/10_0_load_scripts.patch",
+            "./patches/integration/10_0_load_scripts.patch",
+            "./patches/integration/10_1_compile_flags.patch",
+            "./patches/integration/10_2_extended_resources.patch",
+            "./patches/integration/10_3_force_recompile.patch",
+            "./patches/integration/10_5_linters.patch",
+            "./patches/integration/10_6_lint_filters.patch",
+            "./patches/integration/10_7_filter_editor.patch",
 
-            "./patches/housekeeping/10_1_compile_flags.patch",
-            "./patches/housekeeping/10_2_linters.patch",
-            "./patches/housekeeping/20_0_popup_tweaks.patch",
-            "./patches/housekeeping/30_0_settings_tweaks.patch",
-            "./patches/housekeeping/30_1_editor_settings.patch",
+            "./patches/integration/20_0_popup_tweaks.patch",
+            "./patches/integration/20_1_force_scroll.patch",
 
-            "./patches/housekeeping/30_2_link_differences.patch",
-            "./patches/housekeeping/90_0_settings_migration.patch",
+            "./patches/integration/30_0_settings_tweaks.patch",
+            "./patches/integration/30_1_editor_settings.patch",
+            "./patches/integration/30_2_link_differences.patch",
+
+            "./patches/integration/90_0_edgyfy.patch",
+            "./patches/integration/90_1_settings_migration.patch",
 
             /*****************************************************************/
 
-            // Bug fixes
+            "./patches/00_0_textarea_spacing.patch",
 
-            "./patches/fix_textarea_spacing.patch",
+            "./patches/10_0_user_css.patch",
 
+            "./patches/20_0_configuration_tweaks.patch",
+            "./patches/20_1_header_parsing.patch",
+            "./patches/20_2_hard_purge_any_key.patch",
+            "./patches/20_3_reset_hard.patch",
 
-            // Undo regression
-
-            "./patches/reg_user_css.patch",
-
-
-            // Features
-
-            "./patches/upd_config_tweaks.patch",
-            "./patches/upd_hard_purge_any_key.patch",
-            "./patches/upd_reset_hard.patch",
-            "./patches/upd_header_parsing.patch",
-            "./patches/int_extended_resources.patch",
-
-            "./patches/int_force_recompile.patch",
-            "./patches/int_force_scroll.patch",
-            "./patches/int_filter_linter.patch",
-            "./patches/int_filter_editor.patch",
-            "./patches/int_edgyfy.patch",
-
-            // Live documentation
-
-            "./patches/doc_link_resources.patch",
+            "./patches/30_0_link_resources.patch",
 
             /*****************************************************************/
 
