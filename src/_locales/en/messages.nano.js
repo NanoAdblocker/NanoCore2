@@ -105,8 +105,8 @@
         },
 
         "nano_v_read_error": {
-            "message": "Could not load data, please refresh.",
-            "description": "Error when filter data could not be loaded",
+            "message": "Could not load content, please refresh.",
+            "description": "Error when filter content could not be loaded",
         },
 
         /*********************************************************************/
