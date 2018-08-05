@@ -38,10 +38,10 @@ index d1a273b..0ecf14c 100644
          return;
      }
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 989e600..49190f2 100644
+index 989e600..550d184 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2138,12 +2138,6 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
+@@ -2138,12 +2138,7 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
  FilterContainer.prototype.compile = function(raw, writer) {
      // ORDER OF TESTS IS IMPORTANT!
  
@@ -51,6 +51,7 @@ index 989e600..49190f2 100644
 -        return false;
 -    }
 -
++    var s = raw;
      var parsed = this.filterParser.parse(s);
  
      // Ignore element-hiding filters

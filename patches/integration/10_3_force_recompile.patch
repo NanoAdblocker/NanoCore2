@@ -12,7 +12,7 @@ index 046b60f..d119058 100644
  
  <script src="js/vapi.js"></script>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index 9742187..fb4f7f5 100644
+index 9742187..2b5de61 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
 @@ -103,9 +103,21 @@ var applyChanges = function() {
@@ -23,7 +23,7 @@ index 9742187..fb4f7f5 100644
 +    messaging.send(
 +        'dashboard',
 +        {
-+            what: 'nano_force_recompile'
++            what: 'nanoForceRecompile'
 +        }
 +    );
 +};
