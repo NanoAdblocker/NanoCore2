@@ -45,7 +45,7 @@ index 002a9c1..73834b8 100644
          µb.changeHiddenSettings(µb.hiddenSettingsFromString(request.content));
          break;
  
-+    case 'nano_force_recompile':
++    case 'nanoForceRecompile':
 +        nano.recompile_filters();
 +        break;
 +

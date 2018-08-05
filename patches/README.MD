@@ -37,6 +37,8 @@ settings page.
 
 `int_force_scroll.patch`: Enable force scroll mode button in popup panel.
 
+`int_linter_results.patch`: Enable linter results passing.
+
 `int_filter_linter.patch`: Integrate with filter linter.
 
 `int_edgyfy.patch`: Integrate with Edgyfy. Only needed for Edge browser,

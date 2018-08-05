@@ -59,6 +59,7 @@
             "./patches/int_extended_resources.patch",
             "./patches/int_force_recompile.patch",
             "./patches/int_force_scroll.patch",
+            "./patches/int_linter_results.patch",
             "./patches/int_filter_linter.patch",
             "./patches/int_edgyfy.patch",
 

@@ -1,0 +1,18 @@
+diff --git a/src/js/messaging.js b/src/js/messaging.js
+index dfa5a56..c0347e1 100644
+--- a/src/js/messaging.js
++++ b/src/js/messaging.js
+@@ -1046,6 +1046,13 @@ var onMessage = function(request, sender, callback) {
+         nano.recompile_filters();
+         break;
+ 
++    case 'nanoGetFilterLinterResult':
++        response = {
++            errors: nano.fl.errors,
++            warnings: nano.fl.warnings
++        };
++        break;
++
+     default:
+         return vAPI.messaging.UNHANDLED;
+     }

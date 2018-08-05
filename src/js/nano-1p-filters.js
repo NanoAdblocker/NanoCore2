@@ -82,7 +82,8 @@ nano.render_filters = (first) => {
 
 nano.render_anno = () => {
     const on_msg = (data) => {
-        nano.editor.set_anno(data.errors.concat(data.warnings));
+        if (data)
+            nano.editor.set_anno(data.errors.concat(data.warnings));
     };
 
     vAPI.messaging.send(
