@@ -404,7 +404,6 @@ cmd_handlers.set("config", () => {
 cmd_handlers.set("reload", async () => {
     busy = true;
 
-    // TODO: Restore last configuration data on error?
     await config_load();
 
     busy = false;

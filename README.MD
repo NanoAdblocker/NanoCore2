@@ -9,17 +9,17 @@ Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
 ## Setup
 
 1. Install latest version of Git and Node.js.
-2. Navigate to `term` directory and run `npm install`.
-3. Update `config.json` as appropriate.
-4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
-   appropriate directory to get upstream. Check out a tag or commit as
-   appropriate.
-5. Run these commands in an appropriate directory to get files needed to build
-   Nano Core 2.
+2. In an appropriate directory, run:
    - `git clone --depth 1 https://github.com/NanoAdblocker/NanoCore2.git`
    - `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
    - `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
-6. Run `node ./term` to open Nano Core 2 Terminal.
+3. In Nano Core 2 repository:
+   - Navigate to `term` directory and run `npm install`.
+   - Update `config.json` as appropriate.
+4. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
+   appropriate directory to get upstream. Check out a tag or commit as
+   appropriate.
+5. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
