@@ -19,7 +19,7 @@ Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
 4. In Nano Core 2 repository:
    - Navigate to `./term` directory and run `npm install`.
    - Update `./config.json` as appropriate.
-   - Run `node ./term` to open Nano Core 2 Terminal.
+   - Run `node ./term` (in repository root) to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
