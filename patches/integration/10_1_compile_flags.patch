@@ -19,6 +19,45 @@ index d711a61..e70090a 100644
          pslAssetKey: 'public_suffix_list.dat',
  
          selectedFilterLists: [],
+diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
+index dea5ad3..5161a9d 100644
+--- a/src/js/static-ext-filtering.js
++++ b/src/js/static-ext-filtering.js
+@@ -644,6 +644,8 @@
+         // Exception filter?
+         parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
+ 
++        if ( parsed.exception && nano.cf.strip_whitelist ) { return true; }
++
+         // Extract the hostname(s), punycode if required.
+         if ( lpos === 0 ) {
+             parsed.hostnames = emptyArray;
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index 5849efa..a49ef00 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -1594,6 +1594,10 @@ FilterParser.prototype.parseOptions = function(s) {
+         }
+         // https://github.com/uBlockOrigin/uAssets/issues/192
+         if ( opt === 'badfilter' ) {
++            if ( nano.cf.strip_whitelist ) {
++                this.unsupported = true;
++                break;
++            }
+             this.badFilter = BadFilter;
+             continue;
+         }
+@@ -1733,6 +1737,10 @@ FilterParser.prototype.parse = function(raw) {
+     // block or allow filter?
+     // Important: this must be executed before parsing options
+     if ( s.startsWith('@@') ) {
++        if ( nano.cf.strip_whitelist ) {
++            this.unsupported = true;
++            return this;
++        }
+         this.action = AllowAction;
+         s = s.slice(2);
+     }
 diff --git a/src/js/storage.js b/src/js/storage.js
 index f8c429d..856abab 100644
 --- a/src/js/storage.js

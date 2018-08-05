@@ -25,7 +25,7 @@ index 14a47bc..259bf5c 100644
  })();
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5849efa..0bf13be 100644
+index a49ef00..b1eef4a 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1416,7 +1416,10 @@ FilterParser.prototype.toNormalizedType = {
