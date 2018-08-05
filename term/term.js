@@ -36,17 +36,17 @@ const child_process = require("child_process");
 
 /**
  * Terminal class.
- * Only one instance can be active at any given time.
+ * Up to one terminal manager can be active at any given time.
  * Unless otherwise mentioned, all methods return the keyword this. Note that
  * the constructor and destructor are not considered to be methods.
  * @class
  */
 module.exports = class {
     /**
-     * Constructor, setup terminal.
+     * Constructor.
      * @constructor
      * @param {Function} [func] - Command handler.
-     *     @param {string} cmd - The command, trimmed.
+     *     @param {string} cmd - Incoming command, trimmed.
      */
     constructor(func) {
         if (func)
@@ -108,7 +108,7 @@ module.exports = class {
      * This will replace the current listener if there is one.
      * @method
      * @param {Function} func - Command handler.
-     *     @param {string} cmd - The command, trimmed.
+     *     @param {string} cmd - Incoming command, trimmed.
      */
     set_listener(func) {
         this._func = func;
@@ -134,7 +134,7 @@ module.exports = class {
      *     {string} cwd - Working directory to execute the command.
      *     {Function} [on_data] - Listener for stdout.
      *         @param {string} data - Data from stdout of the command.
-     * @return {integer} exit_code - Exit code.
+     * @return {integer} Exit code.
      */
     exec(cmd, opt, ...args) {
         return new Promise((resolve, reject) => {

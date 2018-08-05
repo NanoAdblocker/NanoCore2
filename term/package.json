@@ -1,5 +1,8 @@
 {
   "author": "jspenguin2017",
+  "bugs": {
+    "url": "https://github.com/NanoAdblocker/NanoCore/issues"
+  },
   "dependencies": {
     "archiver": "~2.1.1",
     "esprima": "~4.0.1",
