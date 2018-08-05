@@ -38,7 +38,7 @@ index 9742187..fb4f7f5 100644
  renderAdvancedSettings();
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 002a9c1..73834b8 100644
+index 002a9c1..195f7c6 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -1038,6 +1038,10 @@ var onMessage = function(request, sender, callback) {
