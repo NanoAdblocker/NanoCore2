@@ -65,6 +65,17 @@ const exec = async (expected, ...args) => {
         throw new Error("Exit code is not " + expected.toString() + ".");
 };
 
+/**
+ * Asynchronously wait for a given amount of time.
+ * @async @function
+ * @param {integer} delay - Time to sleep, in milliseconds.
+ */
+const sleep = (delay) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, delay);
+    });
+};
+
 /*****************************************************************************/
 
 /**
@@ -210,6 +221,10 @@ cmd_handlers.set("reset", async () => {
 
     try {
         await fs.remove(config.Target);
+
+        // Need to wait a bit or there could be problems on Windows
+        await sleep(100);
+
         await fs.copy(config.Source, config.Target);
     } catch (err) {
         term.write_line(err.stack);
