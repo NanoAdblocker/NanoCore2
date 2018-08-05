@@ -1,0 +1,69 @@
+diff --git a/src/js/assets.js b/src/js/assets.js
+index fbe4a61..9ab4e70 100644
+--- a/src/js/assets.js
++++ b/src/js/assets.js
+@@ -368,8 +368,7 @@ var getAssetSourceRegistry = function(callback) {
+     var registryReady = function() {
+         var callers = assetSourceRegistryStatus;
+         assetSourceRegistryStatus = 'ready';
+-        var fn;
+-        while ( (fn = callers.shift()) ) {
++        for ( var fn of callers ) {
+             fn(assetSourceRegistry);
+         }
+     };
+@@ -439,8 +438,7 @@ var getAssetCacheRegistry = function(callback) {
+     var registryReady = function() {
+         var callers = assetCacheRegistryStatus;
+         assetCacheRegistryStatus = 'ready';
+-        var fn;
+-        while ( (fn = callers.shift()) ) {
++        for ( var fn of callers ) {
+             fn(assetCacheRegistry);
+         }
+     };
+diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
+index d1a273b..0ecf14c 100644
+--- a/src/js/redirect-engine.js
++++ b/src/js/redirect-engine.js
+@@ -347,8 +347,8 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+         return;
+     }
+ 
+-    // Need one single type -- not negated.
+-    if ( type === undefined || type.startsWith('~') ) {
++    // Need one single supported type.
++    if ( type === undefined ) {
+         nano.flintw('nano_r_no_supported_type');
+         return;
+     }
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index 989e600..49190f2 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -2138,12 +2138,6 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
+ FilterContainer.prototype.compile = function(raw, writer) {
+     // ORDER OF TESTS IS IMPORTANT!
+ 
+-    // Ignore empty lines
+-    var s = raw.trim();
+-    if ( s.length === 0 ) {
+-        return false;
+-    }
+-
+     var parsed = this.filterParser.parse(s);
+ 
+     // Ignore element-hiding filters
+diff --git a/src/js/storage.js b/src/js/storage.js
+index 31ffb14..048e12e 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -677,7 +677,7 @@
+ 
+         // We need to build a complete list of assets to pull first: this is
+         // because it *may* happens that some load operations are synchronous:
+-        // This happens for assets which do not exist, ot assets with no
++        // This happens for assets which do not exist, or assets with no
+         // content.
+         var toLoad = [];
+         for ( var assetKey in lists ) {
