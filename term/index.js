@@ -68,7 +68,7 @@ const exec = async (expected, ...args) => {
 /**
  * Asynchronously wait for a given amount of time.
  * @async @function
- * @param {integer} delay - Time to sleep, in milliseconds.
+ * @param {integer} delay - Time to wait, in milliseconds.
  */
 const sleep = (delay) => {
     return new Promise((resolve) => {
@@ -137,18 +137,18 @@ term.set_listener((cmd) => {
         return term.ready();
 
     if (busy)
-        term.write_line("ERROR: System busy.");
+        term.write_line("Error: System busy.");
     else if (cmd_handlers.has(cmd))
         (cmd_handlers.get(cmd))();
     else
-        term.write_line("ERROR: Unknown command.").ready();
+        term.write_line("Error: Unknown command.").ready();
 });
 
 /*****************************************************************************/
 
 /**
  * Default options for executing commands.
- * May change when the configuration file is reloaded.
+ * Return value may change when the configuration file is reloaded.
  * @function
  * @return {Option} Default options.
  */
@@ -222,7 +222,7 @@ cmd_handlers.set("reset", async () => {
     try {
         await fs.remove(config.Target);
 
-        // Need to wait a bit or there could be problems on Windows
+        // Need to wait a bit in between or there could be problems on Windows
         await sleep(100);
 
         await fs.copy(config.Source, config.Target);
@@ -385,7 +385,7 @@ cmd_handlers.set("clean", async () => {
     busy = true;
 
     try {
-        await fs.remove("./build/");
+        await fs.remove("./build");
     } catch (err) {
         term.write_line(err.stack);
     }
