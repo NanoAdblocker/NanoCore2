@@ -1,5 +1,5 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index 9c482cf..44a66f2 100644
+index 74a355e..d56db05 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
 @@ -20,7 +20,7 @@
@@ -12,7 +12,7 @@ index 9c482cf..44a66f2 100644
          <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
          <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index 046b60f..bd734ae 100644
+index d119058..f8ea196 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
 @@ -11,7 +11,7 @@

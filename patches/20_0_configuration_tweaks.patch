@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 233fa30..d7ee1a1 100644
+index 4b261a4..fbe4a61 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -285,7 +285,7 @@ var registerAssetSource = function(assetKey, dict) {
@@ -75,10 +75,10 @@ index 220da63..9d802ee 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 856abab..529484a 100644
+index 8e6d4bd..7fb4da3 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1220,7 +1220,7 @@
+@@ -1275,7 +1275,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -87,7 +87,7 @@ index 856abab..529484a 100644
              });
          }, updateDelay);
      };
-@@ -1308,7 +1308,7 @@
+@@ -1368,7 +1368,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

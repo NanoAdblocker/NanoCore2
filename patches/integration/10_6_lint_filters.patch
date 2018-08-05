@@ -372,7 +372,7 @@ index 5849efa..e6bfa24 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 36ae9c4..3fee604 100644
+index 80d7b2c..8e6d4bd 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -394,7 +394,11 @@
@@ -388,7 +388,7 @@ index 36ae9c4..3fee604 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -809,6 +813,12 @@
+@@ -792,6 +796,12 @@
      var writer = new this.CompiledLineWriter();
  
      nano.cf.update(nanoKey);
@@ -401,7 +401,7 @@ index 36ae9c4..3fee604 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -823,6 +833,10 @@
+@@ -806,6 +816,10 @@
          lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -412,7 +412,7 @@ index 36ae9c4..3fee604 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -831,7 +845,11 @@
+@@ -814,7 +828,11 @@
  
          // Strip comments
          c = line.charAt(0);
@@ -425,7 +425,7 @@ index 36ae9c4..3fee604 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -852,6 +870,7 @@
+@@ -835,6 +853,7 @@
          pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -433,7 +433,7 @@ index 36ae9c4..3fee604 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -861,15 +880,24 @@
+@@ -844,15 +863,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost

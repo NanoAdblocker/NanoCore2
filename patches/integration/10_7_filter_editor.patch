@@ -1,11 +1,11 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index b713b2e..5006b78 100644
+index 9c482cf..74a355e 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
-@@ -35,15 +35,9 @@
+@@ -34,15 +34,9 @@
      <input id="importFilePicker" type="file" accept="text/plain">
  </div>
-
+ 
 -<script src="lib/codemirror/lib/codemirror.js"></script>
 -<script src="lib/codemirror/addon/display/panel.js"></script>
 -<script src="lib/codemirror/addon/scroll/annotatescrollbar.js"></script>
@@ -18,15 +18,15 @@ index b713b2e..5006b78 100644
 +<script src="lib/ace/ace-1.2.9.js"></script>
 +<script src="lib/ace/ext-searchbox-1.2.9.js"></script>
 +<script src="js/nano-editor.js"></script>
-
+ 
  <script src="js/vapi.js"></script>
  <script src="js/vapi-common.js"></script>
-@@ -52,7 +46,7 @@
+@@ -51,7 +45,7 @@
  <script src="js/i18n.js"></script>
  <script src="js/dashboard-common.js"></script>
  <script src="js/cloud-ui.js"></script>
 -<script src="js/1p-filters.js"></script>
 +<script src="js/nano-1p-filters.js"></script>
-
+ 
  </body>
  </html>

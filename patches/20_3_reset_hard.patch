@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index b1e0d85..2e257da 100644
+index e25d027..52c4932 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -796,7 +796,7 @@ var restoreUserData = function(request) {
+@@ -800,7 +800,7 @@ var restoreUserData = function(request) {
  // quite attached to numbers
  
  var resetUserData = function() {
@@ -11,7 +11,7 @@ index b1e0d85..2e257da 100644
      let countdown = ( ) => {
          count -= 1;
          if ( count === 0 ) {
-@@ -805,8 +805,7 @@ var resetUserData = function() {
+@@ -809,8 +809,7 @@ var resetUserData = function() {
      };
      vAPI.cacheStorage.clear(countdown); // 1
      vAPI.storage.clear(countdown);      // 2
