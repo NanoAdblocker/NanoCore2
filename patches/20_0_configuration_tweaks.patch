@@ -75,7 +75,7 @@ index 220da63..9d802ee 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 8e6d4bd..7fb4da3 100644
+index fb063f4..9d55357 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -1275,7 +1275,7 @@
@@ -87,7 +87,7 @@ index 8e6d4bd..7fb4da3 100644
              });
          }, updateDelay);
      };
-@@ -1368,7 +1368,7 @@
+@@ -1371,7 +1371,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

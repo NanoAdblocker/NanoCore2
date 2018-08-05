@@ -33,9 +33,18 @@ index b1e0d85..682d930 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 52fc700..03c6c5b 100644
+index 52fc700..41577f3 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
+@@ -186,7 +186,7 @@
+             }
+             content =
+                 'try {\n' +
+-                    content + '\n' +
++                    content.replace('{{nano}}', '') + '\n' +
+                 '} catch ( e ) { }';
+             scriptletCache.add(raw, content);
+         }
 @@ -249,6 +249,14 @@
              return;
          }
@@ -52,7 +61,7 @@ index 52fc700..03c6c5b 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 856abab..80d7b2c 100644
+index 856abab..947b428 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -929,7 +929,7 @@
@@ -124,16 +133,19 @@ index 856abab..80d7b2c 100644
      µb.redirectEngine.resourcesFromSelfie(onSelfieReady);
  };
  
-@@ -1240,7 +1267,7 @@
+@@ -1240,7 +1267,10 @@
              }
          }
          // https://github.com/gorhill/uBlock/issues/2594
 -        if ( details.assetKey === 'ublock-resources' ) {
-+        if ( details.assetKey === 'ublock-resources' || details.assetKey === 'nano-resources' ) {
++        if (
++                details.assetKey === 'ublock-resources' ||
++                details.assetKey === 'nano-resources'
++        ) {
              if (
                  this.hiddenSettings.ignoreRedirectFilters === true &&
                  this.hiddenSettings.ignoreScriptInjectFilters === true
-@@ -1278,6 +1305,11 @@
+@@ -1278,6 +1308,11 @@
              if ( cached ) {
                  this.loadRedirectResources(details.content);
              }

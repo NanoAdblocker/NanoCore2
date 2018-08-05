@@ -194,7 +194,7 @@ index 259bf5c..d1a273b 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 03c6c5b..2e1b2ea 100644
+index 41577f3..c35a5fd 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -372,7 +372,7 @@ index 0bf13be..a646d51 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 80d7b2c..8e6d4bd 100644
+index 947b428..fb063f4 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -394,7 +394,11 @@
