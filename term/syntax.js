@@ -89,9 +89,9 @@ const validate_html = async (file) => {
 /*****************************************************************************/
 
 /**
- * Check syntax recursively for one directory.
+ * Validate content of a directory recursively.
  * @async @function
- * @param {string} directory - The path to the directory to check.
+ * @param {string} directory - Path to the directory to check.
  */
 exports.validate_dir = async (dir) => {
     const files = await fs.readdir(dir);

@@ -71,10 +71,11 @@ const serialize = (obj) => {
 /**
  * Read a stream into text.
  * @function
- * @param {ReadableStream} stream - The stream to read.
- * @param {Function} on_done - The done handler, text read will be passed in.
- * @param {Function} on_error - The error handler, error object will be passed
- * in.
+ * @param {ReadableStream} stream - Stream to read.
+ * @param {Function} on_done - Done event handler.
+ *     @param {string} text - Text read from the stream.
+ * @param {Function} on_error - Error event handler.
+ *     @param {Error} err - Error object.
  */
 const stream_to_text = (stream, on_done, on_error) => {
     let data = "";
