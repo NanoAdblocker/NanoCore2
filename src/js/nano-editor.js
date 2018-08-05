@@ -612,6 +612,8 @@ nano.Editor.prototype.set_value_focus = function (val, cursor, keep_anno) {
 
     if (!keep_anno)
         this.session.clearAnnotations();
+
+    this.on_resize();
 };
 
 nano.Editor.prototype.set_anno = function (anno) {
