@@ -263,7 +263,7 @@ index dea5ad3..1ac5a40 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 0bf13be..a646d51 100644
+index 0bf13be..423d88c 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1471,6 +1471,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
@@ -310,7 +310,16 @@ index 0bf13be..a646d51 100644
              }
              continue;
          }
-@@ -1604,6 +1613,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1596,6 +1605,8 @@ FilterParser.prototype.parseOptions = function(s) {
+             this.fopts = opts.join(',');
+             var pos = this.raw.lastIndexOf('$');
+             this.raw = this.raw.slice(0, pos + 1) + this.fopts;
++            nano.flintw('nano_l_filter_expanded_mp4_option');
++            nano.flintw('nano_l_filter_mp4_option');
+         }
+         // https://github.com/uBlockOrigin/uAssets/issues/192
+         if ( opt === 'badfilter' ) {
+@@ -1604,6 +1615,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -318,7 +327,7 @@ index 0bf13be..a646d51 100644
          break;
      }
  };
-@@ -1731,6 +1741,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1731,6 +1743,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -326,7 +335,7 @@ index 0bf13be..a646d51 100644
              return this;
          }
      }
-@@ -1753,6 +1764,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1753,6 +1766,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -334,7 +343,7 @@ index 0bf13be..a646d51 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1763,7 +1775,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1763,7 +1777,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -345,7 +354,7 @@ index 0bf13be..a646d51 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1785,6 +1800,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1785,6 +1802,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -353,7 +362,7 @@ index 0bf13be..a646d51 100644
          }
          return this;
      }
-@@ -1809,6 +1825,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1809,6 +1827,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -361,7 +370,7 @@ index 0bf13be..a646d51 100644
              return this;
          }
  
-@@ -2221,6 +2238,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2221,6 +2240,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
