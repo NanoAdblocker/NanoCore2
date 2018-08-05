@@ -31,6 +31,8 @@ everything.
 
 `20_4_log_script_snippet_errors.patch`: Log script snippet errors.
 
+`20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
+
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
