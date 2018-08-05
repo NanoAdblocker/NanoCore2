@@ -1,8 +1,24 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index 9c482cf..74a355e 100644
+index 9c482cf..a1c89ef 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
-@@ -34,15 +34,9 @@
+@@ -4,15 +4,10 @@
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>uBlock — Your filters</title>
+-
+-<link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+-<link rel="stylesheet" href="lib/codemirror/addon/search/matchesonscrollbar.css">
+-
+ <link rel="stylesheet" href="css/common.css">
+ <link rel="stylesheet" href="css/dashboard-common.css">
+ <link rel="stylesheet" href="css/cloud-ui.css">
+ <link rel="stylesheet" href="css/1p-filters.css">
+-<link rel="stylesheet" href="css/codemirror.css">
+ </head>
+ 
+ <body>
+@@ -34,15 +29,9 @@
      <input id="importFilePicker" type="file" accept="text/plain">
  </div>
  
@@ -21,7 +37,7 @@ index 9c482cf..74a355e 100644
  
  <script src="js/vapi.js"></script>
  <script src="js/vapi-common.js"></script>
-@@ -51,7 +45,7 @@
+@@ -51,7 +40,7 @@
  <script src="js/i18n.js"></script>
  <script src="js/dashboard-common.js"></script>
  <script src="js/cloud-ui.js"></script>

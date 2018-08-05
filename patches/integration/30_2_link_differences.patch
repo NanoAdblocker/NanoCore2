@@ -1,8 +1,8 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index 74a355e..d56db05 100644
+index a1c89ef..dc0b7f3 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
-@@ -20,7 +20,7 @@
+@@ -15,7 +15,7 @@
  <div class="body">
      <div id="cloudWidget" class="hide" data-cloud-entry="myFiltersPane"></div>
  
