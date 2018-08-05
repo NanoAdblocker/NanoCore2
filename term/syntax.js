@@ -40,7 +40,7 @@ const path = require("path");
 /**
  * Validate syntax of a JavaScript file.
  * @async @function
- * @param {string} file - The path to the file to check.
+ * @param {string} file - Path to the file to check.
  */
 const validate_js = async (file) => {
     esprima.parse(await fs.readFile(file, "utf8"));
@@ -49,10 +49,41 @@ const validate_js = async (file) => {
 /**
  * Validate syntax of a JSON file.
  * @async @function
- * @param {string} file - The path to the file to check.
+ * @param {string} file - Path to the file to check.
  */
 const validate_json = async (file) => {
     JSON.parse(await fs.readFile(file, "utf8"));
+};
+
+/**
+ * Validate content of a HTML file.
+ * This is used to make sure the developer did not forget to apply patches.
+ * @async @function
+ * @param {string} file - Path to the file to check.
+ */
+const validate_html = async (file) => {
+    const name = path.parse(file).name;
+
+    let expected;
+    switch (name) {
+        case "1p-filters":
+            expected = "ace/ace-1.2.9.js";
+            break;
+
+        case "asset-viewer":
+            expected = "nano-editor.js";
+            break;
+
+        case "background":
+            expected = "nano-background.js";
+            break;
+
+        default:
+            return;
+    }
+
+    const data = await fs.readFile(file, "utf8");
+    assert(data.includes(expected));
 };
 
 /*****************************************************************************/
@@ -68,30 +99,22 @@ exports.validate_dir = async (dir) => {
         files.map((f) => fs.lstat(path.resolve(dir, f)))
     );
 
-    const validate_tasks = [];
     for (let i = 0; i < files.length; i++) {
         assert(!tasks[i].isSymbolicLink());
 
         if (tasks[i].isDirectory()) {
-            // One directory at a time to make sure things will not get
-            // overloaded
             await exports.validate_dir(path.resolve(dir, files[i]));
             continue;
         }
 
         assert(tasks[i].isFile());
-        if (files[i].endsWith(".js")) {
-            validate_tasks.push(
-                validate_js(path.resolve(dir, files[i]))
-            );
-        } else if (files[i].endsWith(".json")) {
-            validate_tasks.push(
-                validate_json(path.resolve(dir, files[i]))
-            );
-        }
+        if (files[i].endsWith(".js"))
+            await validate_js(path.resolve(dir, files[i]))
+        else if (files[i].endsWith(".json"))
+            await validate_json(path.resolve(dir, files[i]))
+        else if (files[i].endsWith(".html"))
+            await validate_html(path.resolve(dir, files[i]))
     }
-
-    await Promise.all(validate_tasks);
 };
 
 /*****************************************************************************/

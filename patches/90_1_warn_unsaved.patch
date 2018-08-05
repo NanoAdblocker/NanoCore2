@@ -76,7 +76,7 @@ index d038c5d..6139711 100644
 +    if (
 +        url !== window.location.href &&
 +        ( !checkUnsavedChanges() || confirm(checkUnsavedChanges.msg) )
-+    ) { 
++    ) {
          window.location.replace(url);
          loadDashboardPanel();
      }
