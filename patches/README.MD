@@ -21,7 +21,7 @@ the Logger.
 `20_0_configuration_tweaks.patch`: Update default configuration.
 
 `20_1_header_parsing.patch`: Update header parsing to reset update period when
-filters loses the header entry.
+filters lose that header entry.
 
 `20_2_hard_purge_any_key.patch`: Update purge button for cached assets to
 accept any special keys for hard purge mode.

@@ -55,5 +55,5 @@ To update a patch, simply paste further changes to the bottom of that patch and
 `sync` them in. If something breaks, try disabling patches after that patch
 temporarily.
 
-To fix conflict, either edit the patch file manually or disable the broken
-patch along with patches after it and recreate the changes.
+To fix conflict, either edit the bbroken patch file manually or disable it
+along with patches after it then recreate the changes.
