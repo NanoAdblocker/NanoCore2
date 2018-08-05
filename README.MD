@@ -6,7 +6,7 @@ A patch driven fork of uBlock Origin.
 
 Upstream commit pin: `756288294ddfe66e4ec2fe73367d24328931e53f`
 
-For any questions and issues, please open issues in the
+Please submit any questions and issues to the
 [Nano Core issues tracker](https://github.com/NanoAdblocker/NanoCore/issues).
 
 ## Setup
