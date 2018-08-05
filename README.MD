@@ -29,7 +29,7 @@ Terminal to create and manage development environment.
 ```
 reset    Nuke development environment and create a fresh one without any
          patches applied
-sync     Resynchronize line numbers of patches
+sync     Resynchronize line numbers and hashes of patches
 apply    Apply all existing patches, in order
 mark     Create a patch based on the difference between tip of applied patches
          and current code in development environment
@@ -49,11 +49,9 @@ exit     Exit the terminal
 Do not forget to copy and commit generated patches from `mark` to make them
 permanent. Also adjust configuration file as appropriate.
 
-To update a patch, disable that patch along with patches after it, update the
-patch, enable all patches, verify that later patches are still working, then
-commit to make the change permanent. This is also the workflow for fixing
-conflicts.
+To update a patch, simply paste further changes to the bottom of that patch and
+`sync` them in. If something breaks, try disabling patches after that patch
+temporarily.
 
-Each patch should only do one thing. If the thing is too complex, split it into
-smaller pieces. As a rule of thumb, keep changes below 100 lines per patch.
-Also patches should be kept independent of each other if possible.
+To fix conflict, either carefully edit the patch file manually or disable the
+broken patch along with patches after it and recreate the changes.
