@@ -1,0 +1,66 @@
+diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
+index ccb54b6..d1a273b 100644
+--- a/src/js/redirect-engine.js
++++ b/src/js/redirect-engine.js
+@@ -326,7 +326,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+             srcs = option.slice(7).split('|');
+             continue;
+         }
+-        if ( option === 'first-party' ) {
++        if ( option === 'first-party' || option === '1p' ) {
+             srcs.push(µburi.domainFromHostname(des) || des);
+             continue;
+         }
+@@ -396,6 +396,12 @@ RedirectEngine.prototype.supportedTypes = (function() {
+     types.stylesheet = 'stylesheet';
+     types.subdocument = 'sub_frame';
+     types.xmlhttprequest = 'xmlhttprequest';
++
++    types.css = 'stylesheet';
++    types.frame = 'sub_frame';
++    types.iframe = 'sub_frame';
++    types.xhr = 'xmlhttprequest';
++
+     return types;
+ })();
+ 
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index e6bfa24..a646d51 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -1416,7 +1416,10 @@ FilterParser.prototype.toNormalizedType = {
+                'xhr': 'xmlhttprequest',
+     'xmlhttprequest': 'xmlhttprequest',
+             'webrtc': 'unsupported',
+-         'websocket': 'websocket'
++         'websocket': 'websocket',
++
++             'ghide': 'generichide',
++            'iframe': 'subdocument',
+ };
+ 
+ /******************************************************************************/
+@@ -1538,7 +1541,7 @@ FilterParser.prototype.parseOptions = function(s) {
+         // https://issues.adblockplus.org/ticket/616
+         // `generichide` concept already supported, just a matter of
+         // adding support for the new keyword.
+-        if ( opt === 'elemhide' || opt === 'generichide' ) {
++        if ( opt === 'generichide' || opt === 'ghide' || opt === 'elemhide' ) {
+             if ( not === false ) {
+                 this.parseTypeOption('generichide', false);
+                 continue;
+@@ -1597,9 +1600,11 @@ FilterParser.prototype.parseOptions = function(s) {
+             this.dataStr = '';
+             continue;
+         }
+-        // Used by Adguard, purpose is unclear -- just ignore for now.
+-        if ( opt === 'empty' ) {
+-            continue;
++        if ( opt === 'mp4' ) {
++            opts.push('media', 'redirect=noopmp4-1s');
++            this.fopts = opts.join(',');
++            var pos = this.raw.lastIndexOf('$');
++            this.raw = this.raw.slice(0, pos + 1) + this.fopts;
+         }
+         // https://github.com/uBlockOrigin/uAssets/issues/192
+         if ( opt === 'badfilter' ) {

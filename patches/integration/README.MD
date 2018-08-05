@@ -18,13 +18,13 @@ These patches must be applied in order.
 
 `10_1_compile_flags.patch`: Integrate with compile flags.
 
-`10_2_extended_resources.patch`: Integrate with extended resources and
-implement privileged filters system.
+`10_2_extended_resources.patch`: Extend resources and implement privileged
+filters system.
 
 `10_3_force_recompile.patch`: Enable force recompile filters button in advanced
 settings page.
 
-(Missing 4, TODO)
+`10_4_extended_options.patch`: Extend filter options.
 
 `10_5_linters.patch`: Integrate with linters.
 
