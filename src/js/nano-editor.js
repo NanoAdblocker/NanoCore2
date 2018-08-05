@@ -582,8 +582,8 @@ nano.Editor = function (elem, highlight, readonly) {
         const child_rect = child_elem.getBoundingClientRect();
 
         let avail_height = Math.floor(parent_rect.bottom - child_rect.top);
-        if (avail_height < 80)
-            avail_height = 80
+        if (avail_height < 1)
+            avail_height = 1
 
         child_elem.style.height = avail_height.toString() + "px";
         this.editor.resize();
