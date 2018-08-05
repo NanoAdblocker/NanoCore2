@@ -3,31 +3,39 @@
 These patches are for rebranding and other housekeeping changes. They are not
 very interesting, but are important to keep the extension working properly.
 
-## Available Patches
+Must be applied in order.
 
-These patches must be applied in order.
+## `00` Group: Rebranding
 
-`upd_about_page.patch`: Update the about panel of dashboard.
+`00_0_about.patch`: Update dashboard about tab.
 
-`fix_version_parsing.patch`: Fix version string parsing.
+`00_1_version_parsing.patch`: Update version string parsing.
 
-`fix_vapi_icon.patch`: Fix `vAPI` icon handling.
+`00_2_vapi_icon.patch`: Update `vAPI` icon handling.
 
-`fix_favicon.patch`: Fix Favicon and dashboard icon.
+`00_3_favicon.patch`: Update favicon and dashboard icon.
 
-`fix_settings_migration.patch`: Fix settings migration.
+## `10` Group: Extended Background Scripts Integration
 
-`int_nano_background.patch`: Integrate with Nano Adblocker background scripts.
+`10_0_load_scripts.patch`: Load Nano Adblocker background scripts.
 
-`int_compile_flags.patch`: Integrate with compile flags.
+`10_1_compile_flags.patch`: Integrate with compile flags.
 
-`int_linter_results.patch`: Enable linter results passing.
+`10_2_linters.patch`: Integrate with linters.
 
-`cos_popup_tweaks.patch`: Cosmetic tweaks to the popup.
+## `20` Group: Popup Changes
 
-`cos_dashboard_settings.patch`: Cosmetic tweaks to dashboard settings tab.
+`20_0_popup_tweaks.patch`: Cosmetic tweaks to the popup.
 
-`add_editor_settings.patch`: Add editor settings to dashboard.
+## `30` Group: Dashboard Changes
 
-`doc_link_differences.patch`: Link documentation to differences between Nano
+`30_0_settings_tweaks.patch`: Cosmetic tweaks to dashboard settings tab.
+
+`30_1_editor_settings.patch`: Add editor settings.
+
+`30_2_link_differences.patch`: Link documentation to differences between Nano
 Adblocker and uBlock Origin.
+
+## `90` Group: Temporary Changes
+
+`90_0_settings_migration.patch`: Fix settings migration.
