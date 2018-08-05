@@ -24,6 +24,8 @@ the Logger.
 `upd_hard_purge_any_key.patch`: Update purge button for cached assets to accept
 any special keys for hard purge mode.
 
+`upd_header_parsing.patch`: Update header parsing.
+
 `int_extended_resources.patch`: Integrate with extended resources and implement
 privileged filters system.
 

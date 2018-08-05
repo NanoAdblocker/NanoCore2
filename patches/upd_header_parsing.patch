@@ -1,0 +1,39 @@
+diff --git a/src/js/storage.js b/src/js/storage.js
+index 7fb4da3..3fee604 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -769,14 +769,31 @@
+     // Extract update frequency information
+     matches = head.match(/(?:^|\n)(?:!|# )[\t ]*Expires[\t ]*:[\t ]*(\d+)[\t ]*(h)?/i);
+     if ( matches !== null ) {
+-        v = Math.max(parseInt(matches[1], 10), 1);
++        v = parseInt(matches[1], 10);
+         if ( matches[2] !== undefined ) {
+             v = Math.ceil(v / 24);
+         }
+-        if ( v !== listEntry.updateAfter ) {
+-            this.assets.registerAssetSource(assetKey, { updateAfter: v });
++    }
++
++    if ( typeof v !== 'number' ) {
++        if ( typeof listEntry.nanoUpdateAfterDefault === 'number' ) {
++            v = listEntry.nanoUpdateAfterDefault;
++        } else {
++            // IMPORTANT! Must update this value if default update period is
++            // changed
++            v = 3;
+         }
+     }
++
++    if ( v < 1 ) {
++        v = 1;
++    } else if ( v > 60 ) {
++        v = 60;
++    }
++
++    if ( v !== listEntry.updateAfter ) {
++        this.assets.registerAssetSource(assetKey, { updateAfter: v });
++    }
+ };
+ 
+ /******************************************************************************/

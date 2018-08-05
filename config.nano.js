@@ -54,6 +54,7 @@
             // Features
             "./patches/upd_config_tweaks.patch",
             "./patches/upd_hard_purge_any_key.patch",
+            "./patches/upd_header_parsing.patch",
             "./patches/int_extended_resources.patch",
             "./patches/int_force_recompile.patch",
             "./patches/int_force_scroll.patch",
