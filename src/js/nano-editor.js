@@ -574,6 +574,26 @@ nano.Editor = function (elem, highlight, readonly) {
         this.session.setNewLineMode("unix");
 
     this.editor.$blockScrolling = Infinity;
+
+    this.on_resize = () => {
+        const child_elem = document.getElementById(elem);
+
+        const parent_rect = document.documentElement.getBoundingClientRect();
+        const child_rect = child_elem.getBoundingClientRect();
+
+        let avail_height = Math.floor(parent_rect.bottom - child_rect.top);
+        if (avail_height < 80)
+            avail_height = 80
+
+        child_elem.style.height = avail_height.toString() + "px";
+        this.editor.resize();
+    };
+    addEventListener("resize", this.on_resize);
+    this.on_resize();
+};
+
+nano.Editor.prototype.destroy = function () {
+    removeEventListener("resize", this.on_resize);
 };
 
 /*****************************************************************************/
