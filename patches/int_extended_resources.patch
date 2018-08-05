@@ -13,10 +13,10 @@ index d7ee1a1..fbe4a61 100644
                  fireNotification(
                      'before-asset-updated',
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index b1e0d85..682d930 100644
+index 2e257da..002a9c1 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1009,10 +1009,14 @@ var onMessage = function(request, sender, callback) {
+@@ -1008,10 +1008,14 @@ var onMessage = function(request, sender, callback) {
          µb.assets.purge(request.assetKey);
          µb.assets.remove('compiled/' + request.assetKey);
          // https://github.com/gorhill/uBlock/pull/2314#issuecomment-278716960
