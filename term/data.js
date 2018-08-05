@@ -58,7 +58,7 @@ exports.chromium_id = "gabbbocakeomblphkmmnoamkioajlkfo";
  * Generate manifest.
  * @function
  * @param {Enum} browser - One of "chromium", "edge".
- * @return {string} The manifest
+ * @return {string} Generated manifest file.
  */
 exports.manifest = (browser) => {
     assert(browser === "chromium" || browser === "edge");

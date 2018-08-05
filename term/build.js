@@ -55,7 +55,7 @@ const data = require("./data.js");
 /**
  * Find MD5 hash of a string.
  * @function
- * @param {string} data - The data to hash.
+ * @param {string} data - Data to hash.
  */
 const md5 = (data) => {
     assert(typeof data === "string");
@@ -66,8 +66,8 @@ const md5 = (data) => {
 /**
  * Create ZIP archive.
  * @async @function
- * @param {string} in_dir - The directory to ZIP.
- * @param {string} out_file - The file to write to.
+ * @param {string} in_dir - Directory to ZIP.
+ * @param {string} out_file - Path to the file to write to.
  */
 const zip = (in_dir, out_file) => {
     assert(typeof in_dir === "string" && typeof out_file === "string");
@@ -96,7 +96,7 @@ const r = (...args) => {
 /**
  * Create a one level file ending filter.
  * @function
- * @param {string} root - Path to root level
+ * @param {string} root - Path to root level.
  * @param {string} ext - File ending to filter.
  * @param {boolean} [match=true] - Whether the filter is a match filter.
  */
@@ -185,7 +185,8 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/icons/icon_16.png"), r(output, "img/icon_16.png"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
-    await fs.writeFile( // This must be after copying platform files
+    // This must be after copying platform files
+    await fs.writeFile(
         r(output, "manifest.json"), data.manifest(browser), "utf8",
     );
 
@@ -343,7 +344,8 @@ exports.build_resources = async (browser) => {
             flags: "a",
             encoding: "utf8",
         });
-        record_stream.on("error", (err) => { // Not sure if this will work
+        record_stream.on("error", (err) => {
+            // TODO: Test to make sure this actually works like this
             throw err;
         });
 

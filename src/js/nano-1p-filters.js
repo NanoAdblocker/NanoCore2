@@ -146,7 +146,7 @@ nano.filters_apply = () => {
         nano.filters_saved();
 
         // TODO: Set the cursor back to its original position?
-        // TODO: Clear undo history if first is true?
+        // TODO: Clear undo history?
     };
 
     vAPI.messaging.send(
