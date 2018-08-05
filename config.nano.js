@@ -70,6 +70,7 @@
             "./patches/20_1_header_parsing.patch",
             "./patches/20_2_hard_purge_any_key.patch",
             "./patches/20_3_reset_hard.patch",
+            "./patches/20_4_log_script_snippet_errors.patch",
 
             "./patches/30_0_link_resources.patch",
 

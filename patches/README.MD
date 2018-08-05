@@ -29,6 +29,8 @@ accept any special keys for hard purge mode.
 `20_3_reset_hard.patch`: Update factory reset functionality to hard reset
 everything.
 
+`20_4_log_script_snippet_errors.patch`: Log script snippet errors.
+
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
