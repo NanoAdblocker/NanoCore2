@@ -7,7 +7,7 @@ index bd6aff2..8831e57 100644
  /******************************************************************************/
  
 +if ( typeof elib !== 'undefined' && !location.search ) {
-+    elib.unbreak_popup();
++    elib.unbreak_popup('.fa { vertical-align: middle; }');
 +}
 +
 +/******************************************************************************/
