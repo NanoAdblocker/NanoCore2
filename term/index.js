@@ -286,53 +286,96 @@ cmd_handlers.set("mark", async () => {
 /*****************************************************************************/
 
 /**
- * Supported browsers.
+ * All supported browsers.
  * @const {Array.<string>}
  */
 const browsers = ["chromium", "edge"];
 
+/*****************************************************************************/
+
 /**
- * Build the package.
+ * Build extension package for one browser.
+ * @async @function
+ * @param {string} b - Browser name.
+ * @throws When things go wrong.
+ */
+const make_one = async (b) => {
+    await build.build_core(b);
+    await build.build_filters(b);
+    await build.build_resources(b);
+    await build.build_locale(b);
+};
+
+/**
+ * Test build output for one browser.
+ * @async @function
+ * @param {string} b - Browser name.
+ * @throws When things go wrong.
+ */
+const test_one = async (b) => {
+    await build.test(b);
+};
+
+/**
+ * Create ZIP package for one browser.
+ * @async @function
+ * @param {string} b - Browser name.
+ * @throws When things go wrong.
+ */
+const pack_one = async (b) => {
+    await build.pack(b);
+};
+
+/**
+ * Publish package for one browser to extension store.
+ * @async @function
+ * @param {string} b - Browser name.
+ * @throws When things go wrong.
+ */
+const publish_one = async (b) => {
+    await build.publish(b, term);
+};
+
+/*****************************************************************************/
+
+/**
+ * Build extension package for all supported browsers.
  * @async @function
  * @throws When things go wrong.
  */
 const make = async () => {
-    for (const b of browsers) {
-        await build.build_core(b);
-        await build.build_filters(b);
-        await build.build_resources(b);
-        await build.build_locale(b);
-    }
+    for (const b of browsers)
+        await make_one(b);
 };
 
 /**
- * Test build output.
+ * Test build output for all supported browsers.
  * @async @function
  * @throws When things go wrong.
  */
 const test = async () => {
     for (const b of browsers)
-        await build.test(b);
+        await test_one(b);
 };
 
 /**
- * Create ZIP packages.
+ * Create ZIP package for all supported browsers.
  * @async @function
  * @throws When things go wrong.
  */
 const pack = async () => {
     for (const b of browsers)
-        await build.pack(b);
+        await pack_one(b);
 };
 
 /**
- * Publish to extension store.
+ * Publish package for all supported browsers to extension store.
  * @async @function
  * @throws When things go wrong.
  */
 const publish = async () => {
     for (const b of browsers)
-        await build.publish(b, term);
+        await publish_one(b);
 };
 
 /*****************************************************************************/
