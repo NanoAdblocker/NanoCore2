@@ -424,6 +424,24 @@ cmd_handlers.set("publish", async () => {
     term.ready();
 });
 
+for (const b of browsers) {
+    cmd_handlers.set("publish " + b, async () => {
+        busy = true;
+
+        try {
+            await make_one(b);
+            await test_one(b);
+            await pack_one(b);
+            await publish_one(b);
+        } catch (err) {
+            term.write_line(err.stack);
+        }
+
+        busy = false;
+        term.ready();
+    });
+}
+
 cmd_handlers.set("clean", async () => {
     busy = true;
 
