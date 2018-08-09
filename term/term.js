@@ -134,6 +134,7 @@ module.exports = class {
      *     {string} cwd - Working directory to execute the command.
      *     {Function} [on_data] - Listener for stdout.
      *         @param {string} data - Data from stdout of the command.
+     * @throws When things go wrong.
      * @return {integer} Exit code.
      */
     exec(cmd, opt, ...args) {
@@ -141,6 +142,7 @@ module.exports = class {
             const child = child_process.spawn(cmd, args, {
                 cwd: opt.cwd,
             });
+            child.on("error", reject);
 
             child.stdout.setEncoding("utf8");
             child.stdout.on("data", (data) => {

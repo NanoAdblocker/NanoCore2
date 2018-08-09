@@ -133,11 +133,10 @@ const cmd_handlers = new Map();
 term.set_listener((cmd) => {
     assert(typeof cmd === "string");
 
-    if (cmd.length === 0)
-        return term.ready();
-
     if (busy)
         term.write_line("Error: System busy.");
+    else if (cmd.length === 0)
+        term.ready();
     else if (cmd_handlers.has(cmd))
         (cmd_handlers.get(cmd))();
     else
