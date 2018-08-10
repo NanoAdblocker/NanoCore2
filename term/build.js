@@ -383,8 +383,8 @@ exports.build_locale = async (browser) => {
     const en_ubo = JSON.parse(
         await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"),
     );
-    const en_nano = eval(
-        await fs.readFile(r("./src/_locales/en/messages.nano.js"), "utf8"),
+    const en_nano = JSON.parse(
+        await fs.readFile(r("./src/_locales/en/messages.json"), "utf8"),
     );
     assert(typeof en_ubo === "object" && en_ubo !== null);
     assert(typeof en_nano === "object" && en_nano !== null);
@@ -425,8 +425,8 @@ exports.build_locale = async (browser) => {
         ));
         let nano;
         if (has_nano) {
-            nano = eval(await fs.readFile(
-                r("./src/_locales", lang, "messages.nano.js"), "utf8",
+            nano = JSON.parse(await fs.readFile(
+                r("./src/_locales", lang, "messages.json"), "utf8",
             ));
         } else {
             nano = {};
