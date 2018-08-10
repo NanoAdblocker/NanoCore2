@@ -1,14 +1,14 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Brukergrensesnitt",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Myk tekstbryting av lange linjer i filterredigereren",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Myk tekstbryting av lange linjer i filterviseren",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {

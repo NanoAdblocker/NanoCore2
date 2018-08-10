@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano ma dwa zestawy zasobów, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>Zasoby uBlocka Origin<\/a> i <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>dodatkowe zasoby Nano<\/a>.",
+    "message": "Nano ma dwa zestawy zasobów, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>Zasoby uBlock Origin<\/a> i <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Dodatkowe Zasoby Nano<\/a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
@@ -48,7 +48,7 @@
     "description": "Tooltip for toggle firewall pane button"
   },
   "nano_p_refresh_button": {
-    "message": "Kliknij, by odświeżyć tę stronę.\n\nCCtrl+klik, by odświeżyć tę stronę, pomijając pamięć podręczną.",
+    "message": "Kliknij, by odświeżyć tę stronę.\n\nCtrl+klik, by odświeżyć tę stronę, pomijając pamięć podręczną.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -68,11 +68,11 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błedów, ponieważ jest zbyt wiele błędów.",
+    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
     "description": "Error when too many errors"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "Ta nazwa hosta jest nieprawdłowa.",
+    "message": "Ta nazwa hosta jest nieprawidłowa.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
@@ -128,11 +128,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błedów, ponieważ jest zbyt wiele błędów.",
+    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
     "description": "Error when too many errors"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Wstrzykiwanie surowego JavaSriptu nie jest akceptowane ze względów bezpieczeństwa.",
+    "message": "Wstrzykiwanie surowego JavaScript nie jest akceptowane ze względów bezpieczeństwa.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -156,7 +156,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Reguły usuwania elementów ze składnią AdGuarda nie są jeszcze obsługiwane.",
+    "message": "Reguły usuwania elementów ze składnią AdGuard nie są jeszcze obsługiwane.",
     "description": "Error when Adguard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
@@ -212,7 +212,7 @@
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Opcja 'redirect=...' nie może zostać wykorzystana w regułach wyjątku",
+    "message": "Opcja 'redirect=...' nie może zostać wykorzystana w regułach wyjątku.",
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
