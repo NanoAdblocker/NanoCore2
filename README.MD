@@ -45,6 +45,8 @@ publish  Build, test, package, then publish the extension
          Optionally pass browser name to publish for only one browser
 clean    Remove all build files
 
+tmake    Build English locale file from locale definition
+
 config   Print active configuration data
 reload   Reload configuration data
 exit     Exit the terminal

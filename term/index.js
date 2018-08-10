@@ -456,6 +456,30 @@ cmd_handlers.set("clean", async () => {
 
 /*****************************************************************************/
 
+cmd_handlers.set("tmake", async () => {
+    busy = true;
+
+    try {
+        const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
+
+        const output = path.resolve("./src/_locales/en/");
+        await fs.mkdirp(output);
+
+        await fs.writeFile(
+            path.resolve(output, "messages.json"),
+            JSON.stringify(data, null, 2),
+            "utf8",
+        );
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
+/*****************************************************************************/
+
 cmd_handlers.set("config", () => {
     term.write_line(JSON.stringify(config, null, 2));
     term.ready();
