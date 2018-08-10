@@ -9,6 +9,15 @@ Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/NanoAdblocker/NanoCore/issues).**
 
+## Localization
+
+Nano Core 2 has extra locale strings, most of them are for Nano Linter.
+
+You can contribute to localization here:
+https://crowdin.com/project/nano-adblocker
+
+Your language is not here? Submit an issue to let me know.
+
 ## Setup
 
 1. Install latest version of Git and Node.js.
