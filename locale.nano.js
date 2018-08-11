@@ -301,7 +301,7 @@
 
         "nano_l_filter_too_expensive": {
             "message": "This rule cannot be generic.",
-            "description": "Error when expensive cosmetic is generic",
+            "description": "Error when expensive rule is generic",
         },
 
         "nano_l_filter_style_injection_syntax_error": {
