@@ -32,6 +32,7 @@
  */
 const assert = require("assert");
 const build = require("./build.js");
+const crowdin = require("./crowdin.js");
 const fs = require("fs-extra");
 const os = require("os");
 const path = require("path");
@@ -475,14 +476,12 @@ const tmake = async () => {
 };
 
 /**
- * Unpack, validate, and build supported non-English locales.
+ * Synchronize locale files with the Crowdin project.
  * @async @function
  * @throws When things go wrong.
  */
-const tsync = () => {
-    return new Promise((resolve, reject) => {
-        assert(false); // TODO
-    });
+const tsync = async () => {
+    await crowdin.sync();
 };
 
 /*****************************************************************************/
