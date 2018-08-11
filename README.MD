@@ -54,8 +54,8 @@ publish  Build, test, package, then publish the extension
          Optionally pass browser name to publish for only one browser
 clean    Remove all build files
 
-tmake    Build English locale file from locale definition
-tsync    Synchronize (non-English) locale files with the latest build of the
+lmake    Build English locale file from locale definition
+lsync    Synchronize (non-English) locale files with the latest build of the
          Crowdin project
          This will not rebuild the Crowdin project even if there are changes
 

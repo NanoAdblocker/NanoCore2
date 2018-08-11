@@ -462,7 +462,7 @@ cmd_handlers.set("clean", async () => {
  * @async @function
  * @throws When things go wrong.
  */
-const tmake = async () => {
+const lmake = async () => {
     const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
 
     const output = path.resolve("./src/_locales/en/");
@@ -482,17 +482,17 @@ const tmake = async () => {
  * @async @function
  * @throws When things go wrong.
  */
-const tsync = async () => {
+const lsync = async () => {
     await crowdin.sync();
 };
 
 /*****************************************************************************/
 
-cmd_handlers.set("tmake", async () => {
+cmd_handlers.set("lmake", async () => {
     busy = true;
 
     try {
-        await tmake();
+        await lmake();
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -501,11 +501,11 @@ cmd_handlers.set("tmake", async () => {
     term.ready();
 });
 
-cmd_handlers.set("tsync", async () => {
+cmd_handlers.set("lsync", async () => {
     busy = true;
 
     try {
-        await tsync();
+        await lsync();
     } catch (err) {
         term.write_line(err.stack);
     }
