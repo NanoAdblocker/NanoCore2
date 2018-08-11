@@ -151,7 +151,7 @@
             "message": "Nano did not scan the rest of the lines for " +
             "warnings because there are too many warnings.",
 
-            "description": "Warning when too many warnings",
+            "description": "Warning when too many warnings in whitelists",
         },
 
         "nano_l_whitelist_suspecious_re": {
@@ -170,7 +170,7 @@
             "message": "Nano did not scan the rest of the lines for errors " +
             "because there are too many errors.",
 
-            "description": "Error when too many errors",
+            "description": "Error when too many errors in whitelists",
         },
 
         "nano_l_whitelist_invalid_hostname": {
@@ -196,7 +196,7 @@
             "message": "Nano did not scan the rest of the lines for " +
             "warnings because there are too many warnings.",
 
-            "description": "Warning when too many warnings",
+            "description": "Warning when too many warnings in filter rules",
         },
 
         "nano_l_filter_script_snippet_double_exception": {
@@ -284,7 +284,7 @@
             "message": "Nano did not scan the rest of the lines for errors " +
             "because there are too many errors.",
 
-            "description": "Error when too many errors",
+            "description": "Error when too many errors in filter rules",
         },
 
         "nano_l_filter_ag_js_injection": {
