@@ -476,7 +476,9 @@ const tmake = async () => {
 };
 
 /**
- * Synchronize locale files with the Crowdin project.
+ * Synchronize (non-English) locale files with the latest build of the
+ * Crowdin project.
+ * This will not rebuild the Crowdin project even if there are changes.
  * @async @function
  * @throws When things go wrong.
  */

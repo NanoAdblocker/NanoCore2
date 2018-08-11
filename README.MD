@@ -55,6 +55,9 @@ publish  Build, test, package, then publish the extension
 clean    Remove all build files
 
 tmake    Build English locale file from locale definition
+tsync    Synchronize (non-English) locale files with the latest build of the
+         Crowdin project
+         This will not rebuild the Crowdin project even if there are changes
 
 config   Print active configuration data
 reload   Reload configuration data
