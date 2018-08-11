@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano 拥有两套资源，<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'> uBlock Origin 的资源<\/a>和<a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'> Nano 的额外资源<\/a>。",
+    "message": "Nano 拥有两套资源，<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'> uBlock Origin 的资源</a>和<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'> Nano 的额外资源</a>。",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
@@ -220,7 +220,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "这个规则暂时无效。更多信息：https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
-    "description": "https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77"
+    "message": "这个规则暂时无效。更多信息：https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }

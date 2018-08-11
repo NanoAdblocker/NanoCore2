@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano ma dwa zestawy zasobów, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>Zasoby uBlock Origin<\/a> i <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Dodatkowe Zasoby Nano<\/a>.",
+    "message": "Nano ma dwa zestawy zasobów, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>Zasoby uBlock Origin</a> i <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Dodatkowe Zasoby Nano</a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
@@ -220,7 +220,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "Ta reguła jest na razie odrzucana. Więcej informacji na: https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
-    "description": "https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77"
+    "message": "Ta reguła jest na razie odrzucana. Więcej informacji na: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
