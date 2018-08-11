@@ -345,7 +345,8 @@ exports.build_resources = async (browser) => {
             encoding: "utf8",
         });
         record_stream.on("error", (err) => {
-            // TODO: Test to make sure this actually works like this
+            // TODO: Error thrown inside event handlers are not caught by
+            // async
             throw err;
         });
 
