@@ -61,7 +61,7 @@
   },
   "nano_l_whitelist_aborted_w": {
     "message": "Nano skannet ikke resten av linjene for advarsler, fordi det er for mange advarsler.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
     "message": "Denne linjen blir behandlet som et vanlig uttrykk. Var det tilsiktet?",
@@ -69,7 +69,7 @@
   },
   "nano_l_whitelist_aborted_e": {
     "message": "Nano skannet ikke resten av linjene for feil, fordi det er for mange feil.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
     "message": "Dette vertsnavnet er ikke gyldig.",
@@ -85,7 +85,7 @@
   },
   "nano_l_filter_aborted_w": {
     "message": "Nano skannet ikke resten av linjene for advarsler, fordi det er for mange advarsler.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
     "message": "Nano avslo et nullifisert domene, fordi den ikke kan bli brukt i en skriptutdrags-unntaksregel.",
@@ -129,7 +129,7 @@
   },
   "nano_l_filter_aborted_e": {
     "message": "Nano skannet ikke resten av linjene for feil, fordi det er for mange feil.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
     "message": "Rå JavaScript-innsprøytinger er ikke akseptert, grunnet sikkerhetsbekymringer.",
@@ -141,7 +141,7 @@
   },
   "nano_l_filter_too_expensive": {
     "message": "Denne regelen kan ikke være generisk.",
-    "description": "Error when expensive cosmetic is generic"
+    "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
     "message": "Denne CSS-innsprøytingsregelen har syntaksfeil.",

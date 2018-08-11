@@ -61,7 +61,7 @@
   },
   "nano_l_whitelist_aborted_w": {
     "message": "Nano nie skanował pozostałych linii w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
     "message": "Ta linia jest traktowana jako wyrażenie regularne, czy to było zamierzone?",
@@ -69,7 +69,7 @@
   },
   "nano_l_whitelist_aborted_e": {
     "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
     "message": "Ta nazwa hosta jest nieprawidłowa.",
@@ -85,7 +85,7 @@
   },
   "nano_l_filter_aborted_w": {
     "message": "Nano nie skanował pozostałych linii w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
     "message": "Nano odrzucił zanegowaną domenę, ponieważ nie może ona zostać użyta w regule wyjątku dot. fragmentu skryptu.",
@@ -129,7 +129,7 @@
   },
   "nano_l_filter_aborted_e": {
     "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
     "message": "Wstrzykiwanie surowego JavaScript nie jest akceptowane ze względów bezpieczeństwa.",
@@ -141,7 +141,7 @@
   },
   "nano_l_filter_too_expensive": {
     "message": "Ta reguła nie może być ogólna.",
-    "description": "Error when expensive cosmetic is generic"
+    "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
     "message": "Ta reguła wstrzykiwania CSS zawiera błędy w składni.",
