@@ -176,7 +176,7 @@
     "description": "Error when 'csp=' has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "\"Valget '{{option}}' er ikke gjenkjent.",
+    "message": "Valget '{{option}}' er ikke gjenkjent.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
