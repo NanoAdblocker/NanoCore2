@@ -246,6 +246,13 @@
             "discarded but not entire rule",
         },
 
+        "nano_l_filter_resource_not_found": {
+            "message": "The resource '{{res}}' could not be found, is it " +
+            "spelled correctly?",
+
+            "description": "Warning when resource not found",
+        },
+
         /*********************************************************************/
 
         // Filter linter deprecations
