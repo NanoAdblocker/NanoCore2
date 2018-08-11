@@ -174,7 +174,7 @@
         },
 
         "nano_l_whitelist_invalid_hostname": {
-            "message": "This host name is not valid.",
+            "message": "This hostname is not valid.",
             "description": "Error when hostname not valid",
         },
 
