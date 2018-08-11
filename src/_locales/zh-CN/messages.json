@@ -12,7 +12,7 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "重新编译规则",
+    "message": "强制重新编译规则",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -24,7 +24,7 @@
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "离开标签？\n未保存的更改将会丢失。",
+    "message": "离开标签？\n您所做的更改将不会被保存。",
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
@@ -88,43 +88,43 @@
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "Nano 弃置了一个反选域名，因为它不能在脚本注入例外规则中使用。",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+    "message": "Nano 将这个规则转换成了一个例外规则，因为它只有反选域名。",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Negated domain is not yet supported for HTML filtering.",
+    "message": "反选域名暂时不能在 HTML 文档过滤规则中使用。",
     "description": "Warning when negated domain used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
+    "message": "Nano 弃置了 '{{type}}' 类型选项，因为它不能被反选。",
     "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
+    "message": "Nano 将 'mp4' 选项替换成了 'media,redirect=noopmp4-1s' 。",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano discarded type options that are not yet supported.",
+    "message": "Nano 弃置了目前不支持的类型选项。",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "用 '[' 来标注注解是不赞成的，请改用 '!' 。",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Inline comments are deprecated.",
+    "message": "内联注解是不赞成的。",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+    "message": "'##script:contains(...)' 是不赞成的，请改用 '##^script:has-text(...)' 。",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "message": "使用 'mp4' 选项是不赞成的，请写出完整的选项。",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
@@ -132,95 +132,95 @@
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not accepted due to security concerns.",
+    "message": "为了防止安全隐患，未经审查的 JavaScript 脚本注入是不允许的。",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "The selector in this rule has syntax errors.",
+    "message": "这个规则的选择器有语法错误。",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
-    "message": "This rule cannot be generic.",
+    "message": "这个规则不能为泛型。",
     "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "This CSS injection rule has syntax errors.",
+    "message": "这个 CSS 注入规则有语法错误。",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "低权限的规则列表不能使用高权限列表专用的资源。",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "This host file entry is discarded because it is localhost declaration.",
+    "message": "这个主机名条目已被弃置，因为它是本地主机声明。",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with Adguard syntax are not yet supported.",
+    "message": "元素移除规则暂时不支持 Adguard 的语法。",
     "description": "Error when Adguard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
-    "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
+    "message": "'generichide' ， 'ghide' ，和 'elemhide' 选项不能被反选。",
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "The option 'domain=...' has invalid arguments.",
+    "message": "这个 'domain=...' 选项有无效参数。",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has invalid arguments.",
+    "message": "这个 'csp=...' 选项有无效参数。",
     "description": "Error when 'csp=' has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "The option '{{option}}' is not recognized.",
+    "message": "'{{option}}' 选项未能被识别。",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "A type option is not yet supported.",
+    "message": "一个类型选项暂时不被支持。",
     "description": "Error when unsupported type option used and entire rule discarded"
   },
   "nano_l_filter_bad_re": {
-    "message": "This network rule has regular expression syntax errors.",
+    "message": "这个网络过滤规则的正则表达式有语法错误。",
     "description": "Error when network has regular expression syntax errors"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "The domain anchor may not be immediately followed by '^'.",
+    "message": "'^' 不能紧跟在域名锚点的后面。",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为它必须有一个类型选项。",
     "description": "Warning when 'redirect=' has no type"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为它有过多的类型选项。",
     "description": "Warning when 'redirect=' has too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the option 'redirect=...' because it has no arguments.",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为它没有参数。",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为它没有被支持的类型选项。",
     "description": "Warning when 'redirect=' has no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
+    "message": "Nano 弃置了一个反选域名，因为它不能和 'redirect=...' 选项一起使用。",
     "description": "Warning when negated domain used with 'redirect='"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为它没有有效的目标域名。",
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {
-    "message": "The option 'redirect=...' cannot be used in exception rules.",
+    "message": "'redirect=...' 选项不能在例外规则中使用。",
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano 弃置了 'redirect=...' 选项，因为这个网络规则和这个正则表达式不匹配：{{regexp}}",
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
+    "message": "这个规则暂时无效。更多信息：https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
     "description": "https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77"
   }
 }
