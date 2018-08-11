@@ -12,7 +12,7 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "Fremtving omkompilering av filtre",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -24,7 +24,7 @@
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "Leave tab?\nChanges you made will not be saved.",
+    "message": "Vil du forlate fanen?\nEndringer du har gjort, vil ikke bli lagret.",
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
@@ -36,7 +36,7 @@
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "Kunne ikke laste inn innhold, vennligst last inn på nytt.",
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
@@ -52,11 +52,11 @@
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "(beta) Gå inn i modus for tvungen skrolling (vil skape trøbbel med sideoppsettet)",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) Åpne bug-rapportereren",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
@@ -156,8 +156,8 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Elementfjerningsregler med Adguard sin syntaks er ikke støttet ennå.",
-    "description": "Error when Adguard style element remove rule"
+    "message": "Elementfjerningsregler med AdGuard sin syntaks er ikke støttet ennå.",
+    "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
     "message": "Valgene 'generichide', 'ghide', and 'elemhide' kan ikke bli nullifisert.",

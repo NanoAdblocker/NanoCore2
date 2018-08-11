@@ -156,8 +156,8 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "元素移除规则暂时不支持 Adguard 的语法。",
-    "description": "Error when Adguard style element remove rule"
+    "message": "元素移除规则暂时不支持 AdGuard 的语法。",
+    "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
     "message": "'generichide' ， 'ghide' ，和 'elemhide' 选项不能被反选。",

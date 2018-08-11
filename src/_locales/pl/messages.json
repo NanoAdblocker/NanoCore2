@@ -156,8 +156,8 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Reguły usuwania elementów ze składnią Adguard nie są jeszcze obsługiwane.",
-    "description": "Error when Adguard style element remove rule"
+    "message": "Reguły usuwania elementów ze składnią AdGuard nie są jeszcze obsługiwane.",
+    "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
     "message": "Opcje 'generichide', 'ghide', i 'elemhide' nie mogą być zanegowane.",
