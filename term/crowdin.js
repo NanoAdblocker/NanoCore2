@@ -18,7 +18,7 @@
 
 *******************************************************************************
 
-    Manage the Crowdin project.
+    Crowdin project helper.
 
 ******************************************************************************/
 
@@ -43,7 +43,7 @@ const yauzl = require("yauzl");
  * @function
  * @param {ReadableStream} stream - Stream to read.
  * @param {Function} on_done - Done event handler.
- *     @param {string} text - Data read from the stream.
+ *     @param {Buffer} data - Data read from the stream.
  * @param {Function} on_error - Error event handler.
  *     @param {Error} err - Error object.
  */
@@ -63,14 +63,16 @@ const stream_to_buffer = (stream, on_done, on_error) => {
 /**
  * Download a file.
  * @function
- * @param {string} link - URL to the file to download. Must be using HTTPS
+ * @param {string} link - URL to the file to download. Must be using the HTTPS
  * protocol.
  * @param {Function} on_done - Done event handler.
- *     @param {string} file - File content.
+ *     @param {Buffer} file - File content.
  * @param {Function} on_error - Error event handler.
  *     @param {Error} err - Error object.
+ * @param {boolean} [no_redir=false] - Whether redirection is forbidden. If
+ * false, redirect will be followed for at most once.
  */
-const download = (link, on_done, on_error) => {
+const download = (link, on_done, on_error, no_redir = false) => {
     const opt = url.parse(link);
 
     const req = https.request(opt, (res) => {
@@ -81,20 +83,25 @@ const download = (link, on_done, on_error) => {
             res.statusCode === 308
         ) {
             const new_link = res.headers["location"];
-            if (
+
+            if (no_redir) {
+                on_error(new Error("Too many redirects."));
+            } else if (
                 typeof new_link !== "string" ||
                 !new_link.startsWith("https://")
             ) {
                 on_error(new Error("Bad server response."));
             } else {
-                download(new_link, on_done, on_error);
+                download(new_link, on_done, on_error, true);
             }
-            return;
+
+            return void res.resume();
         }
 
         if (res.statusCode !== 200) {
             on_error(new Error("Connection error."));
-            return;
+
+            return void res.resume();
         }
 
         stream_to_buffer(res, on_done, on_error);
@@ -105,7 +112,7 @@ const download = (link, on_done, on_error) => {
 };
 
 /**
- * Validate JSON stream and write to a file.
+ * Validate a JSON stream and write to a file.
  * @function
  * @param {string} file - Path to output file.
  * @param {ReadableStream} stream - Data stream.
@@ -125,8 +132,7 @@ const validated_write = (file, stream, on_done, on_error) => {
         try {
             data = JSON.parse(data);
         } catch (err) {
-            on_error(err);
-            return;
+            return void on_error(err);
         }
 
         fs.writeFile(file, JSON.stringify(data, null, 2), (err) => {
@@ -155,9 +161,10 @@ const locales = new Map([
 /*****************************************************************************/
 
 /**
- * Download, unpack, and synchronize supported non-English locales with the
- * Crowdin project.
- * Note that you still have to manually build the project on Crowdin.
+ * Download, safely unpack, validate, then build supported non-English locales
+ * from the latest build of the Crowdin project.
+ * Note that you still have to manually build the project on Crowdin when
+ * there are changes.
  * @async @function
  * @throws When things go wrong.
  */
@@ -173,10 +180,8 @@ exports.sync = async () => {
         const done = new Set();
 
         yauzl.fromBuffer(file, { lazyEntries: true }, (err, zip) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+            if (err)
+                return void reject(err);
 
             const next = () => {
                 zip.readEntry();
@@ -184,29 +189,28 @@ exports.sync = async () => {
 
             zip.on("entry", (entry) => {
                 const name = entry.fileName;
-                if (!name.includes("/") || name.endsWith("/"))
-                    return;
+                if (name.endsWith("/"))
+                    return void next();
 
-                const [key, messages] = name.split("/");
-                if (messages !== "messages.json")
-                    return;
-                if (!locales.has(key))
-                    return;
+                const [key, messages, ...rest] = name.split("/");
+                if (messages !== "messages.json" || rest.length !== 0)
+                    return void reject(new Error("Unexpected file."));
+                if (!locales.has(key)) {
+                    return void reject(
+                        new Error("Locale " + key + " is not recognized."),
+                    );
+                }
 
                 const norm_key = locales.get(key);
 
                 const outdir = path.resolve("./src/_locales", norm_key);;
                 fs.mkdirp(outdir, (err) => {
-                    if (err) {
-                        reject(err);
-                        return;
-                    }
+                    if (err)
+                        return void reject(err);
 
                     zip.openReadStream(entry, (err, stream) => {
-                        if (err) {
-                            reject(err);
-                            return;
-                        }
+                        if (err)
+                            return void reject(err);
 
                         validated_write(
                             path.resolve(outdir, "messages.json"),

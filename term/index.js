@@ -253,7 +253,7 @@ cmd_handlers.set("sync", async () => {
 
 cmd_handlers.set("apply", async () => {
     if (config.Patches.length === 0)
-        return term.ready();
+        return void term.ready();
 
     busy = true;
 
