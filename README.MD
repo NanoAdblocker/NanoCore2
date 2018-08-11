@@ -61,7 +61,7 @@ reload   Reload configuration data
 exit     Exit the terminal
 ```
 
-## New Version Checklist
+## Checklist
 
 - Pull filters update
 - If needed, pull upstream update and change about string
