@@ -111,6 +111,10 @@
     "message": "Nano avslo typevalg som ikke er støttet ennå.",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
+  "nano_l_filter_resource_not_found": {
+    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "description": "Warning when resource not found"
+  },
   "nano_l_filter_comment_bracket": {
     "message": "Å bruke '[' til å markere en kommentar, har blitt utfaset. Bruk '!' istedet.",
     "description": "Deprecation when '[' used for comments"

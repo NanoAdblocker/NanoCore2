@@ -111,6 +111,10 @@
     "message": "Nano 弃置了目前不支持的类型选项。",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
+  "nano_l_filter_resource_not_found": {
+    "message": "资源 '{{res}}' 不存在，您确定拼写是正确的么？",
+    "description": "Warning when resource not found"
+  },
   "nano_l_filter_comment_bracket": {
     "message": "用 '[' 来标注注解是不赞成的，请改用 '!' 。",
     "description": "Deprecation when '[' used for comments"
