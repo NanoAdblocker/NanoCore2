@@ -194,7 +194,7 @@ index 259bf5c..d1a273b 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 41577f3..c35a5fd 100644
+index 41577f3..0ac39ce 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -206,15 +206,18 @@ index 41577f3..c35a5fd 100644
              }
              return;
          }
-@@ -254,6 +256,7 @@
+@@ -254,8 +256,10 @@
              !nano.cf.is_privileged &&
              nanoInjectArgs.startsWith(nano.privileged_assets_previx)
          ) {
 +            nano.flinte('nano_l_filter_assets_access_violation');
              return;
          }
++        nano.fl.lint(nano.flintable.ResScriptInject, nanoInjectArgs);
  
-@@ -270,7 +273,10 @@
+         // https://github.com/gorhill/uBlock/issues/3375
+         //   Ignore instances of exception filter with negated hostnames,
+@@ -270,7 +274,10 @@
              }
              var hash = µburi.domainFromHostname(hostname);
              if ( parsed.exception ) {
@@ -469,15 +472,3 @@ index 947b428..fb063f4 100644
      nano.cf.reset();
  
      return writer.toString();
-diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 0cb093a..5bfd6ab 100644
---- a/src/js/scriptlet-filtering.js
-+++ b/src/js/scriptlet-filtering.js
-@@ -261,6 +261,7 @@
-             nano.flinte('nano_l_filter_assets_access_violation');
-             return;
-         }
-+        nano.fl.lint(nano.flintable.ResScriptInject, nanoInjectArgs);
- 
-         // https://github.com/gorhill/uBlock/issues/3375
-         //   Ignore instances of exception filter with negated hostnames,

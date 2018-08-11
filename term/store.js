@@ -111,6 +111,8 @@ exports.publish = async (file, ext_id, term) => {
 
     assert(typeof ext_id === "string");
 
+    // TODO: Assertion inside event handlers are not caught by Promise
+
     const token = await new Promise((resolve, reject) => {
         const payload = serialize({
             client_id: credentials.client,
