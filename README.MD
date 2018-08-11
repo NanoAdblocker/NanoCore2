@@ -61,6 +61,15 @@ reload   Reload configuration data
 exit     Exit the terminal
 ```
 
+## New Version Checklist
+
+- Pull filters update
+- If needed, pull upstream update and change about string
+- If needed, pull locale update
+- Update version number
+- Add tags to repositories, and upload packages
+- Upload packages to extension stores
+
 ## Tips
 
 Do not forget to copy and commit generated patches from `mark` to make them
