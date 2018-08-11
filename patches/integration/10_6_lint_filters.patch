@@ -469,3 +469,15 @@ index 947b428..fb063f4 100644
      nano.cf.reset();
  
      return writer.toString();
+diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
+index 0cb093a..5bfd6ab 100644
+--- a/src/js/scriptlet-filtering.js
++++ b/src/js/scriptlet-filtering.js
+@@ -261,6 +261,7 @@
+             nano.flinte('nano_l_filter_assets_access_violation');
+             return;
+         }
++        nano.fl.lint(nano.flintable.ResScriptInject, nanoInjectArgs);
+ 
+         // https://github.com/gorhill/uBlock/issues/3375
+         //   Ignore instances of exception filter with negated hostnames,

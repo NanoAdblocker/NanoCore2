@@ -80,8 +80,8 @@ nano.enable_integration_filter = () => {
 
 nano.is_trusted_ext = (id) => {
     return (
-        sender.id === nano.defender_ext_id_chrome ||
-        sender.id === nano.defender_ext_id_edge
+        id === nano.defender_ext_id_chrome ||
+        id === nano.defender_ext_id_edge
     );
 };
 
@@ -265,6 +265,42 @@ nano.FilterLinter.prototype.warn = function (message) {
         type: "warning",
         text: message
     });
+};
+
+/*****************************************************************************/
+
+nano.flintable = {
+    // Resource existence check
+    ResScriptInject: 0x0000,
+    ResRedirect: 0x0001
+};
+
+nano.FilterLinter.prototype.lint = function (lintable, ...data) {
+    switch (lintable) {
+        case nano.flintable.ResScriptInject:
+            {
+                let args = data[0];
+
+                const i = args.indexOf(",");
+                if (i !== -1)
+                    args = args.substring(0, i);
+
+                if (!nano.ub.redirectEngine.resources.has(args)) {
+                    nano.flintw(
+                        "nano_l_filter_resource_not_found",
+                        ["{{res}}", args]
+                    );
+                }
+            }
+            break;
+
+        case nano.flintable.ResRedirect:
+            // TODO
+            break;
+
+        default:
+            console.error("Unexpected lintable type " + lintable);
+    }
 };
 
 /*****************************************************************************/
