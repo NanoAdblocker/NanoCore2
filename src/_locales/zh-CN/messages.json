@@ -1,62 +1,62 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "界面",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "在规则编辑器中启用自动换行（ soft warp ）",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "在规则查看器中启用自动换行（ soft warp ）",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "重新编译规则",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>uBlock Origin Resources<\/a> and <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Nano Extra Resources<\/a>.",
+    "message": "Nano 拥有两套资源，<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'> uBlock Origin 的资源<\/a>和<a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'> Nano 的额外资源<\/a>。",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "Nano 规则编辑器是由 Ace 驱动，大部分快捷键都一样。",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "Leave tab?\nChanges you made will not be saved.",
+    "message": "离开标签？\n未保存的更改将会丢失。",
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "基于 {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — 规则查看器",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "内容读取失败，请刷新。",
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "缓存管理",
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the firewall pane",
+    "message": "显示或隐藏防火墙边窗",
     "description": "Tooltip for toggle firewall pane button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "单击：刷新当前页面\n\nCtrl + 单击：无视缓存并刷新当前页面",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "（测试阶段）进入强制滚动模式（会破坏布局）",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "（测试阶段）打开问题汇报器",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {

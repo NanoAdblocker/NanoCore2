@@ -1,14 +1,14 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Brukergrensesnitt",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Myk tekstbryting av lange linjer i filterredigereren",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Myk tekstbryting av lange linjer i filterviseren",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
@@ -16,11 +16,11 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>uBlock Origin Resources<\/a> and <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Nano Extra Resources<\/a>.",
+    "message": "Nano kommer med to sett med ressurser, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>uBlock Origin-Ressursene<\/a> og <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Nano Sine Ekstraressurser<\/a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "Nano sin filterredigerer er drevet av Ace, og de fleste hurtigknappene virker på samme måte.",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
@@ -28,11 +28,11 @@
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "Basert på {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — Filterviser",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
@@ -40,15 +40,15 @@
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "mellomlagerkontroll",
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the firewall pane",
+    "message": "Skru brannmurpanelet av\/på",
     "description": "Tooltip for toggle firewall pane button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "Klikk her for å oppfriske denne siden.\n\nCtrl+klikk for å oppfriske denne siden mens mellomlageret blir forbipassert.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -60,167 +60,167 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano skannet ikke resten av linjene for advarsler, fordi det er for mange advarsler.",
     "description": "Warning when too many warnings"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "This line is treated as a regular expression, is that intended?",
+    "message": "Denne linjen blir behandlet som et vanlig uttrykk. Var det tilsiktet?",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano skannet ikke resten av linjene for feil, fordi det er for mange feil.",
     "description": "Error when too many errors"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "This hostname is not valid.",
+    "message": "Dette vertsnavnet er ikke gyldig.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "This regular expression has syntax errors.",
+    "message": "Dette vanlig uttrykk har syntaksfeil.",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "This URL is not valid.",
+    "message": "Denne URLen er ugyldig.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano skannet ikke resten av linjene for advarsler, fordi det er for mange advarsler.",
     "description": "Warning when too many warnings"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "Nano avslo et nullifisert domene, fordi den ikke kan bli brukt i en skriptutdrags-unntaksregel.",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+    "message": "Nano konverterte denne regelen til en unntaksregel, siden den bare inneholder nullifiserte domener.",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Negated domain is not yet supported for HTML filtering.",
+    "message": "Nullifiserte domener støtter ikke HTML-filtrering ennå.",
     "description": "Warning when negated domain used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
+    "message": "Nano avslo typevalget '{{type}}' fordi den ikke kan bli nullifisert.",
     "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
+    "message": "Nano byttet ut valget 'mp4' med 'media,redirect=noopmp4-1s'.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano discarded type options that are not yet supported.",
+    "message": "Nano avslo typevalg som ikke er støttet ennå.",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "Å bruke '[' til å markere en kommentar, har blitt utfaset. Bruk '!' istedet.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Inline comments are deprecated.",
+    "message": "Kommentarer innenfor filteroppføringene har blitt utfaset.",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+    "message": "'##script:contains(...)' har blitt utfaset. Bruk '##^script:has-text(...)' istedet.",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "message": "Bruken av valget 'mp4' har blitt utfaset. Utdyp fullengde-valgene istedet.",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano skannet ikke resten av linjene for feil, fordi det er for mange feil.",
     "description": "Error when too many errors"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not accepted due to security concerns.",
+    "message": "Rå JavaScript-innsprøytinger er ikke akseptert, grunnet sikkerhetsbekymringer.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "The selector in this rule has syntax errors.",
+    "message": "Velgeren i denne regelen har syntaksfeil.",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
-    "message": "This rule cannot be generic.",
+    "message": "Denne regelen kan ikke være generisk.",
     "description": "Error when expensive cosmetic is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "This CSS injection rule has syntax errors.",
+    "message": "Denne CSS-innsprøytingsregelen har syntaksfeil.",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "Upriviligerte filtre kan ikke henvise til priviligerte filtre.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "This host file entry is discarded because it is localhost declaration.",
+    "message": "Denne vertsfiloppføringen er avslått, siden den er en localhost-erklæring.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with Adguard syntax are not yet supported.",
+    "message": "Elementfjerningsregler med Adguard sin syntaks er ikke støttet ennå.",
     "description": "Error when Adguard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
-    "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
+    "message": "Valgene 'generichide', 'ghide', and 'elemhide' kan ikke bli nullifisert.",
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "The option 'domain=...' has invalid arguments.",
+    "message": "Valget 'domain=...' har ugyldige argumenter.",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has invalid arguments.",
+    "message": "Valget 'csp=...' har ugyldige argumenter.",
     "description": "Error when 'csp=' has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "The option '{{option}}' is not recognized.",
+    "message": "\"Valget '{{option}}' er ikke gjenkjent.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "A type option is not yet supported.",
+    "message": "En typeinnstilling er ikke støttet ennå.",
     "description": "Error when unsupported type option used and entire rule discarded"
   },
   "nano_l_filter_bad_re": {
-    "message": "This network rule has regular expression syntax errors.",
+    "message": "Denne nettverksregelen har syntaksfeil i dens vanlig uttrykk.",
     "description": "Error when network has regular expression syntax errors"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "The domain anchor may not be immediately followed by '^'.",
+    "message": "Domeneankeret kan ikke bli umiddelbart etterfulgt av '^'.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
+    "message": "Nano avslo valget 'redirect=...' fordi den krever et typevalg.",
     "description": "Warning when 'redirect=' has no type"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
+    "message": "Nano avslo valget 'redirect=...' fordi den har for mange typevalg.",
     "description": "Warning when 'redirect=' has too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the option 'redirect=...' because it has no arguments.",
+    "message": "Nano avslo valget 'redirect=...' fordi den ikke har noen argumenter.",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
+    "message": "Nano avslo valget 'redirect=...' fordi den ikke har noen støttede typevalg.",
     "description": "Warning when 'redirect=' has no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
+    "message": "Nano avslo et nullifisert domene, fordi den ikke kan bli brukt med valget 'redirect=...'.",
     "description": "Warning when negated domain used with 'redirect='"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
+    "message": "Nano avslo valget 'redirect=...' fordi den ikke har et gyldig måldomene.",
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {
-    "message": "The option 'redirect=...' cannot be used in exception rules.",
+    "message": "Valget 'redirect=...' kan ikke bli brukt i unntaksregler.",
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano avslo valget 'redirect=...' fordi denne nettverksregelen ikke samsvarer med dette vanlig uttrykk: {{regexp}}",
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
+    "message": "Denne regelen har blitt avslått per nå. For mere informasjon: https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
     "description": "https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77"
   }
 }

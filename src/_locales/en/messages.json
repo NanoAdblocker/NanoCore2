@@ -61,7 +61,7 @@
   },
   "nano_l_whitelist_aborted_w": {
     "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
     "message": "This line is treated as a regular expression, is that intended?",
@@ -69,7 +69,7 @@
   },
   "nano_l_whitelist_aborted_e": {
     "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
     "message": "This hostname is not valid.",
@@ -85,7 +85,7 @@
   },
   "nano_l_filter_aborted_w": {
     "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
-    "description": "Warning when too many warnings"
+    "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
     "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
@@ -129,7 +129,7 @@
   },
   "nano_l_filter_aborted_e": {
     "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
-    "description": "Error when too many errors"
+    "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
     "message": "Raw JavaScript injection is not accepted due to security concerns.",
@@ -141,7 +141,7 @@
   },
   "nano_l_filter_too_expensive": {
     "message": "This rule cannot be generic.",
-    "description": "Error when expensive cosmetic is generic"
+    "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
     "message": "This CSS injection rule has syntax errors.",
