@@ -456,20 +456,55 @@ cmd_handlers.set("clean", async () => {
 
 /*****************************************************************************/
 
+/**
+ * Build English locale file from locale declaration.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const tmake = async () => {
+    const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
+
+    const output = path.resolve("./src/_locales/en/");
+    await fs.mkdirp(output);
+
+    await fs.writeFile(
+        path.resolve(output, "messages.json"),
+        JSON.stringify(data, null, 2),
+        "utf8",
+    );
+};
+
+/**
+ * Unpack, validate, and build supported non-English locales.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const tsync = () => {
+    return new Promise((resolve, reject) => {
+        assert(false); // TODO
+    });
+};
+
+/*****************************************************************************/
+
 cmd_handlers.set("tmake", async () => {
     busy = true;
 
     try {
-        const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
+        await tmake();
+    } catch (err) {
+        term.write_line(err.stack);
+    }
 
-        const output = path.resolve("./src/_locales/en/");
-        await fs.mkdirp(output);
+    busy = false;
+    term.ready();
+});
 
-        await fs.writeFile(
-            path.resolve(output, "messages.json"),
-            JSON.stringify(data, null, 2),
-            "utf8",
-        );
+cmd_handlers.set("tsync", async () => {
+    busy = true;
+
+    try {
+        await tsync();
     } catch (err) {
         term.write_line(err.stack);
     }
