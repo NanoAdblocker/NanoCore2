@@ -202,8 +202,9 @@ exports.sync = async () => {
                 }
 
                 const norm_key = locales.get(key);
+                done.add(key);
 
-                const outdir = path.resolve("./src/_locales", norm_key);;
+                const outdir = path.resolve("./src/_locales", norm_key);
                 fs.mkdirp(outdir, (err) => {
                     if (err)
                         return void reject(err);
