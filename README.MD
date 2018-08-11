@@ -16,7 +16,7 @@ Nano Core 2 has extra locale strings, most of them are for Nano Linter.
 You can contribute to localization here:
 https://crowdin.com/project/nano-adblocker
 
-Your language is not here? Submit an issue to let me know.
+Your language is not listed? Submit an issue to let me know.
 
 ## Setup
 
