@@ -550,6 +550,8 @@ exports.publish = async (browser, term) => {
 
         await store.publish(input, data.chromium_id, term);
     } else if (browser === "edge") {
+        // https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/packaging/using-manifoldjs-to-package-extensions
+
         if (!edge)
             edge = require("../../Prototype/NanoCore2/edge.js");
 
