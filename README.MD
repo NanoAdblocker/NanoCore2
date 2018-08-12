@@ -68,7 +68,7 @@ exit     Exit the terminal
 
 - Pull filters update
 - If needed, pull upstream update and update about string
-- If needed, pull locale update
+- If needed, build and pull locale update
 - Bump version number
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores
