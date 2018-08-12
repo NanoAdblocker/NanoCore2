@@ -11,7 +11,7 @@ Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
 
 ## Localization
 
-Nano Core 2 has extra locale strings, most of them are for Nano Linter.
+Nano Core 2 has some extra locale strings, most of them are for Nano Linter.
 
 You can contribute to localization here:
 https://crowdin.com/project/nano-adblocker
