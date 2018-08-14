@@ -112,7 +112,7 @@
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "message": "Zasób '{{res}}' nie został odnaleziony, czy na pewno poprawnie napisałeś?",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
