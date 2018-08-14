@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index f0de8df..e25d027 100644
+index f0de8dfc..e25d027e 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -143,6 +143,10 @@ var onMessage = function(request, sender, callback) {
@@ -14,7 +14,7 @@ index f0de8df..e25d027 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 0d3178e..bd6aff2 100644
+index 0d3178e7..bd6aff28 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -409,6 +409,7 @@ var renderPopup = function() {
@@ -55,7 +55,7 @@ index 0d3178e..bd6aff2 100644
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
 diff --git a/src/popup.html b/src/popup.html
-index 6fd5c1a..7cc3fc7 100644
+index 6fd5c1aa..7cc3fc7e 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -23,6 +23,7 @@

@@ -1,11 +1,12 @@
 diff --git a/src/about.html b/src/about.html
-index 210278e..a969560 100644
+index 210278e4..a969560d 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -13,10 +13,16 @@
+@@ -12,11 +12,17 @@
+ 
  <div class="body">
      <p id="aboutNameVer"></p>
-     <ul>
++    <ul>
 +        <li><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore" data-i18n="aboutCode"></a>
@@ -13,7 +14,7 @@ index 210278e..a969560 100644
 +    </ul>
 +
 +    <p data-i18n="nano_d_about_based_on"></p>
-+    <ul>
+     <ul>
          <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
          <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
 -        <li><a href="https://old.reddit.com/r/uBlockOrigin/" data-i18n="aboutSupport"></a>

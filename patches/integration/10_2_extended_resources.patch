@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 233fa30..4b261a4 100644
+index 233fa303..4b261a46 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -956,6 +956,9 @@ var updateNext = function() {
@@ -13,7 +13,7 @@ index 233fa30..4b261a4 100644
                  fireNotification(
                      'before-asset-updated',
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index b1e0d85..682d930 100644
+index b1e0d85e..682d930e 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -1009,10 +1009,14 @@ var onMessage = function(request, sender, callback) {
@@ -33,7 +33,7 @@ index b1e0d85..682d930 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 52fc700..41577f3 100644
+index 52fc700f..41577f3f 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -186,7 +186,7 @@
@@ -61,7 +61,7 @@ index 52fc700..41577f3 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 856abab..947b428 100644
+index 856abab3..947b4285 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -929,7 +929,7 @@

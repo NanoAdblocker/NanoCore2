@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index d198b74..9396b47 100644
+index d198b74b..9396b47a 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
 @@ -103,11 +103,6 @@ vAPI.webextFlavor = {
@@ -15,7 +15,7 @@ index d198b74..9396b47 100644
      if ( !async ) {
          vAPI.setTimeout(dispatch, 97);
 diff --git a/platform/chromium/vapi-usercss.js b/platform/chromium/vapi-usercss.js
-index 72b9c23..cebc2d1 100644
+index 72b9c23c..cebc2d1d 100644
 --- a/platform/chromium/vapi-usercss.js
 +++ b/platform/chromium/vapi-usercss.js
 @@ -29,8 +29,7 @@

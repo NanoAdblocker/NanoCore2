@@ -1,5 +1,5 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 14a47bc..259bf5c 100644
+index 14a47bc9..259bf5c8 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -322,7 +322,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
@@ -25,7 +25,7 @@ index 14a47bc..259bf5c 100644
  })();
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index a49ef00..b1eef4a 100644
+index a49ef008..b1eef4a0 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1416,7 +1416,10 @@ FilterParser.prototype.toNormalizedType = {

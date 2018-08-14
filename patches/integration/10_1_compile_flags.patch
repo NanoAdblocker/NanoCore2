@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index d711a61..e70090a 100644
+index d711a615..e70090a0 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -46,6 +46,8 @@ var µBlock = (function() { // jshint ignore:line
@@ -20,7 +20,7 @@ index d711a61..e70090a 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index dea5ad3..5161a9d 100644
+index dea5ad30..5161a9d9 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -644,6 +644,8 @@
@@ -33,7 +33,7 @@ index dea5ad3..5161a9d 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5849efa..a49ef00 100644
+index 5849efa0..a49ef008 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1594,6 +1594,10 @@ FilterParser.prototype.parseOptions = function(s) {
@@ -59,7 +59,7 @@ index 5849efa..a49ef00 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index f8c429d..856abab 100644
+index f8c429db..856abab3 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -411,7 +411,7 @@

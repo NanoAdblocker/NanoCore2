@@ -1,5 +1,5 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index a1c89ef..dc0b7f3 100644
+index a1c89ef3..dc0b7f31 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
 @@ -15,7 +15,7 @@
@@ -12,7 +12,7 @@ index a1c89ef..dc0b7f3 100644
          <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
          <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index d119058..f8ea196 100644
+index d1190581..f8ea1964 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
 @@ -11,7 +11,7 @@
@@ -25,7 +25,7 @@ index d119058..f8ea196 100644
          <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
      <p><textarea id="advancedSettings" dir="auto" spellcheck="false"></textarea>
 diff --git a/src/dyna-rules.html b/src/dyna-rules.html
-index 87bc10a..3f92593 100644
+index 87bc10a0..3f925936 100644
 --- a/src/dyna-rules.html
 +++ b/src/dyna-rules.html
 @@ -18,7 +18,7 @@
@@ -38,7 +38,7 @@ index 87bc10a..3f92593 100644
          <div class="tools">
              <div class="ruleActions">
 diff --git a/src/whitelist.html b/src/whitelist.html
-index 8c31ed2..7cc62ea 100644
+index 8c31ed2d..7cc62ead 100644
 --- a/src/whitelist.html
 +++ b/src/whitelist.html
 @@ -20,7 +20,7 @@

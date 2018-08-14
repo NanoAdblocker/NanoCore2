@@ -1,5 +1,5 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index 58d56ff..b0fc1a0 100644
+index 58d56ffe..b0fc1a0f 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
 @@ -621,7 +621,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
@@ -112,7 +112,7 @@ index 58d56ff..b0fc1a0 100644
      // https://github.com/chrisaljoudi/uBlock/issues/188
      // If not a real domain as per PSL, assign a synthetic one
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index f4d2c39..ea2d22b 100644
+index f4d2c391..ea2d22bd 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
 @@ -228,7 +228,10 @@
@@ -140,7 +140,7 @@ index f4d2c39..ea2d22b 100644
              writer.push([
                  compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 259bf5c..2b4060f 100644
+index 259bf5c8..2b4060f2 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -196,7 +196,7 @@ index 259bf5c..2b4060f 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 41577f3..0ac39ce 100644
+index 41577f3f..0ac39cea 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -232,7 +232,7 @@ index 41577f3..0ac39ce 100644
              } else if ( negated ) {
                  hash = '!' + hash;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 5161a9d..0e82418 100644
+index 5161a9d9..0e82418f 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -628,7 +628,10 @@
@@ -268,7 +268,7 @@ index 5161a9d..0e82418 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index b1eef4a..989e600 100644
+index b1eef4a0..989e600b 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1471,6 +1471,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
@@ -386,7 +386,7 @@ index b1eef4a..989e600 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 947b428..fb063f4 100644
+index 947b4285..fb063f41 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -394,7 +394,11 @@

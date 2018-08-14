@@ -1,5 +1,5 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index 922b249..108334e 100644
+index 922b249c..108334e2 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
 @@ -16,7 +16,6 @@ h2 {
@@ -89,7 +89,7 @@ index 922b249..108334e 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 5a5a2f6..0d3178e 100644
+index 5a5a2f61..0d3178e7 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -506,7 +506,7 @@ var renderTooltips = function(selector) {
@@ -124,7 +124,7 @@ index 5a5a2f6..0d3178e 100644
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
-index 872bf1d..6fd5c1a 100644
+index 872bf1d3..6fd5c1aa 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -14,23 +14,29 @@

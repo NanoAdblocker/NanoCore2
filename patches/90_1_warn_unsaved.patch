@@ -1,5 +1,5 @@
 diff --git a/src/_locales/en/messages.json b/src/_locales/en/messages.json
-index 58e9d7a..a32f17f 100644
+index 58e9d7a2..a32f17f8 100644
 --- a/src/_locales/en/messages.json
 +++ b/src/_locales/en/messages.json
 @@ -11,6 +11,10 @@
@@ -14,7 +14,7 @@ index 58e9d7a..a32f17f 100644
      "message":"Settings",
      "description":"appears as tab name in dashboard"
 diff --git a/src/js/1p-filters.js b/src/js/1p-filters.js
-index 73682ae..8450216 100644
+index 73682aed..84502169 100644
 --- a/src/js/1p-filters.js
 +++ b/src/js/1p-filters.js
 @@ -25,6 +25,10 @@
@@ -37,7 +37,7 @@ index 73682ae..8450216 100644
  
  /******************************************************************************/
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index beee457..b4d5d1d 100644
+index beee4574..b4d5d1dc 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
 @@ -25,6 +25,10 @@
@@ -65,7 +65,7 @@ index beee457..b4d5d1d 100644
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index d038c5d..369f428 100644
+index d038c5d0..369f4280 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
 @@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
@@ -113,7 +113,7 @@ index d038c5d..369f428 100644
 +
  })();
 diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
-index eb1d704..36ee7dd 100644
+index eb1d704f..36ee7dd5 100644
 --- a/src/js/dyna-rules.js
 +++ b/src/js/dyna-rules.js
 @@ -25,6 +25,10 @@
@@ -136,7 +136,7 @@ index eb1d704..36ee7dd 100644
  
      return function(now) {
 diff --git a/src/js/udom.js b/src/js/udom.js
-index dc85e6b..553b4b3 100644
+index dc85e6b2..553b4b34 100644
 --- a/src/js/udom.js
 +++ b/src/js/udom.js
 @@ -675,20 +675,6 @@ DOMList.prototype.trigger = function(etype) {
@@ -161,7 +161,7 @@ index dc85e6b..553b4b3 100644
  
  })();
 diff --git a/src/js/whitelist.js b/src/js/whitelist.js
-index 13456f0..db7e9af 100644
+index 13456f01..db7e9afa 100644
 --- a/src/js/whitelist.js
 +++ b/src/js/whitelist.js
 @@ -25,6 +25,10 @@

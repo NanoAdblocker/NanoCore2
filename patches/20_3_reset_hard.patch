@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index e25d027..52c4932 100644
+index e25d027e..52c4932b 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -800,7 +800,7 @@ var restoreUserData = function(request) {

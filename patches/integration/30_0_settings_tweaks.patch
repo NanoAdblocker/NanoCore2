@@ -1,5 +1,5 @@
 diff --git a/src/settings.html b/src/settings.html
-index 5928ffb..48ce934 100644
+index 5928ffb4..48ce9343 100644
 --- a/src/settings.html
 +++ b/src/settings.html
 @@ -15,21 +15,23 @@

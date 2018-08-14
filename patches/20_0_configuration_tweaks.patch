@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 4b261a4..fbe4a61 100644
+index 4b261a46..fbe4a618 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -285,7 +285,7 @@ var registerAssetSource = function(assetKey, dict) {
@@ -21,7 +21,7 @@ index 4b261a4..fbe4a61 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 2fd1db0..f2856f8 100644
+index 2fd1db00..f2856f8b 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -40,12 +40,12 @@ var µBlock = (function() { // jshint ignore:line
@@ -49,7 +49,7 @@ index 2fd1db0..f2856f8 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 220da63..9d802ee 100644
+index 220da630..9d802ee0 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -166,13 +166,6 @@ var onUserSettingsReady = function(fetched) {
@@ -75,7 +75,7 @@ index 220da63..9d802ee 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index fb063f4..9d55357 100644
+index fb063f41..9d553579 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -1275,7 +1275,7 @@
