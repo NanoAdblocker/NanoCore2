@@ -327,8 +327,8 @@
     "updateAfter": 5,
     "off": true,
     "title": "Dan Pollock’s hosts file",
-    "contentURL": "http://someonewhocares.org/hosts/hosts",
-    "supportURL": "http://someonewhocares.org/hosts/"
+    "contentURL": "https://someonewhocares.org/hosts/hosts",
+    "supportURL": "https://someonewhocares.org/hosts/"
   },
   "hphosts": {
     "content": "filters",
@@ -584,8 +584,8 @@
     "off": true,
     "title": "LTU: Adblock Plus Lithuania",
     "lang": "lt",
-    "contentURL": "http://margevicius.lt/easylistlithuania.txt",
-    "supportURL": "http://margevicius.lt/easylist_lithuania/"
+    "contentURL": "https://margevicius.lt/easylistlithuania.txt",
+    "supportURL": "https://margevicius.lt/2014/06/26/easylist_lithuania/"
   },
   "LVA-0": {
     "content": "filters",
