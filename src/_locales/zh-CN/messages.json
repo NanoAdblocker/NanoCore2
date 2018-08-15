@@ -160,7 +160,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "元素移除规则暂时不支持 AdGuard 的语法。",
+    "message": "元素移除规则暂时不支持 AdGuard 的语法，请改用 '##^' 。",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {

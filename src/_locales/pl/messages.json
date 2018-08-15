@@ -160,7 +160,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Reguły usuwania elementów ze składnią AdGuard nie są jeszcze obsługiwane.",
+    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {

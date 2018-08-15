@@ -112,7 +112,7 @@
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "message": "'{{res}}'-ressursen kunne ikke bli funnet. Har den blitt skrevet riktig?",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
@@ -160,7 +160,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Elementfjerningsregler med AdGuard sin syntaks er ikke støttet ennå.",
+    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
