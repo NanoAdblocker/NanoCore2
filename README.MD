@@ -66,10 +66,10 @@ exit     Exit the terminal
 
 ## Checklist
 
-- Pull filters update
-- If needed, pull upstream update and update about string
-- If needed, pull upstream update to `assets.json`
-- If needed, build and pull locale update
+- Pull filters updates
+- If needed, pull upstream updates and update about string
+- If needed, pull upstream updates to `assets.json`
+- If needed, build and pull locale updates
 - Bump version number
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores
