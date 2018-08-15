@@ -333,7 +333,7 @@
 
         "nano_l_filter_ag_element_remove": {
             "message": "Element remove rules with AdGuard syntax are not " +
-            "yet supported.",
+            "yet supported, use '##^' instead.",
 
             "description": "Error when AdGuard style element remove rule",
         },
