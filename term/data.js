@@ -44,7 +44,7 @@ exports.version = "1.0.0.65";
  * The based on string.
  * @const {string}
  */
-exports.based_on = "uBlock Origin Version/1.16.16 Commit/de65fad UserCSS/disabled";
+exports.based_on = "uBlock Origin Version/1.16.20 Commit/87b3138 UserCSS/disabled";
 
 /**
  * Chromium extension identification string.
