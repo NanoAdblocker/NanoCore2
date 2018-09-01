@@ -23,7 +23,7 @@ index d1190581..f8ea1964 100644
 +    <p><span data-i18n="advancedSettingsWarning"></span> <a class="fa info important" href="https://github.com/NanoAdblocker/NanoCore2/blob/master/notes/advanced_settings.md#advanced-settings" target="_blank">&#xf05a;</a>
      <p>
          <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
-     <p><textarea id="advancedSettings" dir="auto" spellcheck="false"></textarea>
+         <button id="nanoForceRecompile" class="custom" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
 diff --git a/src/dyna-rules.html b/src/dyna-rules.html
 index 87bc10a0..3f925936 100644
 --- a/src/dyna-rules.html
