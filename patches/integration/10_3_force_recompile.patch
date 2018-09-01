@@ -2,15 +2,14 @@ diff --git a/src/advanced-settings.html b/src/advanced-settings.html
 index 046b60f3..d1190581 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
-@@ -15,6 +15,8 @@
+@@ -19,6 +19,7 @@
+     <p><span data-i18n="advancedSettingsWarning"></span> <a class="fa info important" href="https://github.com/gorhill/uBlock/wiki/Advanced-settings" target="_blank">&#xf05a;</a>
      <p>
          <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
-     <p><textarea id="advancedSettings" dir="auto" spellcheck="false"></textarea>
-+    <p>
 +        <button id="nanoForceRecompile" class="custom" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
  </div>
  
- <script src="js/vapi.js"></script>
+ <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
 index 97421873..2b5de611 100644
 --- a/src/js/advanced-settings.js
