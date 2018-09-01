@@ -9,8 +9,8 @@ index d711a615..e70090a0 100644
 +        nanoIgnoreThirdPartyWhitelist: false,
 +        nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
+         requestJournalProcessPeriod: 1000,
          suspendTabsUntilReady: false,
-         userResourcesLocation: 'unset'
 @@ -156,6 +158,7 @@ var µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
