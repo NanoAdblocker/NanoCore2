@@ -11,14 +11,14 @@ index 046b60f3..d1190581 100644
  
  <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index 97421873..2b5de611 100644
+index b65ad7a1..62d0a4ca 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
-@@ -103,9 +103,21 @@ var applyChanges = function() {
+@@ -116,6 +116,17 @@ let applyChanges = function() {
  
  /******************************************************************************/
  
-+var nanoForceRecompile = function() {
++let nanoForceRecompile = function() {
 +    messaging.send(
 +        'dashboard',
 +        {
@@ -29,12 +29,19 @@ index 97421873..2b5de611 100644
 +
 +/******************************************************************************/
 +
- // Handle user interaction
- uDom('#advancedSettings').on('input', advancedSettingsChanged);
- uDom('#advancedSettingsApply').on('click', applyChanges);
-+uDom('#nanoForceRecompile').on('click', nanoForceRecompile);
+ uDom.nodeFromId('advancedSettings').addEventListener(
+     'input',
+     advancedSettingsChanged
+@@ -124,6 +135,10 @@ uDom.nodeFromId('advancedSettingsApply').addEventListener(
+     'click',
+     applyChanges
+ );
++uDom.nodeFromId('nanoForceRecompile').addEventListener(
++    'click',
++    nanoForceRecompile
++);
  
- renderAdvancedSettings();
+ renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
 index 682d930e..af4a9662 100644
