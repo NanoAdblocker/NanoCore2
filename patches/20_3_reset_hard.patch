@@ -13,11 +13,25 @@ index e25d027e..52c4932b 100644
          if ( count === 0 ) {
 @@ -809,8 +809,7 @@ var resetUserData = function() {
      };
-     vAPI.cacheStorage.clear(countdown); // 1
-     vAPI.storage.clear(countdown);      // 2
--    µb.saveLocalSettings(countdown);    // 3
+     µb.cacheStorage.clear(countdown); // 1
+     vAPI.storage.clear(countdown);    // 2
+-    µb.saveLocalSettings(countdown);  // 3
 -    vAPI.localStorage.removeItem('immediateHiddenSettings');
 +    vAPI.localStorage.clear();
  };
  
  /******************************************************************************/
+diff --git a/src/js/messaging.js b/src/js/messaging.js
+index 212f9fc7..f8448ce5 100644
+--- a/src/js/messaging.js
++++ b/src/js/messaging.js
+@@ -815,9 +815,6 @@ var restoreUserData = function(request) {
+     vAPI.localStorage.removeItem('immediateHiddenSettings');
+ };
+ 
+-// Remove all stored data but keep global counts, people can become
+-// quite attached to numbers
+-
+ var resetUserData = function() {
+     let count = 2;
+     let countdown = ( ) => {
