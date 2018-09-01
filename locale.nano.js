@@ -130,7 +130,8 @@
                 "refresh this page while bypassing cache.",
 
             "description": "English: Click to refresh this " +
-                "page.\n\nCtrl+click to refresh this page while bypassing cache.",
+                "page.\n\nCtrl+click to refresh this page while bypassing " +
+                "cache.",
         },
 
         // Beta buttons
