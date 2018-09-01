@@ -24,7 +24,7 @@ diff --git a/src/js/background.js b/src/js/background.js
 index 2fd1db00..f2856f8b 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -40,12 +40,12 @@ var µBlock = (function() { // jshint ignore:line
+@@ -40,13 +40,13 @@ var µBlock = (function() { // jshint ignore:line
  
      var hiddenSettingsDefault = {
          assetFetchTimeout: 30,
@@ -32,6 +32,7 @@ index 2fd1db00..f2856f8b 100644
 -        autoUpdatePeriod: 7,
 +        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
+         cacheStorageCompression: true,
          debugScriptlets: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
