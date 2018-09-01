@@ -12,10 +12,10 @@ index a1c89ef3..dc0b7f31 100644
          <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
          <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index d1190581..f8ea1964 100644
+index 54c4e8db..bfb5d33d 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
-@@ -11,7 +11,7 @@
+@@ -16,7 +16,7 @@
  
  <body>
  <div class="body">

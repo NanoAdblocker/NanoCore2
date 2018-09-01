@@ -1,8 +1,8 @@
 diff --git a/src/settings.html b/src/settings.html
-index 5928ffb4..48ce9343 100644
+index bfd4aa3e..14b61b82 100644
 --- a/src/settings.html
 +++ b/src/settings.html
-@@ -15,21 +15,23 @@
+@@ -15,22 +15,24 @@
          <li><input id="collapse-blocked" type="checkbox" data-setting-name="collapseBlocked" data-setting-type="bool"><label data-i18n="settingsCollapseBlockedPrompt" for="collapse-blocked"></label>
          <li><input id="icon-badge" type="checkbox" data-setting-name="showIconBadge" data-setting-type="bool"><label data-i18n="settingsIconBadgePrompt" for="icon-badge"></label>
          <li><input id="context-menu-enabled" type="checkbox" data-setting-name="contextMenuEnabled" data-setting-type="bool"><label data-i18n="settingsContextMenuPrompt" for="context-menu-enabled"></label>

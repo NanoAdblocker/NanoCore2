@@ -1,5 +1,5 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index 922b249c..108334e2 100644
+index 853b8cc0..7069e82e 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
 @@ -16,7 +16,6 @@ h2 {
@@ -89,10 +89,10 @@ index 922b249c..108334e2 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 5a5a2f61..0d3178e7 100644
+index ca6515e5..9cbbd67c 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -506,7 +506,7 @@ var renderTooltips = function(selector) {
+@@ -507,7 +507,7 @@ var renderTooltips = function(selector) {
  
  var tooltipTargetSelectors = new Map([
      [
@@ -101,7 +101,7 @@ index 5a5a2f61..0d3178e7 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -651,7 +651,7 @@ var toggleNetFilteringSwitch = function(ev) {
+@@ -666,7 +666,7 @@ var toggleNetFilteringSwitch = function(ev) {
              tabId: popupData.tabId
          }
      );
@@ -110,7 +110,7 @@ index 5a5a2f61..0d3178e7 100644
      hashFromPopupData();
  };
  
-@@ -1072,10 +1072,10 @@ var onHideTooltip = function() {
+@@ -1087,10 +1087,10 @@ var onHideTooltip = function() {
      getPopupData(tabId);
  })();
  
@@ -124,7 +124,7 @@ index 5a5a2f61..0d3178e7 100644
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
-index 872bf1d3..6fd5c1aa 100644
+index 0fd128f0..d0aec45f 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -14,23 +14,29 @@

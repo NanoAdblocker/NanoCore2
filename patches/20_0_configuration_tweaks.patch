@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 4b261a46..fbe4a618 100644
+index d5e3a4f5..db26ff33 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -285,7 +285,7 @@ var registerAssetSource = function(assetKey, dict) {
@@ -21,7 +21,7 @@ index 4b261a46..fbe4a618 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 2fd1db00..f2856f8b 100644
+index 593fcdbc..81cb6606 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -40,13 +40,13 @@ var µBlock = (function() { // jshint ignore:line
@@ -41,7 +41,7 @@ index 2fd1db00..f2856f8b 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
-@@ -58,6 +58,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -60,6 +60,7 @@ var µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
@@ -76,10 +76,10 @@ index 220da630..9d802ee0 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index fb063f41..9d553579 100644
+index 2a0b9631..f705bd3e 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1275,7 +1275,7 @@
+@@ -1282,7 +1282,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -88,7 +88,7 @@ index fb063f41..9d553579 100644
              });
          }, updateDelay);
      };
-@@ -1371,7 +1371,7 @@
+@@ -1378,7 +1378,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

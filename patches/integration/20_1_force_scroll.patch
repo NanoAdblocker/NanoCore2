@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index f0de8dfc..e25d027e 100644
+index 51a1152e..7725d976 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -143,6 +143,10 @@ var onMessage = function(request, sender, callback) {
+@@ -140,6 +140,10 @@ var onMessage = function(request, sender, callback) {
          µb.elementPickerExec(request.tabId, request.targetURL, request.zap);
          break;
  
@@ -14,10 +14,10 @@ index f0de8dfc..e25d027e 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 0d3178e7..bd6aff28 100644
+index 9cbbd67c..94c9903c 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -409,6 +409,7 @@ var renderPopup = function() {
+@@ -410,6 +410,7 @@ var renderPopup = function() {
      // If you think the `=== true` is pointless, you are mistaken
      uDom.nodeFromId('gotoPick').classList.toggle('enabled', popupData.canElementPicker === true);
      uDom.nodeFromId('gotoZap').classList.toggle('enabled', popupData.canElementPicker === true);
@@ -25,7 +25,7 @@ index 0d3178e7..bd6aff28 100644
  
      var blocked = popupData.pageBlockedRequestCount,
          total = popupData.pageAllowedRequestCount + blocked;
-@@ -686,6 +687,20 @@ var gotoPick = function() {
+@@ -701,6 +702,20 @@ var gotoPick = function() {
  
  /******************************************************************************/
  
@@ -46,7 +46,7 @@ index 0d3178e7..bd6aff28 100644
  var gotoURL = function(ev) {
      if ( this.hasAttribute('href') === false ) { return; }
  
-@@ -1075,6 +1090,7 @@ var onHideTooltip = function() {
+@@ -1090,6 +1105,7 @@ var onHideTooltip = function() {
  uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
@@ -55,7 +55,7 @@ index 0d3178e7..bd6aff28 100644
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
 diff --git a/src/popup.html b/src/popup.html
-index 6fd5c1aa..7cc3fc7e 100644
+index d0aec45f..9297c527 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -23,6 +23,7 @@

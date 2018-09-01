@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index d711a615..e70090a0 100644
+index ef06a8c9..1896f6e8 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -46,6 +46,8 @@ var µBlock = (function() { // jshint ignore:line
+@@ -47,6 +47,8 @@ var µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -11,7 +11,7 @@ index d711a615..e70090a0 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          suspendTabsUntilReady: false,
-@@ -156,6 +158,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -158,6 +160,7 @@ var µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
@@ -20,10 +20,10 @@ index d711a615..e70090a0 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index dea5ad30..5161a9d9 100644
+index 94f38a74..44a1e35c 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -644,6 +644,8 @@
+@@ -648,6 +648,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
@@ -59,10 +59,10 @@ index 5849efa0..a49ef008 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index f8c429db..856abab3 100644
+index 1ae7357e..89b0df77 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -411,7 +411,7 @@
+@@ -409,7 +409,7 @@
      var µb = this;
  
      var onSaved = function() {
@@ -71,7 +71,7 @@ index f8c429db..856abab3 100644
              snfe = µb.staticNetFilteringEngine,
              cfe = µb.cosmeticFilteringEngine,
              acceptedCount = snfe.acceptedCount + cfe.acceptedCount,
-@@ -705,7 +705,7 @@
+@@ -703,7 +703,7 @@
  
      var onCompiledListLoaded2 = function(details) {
          if ( details.content === '' ) {
@@ -80,7 +80,7 @@ index f8c429db..856abab3 100644
              µb.assets.put(compiledPath, details.content);
          }
          rawContent = undefined;
-@@ -788,9 +788,11 @@
+@@ -786,9 +786,11 @@
  
  /******************************************************************************/
  
@@ -93,7 +93,7 @@ index f8c429db..856abab3 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -851,6 +853,8 @@
+@@ -849,6 +851,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
@@ -102,7 +102,7 @@ index f8c429db..856abab3 100644
      return writer.toString();
  };
  
-@@ -1259,7 +1263,7 @@
+@@ -1266,7 +1270,7 @@
                      );
                      this.assets.put(
                          'compiled/' + details.assetKey,
