@@ -12,6 +12,7 @@
     "updateAfter": 14,
     "contentURL": [
       "https://publicsuffix.org/list/public_suffix_list.dat",
+      "https://cdn.rawgit.com/publicsuffix/list/master/public_suffix_list.dat",
       "assets/ThirdParty/PublicSuffix.dat"
     ]
   },
