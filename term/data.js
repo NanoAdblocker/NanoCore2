@@ -122,7 +122,7 @@ exports.manifest = (browser) => {
         },
         "incognito": "split",
         "manifest_version": 2,
-        "minimum_chrome_version": "47.0",
+        "minimum_chrome_version": "51.0",
         "name": "Nano Adblocker",
         "optional_permissions": [
             "file:///*",
