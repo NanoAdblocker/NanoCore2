@@ -12,10 +12,10 @@ index a1c89ef3..dc0b7f31 100644
          <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
          <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index d1190581..f8ea1964 100644
+index 54c4e8db..bfb5d33d 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
-@@ -11,7 +11,7 @@
+@@ -16,7 +16,7 @@
  
  <body>
  <div class="body">
@@ -23,7 +23,7 @@ index d1190581..f8ea1964 100644
 +    <p><span data-i18n="advancedSettingsWarning"></span> <a class="fa info important" href="https://github.com/NanoAdblocker/NanoCore2/blob/master/notes/advanced_settings.md#advanced-settings" target="_blank">&#xf05a;</a>
      <p>
          <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
-     <p><textarea id="advancedSettings" dir="auto" spellcheck="false"></textarea>
+         <button id="nanoForceRecompile" class="custom" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
 diff --git a/src/dyna-rules.html b/src/dyna-rules.html
 index 87bc10a0..3f925936 100644
 --- a/src/dyna-rules.html

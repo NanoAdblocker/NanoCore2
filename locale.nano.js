@@ -20,6 +20,8 @@
 
     Locale definition.
 
+    Note that not every string is used.
+
 ******************************************************************************/
 
 "use strict";
@@ -71,18 +73,18 @@
 
         "nano_d_resources_links": {
             "message": "Nano comes with two sets of resources, " +
-            mk_link(ubo_res_doc, "uBlock Origin Resources") + " and " +
-            mk_link(nano_res_doc, "Nano Extra Resources") + ".",
+                mk_link(ubo_res_doc, "uBlock Origin Resources") + " and " +
+                mk_link(nano_res_doc, "Nano Extra Resources") + ".",
 
             "description": "Resources reference links",
         },
 
         "nano_d_ace_help": {
             "message": "Nano Filter Editor is powered by Ace and most " +
-            "shortcut keys works the same.",
+                "shortcut keys works the same.",
 
             "description": "Explain the similarity between Nano Filter " +
-            "Editor and Ace in terms of shortcut keys",
+                "Editor and Ace in terms of shortcut keys",
         },
 
         "nano_d_unsaved_warning": {
@@ -125,10 +127,11 @@
 
         "nano_p_refresh_button": {
             "message": "Click to refresh this page.\n\nCtrl+click to " +
-            "refresh this page while bypassing cache.",
+                "refresh this page while bypassing cache.",
 
             "description": "English: Click to refresh this " +
-            "page.\n\nCtrl+click to refresh this page while bypassing cache.",
+                "page.\n\nCtrl+click to refresh this page while bypassing " +
+                "cache.",
         },
 
         // Beta buttons
@@ -149,17 +152,17 @@
 
         "nano_l_whitelist_aborted_w": {
             "message": "Nano did not scan the rest of the lines for " +
-            "warnings because there are too many warnings.",
+                "warnings because there are too many warnings.",
 
             "description": "Warning when too many warnings in whitelists",
         },
 
         "nano_l_whitelist_suspecious_re": {
             "message": "This line is treated as a regular expression, is " +
-            "that intended?",
+                "that intended?",
 
             "description": "Warning when parsed as regular expression but " +
-            "is unlikely the intention of user",
+                "is unlikely the intention of user",
         },
 
         /*********************************************************************/
@@ -168,7 +171,7 @@
 
         "nano_l_whitelist_aborted_e": {
             "message": "Nano did not scan the rest of the lines for errors " +
-            "because there are too many errors.",
+                "because there are too many errors.",
 
             "description": "Error when too many errors in whitelists",
         },
@@ -194,61 +197,61 @@
 
         "nano_l_filter_aborted_w": {
             "message": "Nano did not scan the rest of the lines for " +
-            "warnings because there are too many warnings.",
+                "warnings because there are too many warnings.",
 
             "description": "Warning when too many warnings in filter rules",
         },
 
         "nano_l_filter_script_snippet_double_exception": {
             "message": "Nano discarded a negated domain because it cannot " +
-            "be used in a script snippet exception rule.",
+                "be used in a script snippet exception rule.",
 
             "description": "Warning when negated domain used with script " +
-            "snippet exception",
+                "snippet exception",
         },
 
         "nano_l_filter_converted_to_exception": {
             "message": "Nano converted this rule to an exception rule " +
-            "because it only contain negated domains.",
+                "because it only contain negated domains.",
 
             "description": "Warning when a rule is convered to exception " +
-            "because all negated domains",
+                "because all negated domains",
         },
 
         "nano_l_filter_negated_html_filtering": {
             "message": "Negated domain is not yet supported for HTML " +
-            "filtering.",
+                "filtering.",
 
             "description": "Warning when negated domain used with HTML " +
-            "filtering",
+                "filtering",
         },
 
         "nano_l_filter_discarded_non_negatable_type": {
             "message": "Nano discarded the type option '{{type}}' because " +
-            "it cannot be negated.",
+                "it cannot be negated.",
 
             "description": "English: Nano discarded the type option " +
-            "'{{type}}' because it cannot be negated.",
+                "'{{type}}' because it cannot be negated.",
         },
 
         "nano_l_filter_expanded_mp4_option": {
             "message": "Nano replaced the option 'mp4' with " +
-            "'media,redirect=noopmp4-1s'.",
+                "'media,redirect=noopmp4-1s'.",
 
             "description": "Warning when 'mp4' is replaced",
         },
 
         "nano_l_filter_unsupported_type_ignored": {
             "message": "Nano discarded type options that are not yet " +
-            "supported.",
+                "supported.",
 
             "description": "Warning when unsupported type options " +
-            "discarded but not entire rule",
+                "discarded but not entire rule",
         },
 
         "nano_l_filter_resource_not_found": {
             "message": "The resource '{{res}}' could not be found, is it " +
-            "spelled correctly?",
+                "spelled correctly?",
 
             "description": "Warning when resource not found",
         },
@@ -259,7 +262,7 @@
 
         "nano_l_filter_comment_bracket": {
             "message": "Using '[' to denote comment is deprecated, use " +
-            "'!' instead.",
+                "'!' instead.",
 
             "description": "Deprecation when '[' used for comments",
         },
@@ -271,14 +274,14 @@
 
         "nano_l_filter_script_contains": {
             "message": "'##script:contains(...)' is deprecated, use " +
-            "'##^script:has-text(...)' instead.",
+                "'##^script:has-text(...)' instead.",
 
             "description": "Deprecation when 'script:contains' is used",
         },
 
         "nano_l_filter_mp4_option": {
             "message": "The use of the option 'mp4' is deprecated, write " +
-            "out the full options instead.",
+                "out the full options instead.",
 
             "description": "Deprecation when 'mp4'",
         },
@@ -289,14 +292,14 @@
 
         "nano_l_filter_aborted_e": {
             "message": "Nano did not scan the rest of the lines for errors " +
-            "because there are too many errors.",
+                "because there are too many errors.",
 
             "description": "Error when too many errors in filter rules",
         },
 
         "nano_l_filter_ag_js_injection": {
             "message": "Raw JavaScript injection is not accepted due to " +
-            "security concerns.",
+                "security concerns.",
 
             "description": "Error when raw JavaScript injection",
         },
@@ -318,29 +321,29 @@
 
         "nano_l_filter_assets_access_violation": {
             "message": "Unprivileged filters may not reference privileged " +
-            "resources.",
+                "resources.",
 
             "description": "Error when unprivileged filter references a " +
-            "privileged resources",
+                "privileged resources",
         },
 
         "nano_l_filter_localhost_entry": {
             "message": "This host file entry is discarded because it is " +
-            "localhost declaration.",
+                "localhost declaration.",
 
             "description": "Error when localhost declaration",
         },
 
         "nano_l_filter_ag_element_remove": {
             "message": "Element remove rules with AdGuard syntax are not " +
-            "yet supported, use '##^' instead.",
+                "yet supported, use '##^' instead.",
 
             "description": "Error when AdGuard style element remove rule",
         },
 
         "nano_l_filter_negated_generichide": {
             "message": "The options 'generichide', 'ghide', and 'elemhide' " +
-            "cannot be negated.",
+                "cannot be negated.",
 
             "description": "Error when 'generichide' is negated",
         },
@@ -359,7 +362,7 @@
             "message": "The option '{{option}}' is not recognized.",
 
             "description": "English: The option '{{option}}' is not " +
-            "recognized.",
+                "recognized.",
         },
 
         "nano_l_filter_only_unsupported_type": {
@@ -370,21 +373,21 @@
             "message": "A type option is not yet supported.",
 
             "description": "Error when unsupported type option used and " +
-            "entire rule discarded",
+                "entire rule discarded",
         },
 
         "nano_l_filter_bad_re": {
             "message": "This network rule has regular expression syntax " +
-            "errors.",
+                "errors.",
 
             "description": "Error when network has regular expression " +
-            "syntax errors",
+                "syntax errors",
         },
 
         "nano_l_filter_intervention_smed79": {
             // https://github.com/chrisaljoudi/uBlock/issues/1096
             "message": "The domain anchor may not be immediately followed " +
-            "by '^'.",
+                "by '^'.",
 
             "description": "Error when the bad rule from SMed79 is discarded",
         },
@@ -395,60 +398,60 @@
 
         "nano_r_no_type": {
             "message": "Nano discarded the option 'redirect=...' because it " +
-            "requires a type option.",
+                "requires a type option.",
 
             "description": "Warning when 'redirect=' has no type",
         },
 
         "nano_r_too_many_types": {
             "message": "Nano discarded the option 'redirect=...' because it " +
-            "has too many type options.",
+                "has too many type options.",
 
             "description": "Warning when 'redirect=' has too many types",
         },
 
         "nano_r_no_resource_token": {
             "message": "Nano discarded the option 'redirect=...' because it " +
-            "has no arguments.",
+                "has no arguments.",
 
             "description": "Warning when 'redirect=' has no arguments",
         },
 
         "nano_r_no_supported_type": {
             "message": "Nano discarded the option 'redirect=...' because it " +
-            "has no supported type option.",
+                "has no supported type option.",
 
             "description": "Warning when 'redirect=' has no supported type",
         },
 
         "nano_r_negated_domain": {
             "message": "Nano discarded a negated domain because it cannot " +
-            "be used with the option 'redirect=...'.",
+                "be used with the option 'redirect=...'.",
 
             "description": "Warning when negated domain used with 'redirect='",
         },
 
         "nano_r_no_destination": {
             "message": "Nano discarded the option 'redirect=...' because it " +
-            "has no valid destination domain.",
+                "has no valid destination domain.",
 
             "description": "Warning when 'redirect=' has no destination",
         },
 
         "nano_r_redirect_in_exception": {
             "message": "The option 'redirect=...' cannot be used in " +
-            "exception rules.",
+                "exception rules.",
             "description": "Error when 'redirect=' used in exception",
         },
 
         "nano_r_does_not_match_re": {
             // TODO: Think of a better warning message
             "message": "Nano discarded the option 'redirect=...' because " +
-            "this network rule does not match this regular expression: " +
-            "{{regexp}}",
+                "this network rule does not match this regular expression: " +
+                "{{regexp}}",
 
             "description": "Warning when 'redirect=' failed initial test, " +
-            "use '{{regexp}}' to denote the tester if needed",
+                "use '{{regexp}}' to denote the tester if needed",
         },
 
         /*********************************************************************/
@@ -457,7 +460,7 @@
 
         "nano_b_cosmetic_filter_passed_through": {
             "message": "This rule is rejected for now. More information: " +
-            "https://github.com/NanoAdblocker/NanoCore/issues/77",
+                "https://github.com/NanoAdblocker/NanoCore/issues/77",
 
             "description": "https://github.com/NanoAdblocker/NanoCore/issues/77",
         },

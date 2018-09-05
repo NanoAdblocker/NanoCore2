@@ -140,7 +140,7 @@ index f4d2c391..ea2d22bd 100644
              writer.push([
                  compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 259bf5c8..2b4060f2 100644
+index 387b69c9..44cef541 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -232,10 +232,10 @@ index 41577f3f..0ac39cea 100644
              } else if ( negated ) {
                  hash = '!' + hash;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 5161a9d9..0e82418f 100644
+index 44a1e35c..5e0c5181 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -628,7 +628,10 @@
+@@ -632,7 +632,10 @@
          var cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -247,7 +247,7 @@ index 5161a9d9..0e82418f 100644
              // Not a known extended filter.
              if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
                  return false;
-@@ -636,7 +639,10 @@
+@@ -640,7 +643,10 @@
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -259,7 +259,7 @@ index 5161a9d9..0e82418f 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -671,6 +677,7 @@
+@@ -675,6 +681,7 @@
                  );
                  suffix = suffix.replace(/^script:contains/, '^script:has-text');
                  parsed.suffix = suffix;
@@ -386,10 +386,10 @@ index b1eef4a0..989e600b 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 947b4285..fb063f41 100644
+index fcd57566..2a0b9631 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -394,7 +394,11 @@
+@@ -392,7 +392,11 @@
      // https://github.com/gorhill/uBlock/issues/1022
      // Be sure to end with an empty line.
      content = content.trim();
@@ -402,7 +402,7 @@ index 947b4285..fb063f41 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -792,6 +796,12 @@
+@@ -790,6 +794,12 @@
      var writer = new this.CompiledLineWriter();
  
      nano.cf.update(nanoKey);
@@ -415,7 +415,7 @@ index 947b4285..fb063f41 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -806,6 +816,10 @@
+@@ -804,6 +814,10 @@
          lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -426,7 +426,7 @@ index 947b4285..fb063f41 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -814,7 +828,11 @@
+@@ -812,7 +826,11 @@
  
          // Strip comments
          c = line.charAt(0);
@@ -439,7 +439,7 @@ index 947b4285..fb063f41 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -835,6 +853,7 @@
+@@ -833,6 +851,7 @@
          pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -447,7 +447,7 @@ index 947b4285..fb063f41 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -844,15 +863,24 @@
+@@ -842,15 +861,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost

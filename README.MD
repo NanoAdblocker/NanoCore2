@@ -4,7 +4,7 @@ Restarting fresh
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
+Upstream commit pin: `c3c08af43e27afae1d411172c750210aa7374866` or `1.16.21b2`
 
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/NanoAdblocker/NanoCore/issues).**
@@ -67,8 +67,8 @@ exit     Exit the terminal
 ## Checklist
 
 - Pull filters updates
-- If needed, pull upstream updates and update about string
-- If needed, pull upstream updates to `assets.json`
+- If needed, pull upstream updates then update about string and commit pin
+- If needed, pull upstream updates to `assets.json` and `manifest.json`
 - If needed, build and pull locale updates
 - Bump version number
 - Add tags to repositories, and upload packages

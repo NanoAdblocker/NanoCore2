@@ -12,6 +12,7 @@
     "updateAfter": 14,
     "contentURL": [
       "https://publicsuffix.org/list/public_suffix_list.dat",
+      "https://cdn.rawgit.com/publicsuffix/list/master/public_suffix_list.dat",
       "assets/ThirdParty/PublicSuffix.dat"
     ]
   },
@@ -692,6 +693,15 @@
     "lang": "sv",
     "contentURL": "https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Filter.txt",
     "supportURL": "https://github.com/lassekongo83/Frellwits-filter-lists"
+  },
+  "THA-0": {
+    "content": "filters",
+    "group": "regions",
+    "off": true,
+    "title": "THA: EasyList Thailand",
+    "lang": "th",
+    "contentURL": "https://raw.githubusercontent.com/easylist-thailand/easylist-thailand/master/subscription/easylist-thailand.txt",
+    "supportURL": "https://github.com/easylist-thailand/easylist-thailand"
   },
   "TUR-0": {
     "content": "filters",
