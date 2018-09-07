@@ -40,7 +40,7 @@
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "control de caché",
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
@@ -56,7 +56,7 @@
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) Abrir la ficha de reporte de fallos",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
@@ -116,7 +116,7 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "El uso de '[' para denotar un comentario está obsoleto. Usa '!' en su lugar.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
@@ -124,11 +124,11 @@
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+    "message": "'##script:contains(...)' está obsoleto. Usa '##^script:has-text(...)' en su lugar.",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "message": "El uso de la opción 'mp4' está obsoleto. Escribe las opciones completas en su lugar.",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
@@ -160,7 +160,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
+    "message": "Las reglas de remoción de elementos con la sintaxis de AdGuard aún no son admitidas. Use '##^' en su lugar.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
@@ -224,7 +224,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "Esta regla es rechazada por ahora. Más información: https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
