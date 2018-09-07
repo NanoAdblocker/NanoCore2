@@ -69,6 +69,7 @@ exit     Exit the terminal
 - Pull filters updates
 - If needed, pull upstream updates then update about string and commit pin
 - If needed, pull upstream updates to `assets.json` and `manifest.json`
+- If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
 - If needed, build and pull locale updates
 - Bump version number
 - Add tags to repositories, and upload packages
