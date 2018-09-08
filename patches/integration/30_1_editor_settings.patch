@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 1896f6e8..593fcdbc 100644
+index 0008c886..588c542b 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -89,6 +89,8 @@ var µBlock = (function() { // jshint ignore:line

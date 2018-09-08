@@ -1,5 +1,5 @@
 diff --git a/src/_locales/en/messages.json b/src/_locales/en/messages.json
-index e2d3a337..723e8438 100644
+index 732d205e..2094aa29 100644
 --- a/src/_locales/en/messages.json
 +++ b/src/_locales/en/messages.json
 @@ -11,6 +11,10 @@
@@ -113,7 +113,7 @@ index d038c5d0..369f4280 100644
 +
  })();
 diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
-index eb1d704f..36ee7dd5 100644
+index 8ffe536b..5d0ac02a 100644
 --- a/src/js/dyna-rules.js
 +++ b/src/js/dyna-rules.js
 @@ -25,6 +25,10 @@
@@ -127,7 +127,7 @@ index eb1d704f..36ee7dd5 100644
  (function() {
  
  /******************************************************************************/
-@@ -339,6 +343,7 @@ var onTextChanged = (function() {
+@@ -348,6 +352,7 @@ var onTextChanged = (function() {
              input.setAttribute('disabled', '');
              CodeMirror.commands.save = editSaveHandler;
          }

@@ -56,7 +56,7 @@ index 989e600b..550d1844 100644
  
      // Ignore element-hiding filters
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 77d5ebe3..82097f82 100644
+index 5122c6ae..38a461bf 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -675,7 +675,7 @@

@@ -89,10 +89,10 @@ index 853b8cc0..7069e82e 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index ca6515e5..9cbbd67c 100644
+index 74f54ff8..31cb1265 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -507,7 +507,7 @@ var renderTooltips = function(selector) {
+@@ -527,7 +527,7 @@ var renderTooltips = function(selector) {
  
  var tooltipTargetSelectors = new Map([
      [
@@ -101,7 +101,7 @@ index ca6515e5..9cbbd67c 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -666,7 +666,7 @@ var toggleNetFilteringSwitch = function(ev) {
+@@ -686,7 +686,7 @@ var toggleNetFilteringSwitch = function(ev) {
              tabId: popupData.tabId
          }
      );
@@ -110,7 +110,7 @@ index ca6515e5..9cbbd67c 100644
      hashFromPopupData();
  };
  
-@@ -1087,10 +1087,10 @@ var onHideTooltip = function() {
+@@ -1113,10 +1113,10 @@ var onHideTooltip = function() {
      getPopupData(tabId);
  })();
  

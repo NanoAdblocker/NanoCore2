@@ -21,7 +21,7 @@ index d5e3a4f5..db26ff33 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 593fcdbc..81cb6606 100644
+index 588c542b..23ab20cd 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -40,13 +40,13 @@ var µBlock = (function() { // jshint ignore:line
@@ -50,10 +50,10 @@ index 593fcdbc..81cb6606 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 220da630..9d802ee0 100644
+index cd3cbee0..662ca73f 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -166,13 +166,6 @@ var onUserSettingsReady = function(fetched) {
+@@ -168,13 +168,6 @@ var onUserSettingsReady = function(fetched) {
      µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
      µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
      µb.sessionSwitches.assign(µb.permanentSwitches);
@@ -67,7 +67,7 @@ index 220da630..9d802ee0 100644
  };
  
  /******************************************************************************/
-@@ -254,6 +247,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -256,6 +249,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
@@ -75,9 +75,8 @@ index 220da630..9d802ee0 100644
              'no-large-media: behind-the-scene false',
              'no-scripting: behind-the-scene false'
          ].join('\n'),
-         'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 2a0b9631..f705bd3e 100644
+index ac5ee4ec..686898eb 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -1282,7 +1282,7 @@

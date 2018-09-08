@@ -13,10 +13,10 @@ index d54d1828..d5e3a4f5 100644
                  fireNotification(
                      'before-asset-updated',
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 6d0db28f..2c84ff09 100644
+index ae7c40fa..043606f8 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1028,10 +1028,14 @@ var onMessage = function(request, sender, callback) {
+@@ -1066,10 +1066,14 @@ var onMessage = function(request, sender, callback) {
          µb.assets.purge(request.assetKey);
          µb.assets.remove('compiled/' + request.assetKey);
          // https://github.com/gorhill/uBlock/pull/2314#issuecomment-278716960
@@ -33,7 +33,7 @@ index 6d0db28f..2c84ff09 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 52fc700f..41577f3f 100644
+index 40424341..9afcf804 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -186,7 +186,7 @@
@@ -61,7 +61,7 @@ index 52fc700f..41577f3f 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 89b0df77..fcd57566 100644
+index 7c7f546e..af719460 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -927,7 +927,7 @@

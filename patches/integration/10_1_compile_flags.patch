@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index ef06a8c9..1896f6e8 100644
+index 04f2d7fb..0008c886 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -47,6 +47,8 @@ var µBlock = (function() { // jshint ignore:line
@@ -20,7 +20,7 @@ index ef06a8c9..1896f6e8 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 94f38a74..44a1e35c 100644
+index ceaa16fc..4fcde083 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -648,6 +648,8 @@
@@ -59,7 +59,7 @@ index 5849efa0..a49ef008 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 1ae7357e..89b0df77 100644
+index 94ba2a24..7c7f546e 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -409,7 +409,7 @@

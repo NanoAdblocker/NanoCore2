@@ -196,7 +196,7 @@ index 387b69c9..44cef541 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 41577f3f..0ac39cea 100644
+index 9afcf804..a7d8dc22 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -232,7 +232,7 @@ index 41577f3f..0ac39cea 100644
              } else if ( negated ) {
                  hash = '!' + hash;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 44a1e35c..5e0c5181 100644
+index 4fcde083..c2016ec7 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -632,7 +632,10 @@
@@ -259,11 +259,7 @@ index 44a1e35c..5e0c5181 100644
                  parsed.suffix = suffix;
              }
          }
-diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index e859177c..c2016ec7 100644
---- a/src/js/static-ext-filtering.js
-+++ b/src/js/static-ext-filtering.js
-@@ -673,6 +673,7 @@
+@@ -667,6 +673,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -390,7 +386,7 @@ index b1eef4a0..989e600b 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index fcd57566..2a0b9631 100644
+index af719460..ac5ee4ec 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -392,7 +392,11 @@
