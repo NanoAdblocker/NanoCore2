@@ -84,7 +84,7 @@ nano.render_filter = () => {
             "default",
             {
                 what: "getAssetContent",
-                url: decodeURIComponent(nano.active_asset)
+                url: nano.active_asset
             },
             on_msg
         );
@@ -94,9 +94,12 @@ nano.render_filter = () => {
 /*****************************************************************************/
 
 nano.init = () => {
-    const match = location.search.match(/^\?url=([^&]+)/);
-    if (match !== null)
-        nano.active_asset = match[1];
+    const url = new URL(document.location);
+    const params = url.searchParams;
+    const key = params.get("url");
+
+    if (key !== null)
+        nano.active_asset = key;
 
     nano.load_settings();
 };
