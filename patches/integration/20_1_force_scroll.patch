@@ -17,14 +17,6 @@ diff --git a/src/js/popup.js b/src/js/popup.js
 index 9cbbd67c..94c9903c 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -410,6 +410,7 @@ var renderPopup = function() {
-     // If you think the `=== true` is pointless, you are mistaken
-     uDom.nodeFromId('gotoPick').classList.toggle('enabled', popupData.canElementPicker === true);
-     uDom.nodeFromId('gotoZap').classList.toggle('enabled', popupData.canElementPicker === true);
-+    uDom.nodeFromId('nanoForceEnableScroll').classList.toggle('enabled', popupData.canElementPicker === true);
- 
-     var blocked = popupData.pageBlockedRequestCount,
-         total = popupData.pageAllowedRequestCount + blocked;
 @@ -701,6 +702,20 @@ var gotoPick = function() {
  
  /******************************************************************************/
@@ -54,6 +46,18 @@ index 9cbbd67c..94c9903c 100644
  uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+diff --git a/src/js/popup.js b/src/js/popup.js
+index 76b938fd..91ccfbb6 100644
+--- a/src/js/popup.js
++++ b/src/js/popup.js
+@@ -433,6 +433,7 @@ var renderPopup = function() {
+                            popupData.netFilteringSwitch;
+     uDom.nodeFromId('gotoPick').classList.toggle('enabled', canElementPicker);
+     uDom.nodeFromId('gotoZap').classList.toggle('enabled', canElementPicker);
++    uDom.nodeFromId('nanoForceEnableScroll').classList.toggle('enabled', canElementPicker);
+ 
+     let blocked = popupData.pageBlockedRequestCount,
+         total = popupData.pageAllowedRequestCount + blocked,
 diff --git a/src/popup.html b/src/popup.html
 index d0aec45f..9297c527 100644
 --- a/src/popup.html
