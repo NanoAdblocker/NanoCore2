@@ -33,7 +33,7 @@ index ae7c40fa..043606f8 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 40424341..9afcf804 100644
+index 40424341..828b30cd 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -186,7 +186,7 @@
@@ -49,7 +49,7 @@ index 40424341..9afcf804 100644
              return;
          }
  
-+        var nanoInjectArgs = parsed.suffix.slice(14, -1);
++        var nanoInjectArgs = parsed.suffix.slice(4, -1);
 +        if (
 +            !nano.cf.is_privileged &&
 +            nanoInjectArgs.startsWith(nano.privileged_assets_previx)

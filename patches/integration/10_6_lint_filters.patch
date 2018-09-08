@@ -196,7 +196,7 @@ index 387b69c9..44cef541 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 9afcf804..a7d8dc22 100644
+index 828b30cd..1da601af 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
