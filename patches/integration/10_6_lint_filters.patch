@@ -221,7 +221,7 @@ index 41577f3f..0ac39cea 100644
          //   Ignore instances of exception filter with negated hostnames,
 @@ -270,7 +274,10 @@
              }
-             var hash = µburi.domainFromHostname(hostname);
+             let hash = µburi.domainFromHostname(hostname);
              if ( parsed.exception ) {
 -                if ( negated ) { continue; }
 +                if ( negated ) {
@@ -236,7 +236,7 @@ index 44a1e35c..5e0c5181 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -632,7 +632,10 @@
-         var cCode = raw.charCodeAt(rpos - 1);
+         let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
 -            if ( cCode === 0x25 /* '%' */ ) { return true; }
@@ -259,10 +259,14 @@ index 44a1e35c..5e0c5181 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -675,6 +681,7 @@
-                 );
-                 suffix = suffix.replace(/^script:contains/, '^script:has-text');
-                 parsed.suffix = suffix;
+diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
+index e859177c..c2016ec7 100644
+--- a/src/js/static-ext-filtering.js
++++ b/src/js/static-ext-filtering.js
+@@ -673,6 +673,7 @@
+                 suffix = parsed.suffix = '+js' + suffix.slice(13);
+             } else if ( suffix.startsWith('script:contains') ) {
+                 suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
 +                nano.flintw('nano_l_filter_script_contains');
              }
          }
