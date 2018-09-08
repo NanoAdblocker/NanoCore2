@@ -54,9 +54,9 @@ index 220da630..9d802ee0 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -166,13 +166,6 @@ var onUserSettingsReady = function(fetched) {
-     µb.permanentURLFiltering.fromString(fetched.urlFilteringString);
      µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
-     µb.hnSwitches.fromString(fetched.hostnameSwitchesString);
+     µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
+     µb.sessionSwitches.assign(µb.permanentSwitches);
 -
 -    // https://github.com/gorhill/uBlock/issues/1892
 -    // For first installation on a battery-powered device, disable generic
@@ -72,7 +72,8 @@ index 220da630..9d802ee0 100644
          'urlFilteringString': '',
          'hostnameSwitchesString': [
 +            'no-csp-reports: * true',
-             'no-large-media: behind-the-scene false'
+             'no-large-media: behind-the-scene false',
+             'no-scripting: behind-the-scene false'
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
