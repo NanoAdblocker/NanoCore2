@@ -298,6 +298,15 @@ exports.build_resources = async (browser) => {
 
         name = md5(name);
 
+        // TODO: uBlock Origin's build script will map suffix to file
+        // extension as follows:
+        //
+        // javascript -> js
+        // plain      -> txt
+        // (others)   -> (no change)
+        //
+        // Need to investigate the benefit of doing that (beside working
+        // around a Mac OS operating system bug)
         const suffix = re_extract_mime.exec(db_entry.mime);
         assert(suffix !== null);
         name = "\t" + name + "." + suffix[1];
