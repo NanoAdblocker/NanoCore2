@@ -23,10 +23,10 @@ index 078e1bd0..560c8533 100644
 -            }
 -            vint = vint * 1000 + pint;
 +        let parts = s.split('.');
-+        if ( parts[3] !== '0' ) {
-+            return parseInt(parts[3], 10);
-+        } else {
++        if ( parts[3] === '0' ) { // Edge
 +            return parseInt(parts[2], 10);
++        } else {
++            return parseInt(parts[3], 10);
          }
 -        return vint;
      };
