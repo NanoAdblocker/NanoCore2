@@ -109,15 +109,15 @@ index 58d56ffe..b0fc1a0f 100644
 +        return;
 +    }
  
-     // https://github.com/chrisaljoudi/uBlock/issues/188
-     // If not a real domain as per PSL, assign a synthetic one
+     let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hostname);
+ 
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
 index f4d2c391..ea2d22bd 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
 @@ -228,7 +228,10 @@
      api.compile = function(parsed, writer) {
-         var selector = parsed.suffix.slice(1).trim(),
+         let selector = parsed.suffix.slice(1).trim(),
              compiled = µb.staticExtFilteringEngine.compileSelector(selector);
 -        if ( compiled === undefined ) { return; }
 +        if ( compiled === undefined ) {
@@ -130,15 +130,15 @@ index f4d2c391..ea2d22bd 100644
 @@ -236,7 +239,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
-         for ( var hostname of parsed.hostnames ) {
--            if ( hostname.charCodeAt(0) === 0x7E /* '~' */ ) { continue; }
-+            if ( hostname.charCodeAt(0) === 0x7E /* '~' */ ) {
+         for ( let hn of parsed.hostnames ) {
+-            if ( hn.charCodeAt(0) === 0x7E /* '~' */ ) { continue; }
++            if ( hn.charCodeAt(0) === 0x7E /* '~' */ ) {
 +                nano.flintw('nano_l_filter_negated_html_filtering');
 +                continue;
 +            }
-             var domain = µb.URI.domainFromHostname(hostname);
-             writer.push([
-                 compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
+             let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
+             if ( parsed.exception ) {
+                 hash |= 0b0001;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
 index 387b69c9..44cef541 100644
 --- a/src/js/redirect-engine.js
@@ -202,7 +202,7 @@ index 828b30cd..1da601af 100644
 @@ -245,6 +245,8 @@
          if ( parsed.hostnames.length === 0 ) {
              if ( parsed.exception ) {
-                 writer.push([ 32, '!', '', parsed.suffix ]);
+                 writer.push([ 32, 0 | 0b0001, '', parsed.suffix ]);
 +            } else {
 +                nano.flinte('nano_l_filter_too_expensive');
              }
@@ -221,16 +221,16 @@ index 828b30cd..1da601af 100644
          //   Ignore instances of exception filter with negated hostnames,
 @@ -270,7 +274,10 @@
              }
-             let hash = µburi.domainFromHostname(hostname);
+             let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
              if ( parsed.exception ) {
 -                if ( negated ) { continue; }
 +                if ( negated ) {
 +                    nano.flintw('nano_l_filter_script_snippet_double_exception');
 +                    continue;
 +                }
-                 hash = '!' + hash;
+                 hash |= 0b0001;
              } else if ( negated ) {
-                 hash = '!' + hash;
+                 hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
 index 4fcde083..c2016ec7 100644
 --- a/src/js/static-ext-filtering.js
