@@ -1,0 +1,53 @@
+diff --git a/src/js/start.js b/src/js/start.js
+index 078e1bd0..560c8533 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -133,42 +133,22 @@ var onVersionReady = function(lastVersion) {
+     // If unused, just comment out for when we need to compare versions in the
+     // future.
+     let intFromVersion = function(s) {
+-        let parts = s.match(/(?:^|\.|b|rc)\d+/g);
+-        if ( parts === null ) { return 0; }
+-        let vint = 0;
+-        for ( let i = 0; i < 4; i++ ) {
+-            let pstr = parts[i] || '';
+-            let pint;
+-            if ( pstr === '' ) {
+-                pint = 0;
+-            } else if ( pstr.startsWith('.') || pstr.startsWith('b') ) {
+-                pint = parseInt(pstr.slice(1), 10);
+-            } else if ( pstr.startsWith('rc') ) {
+-                pint = parseInt(pstr.slice(2), 10) + 100;
+-            } else {
+-                pint = parseInt(pstr, 10);
+-            }
+-            vint = vint * 1000 + pint;
++        let parts = s.split('.');
++        if ( parts[3] !== '0' ) {
++            return parseInt(parts[3], 10);
++        } else {
++            return parseInt(parts[2], 10);
+         }
+-        return vint;
+     };
+ 
+     let lastVersionInt = intFromVersion(lastVersion);
+ 
+-    if ( lastVersionInt <= 1016021007 ) {
++    if ( lastVersionInt <= 66 ) {
+         µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 2);
+         µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 2);
+         µb.saveHostnameSwitches();
+     }
+ 
+-    // https://github.com/uBlockOrigin/uBlock-issues/issues/212#issuecomment-419741324
+-    if ( lastVersionInt <= 1015024000 ) {
+-        if ( µb.hiddenSettings.manualUpdateAssetFetchPeriod === 2000 ) {
+-            µb.hiddenSettings.manualUpdateAssetFetchPeriod = 500;
+-            µb.saveHiddenSettings();
+-        }
+-    }
+-
+     vAPI.storage.set({ version: vAPI.app.version });
+ };
+ 
