@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 04f2d7fb..0008c886 100644
+index 05a0bd91..4bf1c799 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -47,6 +47,8 @@ var µBlock = (function() { // jshint ignore:line
@@ -20,10 +20,10 @@ index 04f2d7fb..0008c886 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index ceaa16fc..4fcde083 100644
+index d44f1ddf..dc579ad8 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -648,6 +648,8 @@
+@@ -707,6 +707,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  

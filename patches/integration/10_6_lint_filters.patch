@@ -1,8 +1,8 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index 58d56ffe..b0fc1a0f 100644
+index f17981cc..a8f37fa2 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
-@@ -621,7 +621,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
+@@ -561,7 +561,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
          this.compileSpecificSelector(hostname, parsed, writer);
      }
      if ( applyGlobally ) {
@@ -11,7 +11,7 @@ index 58d56ffe..b0fc1a0f 100644
      }
  
      return true;
-@@ -639,7 +639,11 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
+@@ -579,7 +579,11 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
  
  /******************************************************************************/
  
@@ -24,7 +24,7 @@ index 58d56ffe..b0fc1a0f 100644
      let selector = parsed.suffix;
  
      // For some selectors, it is mandatory to have a hostname or entity:
-@@ -661,6 +665,11 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+@@ -601,6 +605,11 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
              'error',
              'Cosmetic filtering – invalid generic filter: ##' + selector
          );
@@ -36,7 +36,7 @@ index 58d56ffe..b0fc1a0f 100644
          return;
      }
  
-@@ -668,7 +677,10 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+@@ -608,7 +617,10 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
  
      if ( type === 0x23 /* '#' */ ) {
          let key = this.keyFromSelector(selector);
@@ -48,7 +48,7 @@ index 58d56ffe..b0fc1a0f 100644
          // Simple selector-based CSS rule: no need to test for whether the
          // selector is valid, the regex took care of this. Most generic
          // selector falls into that category.
-@@ -679,13 +691,18 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+@@ -619,13 +631,18 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
          // Complex selector-based CSS rule.
          if ( µb.staticExtFilteringEngine.compileSelector(selector) !== undefined ) {
              writer.push([ 1 /* lg+ */, key.slice(1), selector ]);
@@ -68,7 +68,7 @@ index 58d56ffe..b0fc1a0f 100644
          // Simple selector-based CSS rule: no need to test for whether the
          // selector is valid, the regex took care of this. Most generic
          // selector falls into that category.
-@@ -696,12 +713,17 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
+@@ -636,12 +653,17 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer)
          // Complex selector-based CSS rule.
          if ( µb.staticExtFilteringEngine.compileSelector(selector) !== undefined ) {
              writer.push([ 3 /* lg+ */, key.slice(1), selector ]);
@@ -87,7 +87,7 @@ index 58d56ffe..b0fc1a0f 100644
      // TODO: Detect and error on procedural cosmetic filters.
  
      // https://github.com/gorhill/uBlock/issues/909
-@@ -744,7 +766,10 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -684,7 +706,10 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
  ) {
      // Procedural cosmetic filters are acceptable as generic exception filters.
      let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
@@ -99,7 +99,7 @@ index 58d56ffe..b0fc1a0f 100644
  
      // https://github.com/chrisaljoudi/uBlock/issues/497
      //   All generic exception filters are put in the same bucket: they are
-@@ -767,7 +792,10 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -707,7 +732,10 @@ FilterContainer.prototype.compileSpecificSelector = function(
      }
  
      let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
@@ -112,7 +112,7 @@ index 58d56ffe..b0fc1a0f 100644
      let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hostname);
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index f4d2c391..ea2d22bd 100644
+index 4f8b775b..a4bc19c5 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
 @@ -228,7 +228,10 @@
@@ -196,7 +196,7 @@ index 387b69c9..44cef541 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 828b30cd..1da601af 100644
+index ea3bb631..a644d619 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -219,7 +219,7 @@ index 828b30cd..1da601af 100644
  
          // https://github.com/gorhill/uBlock/issues/3375
          //   Ignore instances of exception filter with negated hostnames,
-@@ -270,7 +274,10 @@
+@@ -268,7 +272,10 @@
              }
              let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
              if ( parsed.exception ) {
@@ -232,10 +232,10 @@ index 828b30cd..1da601af 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 4fcde083..c2016ec7 100644
+index dc579ad8..2d98b9cd 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -632,7 +632,10 @@
+@@ -691,7 +691,10 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -247,7 +247,7 @@ index 4fcde083..c2016ec7 100644
              // Not a known extended filter.
              if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
                  return false;
-@@ -640,7 +643,10 @@
+@@ -699,7 +702,10 @@
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -259,7 +259,7 @@ index 4fcde083..c2016ec7 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -667,6 +673,7 @@
+@@ -726,6 +732,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);

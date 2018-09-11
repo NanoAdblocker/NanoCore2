@@ -1,5 +1,5 @@
 diff --git a/src/js/start.js b/src/js/start.js
-index 078e1bd0..560c8533 100644
+index 078e1bd0..ab157e58 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -133,42 +133,22 @@ var onVersionReady = function(lastVersion) {

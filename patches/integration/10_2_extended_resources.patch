@@ -33,7 +33,7 @@ index ae7c40fa..043606f8 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 40424341..828b30cd 100644
+index 258d580e..ea3bb631 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -186,7 +186,7 @@
