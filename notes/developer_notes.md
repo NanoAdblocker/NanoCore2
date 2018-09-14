@@ -1,6 +1,7 @@
 # Developer Notes
 
-A few notes and observations for developers.
+A few notes and observations for developers. These may or may not be out of
+date.
 
 - `cosmetic-filtering.js > FilterContainer.prototype.compileGenericHideSelector`
   tests the filter with a regular expression to check if it needs a hostname.
