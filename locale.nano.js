@@ -121,8 +121,9 @@
         },
 
         "nano_p_open_firewall_pane": {
-            "message": "Toggle the firewall pane",
-            "description": "Tooltip for toggle firewall pane button",
+            "message": "Toggle the overview panel",
+            "description": "Tooltip for toggle firewall (sometimes called " +
+                "overview) panel button",
         },
 
         "nano_p_refresh_button": {
