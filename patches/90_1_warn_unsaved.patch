@@ -1,5 +1,5 @@
 diff --git a/src/js/1p-filters.js b/src/js/1p-filters.js
-index 73682aed..84502169 100644
+index 73682aed..a1fdd82e 100644
 --- a/src/js/1p-filters.js
 +++ b/src/js/1p-filters.js
 @@ -25,6 +25,10 @@
@@ -22,7 +22,7 @@ index 73682aed..84502169 100644
  
  /******************************************************************************/
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index 2094f520..24ae5525 100644
+index 2094f520..7dfac468 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
 @@ -25,6 +25,10 @@
@@ -50,7 +50,7 @@ index 2094f520..24ae5525 100644
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index d038c5d0..369f4280 100644
+index d038c5d0..0a14b6f6 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
 @@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
@@ -98,7 +98,7 @@ index d038c5d0..369f4280 100644
 +
  })();
 diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
-index 8ffe536b..5d0ac02a 100644
+index 8ffe536b..09670b26 100644
 --- a/src/js/dyna-rules.js
 +++ b/src/js/dyna-rules.js
 @@ -25,6 +25,10 @@
@@ -146,7 +146,7 @@ index dc85e6b2..553b4b34 100644
  
  })();
 diff --git a/src/js/whitelist.js b/src/js/whitelist.js
-index 13456f01..db7e9afa 100644
+index 13456f01..dd6980c9 100644
 --- a/src/js/whitelist.js
 +++ b/src/js/whitelist.js
 @@ -25,6 +25,10 @@
