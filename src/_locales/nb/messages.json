@@ -44,8 +44,8 @@
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Skru brannmurpanelet av/på",
-    "description": "Tooltip for toggle firewall pane button"
+    "message": "Toggle the overview panel",
+    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
     "message": "Klikk her for å oppfriske denne siden.\n\nCtrl+klikk for å oppfriske denne siden mens mellomlageret blir forbipassert.",
