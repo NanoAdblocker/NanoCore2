@@ -27,7 +27,7 @@ index 2094f520..7dfac468 100644
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index d038c5d0..0a14b6f6 100644
+index d038c5d0..5ec05c8b 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
 @@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
