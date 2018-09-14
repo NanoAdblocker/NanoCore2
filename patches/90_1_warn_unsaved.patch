@@ -1,26 +1,3 @@
-diff --git a/src/js/1p-filters.js b/src/js/1p-filters.js
-index 73682aed..a1fdd82e 100644
---- a/src/js/1p-filters.js
-+++ b/src/js/1p-filters.js
-@@ -25,6 +25,10 @@
- 
- /******************************************************************************/
- 
-+window.nano_has_unsaved_changes = false;
-+
-+/******************************************************************************/
-+
- (function() {
- 
- /******************************************************************************/
-@@ -54,6 +58,7 @@ function userFiltersChanged(changed) {
-     }
-     uDom.nodeFromId('userFiltersApply').disabled = !changed;
-     uDom.nodeFromId('userFiltersRevert').disabled = !changed;
-+    nano_has_unsaved_changes = changed;
- }
- 
- /******************************************************************************/
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
 index 2094f520..7dfac468 100644
 --- a/src/js/3p-filters.js

@@ -35,7 +35,7 @@ nano.editor = new nano.Editor("userFilters", true, false);
 
 /*****************************************************************************/
 
-window.hasUnsavedChanges = false;
+window.nano_has_unsaved_changes = false;
 
 /*****************************************************************************/
 
@@ -116,7 +116,7 @@ nano.filters_changed = (changed) => {
     apply_disable("userFiltersApply", !changed);
     apply_disable("userFiltersRevert", !changed);
 
-    hasUnsavedChanges = changed;
+    nano_has_unsaved_changes = changed;
 };
 
 nano.filters_saved = () => {
