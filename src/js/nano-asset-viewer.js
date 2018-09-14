@@ -98,7 +98,7 @@ nano.init = () => {
     const params = url.searchParams;
     const key = params.get("url");
 
-    if (key !== null)
+    if (typeof key === "string")
         nano.active_asset = key;
 
     nano.load_settings();
