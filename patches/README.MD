@@ -33,6 +33,9 @@ everything.
 
 `20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
 
+`20_6_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
+category because a pull request is opened upstream.
+
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
@@ -40,6 +43,3 @@ everything.
 ## Group `90`: Other Changes
 
 `90_0_micro_optimizations.patch`: Minor optimizations and typo fixes.
-
-`90_1_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
-category because a pull request is opened upstream.

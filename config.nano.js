@@ -72,11 +72,11 @@
             "./patches/20_3_reset_hard.patch",
             "./patches/20_4_log_script_snippet_errors.patch",
             "./patches/20_5_whitelist_style.patch",
+            "./patches/20_6_warn_unsaved.patch",
 
             "./patches/30_0_link_resources.patch",
 
             "./patches/90_0_micro_optimizations.patch",
-            "./patches/90_1_warn_unsaved.patch",
 
             /*****************************************************************/
 
