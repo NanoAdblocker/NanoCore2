@@ -42,12 +42,13 @@ index d038c5d0..0a14b6f6 100644
          window.location.replace(url);
          loadDashboardPanel();
      }
-@@ -81,4 +84,31 @@ loadDashboardPanel();
+@@ -81,4 +84,32 @@ loadDashboardPanel();
  
  /******************************************************************************/
  
 +let nano_content_iframe = document.getElementById('iframe');
 +let nano_unsaved_warning_msg = vAPI.i18n('nano_d_unsaved_warning');
++
 +let nano_check_unsaved_changes = function() {
 +    const iframe = nano_content_iframe;
 +    if ( iframe.src == '' ) {
