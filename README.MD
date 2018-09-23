@@ -31,7 +31,8 @@ Your language is not listed? Submit an issue to let me know.
 4. In Nano Core 2 repository:
    - Navigate to `./term` directory and run `npm install`.
    - Update `./config.json` as appropriate.
-   - Run `node ./term` (in repository root) to open Nano Core 2 Terminal.
+   - Run `node ./term` (in root of this repository) to open Nano Core 2
+     Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
