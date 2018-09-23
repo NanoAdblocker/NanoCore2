@@ -38,7 +38,7 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.68";
+exports.version = "1.0.0.69";
 
 /**
  * The based on string.
@@ -47,8 +47,8 @@ exports.version = "1.0.0.68";
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.16.21rc0+2",
-    "Commit/6815c85",
+    "Version/1.17.0",
+    "Commit/ff58107",
 
     "UserCSS/disabled",
 ].join(" ");
@@ -134,9 +134,9 @@ exports.manifest = (browser) => {
         "optional_permissions": [
             "file:///*",
         ],
-        "options_page": "dashboard.html",
         "options_ui": {
             "page": "options_ui.html",
+            "open_in_tab": true,
         },
         "permissions": [
             "<all_urls>",
