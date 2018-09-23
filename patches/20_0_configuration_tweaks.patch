@@ -21,10 +21,10 @@ index d5e3a4f5..db26ff33 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 9e5f59cd..23f02924 100644
+index 28b1b456..aa9bd7f7 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -40,13 +40,13 @@ var µBlock = (function() { // jshint ignore:line
+@@ -40,14 +40,14 @@ var µBlock = (function() { // jshint ignore:line
  
      var hiddenSettingsDefault = {
          assetFetchTimeout: 30,
@@ -34,6 +34,7 @@ index 9e5f59cd..23f02924 100644
 +        autoUpdatePeriod: 4,
          cacheStorageCompression: true,
          debugScriptlets: false,
+         cacheControlForFirefox1376932: 'no-cache, no-store, must-revalidate',
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
 -        manualUpdateAssetFetchPeriod: 500,
@@ -41,7 +42,7 @@ index 9e5f59cd..23f02924 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
-@@ -60,6 +60,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -61,6 +61,7 @@ var µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
