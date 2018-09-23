@@ -135,7 +135,7 @@ exports.manifest = (browser) => {
             "file:///*",
         ],
         "options_ui": {
-            "page": "options_ui.html",
+            "page": "dashboard.html",
             "open_in_tab": true,
         },
         "permissions": [
