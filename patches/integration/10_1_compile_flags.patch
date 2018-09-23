@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 05a0bd91..4bf1c799 100644
+index d49910cf..23c58b42 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -47,6 +47,8 @@ var µBlock = (function() { // jshint ignore:line
+@@ -48,6 +48,8 @@ var µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -11,7 +11,7 @@ index 05a0bd91..4bf1c799 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          suspendTabsUntilReady: false,
-@@ -158,6 +160,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -159,6 +161,7 @@ var µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
