@@ -182,6 +182,8 @@ exports.manifest = (browser) => {
         manifest.incognito = "spanning";
         delete manifest.minimum_chrome_version;
         manifest.minimum_edge_version = "41.16299.248.0";
+        manifest.options_page = "dashboard.html";
+        delete manifest.options_ui;
         {
             const i = manifest.version.indexOf(".");
             manifest.version = manifest.version.substring(i + 1) + ".0";
