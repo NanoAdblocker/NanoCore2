@@ -210,7 +210,20 @@ exports.build_filters = async (browser) => {
     assert(typeof assets === "string");
 
     await fs.copy(r("./src/assets.json"), r(output, "assets.json"));
-    await fs.copy(r(assets, "NanoFilters"), r(output, "NanoFilters"));
+
+    await fs.copy(
+        r(assets, "NanoFilters/NanoBase.txt"),
+        r(output, "NanoFilters/NanoBase.txt"),
+    );
+    await fs.copy(
+        r(assets, "NanoFilters/NanoResources.txt"),
+        r(output, "NanoFilters/NanoResources.txt"),
+    );
+    await fs.copy(
+        r(assets, "NanoFilters/NanoWhitelist.txt"),
+        r(output, "NanoFilters/NanoWhitelist.txt"),
+    );
+
     await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
 };
 
