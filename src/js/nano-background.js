@@ -311,7 +311,7 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
             break;
 
         default:
-            console.error("Unexpected lintable type " + lintable);
+            console.error("Unexpected lintable type:", lintable);
             return;
     }
 };
