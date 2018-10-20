@@ -155,6 +155,7 @@ const locales = new Map([
     ["es-ES", "es"],
     ["nb", "nb"],
     ["pl", "pl"],
+    ["ru", "ru"],
     ["zh-CN", "zh-CN"],
 ]);
 
