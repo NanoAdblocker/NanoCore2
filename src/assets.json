@@ -53,7 +53,7 @@
     "off": true,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
       "assets/NanoFilters/NanoAnnoyance.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -64,7 +64,7 @@
     "title": "Nano filters – Whitelist",
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
       "assets/NanoFilters/NanoWhitelist.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -77,7 +77,7 @@
     "contentURL": [
       "https://raw.githubusercontent.com/jspenguin2017/uBlockProtector/master/uBlockProtectorList.txt",
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
       "assets/ThirdParty/NanoDefender.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues",
@@ -241,10 +241,10 @@
     "nanoUpdateAfterDefault": 5,
     "title": "Malware Domain List",
     "contentURL": [
-      "https://cdn.rawgit.com/NanoMeow/MDLMirror/master/hosts.txt",
+      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/hosts.txt",
       "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/hosts.txt",
       "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-      "https://cdn.rawgit.com/NanoMeow/MDLMirror/master/filter.txt",
+      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/filter.txt",
       "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/filter.txt",
       "assets/ThirdParty/MalwareDomain0.txt"
     ]
