@@ -12,7 +12,7 @@
     "updateAfter": 14,
     "contentURL": [
       "https://publicsuffix.org/list/public_suffix_list.dat",
-      "https://cdn.rawgit.com/publicsuffix/list/master/public_suffix_list.dat",
+      "https://gitcdn.xyz/repo/publicsuffix/list/master/public_suffix_list.dat",
       "assets/ThirdParty/PublicSuffix.dat"
     ]
   },
@@ -29,7 +29,7 @@
     "updateAfter": 5,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
       "assets/NanoFilters/NanoResources.txt"
     ]
   },
@@ -41,7 +41,7 @@
     "title": "Nano filters",
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
       "assets/NanoFilters/NanoBase.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -502,7 +502,7 @@
     "title": "IRN: Adblock-Iran",
     "lang": "fa",
     "contentURL": [
-      "https://cdn.rawgit.com/farrokhi/adblock-iran/master/filter.txt",
+      "https://gitcdn.xyz/repo/farrokhi/adblock-iran/master/filter.txt",
       "https://raw.githubusercontent.com/farrokhi/adblock-iran/master/filter.txt"
     ],
     "supportURL": "https://github.com/farrokhi/adblock-iran"
