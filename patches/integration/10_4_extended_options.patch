@@ -25,7 +25,7 @@ index ac6bdb95..387b69c9 100644
  })();
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index a49ef008..b1eef4a0 100644
+index a49ef008..33a8bbda 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1416,7 +1416,10 @@ FilterParser.prototype.toNormalizedType = {
@@ -49,18 +49,17 @@ index a49ef008..b1eef4a0 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -1588,9 +1591,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1588,8 +1591,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }
 -        // Used by Adguard, purpose is unclear -- just ignore for now.
 -        if ( opt === 'empty' ) {
--            continue;
 +        if ( opt === 'mp4' ) {
 +            opts.push('media', 'redirect=noopmp4-1s');
 +            this.fopts = opts.join(',');
 +            var pos = this.raw.lastIndexOf('$');
 +            this.raw = this.raw.slice(0, pos + 1) + this.fopts;
+             continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-         if ( opt === 'badfilter' ) {

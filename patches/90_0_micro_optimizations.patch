@@ -38,10 +38,10 @@ index 44cef541..74e5b939 100644
          return;
      }
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 989e600b..550d1844 100644
+index 5b2ee82d..22847b71 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2138,12 +2138,7 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
+@@ -2139,12 +2139,7 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
  FilterContainer.prototype.compile = function(raw, writer) {
      // ORDER OF TESTS IS IMPORTANT!
  
