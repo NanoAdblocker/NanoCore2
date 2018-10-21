@@ -131,7 +131,7 @@ nano.filters_saved = () => {
     btn.setAttribute("disabled", "");
 
     // Wait a bit for filters to finish compiling
-    setTimeout(nano.render_anno, 500);
+    setTimeout(nano.render_anno, 1000);
 };
 
 nano.filters_apply = () => {
@@ -234,7 +234,7 @@ nano.export_filters = () => {
 
     vAPI.download({
         "url": "data:text/plain;charset=utf-8," +
-        encodeURIComponent(val + nano.editor.get_platform_line_break()),
+            encodeURIComponent(val + nano.editor.get_platform_line_break()),
 
         "filename": filename
     });
