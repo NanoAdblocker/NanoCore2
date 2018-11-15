@@ -78,20 +78,23 @@ exit     Exit the terminal
 
 ## Subresource Integrity Incidence Response Protocol
 
-When there is a severe issue with a subresource, an intervention can be placed
-as follows:
+When there is a severe issue with the content of a subresource, an intervention
+can be placed easily with the help of
+[UltimateMirror](https://github.com/NanoMeow/UltimateMirror) and
+[MirrorEngine](https://github.com/NanoMeow/MirrorEngine):
 
-1. Lock the resource in
-   [UltimateMirror](https://github.com/NanoMeow/UltimateMirror)
-2. Remove problematic content from the mirror
-3. Update `assets.json` to point to the frozen mirror
+1. Lock the subresource in UltimateMirror
+2. Remove problematic content from UltimateMirror
+3. Update `assets.json` so the sanitized subresource will be loaded from
+   UltimateMirror
 
-When a final decision is made, the intervention can be lifted as follows:
+Later, the intervention can be lifted as follows:
 
-1. Update `assets.json` to stop pointing to the mirror
-2. Wait for GitCDN cache to expire, then restart
-   [MirrorEngine](https://github.com/NanoMeow/MirrorEngine)
-3. Remove the lock
+1. Update `assets.json` as appropriate, the subresource should no longer be
+   loaded from UltimateMirror
+2. Wait for GitCDN cache to expire (takes about 2 hours), then restart
+   MirrorEngine
+3. Unlock the subresource in UltimateMirror
 
 ## Tips
 
