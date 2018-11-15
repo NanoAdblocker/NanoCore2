@@ -73,6 +73,7 @@ exit     Exit the terminal
 - If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
 - If needed, build and pull locale updates
 - Bump version number
+- Test to make sure everything is working
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores
 
