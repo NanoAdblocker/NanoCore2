@@ -80,7 +80,7 @@ exit     Exit the terminal
 ## Subresource Integrity Incidence Response Protocol
 
 When there is a severe issue with the content of a subresource, an intervention
-can be placed easily with the help of
+can be easily placed with the help of
 [UltimateMirror](https://github.com/NanoMeow/UltimateMirror) and
 [MirrorEngine](https://github.com/NanoMeow/MirrorEngine):
 
