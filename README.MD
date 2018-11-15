@@ -84,7 +84,7 @@ can be placed easily with the help of
 [MirrorEngine](https://github.com/NanoMeow/MirrorEngine):
 
 1. Lock the subresource in UltimateMirror
-2. Remove problematic content from UltimateMirror
+2. Remove problematic content from UltimateMirror, if needed
 3. Update `assets.json` so the sanitized subresource will be loaded from
    UltimateMirror
 
