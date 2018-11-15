@@ -64,7 +64,7 @@ reload   Reload configuration data
 exit     Exit the terminal
 ```
 
-## Checklist
+## Version Update Checklist
 
 - Pull filters updates
 - If needed, pull upstream updates then update about string and commit pin
