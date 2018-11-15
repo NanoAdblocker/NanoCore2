@@ -76,6 +76,23 @@ exit     Exit the terminal
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores
 
+## Subresource Integrity Incidence Response Protocol
+
+When there is a severe issue with a subresource, an intervention can be placed
+as follows:
+
+1. Lock the resource in
+   [UltimateMirror](https://github.com/NanoMeow/UltimateMirror)
+2. Remove problematic content from the mirror
+3. Update `assets.json` to point to the frozen mirror
+
+When a final decision is made, the intervention can be lifted as follows:
+
+1. Update `assets.json` to stop pointing to the mirror
+2. Wait for GitCDN cache to expire, then restart
+   [MirrorEngine](https://github.com/NanoMeow/MirrorEngine)
+3. Remove the lock
+
 ## Tips
 
 Do not forget to copy and commit generated patches from `mark` to make them
