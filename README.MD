@@ -22,16 +22,16 @@ Your language is not listed? Submit an issue to let me know.
 
 1. Install latest version of Git and Node.js.
 2. In an appropriate directory, run:
-   - `git clone --depth 1 https://github.com/NanoAdblocker/NanoCore2.git`
-   - `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
-   - `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
+   1. `git clone --depth 1 https://github.com/NanoAdblocker/NanoCore2.git`
+   2. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
+   3. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
 3. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit as
    appropriate.
 4. In Nano Core 2 repository:
-   - Navigate to `/term` directory and run `npm install`.
-   - Update `/config.json` as appropriate.
-   - Run `node ./term` to open Nano Core 2 Terminal.
+   1. Navigate to `/term` directory and run `npm install`.
+   2. Update `/config.json` as appropriate.
+   3. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
@@ -66,16 +66,16 @@ exit     Exit the terminal
 
 ## Version Update Checklist
 
-- Pull filters updates
-- If needed, pull upstream updates then update about string and commit pin
-- If needed, pull upstream updates to build scripts
-- If needed, pull upstream updates to `assets.json` and `manifest.json`
-- If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
-- If needed, build and pull locale updates
-- Bump version number
-- Test to make sure everything is working
-- Add tags to repositories, and upload packages
-- Upload packages to extension stores
+1.  Pull filters updates
+2.  If needed, pull upstream updates then update about string and commit pin
+3.  If needed, pull upstream updates to build scripts
+4.  If needed, pull upstream updates to `assets.json` and `manifest.json`
+5.  If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
+6.  If needed, build and pull locale updates
+7.  Bump version number
+8.  Test to make sure everything is working
+9.  Add tags to repositories, and upload packages
+10. Upload packages to extension stores
 
 ## Subresource Integrity Incidence Response Protocol
 
