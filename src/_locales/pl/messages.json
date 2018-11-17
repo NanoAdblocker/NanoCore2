@@ -44,7 +44,7 @@
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Przełącz panel przeglądowy",
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
