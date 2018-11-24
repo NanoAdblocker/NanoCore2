@@ -558,7 +558,7 @@ exports.pack = async (browser) => {
 /**
  * Publish package to extension store.
  * @async @function
- * @param {Enum} browser - One of "chromium", "firefox", "edge".
+ * @param {Enum} browser - One of "chromium", "edge".
  * @param {Term} term - Terminal for child process.
  */
 exports.publish = async (browser, term) => {
