@@ -1,12 +1,14 @@
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 686898eb..5122c6ae 100644
+index a0b69e06..06eb54f6 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -767,14 +767,31 @@
+@@ -764,15 +764,33 @@
+     }
      // Extract update frequency information
-     matches = head.match(/(?:^|\n)(?:!|# )[\t ]*Expires[\t ]*:[\t ]*(\d+)[\t ]*(h)?/i);
+     let matches = head.match(/(?:^|\n)(?:!|# )[\t ]*Expires[\t ]*:[\t ]*(\d+)[\t ]*(h)?/i);
++    let v;
      if ( matches !== null ) {
--        v = Math.max(parseInt(matches[1], 10), 1);
+-        let v = Math.max(parseInt(matches[1], 10), 1);
 +        v = parseInt(matches[1], 10);
          if ( matches[2] !== undefined ) {
              v = Math.ceil(v / 24);

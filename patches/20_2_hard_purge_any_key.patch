@@ -1,8 +1,8 @@
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index 27705296..2094f520 100644
+index 5963c1e2..42ea241f 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
-@@ -500,7 +500,7 @@ var buttonPurgeAllHandler = function(ev) {
+@@ -502,7 +502,7 @@ var buttonPurgeAllHandler = function(ev) {
          'dashboard',
          {
              what: 'purgeAllCaches',

@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index db26ff33..e51366fb 100644
+index 26bf4ada..aeab4f7c 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -368,8 +368,7 @@ var getAssetSourceRegistry = function(callback) {
@@ -23,7 +23,7 @@ index db26ff33..e51366fb 100644
          }
      };
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 44cef541..74e5b939 100644
+index 0dfb566b..ce5a0e75 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -347,8 +347,8 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
@@ -38,10 +38,10 @@ index 44cef541..74e5b939 100644
          return;
      }
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5b2ee82d..22847b71 100644
+index c1ed276f..f2d6d151 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2139,12 +2139,7 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
+@@ -2180,12 +2180,7 @@ FilterContainer.prototype.fromSelfie = function(selfie) {
  FilterContainer.prototype.compile = function(raw, writer) {
      // ORDER OF TESTS IS IMPORTANT!
  
@@ -56,10 +56,10 @@ index 5b2ee82d..22847b71 100644
  
      // Ignore element-hiding filters
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 5122c6ae..38a461bf 100644
+index 06eb54f6..6f6fb232 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -675,7 +675,7 @@
+@@ -674,7 +674,7 @@
  
          // We need to build a complete list of assets to pull first: this is
          // because it *may* happens that some load operations are synchronous:
