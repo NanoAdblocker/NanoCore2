@@ -1,8 +1,8 @@
 diff --git a/src/js/start.js b/src/js/start.js
-index 078e1bd0..ab157e58 100644
+index 28f6cf2e..7307a494 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -133,42 +133,22 @@ var onVersionReady = function(lastVersion) {
+@@ -169,42 +169,22 @@ var onVersionReady = function(lastVersion) {
      // If unused, just comment out for when we need to compare versions in the
      // future.
      let intFromVersion = function(s) {
