@@ -417,11 +417,11 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
                     token: "variable",
                     regex: new RegExp([
-                        "beacon",
+                        "~?beacon",
                         "data",
-                        "other",
-                        "ping",
-                        "websocket"
+                        "~?other",
+                        "~?ping",
+                        "~?websocket"
                     ].join("|"))
                 },
 
