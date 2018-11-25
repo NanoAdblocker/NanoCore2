@@ -301,7 +301,10 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
             {
                 const token = data[0];
 
-                if (!nano.ub.redirectEngine.resources.has(token)) {
+                if (
+                    token !== "none" &&
+                    !nano.ub.redirectEngine.resources.has(token)
+                ) {
                     nano.flintw(
                         "nano_l_filter_resource_not_found",
                         ["{{res}}", token]

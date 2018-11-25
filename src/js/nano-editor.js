@@ -30,6 +30,16 @@ var nano = nano || {};
 
 /*****************************************************************************/
 
+const safeCompileRegExp = (str, fallback) => {
+    try {
+        return new RegExp(str);
+    } catch (err) {
+        return fallback;
+    }
+};
+
+/*****************************************************************************/
+
 ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const oop = ace.require("ace/lib/oop");
     const unicode = require("ace/unicode");
@@ -472,6 +482,15 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "options"
                 },
 
+                // Keywork "none"
+                {
+                    token: "keyword",
+                    regex: safeCompileRegExp(
+                        "(?<==)none(?=,|$)",
+                        /none(?=,|$)/
+                    )
+                },
+
                 // Redirect resource name (default)
                 {
                     defaultToken: "variable"
@@ -583,7 +602,7 @@ nano.Editor = function (elem, highlight, readonly) {
 
         let avail_height = Math.floor(parent_rect.bottom - child_rect.top);
         if (avail_height < 1)
-            avail_height = 1
+            avail_height = 1;
 
         child_elem.style.height = avail_height.toString() + "px";
         this.editor.resize();
