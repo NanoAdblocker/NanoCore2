@@ -12,7 +12,7 @@ index fbcadf5e..d2809138 100644
  body {
      border: 0;
 diff --git a/src/dashboard.html b/src/dashboard.html
-index 3e3106ad..14abf2d6 100644
+index 43329706..379240b9 100644
 --- a/src/dashboard.html
 +++ b/src/dashboard.html
 @@ -12,7 +12,7 @@
