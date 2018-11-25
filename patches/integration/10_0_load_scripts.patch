@@ -17,3 +17,15 @@ index fa1327b3..ef802e13 100644
  <script src="js/traffic.js"></script>
  <script src="js/hntrie.js"></script>
  <script src="js/utils.js"></script>
+diff --git a/src/js/background.js b/src/js/background.js
+index a15cf1d0..1b39d3d1 100644
+--- a/src/js/background.js
++++ b/src/js/background.js
+@@ -195,3 +195,7 @@ const µBlock = (function() { // jshint ignore:line
+ })();
+ 
+ /******************************************************************************/
++
++window.__ublock__ = µBlock;
++
++/******************************************************************************/
