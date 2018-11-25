@@ -21,7 +21,7 @@ index b6821bbd..26bf4ada 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 47eda745..a15cf1d0 100644
+index c40d3d63..1b39d3d1 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -40,8 +40,8 @@ const µBlock = (function() { // jshint ignore:line
