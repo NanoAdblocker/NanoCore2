@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index d49910cf..23c58b42 100644
+index f0f5b794..21db13f2 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -48,6 +48,8 @@ var µBlock = (function() { // jshint ignore:line
+@@ -50,6 +50,8 @@ const µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -10,8 +10,8 @@ index d49910cf..23c58b42 100644
 +        nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
-         suspendTabsUntilReady: false,
-@@ -159,6 +161,7 @@ var µBlock = (function() { // jshint ignore:line
+         strictBlockingBypassDuration: 120,
+@@ -155,6 +157,7 @@ const µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
@@ -20,10 +20,10 @@ index d49910cf..23c58b42 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index d44f1ddf..dc579ad8 100644
+index 6a0b1deb..b2ca3612 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -707,6 +707,8 @@
+@@ -709,6 +709,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
@@ -33,10 +33,10 @@ index d44f1ddf..dc579ad8 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5849efa0..a49ef008 100644
+index 99003116..197eebd6 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1594,6 +1594,10 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1561,6 +1561,10 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
          if ( opt === 'badfilter' ) {
@@ -44,10 +44,10 @@ index 5849efa0..a49ef008 100644
 +                this.unsupported = true;
 +                break;
 +            }
-             this.badFilter = BadFilter;
+             this.badFilter = true;
              continue;
          }
-@@ -1733,6 +1737,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1700,6 +1704,10 @@ FilterParser.prototype.parse = function(raw) {
      // block or allow filter?
      // Important: this must be executed before parsing options
      if ( s.startsWith('@@') ) {
@@ -59,10 +59,10 @@ index 5849efa0..a49ef008 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 94ba2a24..7c7f546e 100644
+index 05dc0e72..f7b3d82a 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -409,7 +409,7 @@
+@@ -410,7 +410,7 @@
      var µb = this;
  
      var onSaved = function() {
@@ -71,7 +71,7 @@ index 94ba2a24..7c7f546e 100644
              snfe = µb.staticNetFilteringEngine,
              cfe = µb.cosmeticFilteringEngine,
              acceptedCount = snfe.acceptedCount + cfe.acceptedCount,
-@@ -703,7 +703,7 @@
+@@ -702,7 +702,7 @@
  
      var onCompiledListLoaded2 = function(details) {
          if ( details.content === '' ) {
@@ -80,20 +80,20 @@ index 94ba2a24..7c7f546e 100644
              µb.assets.put(compiledPath, details.content);
          }
          rawContent = undefined;
-@@ -786,9 +786,11 @@
+@@ -784,9 +784,11 @@
  
  /******************************************************************************/
  
 -µBlock.compileFilters = function(rawText) {
 +µBlock.compileFilters = function(rawText, nanoKey) {
-     var writer = new this.CompiledLineWriter();
+     let writer = new this.CompiledLineIO.Writer();
  
 +    nano.cf.update(nanoKey);
 +
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -849,6 +851,8 @@
+@@ -846,6 +848,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
@@ -102,7 +102,7 @@ index 94ba2a24..7c7f546e 100644
      return writer.toString();
  };
  
-@@ -1266,7 +1270,7 @@
+@@ -1256,7 +1260,7 @@
                      );
                      this.assets.put(
                          'compiled/' + details.assetKey,
