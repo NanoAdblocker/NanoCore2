@@ -112,10 +112,10 @@ index f17981cc..a8f37fa2 100644
      let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hostname);
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index 4f8b775b..a4bc19c5 100644
+index cac9e075..f5a94105 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
-@@ -228,7 +228,10 @@
+@@ -230,7 +230,10 @@
      api.compile = function(parsed, writer) {
          let selector = parsed.suffix.slice(1).trim(),
              compiled = µb.staticExtFilteringEngine.compileSelector(selector);
@@ -127,7 +127,7 @@ index 4f8b775b..a4bc19c5 100644
  
          // 1002 = html filtering
          writer.select(1002);
-@@ -236,7 +239,10 @@
+@@ -238,7 +241,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
          for ( let hn of parsed.hostnames ) {
@@ -140,7 +140,7 @@ index 4f8b775b..a4bc19c5 100644
              if ( parsed.exception ) {
                  hash |= 0b0001;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 387b69c9..44cef541 100644
+index f6880985..0dfb566b 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -232,10 +232,10 @@ index ea3bb631..a644d619 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index dc579ad8..2d98b9cd 100644
+index b2ca3612..433c5ea4 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -691,7 +691,10 @@
+@@ -693,7 +693,10 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -247,7 +247,7 @@ index dc579ad8..2d98b9cd 100644
              // Not a known extended filter.
              if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
                  return false;
-@@ -699,7 +702,10 @@
+@@ -701,7 +704,10 @@
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -259,7 +259,7 @@ index dc579ad8..2d98b9cd 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -726,6 +732,7 @@
+@@ -728,6 +734,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -268,10 +268,10 @@ index dc579ad8..2d98b9cd 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 33a8bbda..5b2ee82d 100644
+index f462904c..c1ed276f 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1471,6 +1471,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+@@ -1438,6 +1438,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
  
      // Non-discrete network types can't be negated.
      if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
@@ -282,7 +282,7 @@ index 33a8bbda..5b2ee82d 100644
          return;
      }
  
-@@ -1543,6 +1547,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1510,6 +1514,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -290,7 +290,7 @@ index 33a8bbda..5b2ee82d 100644
              break;
          }
          // Test before handling all other types.
-@@ -1552,6 +1557,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1519,6 +1524,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -298,7 +298,7 @@ index 33a8bbda..5b2ee82d 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1565,6 +1571,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1532,6 +1538,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -306,7 +306,7 @@ index 33a8bbda..5b2ee82d 100644
                  break;
              }
              continue;
-@@ -1582,6 +1589,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1549,6 +1556,8 @@ FilterParser.prototype.parseOptions = function(s) {
                  this.parseTypeOption('data', not);
                  this.dataType = 'csp';
                  this.dataStr = opt.slice(4).trim();
@@ -315,7 +315,7 @@ index 33a8bbda..5b2ee82d 100644
              }
              continue;
          }
-@@ -1596,6 +1605,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1563,6 +1572,8 @@ FilterParser.prototype.parseOptions = function(s) {
              this.fopts = opts.join(',');
              var pos = this.raw.lastIndexOf('$');
              this.raw = this.raw.slice(0, pos + 1) + this.fopts;
@@ -324,7 +324,7 @@ index 33a8bbda..5b2ee82d 100644
              continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-@@ -1609,6 +1620,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1576,6 +1587,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -332,7 +332,7 @@ index 33a8bbda..5b2ee82d 100644
          break;
      }
  };
-@@ -1736,6 +1748,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1703,6 +1715,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -340,7 +340,7 @@ index 33a8bbda..5b2ee82d 100644
              return this;
          }
      }
-@@ -1762,6 +1775,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1729,6 +1742,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -348,7 +348,7 @@ index 33a8bbda..5b2ee82d 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1772,7 +1786,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1739,7 +1753,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -359,7 +359,7 @@ index 33a8bbda..5b2ee82d 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1794,6 +1811,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1761,6 +1778,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -367,7 +367,7 @@ index 33a8bbda..5b2ee82d 100644
          }
          return this;
      }
-@@ -1818,6 +1836,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1785,6 +1803,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -375,7 +375,7 @@ index 33a8bbda..5b2ee82d 100644
              return this;
          }
  
-@@ -2230,6 +2249,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2274,6 +2293,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
@@ -386,10 +386,10 @@ index 33a8bbda..5b2ee82d 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index af719460..ac5ee4ec 100644
+index 2c8f73f8..acaa3e88 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -392,7 +392,11 @@
+@@ -393,7 +393,11 @@
      // https://github.com/gorhill/uBlock/issues/1022
      // Be sure to end with an empty line.
      content = content.trim();
@@ -402,8 +402,8 @@ index af719460..ac5ee4ec 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -790,6 +794,12 @@
-     var writer = new this.CompiledLineWriter();
+@@ -788,6 +792,12 @@
+     let writer = new this.CompiledLineIO.Writer();
  
      nano.cf.update(nanoKey);
 +    if ( nanoKey === nano.ub.userFiltersPath ) {
@@ -415,7 +415,7 @@ index af719460..ac5ee4ec 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -804,6 +814,10 @@
+@@ -801,6 +811,10 @@
          lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -426,10 +426,10 @@ index af719460..ac5ee4ec 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -812,7 +826,11 @@
+@@ -809,7 +823,11 @@
  
          // Strip comments
-         c = line.charAt(0);
+         let c = line.charAt(0);
 -        if ( c === '!' || c === '[' ) { continue; }
 +        if ( c === '!' ) { continue; }
 +        if ( c === '[' ) {
@@ -439,15 +439,15 @@ index af719460..ac5ee4ec 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -833,6 +851,7 @@
-         pos = line.indexOf('#');
+@@ -830,6 +848,7 @@
+         let pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
 +            nano.flintw('nano_l_filter_inline_comment');
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -842,15 +861,24 @@
+@@ -839,15 +858,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost

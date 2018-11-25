@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 99092dcd..f21a01c6 100644
+index eb72003f..bbc2212c 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -140,6 +140,10 @@ var onMessage = function(request, sender, callback) {
