@@ -54,8 +54,7 @@
     "off": true,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "assets/NanoFilters/NanoAnnoyance.txt"
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
   },
