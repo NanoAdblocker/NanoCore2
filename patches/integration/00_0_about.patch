@@ -1,8 +1,8 @@
 diff --git a/src/about.html b/src/about.html
-index 081ddfc7..be078d83 100644
+index 081ddfc7..9589a862 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -12,14 +12,19 @@
+@@ -12,14 +12,21 @@
  
  <div class="body">
      <p id="aboutNameVer"></p>
@@ -14,7 +14,9 @@ index 081ddfc7..be078d83 100644
 +        <li><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore" data-i18n="aboutCode"></a>
-+        <li><a href="https://github.com/ajaxorg/ace">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a>
++        <li><span data-i18n="aboutDependencies"></span><ul>
++            <li><a href="https://github.com/ajaxorg/ace">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a>
++        </ul>
 +    </ul>
 +
 +    <p data-i18n="nano_d_about_based_on"></p>
