@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index d5e3a4f5..db26ff33 100644
+index b6821bbd..26bf4ada 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -285,7 +285,7 @@ var registerAssetSource = function(assetKey, dict) {
@@ -11,7 +11,7 @@ index d5e3a4f5..db26ff33 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -904,7 +904,7 @@ api.rmrf = function() {
+@@ -902,7 +902,7 @@ api.rmrf = function() {
  // Asset updater area.
  var updaterStatus,
      updaterTimer,
@@ -21,20 +21,22 @@ index d5e3a4f5..db26ff33 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 28b1b456..aa9bd7f7 100644
+index 47eda745..a15cf1d0 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -40,14 +40,14 @@ var µBlock = (function() { // jshint ignore:line
+@@ -40,8 +40,8 @@ const µBlock = (function() { // jshint ignore:line
  
-     var hiddenSettingsDefault = {
+     const hiddenSettingsDefault = {
          assetFetchTimeout: 30,
 -        autoUpdateAssetFetchPeriod: 120,
 -        autoUpdatePeriod: 7,
 +        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
+         benchmarkingPane: false,
          cacheStorageCompression: true,
-         debugScriptlets: false,
          cacheControlForFirefox1376932: 'no-cache, no-store, must-revalidate',
+@@ -49,7 +49,7 @@ const µBlock = (function() { // jshint ignore:line
+         disableWebAssembly: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
 -        manualUpdateAssetFetchPeriod: 500,
@@ -42,7 +44,7 @@ index 28b1b456..aa9bd7f7 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
-@@ -61,6 +61,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -64,6 +64,7 @@ const µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
@@ -51,10 +53,10 @@ index 28b1b456..aa9bd7f7 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index ab157e58..54fcb726 100644
+index 7307a494..1ed193cc 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -187,13 +187,6 @@ var onUserSettingsReady = function(fetched) {
+@@ -223,13 +223,6 @@ var onUserSettingsReady = function(fetched) {
      µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
      µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
      µb.sessionSwitches.assign(µb.permanentSwitches);
@@ -68,7 +70,7 @@ index ab157e58..54fcb726 100644
  };
  
  /******************************************************************************/
-@@ -275,6 +268,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -316,6 +309,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
@@ -77,10 +79,10 @@ index ab157e58..54fcb726 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index ac5ee4ec..686898eb 100644
+index acaa3e88..a0b69e06 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1282,7 +1282,7 @@
+@@ -1272,7 +1272,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -89,7 +91,7 @@ index ac5ee4ec..686898eb 100644
              });
          }, updateDelay);
      };
-@@ -1378,7 +1378,7 @@
+@@ -1367,7 +1367,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {
