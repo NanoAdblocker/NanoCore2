@@ -93,7 +93,7 @@ Later, the intervention can be lifted as follows:
 
 1. Update `assets.json` as appropriate, the subresource should no longer be
    loaded from UltimateMirror
-2. Wait for GitCDN cache to expire (takes about 2 hours), then restart
+2. Wait a bit for cache to expire (takes about 10 minutes), then restart
    MirrorEngine
 3. Unlock the subresource in UltimateMirror
 
