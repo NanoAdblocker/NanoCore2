@@ -222,7 +222,7 @@
     "content": "filters",
     "group": "privacy",
     "off": true,
-    "title": "Fanboy’s Enhanced Tracking List",
+    "title": "Fanboy's Enhanced Tracking List",
     "contentURL": "https://www.fanboy.co.nz/enhancedstats.txt",
     "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
   },
@@ -275,7 +275,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Adguard’s Annoyance List",
+    "title": "Adguard's Annoyance List",
     "contentURL": "https://filters.adtidy.org/extension/ublock/filters/14.txt",
     "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
     "instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
@@ -292,7 +292,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Annoyance List",
+    "title": "Fanboy's Annoyance List",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt",
       "https://easylist.to/easylist/fanboy-annoyance.txt",
@@ -312,7 +312,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Social Blocking List",
+    "title": "Fanboy's Social Blocking List",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-social.txt",
       "https://easylist.to/easylist/fanboy-social.txt",
@@ -327,7 +327,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "off": true,
-    "title": "Dan Pollock’s hosts file",
+    "title": "Dan Pollock's hosts file",
     "contentURL": "https://someonewhocares.org/hosts/hosts",
     "supportURL": "https://someonewhocares.org/hosts/"
   },
@@ -336,7 +336,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "off": true,
-    "title": "hpHosts’ Ad and tracking servers",
+    "title": "hpHosts' Ad and tracking servers",
     "contentURL": "https://hosts-file.net/ad_servers.txt",
     "supportURL": "https://hosts-file.net/"
   },
@@ -354,7 +354,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "nanoUpdateAfterDefault": 5,
-    "title": "Peter Lowe’s Ad and tracking server list",
+    "title": "Peter Lowe's Ad and tracking server list",
     "contentURL": [
       "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
       "assets/ThirdParty/PeterLowe.txt"
