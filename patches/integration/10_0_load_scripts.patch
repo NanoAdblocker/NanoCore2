@@ -1,5 +1,5 @@
 diff --git a/src/background.html b/src/background.html
-index 98b6bafe..ceb8bf9e 100644
+index fa1327b3..ef802e13 100644
 --- a/src/background.html
 +++ b/src/background.html
 @@ -8,11 +8,14 @@
@@ -14,6 +14,6 @@ index 98b6bafe..ceb8bf9e 100644
 +<script src="js/nano-vapi.js"></script>
  <script src="js/background.js"></script>
 +<script src="js/nano-background.js"></script>
+ <script src="js/traffic.js"></script>
  <script src="js/hntrie.js"></script>
  <script src="js/utils.js"></script>
- <script src="js/uritools.js"></script>
