@@ -142,6 +142,11 @@ nano.CompileFlag.prototype.update = function (key) {
     this.is_privileged = (
         nano.privileged_filters.has(key) ||
         (
+            !this.first_party &&
+            nano.ub.userSettings.advancedUserEnabled &&
+            nano.ub.hiddenSettings.nanoMakeThirdPartyFiltersPrivileged
+        ) ||
+        (
             this.first_party &&
             nano.ub.userSettings.advancedUserEnabled &&
             nano.ub.hiddenSettings.nanoMakeUserFiltersPrivileged

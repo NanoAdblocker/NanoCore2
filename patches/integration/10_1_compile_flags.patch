@@ -2,11 +2,12 @@ diff --git a/src/js/background.js b/src/js/background.js
 index 2cf32f60..b3055cf3 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -50,6 +50,8 @@ const µBlock = (function() { // jshint ignore:line
+@@ -50,6 +50,9 @@ const µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
 +        nanoIgnoreThirdPartyWhitelist: false,
++        nanoMakeThirdPartyFiltersPrivileged: false,
 +        nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
