@@ -72,7 +72,7 @@ Available since 1.0.0.22
 
 Default: `false`
 
-When set to `true`, Nano Adblocker will treat user filters as privileged when
+When set to `true`, Nano Adblocker will treat `My filters` as privileged when
 compiling filters **in the future**. Similarly, setting this toggle to `false`
 **or turning off advanced mode** will **not** cause privileged filters to be
 immediately removed.
