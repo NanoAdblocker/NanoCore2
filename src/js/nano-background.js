@@ -104,7 +104,6 @@ nAPI.add_public_api_handler(nano.is_trusted_ext, nano.handle_public_api);
 
 nano.privileged_filters = new Set([
     "nano-filters",
-    "nano-timer",
     "nano-annoyance",
     "nano-whitelist",
     "nano-defender"
