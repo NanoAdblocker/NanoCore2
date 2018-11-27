@@ -21,7 +21,7 @@ index b6821bbd..26bf4ada 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index c40d3d63..1b39d3d1 100644
+index 17e5b034..88d5542e 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -40,8 +40,8 @@ const µBlock = (function() { // jshint ignore:line
@@ -42,9 +42,9 @@ index c40d3d63..1b39d3d1 100644
 -        manualUpdateAssetFetchPeriod: 500,
 +        manualUpdateAssetFetchPeriod: 1,
          nanoIgnoreThirdPartyWhitelist: false,
+         nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-         popupFontSize: 'unset',
-@@ -64,6 +64,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -65,6 +65,7 @@ const µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
