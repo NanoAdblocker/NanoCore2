@@ -21,7 +21,7 @@
     "content": "internal",
     "updateAfter": 5,
     "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/ThirdParty/uBlockResources.txt",
+      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoMirror/uBlockResources.txt",
       "assets/ThirdParty/uBlockResources.txt"
     ]
   },
