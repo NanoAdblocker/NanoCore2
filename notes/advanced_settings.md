@@ -62,7 +62,7 @@ privileged when compiling filters **in the future**. Similarly, setting
 this toggle to `false` **or turning off advanced mode** will **not** cause
 privileged filters to be immediately removed.
 
-Privileged filter listss have access to privileged resources. Name of
+Privileged filter lists have access to privileged resources. Name of
 privileged resources always start with `nanop-`. Nano Adblocker's own filters
 (Nano filters) are always privileged.
 
@@ -77,6 +77,6 @@ compiling filters **in the future**. Similarly, setting this toggle to `false`
 **or turning off advanced mode** will **not** cause privileged filters to be
 immediately removed.
 
-Privileged filter listss have access to privileged resources. Name of
+Privileged filter lists have access to privileged resources. Name of
 privileged resources always start with `nanop-`. Nano Adblocker's own filters
 (Nano filters) are always privileged.
