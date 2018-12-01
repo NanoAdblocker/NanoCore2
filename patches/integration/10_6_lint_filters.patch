@@ -1,5 +1,5 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index f17981cc..a8f37fa2 100644
+index 1b0d608d..60be622c 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
 @@ -561,7 +561,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
