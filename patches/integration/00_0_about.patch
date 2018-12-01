@@ -1,8 +1,8 @@
 diff --git a/src/about.html b/src/about.html
-index 081ddfc7..6ddedf82 100644
+index 081ddfc7..1d1247a7 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -12,14 +12,21 @@
+@@ -12,14 +12,22 @@
  
  <div class="body">
      <p id="aboutNameVer"></p>
@@ -19,6 +19,7 @@ index 081ddfc7..6ddedf82 100644
 +        </ul>
 +    </ul>
 +
++    <br>
 +    <p data-i18n="nano_d_about_based_on"></p>
 +    <p>Copyright (c) Raymond Hill 2014-2018</p>
      <ul>
