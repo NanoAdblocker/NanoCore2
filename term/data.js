@@ -131,9 +131,6 @@ exports.manifest = (browser) => {
         "manifest_version": 2,
         "minimum_chrome_version": "51.0",
         "name": "Nano Adblocker",
-        "optional_permissions": [
-            "file:///*",
-        ],
         "options_ui": {
             "page": "dashboard.html",
             "open_in_tab": true,
