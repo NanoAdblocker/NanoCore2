@@ -1,5 +1,5 @@
 diff --git a/src/asset-viewer.html b/src/asset-viewer.html
-index fbcadf5e..d2809138 100644
+index 8d02d2e1..5459131a 100644
 --- a/src/asset-viewer.html
 +++ b/src/asset-viewer.html
 @@ -8,7 +8,7 @@

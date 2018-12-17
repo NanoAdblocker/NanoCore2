@@ -1,5 +1,5 @@
 diff --git a/src/background.html b/src/background.html
-index fa1327b3..ef802e13 100644
+index 29b9a297..b6f4e760 100644
 --- a/src/background.html
 +++ b/src/background.html
 @@ -8,11 +8,14 @@
@@ -18,7 +18,7 @@ index fa1327b3..ef802e13 100644
  <script src="js/hntrie.js"></script>
  <script src="js/utils.js"></script>
 diff --git a/src/js/background.js b/src/js/background.js
-index f0f5b794..2cf32f60 100644
+index 1d9d0735..b724336f 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -189,3 +189,7 @@ const µBlock = (function() { // jshint ignore:line
