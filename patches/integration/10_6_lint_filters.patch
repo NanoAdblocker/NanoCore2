@@ -35,46 +35,34 @@ index 1b0d608d..60be622c 100644
          return;
      }
  
-@@ -684,7 +706,10 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
- ) {
-     // Procedural cosmetic filters are acceptable as generic exception filters.
-     let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
--    if ( compiled === undefined ) { return; }
-+    if ( compiled === undefined ) {
+@@ -660,6 +660,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+         µb.logger.writeOne({
+             error: `Invalid cosmetic filter in ${who} : #@#${parsed.suffix}`
+         });
 +        nano.flinte('nano_l_filter_bad_selector');
-+        return;
-+    }
- 
-     // https://github.com/chrisaljoudi/uBlock/issues/497
-     //   All generic exception filters are put in the same bucket: they are
-@@ -707,7 +732,10 @@ FilterContainer.prototype.compileSpecificSelector = function(
+         return;
      }
  
-     let compiled = µb.staticExtFilteringEngine.compileSelector(parsed.suffix);
--    if ( compiled === undefined ) { return; }
-+    if ( compiled === undefined ) {
+@@ -689,6 +689,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+         µb.logger.writeOne({
+             error: `Invalid cosmetic filter in ${who} : ##${parsed.suffix}`
+         });
 +        nano.flinte('nano_l_filter_bad_selector');
-+        return;
-+    }
- 
-     let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hostname);
+         return;
+     }
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
 index cac9e075..f5a94105 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
-@@ -230,7 +230,10 @@
-     api.compile = function(parsed, writer) {
-         let selector = parsed.suffix.slice(1).trim(),
-             compiled = µb.staticExtFilteringEngine.compileSelector(selector);
--        if ( compiled === undefined ) { return; }
-+        if ( compiled === undefined ) {
+@@ -246,6 +246,7 @@
+             µb.logger.writeOne({
+                 error: `Invalid HTML filter in ${who} : ##${selector}`
+             });
 +            nano.flinte('nano_l_filter_bad_selector');
-+            return;
-+        }
+             return;
+         }
  
-         // 1002 = html filtering
-         writer.select(1002);
 @@ -238,7 +241,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
@@ -91,17 +79,21 @@ diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
 index f6880985..0dfb566b 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+@@ -300,7 +300,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+ 
  RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
-     var matches = this.reFilterParser.exec(line);
-     if ( matches === null || matches.length !== 4 ) {
+     const matches = this.reFilterParser.exec(line);
+-    if ( matches === null || matches.length !== 4 ) { return; }
++    if ( matches === null || matches.length !== 4 ) {
 +        nano.flintw(
 +            'nano_r_does_not_match_re',
 +            ['{{regexp}}', this.reFilterParser.toString()]
 +        );
-         return;
-     }
-     var µburi = µBlock.URI,
++        return;
++    }
+ 
+     let des = matches[1] || '';
+     const pattern = (des + matches[2]).replace(/[.+?{}()|[\]\/\\]/g, '\\$&')
 @@ -329,6 +333,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          // One and only one type must be specified.
          if ( option in this.supportedTypes ) {
