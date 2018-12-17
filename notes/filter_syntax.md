@@ -23,15 +23,17 @@ they will not work in uBlock Origin.
 
 Nano Adblocker and uBlock Origin will map options as follows for convenience:
 ```
-    1p -> first-party
-    3p -> third-party
-   css -> stylesheet
-   doc -> document
-iframe -> subdocument
-   xhr -> xmlhttprequest
+   1p -> first-party
+   3p -> third-party
+  css -> stylesheet
+  doc -> document
+frame -> subdocument
+  xhr -> xmlhttprequest
 ```
 
-Additionally, Nano Adblocker will map `ghide` to `generichide`.
+Additionally, Nano Adblocker will map `ghide` to `generichide` and `iframe` to
+`subdocument`. uBlock Origin will discard filters that use `ghide` or `iframe`
+options.
 
 ## The option `empty`
 
