@@ -5,9 +5,9 @@ These may or may not be out of date.
 ## Generic Notes
 
 - `cosmetic-filtering.js > FilterContainer.prototype.compileGenericHideSelector`
-  tests the filter with a regular expression to check if it needs a hostname.
-  If we want to keep slow filters, we cannot change this check, as assumption
-  of code after will no longer be valid, and things will break.
+  checks whether a hostname is required for the filter. If we want to keep slow
+  filters, we cannot change this check, as assumption of code after will no
+  longer be valid, and things will break.
 - `redirect-engine.js > suffersSpuriousRedirectConflicts` attempts to unbreak
   HTTPS Everywhere. We usually do not like this kind of tradeoff, but
   considering websites that are not using HTTPS are unlikely to use CSP, this
