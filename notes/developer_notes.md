@@ -18,9 +18,9 @@ These may or may not be out of date.
   negated domains to exception rules. If the domains do not match, it can cause
   unintended behavior.
 
-- `static-ext-filtering.js` sometimes passes double-hash filters with no suffix
-  to static network filtering engine. `localhost##` will cause an error to be
-  logged to the background console from
+- `static-ext-filtering.js > api.compile` sometimes passes double-hash filters
+  with no suffix onwards to static network filtering engine. `localhost##` will
+  cause an error to be logged to the background console from
   `static-net-filtering.js > FilterParser.prototype.parse`. `localhost#?#` and
   `localhost#^#` are compiled to static network filters.
 
