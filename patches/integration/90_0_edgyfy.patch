@@ -34,7 +34,7 @@ index c7e24297..04a4c251 100644
  
  /******************************************************************************/
 diff --git a/src/js/ublock.js b/src/js/ublock.js
-index 1df50ed8..22713257 100644
+index d6ae70a0..5e289e7a 100644
 --- a/src/js/ublock.js
 +++ b/src/js/ublock.js
 @@ -417,7 +417,9 @@ var matchBucket = function(url, hostname, bucket, start) {

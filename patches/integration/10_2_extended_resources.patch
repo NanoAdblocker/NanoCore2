@@ -61,10 +61,10 @@ index 57441bf8..e9282765 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index ae385e46..efd81024 100644
+index 3d147fed..10c5e313 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -943,7 +943,7 @@
+@@ -944,7 +944,7 @@
  
  /******************************************************************************/
  
@@ -73,7 +73,7 @@ index ae385e46..efd81024 100644
      var µb = this,
          content = '';
  
-@@ -958,9 +958,28 @@
+@@ -959,9 +959,28 @@
          onDone();
      };
  
@@ -104,7 +104,7 @@ index ae385e46..efd81024 100644
          }
          if ( µb.hiddenSettings.userResourcesLocation === 'unset' ) {
              return onDone();
-@@ -968,16 +987,24 @@
+@@ -969,16 +988,24 @@
          µb.assets.fetchText(µb.hiddenSettings.userResourcesLocation, onUserResourcesLoaded);
      };
  
@@ -133,7 +133,7 @@ index ae385e46..efd81024 100644
      µb.redirectEngine.resourcesFromSelfie(onSelfieReady);
  };
  
-@@ -1257,7 +1284,10 @@
+@@ -1258,7 +1285,10 @@
              }
          }
          // https://github.com/gorhill/uBlock/issues/2594
@@ -145,7 +145,7 @@ index ae385e46..efd81024 100644
              if (
                  this.hiddenSettings.ignoreRedirectFilters === true &&
                  this.hiddenSettings.ignoreScriptInjectFilters === true
-@@ -1298,6 +1328,11 @@
+@@ -1299,6 +1329,11 @@
              if ( cached ) {
                  this.loadRedirectResources(details.content);
              }

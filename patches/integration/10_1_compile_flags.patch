@@ -60,7 +60,7 @@ index dc8382d4..f9c91647 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 9bc87342..ae385e46 100644
+index 9bc87342..3d147fed 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -410,7 +410,8 @@
@@ -92,7 +92,7 @@ index 9bc87342..ae385e46 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -864,6 +867,8 @@
+@@ -864,6 +868,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  

@@ -1,8 +1,8 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index 1b0d608d..60be622c 100644
+index f2754a5e..90d80975 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
-@@ -561,7 +561,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
+@@ -542,7 +542,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
          this.compileSpecificSelector(hostname, parsed, writer);
      }
      if ( applyGlobally ) {
@@ -21,7 +21,7 @@ index 1b0d608d..60be622c 100644
  ) {
      const selector = parsed.suffix;
      const type = selector.charCodeAt(0);
-@@ -601,6 +601,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+@@ -601,6 +602,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
          µb.logger.writeOne({
              error: `Invalid generic cosmetic filter in ${who} : ##${selector}`
          });
@@ -35,7 +35,7 @@ index 1b0d608d..60be622c 100644
          return;
      }
  
-@@ -660,6 +660,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -660,6 +668,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
          µb.logger.writeOne({
              error: `Invalid cosmetic filter in ${who} : #@#${parsed.suffix}`
          });
@@ -43,7 +43,7 @@ index 1b0d608d..60be622c 100644
          return;
      }
  
-@@ -689,6 +689,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -689,6 +698,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
          µb.logger.writeOne({
              error: `Invalid cosmetic filter in ${who} : ##${parsed.suffix}`
          });
@@ -52,7 +52,7 @@ index 1b0d608d..60be622c 100644
      }
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index cac9e075..f5a94105 100644
+index 0863eec8..cf1083f5 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
 @@ -246,6 +246,7 @@
@@ -76,7 +76,7 @@ index cac9e075..f5a94105 100644
              if ( parsed.exception ) {
                  hash |= 0b0001;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index f6880985..0dfb566b 100644
+index d27c40d6..deb1209b 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -300,7 +300,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -94,7 +94,7 @@ index f6880985..0dfb566b 100644
  
      let des = matches[1] || '';
      const pattern = (des + matches[2]).replace(/[.+?{}()|[\]\/\\]/g, '\\$&')
-@@ -324,17 +324,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -324,17 +330,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -124,7 +124,7 @@ index f6880985..0dfb566b 100644
  
      if ( des === '' ) {
          des = '*';
-@@ -347,10 +347,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -347,10 +362,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
      for ( const src of srcs ) {
          if ( src === '' ) { continue; }
@@ -146,10 +146,10 @@ index f6880985..0dfb566b 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index ea3bb631..a644d619 100644
+index e9282765..86c31dd7 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
-@@ -245,6 +245,8 @@
+@@ -252,6 +252,8 @@
          if ( parsed.hostnames.length === 0 ) {
              if ( parsed.exception ) {
                  writer.push([ 32, 0 | 0b0001, '', parsed.suffix ]);
@@ -158,7 +158,7 @@ index ea3bb631..a644d619 100644
              }
              return;
          }
-@@ -254,8 +256,10 @@
+@@ -261,8 +263,10 @@
              !nano.cf.is_privileged &&
              nanoInjectArgs.startsWith(nano.privileged_assets_previx)
          ) {
@@ -169,7 +169,7 @@ index ea3bb631..a644d619 100644
  
          // https://github.com/gorhill/uBlock/issues/3375
          //   Ignore instances of exception filter with negated hostnames,
-@@ -268,7 +272,10 @@
+@@ -275,7 +279,10 @@
              }
              let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
              if ( parsed.exception ) {
@@ -182,10 +182,10 @@ index ea3bb631..a644d619 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index b2ca3612..433c5ea4 100644
+index 1208b88a..9b1c698b 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -693,7 +693,10 @@
+@@ -733,7 +733,10 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -197,7 +197,7 @@ index b2ca3612..433c5ea4 100644
              // Not a known extended filter.
              if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
                  return false;
-@@ -701,7 +704,10 @@
+@@ -741,7 +744,10 @@
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -209,7 +209,7 @@ index b2ca3612..433c5ea4 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -728,6 +734,7 @@
+@@ -764,6 +770,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -218,10 +218,10 @@ index b2ca3612..433c5ea4 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index f462904c..c1ed276f 100644
+index 1f887ab4..ee674b8e 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1438,6 +1438,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+@@ -1463,6 +1463,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
  
      // Non-discrete network types can't be negated.
      if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
@@ -232,7 +232,7 @@ index f462904c..c1ed276f 100644
          return;
      }
  
-@@ -1510,6 +1514,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1535,6 +1539,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -240,7 +240,7 @@ index f462904c..c1ed276f 100644
              break;
          }
          // Test before handling all other types.
-@@ -1519,6 +1524,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1544,6 +1549,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -248,7 +248,7 @@ index f462904c..c1ed276f 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1532,6 +1538,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1557,6 +1563,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -256,7 +256,7 @@ index f462904c..c1ed276f 100644
                  break;
              }
              continue;
-@@ -1549,6 +1556,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1574,6 +1581,8 @@ FilterParser.prototype.parseOptions = function(s) {
                  this.parseTypeOption('data', not);
                  this.dataType = 'csp';
                  this.dataStr = opt.slice(4).trim();
@@ -265,7 +265,7 @@ index f462904c..c1ed276f 100644
              }
              continue;
          }
-@@ -1563,6 +1572,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1588,6 +1597,8 @@ FilterParser.prototype.parseOptions = function(s) {
              this.fopts = opts.join(',');
              var pos = this.raw.lastIndexOf('$');
              this.raw = this.raw.slice(0, pos + 1) + this.fopts;
@@ -274,7 +274,7 @@ index f462904c..c1ed276f 100644
              continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-@@ -1576,6 +1587,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1601,6 +1612,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -282,7 +282,7 @@ index f462904c..c1ed276f 100644
          break;
      }
  };
-@@ -1703,6 +1715,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1728,6 +1740,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -290,7 +290,7 @@ index f462904c..c1ed276f 100644
              return this;
          }
      }
-@@ -1729,6 +1742,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1754,6 +1767,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -298,7 +298,7 @@ index f462904c..c1ed276f 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1739,7 +1753,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1764,7 +1778,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -309,7 +309,7 @@ index f462904c..c1ed276f 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1761,6 +1778,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1786,6 +1803,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -317,7 +317,7 @@ index f462904c..c1ed276f 100644
          }
          return this;
      }
-@@ -1785,6 +1803,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1810,6 +1828,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -325,7 +325,7 @@ index f462904c..c1ed276f 100644
              return this;
          }
  
-@@ -2274,6 +2293,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2305,6 +2324,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
@@ -336,7 +336,7 @@ index f462904c..c1ed276f 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 2c8f73f8..acaa3e88 100644
+index 10c5e313..f48ad6e0 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -393,7 +393,11 @@
@@ -352,9 +352,9 @@ index 2c8f73f8..acaa3e88 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -788,6 +792,12 @@
-     let writer = new this.CompiledLineIO.Writer();
+@@ -808,6 +812,12 @@
  
+     const nanoKey = nanoAssetKeyOverride || details.assetKey;
      nano.cf.update(nanoKey);
 +    if ( nanoKey === nano.ub.userFiltersPath ) {
 +        nano.fl.reset();
@@ -365,8 +365,8 @@ index 2c8f73f8..acaa3e88 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -801,6 +811,10 @@
-         lineIter = new this.LineIterator(this.processDirectives(rawText));
+@@ -821,6 +831,10 @@
+     const lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
 +        if ( nano.cf.first_party ) {
@@ -376,10 +376,10 @@ index 2c8f73f8..acaa3e88 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -809,7 +823,11 @@
+@@ -829,7 +843,11 @@
  
          // Strip comments
-         let c = line.charAt(0);
+         const c = line.charAt(0);
 -        if ( c === '!' || c === '[' ) { continue; }
 +        if ( c === '!' ) { continue; }
 +        if ( c === '[' ) {
@@ -389,15 +389,15 @@ index 2c8f73f8..acaa3e88 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -830,6 +848,7 @@
-         let pos = line.indexOf('#');
+@@ -850,6 +868,7 @@
+         const pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
 +            nano.flintw('nano_l_filter_inline_comment');
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -839,15 +858,24 @@
+@@ -859,15 +878,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost

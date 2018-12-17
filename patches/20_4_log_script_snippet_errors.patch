@@ -1,8 +1,8 @@
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index a644d619..ca16cd0f 100644
+index 86c31dd7..c4abf10d 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
-@@ -187,7 +187,9 @@
+@@ -195,7 +195,9 @@
              content =
                  'try {\n' +
                      content.replace('{{nano}}', '') + '\n' +
