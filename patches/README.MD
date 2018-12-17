@@ -39,7 +39,3 @@ category because a pull request is opened upstream.
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
-
-## Group `90`: Other Changes
-
-`90_0_micro_optimizations.patch`: Minor optimizations and typo fixes.
