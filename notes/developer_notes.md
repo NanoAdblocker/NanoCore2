@@ -20,9 +20,9 @@ These may or may not be out of date.
   logged to the background console from
   `static-net-filtering.js > FilterParser.prototype.parse`. `localhost#?#` and
   `localhost#^#` are compiled to static network filters.
-- `storage.js` checks whether the filter starts with `#` and discards the
-  filter if it does. This is safe because double-hash filters are already
-  handled.
+- `storage.js > µBlock.compileFilters` checks whether the filter starts with
+  `#` and discards the filter if it does. This is safe because double-hash
+  filters are already handled.
 
 ## Other Observations
 
