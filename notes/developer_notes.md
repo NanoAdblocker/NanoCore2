@@ -31,3 +31,5 @@ These may or may not be out of date.
 - `static-net-filtering.js > FilterContainer.prototype.compile` checks for
   empty lines, but there seems to be no way for empty lines to enter this
   function.
+- `storage.js > µBlock.loadFilterLists > onFilterListsReady` has a typo in
+  the comments.
