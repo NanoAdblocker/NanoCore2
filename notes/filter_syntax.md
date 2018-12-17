@@ -21,30 +21,17 @@ they will not work in uBlock Origin.
 
 ## Convenience Options
 
-Nano Adblocker will map options as follows for convenience:
+Nano Adblocker and uBlock Origin will map options as follows for convenience:
 ```
     3p -> third-party
     1p -> first-party
-
- ghide -> generichide
    css -> stylesheet
+   doc -> document
 iframe -> subdocument
    xhr -> xmlhttprequest
 ```
 
-Although unlikely, this mapping **may change** if any of the mapped options get
-another meaning in uBlock Origin.
-
-uBlock Origin will instead map options as follows, but due to a bug, it does
-not always work:
-```
-    3p -> third-party
-    1p -> first-party
-
-   css -> stylesheet
- frame -> subdocument
-   xhr -> xmlhttprequest
-```
+Additionally, Nano Adblocker will map `ghide` to `generichide`.
 
 ## The option `empty`
 
