@@ -1,7 +1,8 @@
 # Developer Notes
 
-A few notes and observations for developers. These may or may not be out of
-date.
+These may or may not be out of date.
+
+## Generic Notes
 
 - `cosmetic-filtering.js > FilterContainer.prototype.compileGenericHideSelector`
   tests the filter with a regular expression to check if it needs a hostname.
@@ -22,3 +23,11 @@ date.
 - `storage.js` checks whether the filter starts with `#` and discards the
   filter if it does. This is safe because double-hash filters are already
   handled.
+
+## Other Observations
+
+- Minor code style issue
+  https://github.com/gorhill/uBlock/commit/b0da5df0a065f65596d611d312f68acae61ce71a
+- `static-net-filtering.js > FilterContainer.prototype.compile` checks for
+  empty lines, but there seems to be no way for empty lines to enter this
+  function.
