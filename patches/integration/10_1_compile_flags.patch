@@ -82,11 +82,12 @@ index 9bc87342..ae385e46 100644
      let writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -805,6 +806,8 @@
+@@ -805,6 +806,9 @@
          }
      }
  
-+    nano.cf.update(nanoAssetKeyOverride || details.assetKey);
++    const nanoKey = nanoAssetKeyOverride || details.assetKey;
++    nano.cf.update(nanoKey);
 +
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet

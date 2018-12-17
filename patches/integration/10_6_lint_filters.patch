@@ -63,10 +63,10 @@ index cac9e075..f5a94105 100644
              return;
          }
  
-@@ -238,7 +241,10 @@
+@@ -255,7 +256,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
-         for ( let hn of parsed.hostnames ) {
+         for ( const hn of parsed.hostnames ) {
 -            if ( hn.charCodeAt(0) === 0x7E /* '~' */ ) { continue; }
 +            if ( hn.charCodeAt(0) === 0x7E /* '~' */ ) {
 +                nano.flintw('nano_l_filter_negated_html_filtering');
@@ -94,35 +94,45 @@ index f6880985..0dfb566b 100644
  
      let des = matches[1] || '';
      const pattern = (des + matches[2]).replace(/[.+?{}()|[\]\/\\]/g, '\\$&')
-@@ -329,6 +333,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -324,17 +324,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+         }
          // One and only one type must be specified.
-         if ( option in this.supportedTypes ) {
-             if ( type !== undefined ) {
+         if ( this.supportedTypes.has(option) ) {
+-            if ( type !== undefined ) { return; }
++            if ( type !== undefined ) {
 +                nano.flintw('nano_r_too_many_types');
-                 return;
-             }
-             type = this.supportedTypes[option];
-@@ -338,11 +343,13 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
++                return;
++            }
+             type = this.supportedTypes.get(option);
+             continue;
+         }
+     }
  
      // Need a resource token.
-     if ( redirect === '' ) {
+-    if ( redirect === '' ) { return; }
++    if ( redirect === '' ) {
 +        nano.flintw('nano_r_no_resource_token');
-         return;
-     }
++        return;
++    }
  
      // Need one single type -- not negated.
-     if ( type === undefined || type.startsWith('~') ) {
+-    if ( type === undefined ) { return; }
++    if ( type === undefined ) {
 +        nano.flintw('nano_r_no_supported_type');
-         return;
-     }
++        return;
++    }
  
-@@ -362,11 +369,18 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
-             continue;
-         }
-         if ( src.startsWith('~') ) {
+     if ( des === '' ) {
+         des = '*';
+@@ -347,10 +347,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+     const out = [];
+     for ( const src of srcs ) {
+         if ( src === '' ) { continue; }
+-        if ( src.startsWith('~') ) { continue; }
++        if ( src.startsWith('~') ) {
 +            nano.flintw('nano_r_negated_domain');
-             continue;
-         }
++            continue;
++        }
          out.push(src + '\t' + des + '\t' + type + '\t' + pattern + '\t' + redirect);
      }
  
