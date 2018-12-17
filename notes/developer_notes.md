@@ -2,7 +2,7 @@
 
 These may or may not be out of date.
 
-## Generic Notes
+## General Notes
 
 - `cosmetic-filtering.js > FilterContainer.prototype.compileGenericHideSelector`
   checks whether a hostname is required for the filter. If we want to keep slow
