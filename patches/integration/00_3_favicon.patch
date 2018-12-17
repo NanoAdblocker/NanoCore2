@@ -24,3 +24,16 @@ index 43329706..379240b9 100644
       --><a class="tabButton" href="#settings.html" data-i18n="settingsPageName"></a><!--
       --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
       --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
+diff --git a/src/logger-ui.html b/src/logger-ui.html
+index 956012f0..e5257176 100644
+--- a/src/logger-ui.html
++++ b/src/logger-ui.html
+@@ -19,7 +19,7 @@
+     </select>
+     <span id="refresh" class="button fa disabled needdom">&#xf021;</span>
+     <span id="showdom" class="button fa disabled needdom">&#xf121;</span>
+-    <span id="showpopup" class="button disabled needdom"><img src="/img/icon_64.png"></span>
++    <span id="showpopup" class="button disabled needdom"><img src="/img/128_on.png"></span>
+ </div>
+ 
+ <div id="inspectors">
