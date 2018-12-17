@@ -23,8 +23,8 @@ they will not work in uBlock Origin.
 
 Nano Adblocker and uBlock Origin will map options as follows for convenience:
 ```
-    3p -> third-party
     1p -> first-party
+    3p -> third-party
    css -> stylesheet
    doc -> document
 iframe -> subdocument
