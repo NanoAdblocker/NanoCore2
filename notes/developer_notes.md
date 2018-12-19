@@ -30,9 +30,6 @@ These may or may not be out of date.
 
 ## Other Observations
 
-- Minor code style issue
-  https://github.com/gorhill/uBlock/commit/b0da5df0a065f65596d611d312f68acae61ce71a
-
 - `static-net-filtering.js > FilterContainer.prototype.compile` checks for
   empty lines, but there seems to be no way for empty lines to enter this
   function.
