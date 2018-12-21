@@ -199,7 +199,7 @@
     "group": "ads",
     "updateAfter": 5,
     "off": true,
-    "title": "Nano Contrib Filter – Placeholder Buster",
+    "title": "Nano contrib filter – Placeholder buster",
     "contentURL": "https://gitcdn.xyz/repo/NanoAdblockerLab/NanoContrib/master/dist/placeholder-buster.txt"
   },
 
