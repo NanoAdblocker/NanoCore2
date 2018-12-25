@@ -12,7 +12,7 @@ index 8d02d2e1..5459131a 100644
  body {
      border: 0;
 diff --git a/src/dashboard.html b/src/dashboard.html
-index 43329706..379240b9 100644
+index 3e3106ad..14abf2d6 100644
 --- a/src/dashboard.html
 +++ b/src/dashboard.html
 @@ -12,7 +12,7 @@
@@ -25,15 +25,15 @@ index 43329706..379240b9 100644
       --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
       --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
 diff --git a/src/logger-ui.html b/src/logger-ui.html
-index 956012f0..e5257176 100644
+index 887c2ded..02022235 100644
 --- a/src/logger-ui.html
 +++ b/src/logger-ui.html
-@@ -19,7 +19,7 @@
+@@ -21,7 +21,7 @@
      </select>
-     <span id="refresh" class="button fa disabled needdom">&#xf021;</span>
-     <span id="showdom" class="button fa disabled needdom">&#xf121;</span>
--    <span id="showpopup" class="button disabled needdom"><img src="/img/icon_64.png"></span>
-+    <span id="showpopup" class="button disabled needdom"><img src="/img/128_on.png"></span>
+     <span id="refresh" class="button fa-icon disabled needdom" data-i18n-title="loggerReloadTip">refresh</span>
+     <span id="showdom" class="button fa-icon disabled needdom" data-i18n-title="loggerDomInspectorTip">code</span>
+-    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/ublock-defs.svg#ubo-solid"></use></svg></span>
++    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/icons.svg#nano-empty"></use></svg></span>
+     <a id="info" class="button fa-icon" href="https://github.com/gorhill/uBlock/wiki/The-logger" target="_blank" data-i18n-title="loggerInfoTip">info-circle</a>
  </div>
  
- <div id="inspectors">
