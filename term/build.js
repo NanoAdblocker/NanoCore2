@@ -165,6 +165,7 @@ exports.build_core = async (browser) => {
     assert(typeof src === "string");
 
     await fs.copy(r(src, "src/css"), r(output, "css"));
+    await fs.copy(r(src, "src/img/fontawesome"), r(output, "img/fontawesome"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
     await fs.copy(r(src, "src"), r(output), f(r(src, "src"), ".html"));
@@ -178,11 +179,11 @@ exports.build_core = async (browser) => {
         f(r(src, "platform/chromium"), ".js", false),
     );
 
-    await fs.copy(r("./src/fonts"), r(output, "css/fonts"));
-    await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./src/ace"), r(output, "lib/ace"));
+    await fs.copy(r("./src/fonts"), r(output, "css/fonts"));
     await fs.copy(r("./src/img"), r(output, "img"));
     await fs.copy(r("./src/icons/icon_16.png"), r(output, "img/icon_16.png"));
+    await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     // This must be after copying platform files
