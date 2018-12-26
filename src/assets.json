@@ -194,6 +194,14 @@
     ],
     "supportURL": "https://forums.lanik.us/"
   },
+  "nano-contrib-0": {
+    "content": "filters",
+    "group": "ads",
+    "updateAfter": 5,
+    "off": true,
+    "title": "Nano contrib filter – Placeholder buster",
+    "contentURL": "https://gitcdn.xyz/repo/NanoAdblockerLab/NanoContrib/master/dist/placeholder-buster.txt"
+  },
 
 
   "adguard-spyware": {

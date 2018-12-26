@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 2cf32f60..7aed8e34 100644
+index 33c6b859..a8b7710c 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -50,6 +50,9 @@ const µBlock = (function() { // jshint ignore:line
+@@ -49,6 +49,9 @@ const µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -12,7 +12,7 @@ index 2cf32f60..7aed8e34 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          strictBlockingBypassDuration: 120,
-@@ -155,6 +158,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -154,6 +157,7 @@ const µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
@@ -21,10 +21,10 @@ index 2cf32f60..7aed8e34 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 6a0b1deb..b2ca3612 100644
+index 51b31a6b..95593d6e 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -709,6 +709,8 @@
+@@ -756,6 +756,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
@@ -34,10 +34,10 @@ index 6a0b1deb..b2ca3612 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 99003116..197eebd6 100644
+index dc8382d4..f9c91647 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1561,6 +1561,10 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1586,6 +1586,10 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
          if ( opt === 'badfilter' ) {
@@ -48,7 +48,7 @@ index 99003116..197eebd6 100644
              this.badFilter = true;
              continue;
          }
-@@ -1700,6 +1704,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1725,6 +1729,10 @@ FilterParser.prototype.parse = function(raw) {
      // block or allow filter?
      // Important: this must be executed before parsing options
      if ( s.startsWith('@@') ) {
@@ -60,41 +60,39 @@ index 99003116..197eebd6 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 05dc0e72..f7b3d82a 100644
+index 9bc87342..3d147fed 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -410,7 +410,7 @@
-     var µb = this;
- 
-     var onSaved = function() {
--        var compiledFilters = µb.compileFilters(filters),
-+        var compiledFilters = µb.compileFilters(filters, µb.nanoPartialUserFiltersPath),
-             snfe = µb.staticNetFilteringEngine,
-             cfe = µb.cosmeticFilteringEngine,
-             acceptedCount = snfe.acceptedCount + cfe.acceptedCount,
-@@ -702,7 +702,7 @@
- 
-     var onCompiledListLoaded2 = function(details) {
-         if ( details.content === '' ) {
--            details.content = µb.compileFilters(rawContent);
-+            details.content = µb.compileFilters(rawContent, assetKey);
-             µb.assets.put(compiledPath, details.content);
-         }
-         rawContent = undefined;
-@@ -784,9 +784,11 @@
+@@ -410,7 +410,8 @@
+     const onSaved = ( ) => {
+         const compiledFilters = this.compileFilters(
+             filters,
+-            { assetKey: this.userFiltersPath }
++            { assetKey: this.userFiltersPath },
++            µb.nanoPartialUserFiltersPath
+         );
+         const snfe = this.staticNetFilteringEngine;
+         const cfe = this.cosmeticFilteringEngine;
+@@ -794,7 +795,7 @@
  
  /******************************************************************************/
  
--µBlock.compileFilters = function(rawText) {
-+µBlock.compileFilters = function(rawText, nanoKey) {
+-µBlock.compileFilters = function(rawText, details) {
++µBlock.compileFilters = function(rawText, details, nanoAssetKeyOverride) {
      let writer = new this.CompiledLineIO.Writer();
  
+     // Populate the writer with information potentially useful to the
+@@ -805,6 +806,9 @@
+         }
+     }
+ 
++    const nanoKey = nanoAssetKeyOverride || details.assetKey;
 +    nano.cf.update(nanoKey);
 +
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -846,6 +848,8 @@
+@@ -864,6 +868,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
@@ -103,12 +101,3 @@ index 05dc0e72..f7b3d82a 100644
      return writer.toString();
  };
  
-@@ -1256,7 +1260,7 @@
-                     );
-                     this.assets.put(
-                         'compiled/' + details.assetKey,
--                        this.compileFilters(details.content)
-+                        this.compileFilters(details.content, details.assetKey)
-                     );
-                 }
-             } else {

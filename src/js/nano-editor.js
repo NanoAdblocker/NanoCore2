@@ -367,7 +367,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                             "first-party",
                             "1p"
                         ].join("|") + ")",
-                        "document",
+                        "doc(?:ument)?",
                         "important",
                         "badfilter"
                     ].join("|"))

@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index 0ae63186..d344fdca 100644
+index 2d8f76c9..2696807d 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
-@@ -647,10 +647,10 @@ vAPI.setIcon = (function() {
+@@ -663,10 +663,10 @@ vAPI.setIcon = (function() {
              ' ({badge})';
      const icons = [
          {

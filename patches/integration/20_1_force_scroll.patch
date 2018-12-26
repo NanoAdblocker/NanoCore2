@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index eb72003f..bbc2212c 100644
+index 99b4720f..3acd1d88 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -140,6 +140,10 @@ var onMessage = function(request, sender, callback) {
@@ -14,10 +14,10 @@ index eb72003f..bbc2212c 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 0ff2bc23..092ecdcf 100644
+index 7664459d..2d58ca47 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -436,6 +436,7 @@ var renderPopup = function() {
+@@ -432,6 +432,7 @@ const renderPopup = function() {
                             popupData.netFilteringSwitch === true;
      uDom.nodeFromId('gotoPick').classList.toggle('enabled', canElementPicker);
      uDom.nodeFromId('gotoZap').classList.toggle('enabled', canElementPicker);
@@ -25,11 +25,11 @@ index 0ff2bc23..092ecdcf 100644
  
      let blocked = popupData.pageBlockedRequestCount,
          total = popupData.pageAllowedRequestCount + blocked,
-@@ -733,6 +734,20 @@ var gotoPick = function() {
+@@ -729,6 +730,20 @@ const gotoPick = function() {
  
  /******************************************************************************/
  
-+var nanoForceEnableScroll = function() {
++const nanoForceEnableScroll = function() {
 +    messaging.send(
 +        'popupPanel',
 +        {
@@ -43,11 +43,11 @@ index 0ff2bc23..092ecdcf 100644
 +
 +/******************************************************************************/
 +
- var gotoURL = function(ev) {
+ const gotoURL = function(ev) {
      if ( this.hasAttribute('href') === false ) { return; }
  
-@@ -1128,6 +1143,7 @@ var onHideTooltip = function() {
- uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
+@@ -1119,6 +1134,7 @@ const onHideTooltip = function() {
+ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
 +uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
@@ -55,13 +55,13 @@ index 0ff2bc23..092ecdcf 100644
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
 diff --git a/src/popup.html b/src/popup.html
-index d0aec45f..9297c527 100644
+index 7fc037c9..bcde27d9 100644
 --- a/src/popup.html
 +++ b/src/popup.html
-@@ -23,6 +23,7 @@
+@@ -24,6 +24,7 @@
          </p>
          <p id="basicTools2">
-             <span id="gotoZap" class="fa tool" data-i18n-tip="popupTipZapper" data-tip-position="under">&#xf0e7;</span>
+             <span id="gotoZap" class="fa-icon tool" data-i18n-tip="popupTipZapper" data-tip-position="under">bolt</span>
 +            <span id="nanoForceEnableScroll" class="fa tool" data-i18n-tip="nano_p_force_scroll" data-tip-position="under">&#xf103;</span>
          </p>
          <h2 id="dfToggler" data-i18n="popupBlockedRequestPrompt">&nbsp;</h2>

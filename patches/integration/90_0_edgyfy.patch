@@ -1,8 +1,8 @@
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 092ecdcf..470ae1e9 100644
+index 2d58ca47..8b5223a4 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -1158,4 +1158,10 @@ uDom('a[href]').on('click', gotoURL);
+@@ -1149,4 +1149,10 @@ uDom('a[href]').on('click', gotoURL);
  
  /******************************************************************************/
  
@@ -34,10 +34,10 @@ index c7e24297..04a4c251 100644
  
  /******************************************************************************/
 diff --git a/src/js/ublock.js b/src/js/ublock.js
-index 1df50ed8..22713257 100644
+index 3bdc64e5..dff1aa86 100644
 --- a/src/js/ublock.js
 +++ b/src/js/ublock.js
-@@ -417,7 +417,9 @@ var matchBucket = function(url, hostname, bucket, start) {
+@@ -427,7 +427,9 @@ var matchBucket = function(url, hostname, bucket, start) {
              runAt: 'document_end'
          },
          ( ) => {

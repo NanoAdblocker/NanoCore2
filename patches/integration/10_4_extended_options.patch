@@ -1,34 +1,21 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 8b106449..f6880985 100644
+index 2faf39cd..d27c40d6 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -322,7 +322,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
-             srcs = option.slice(7).split('|');
-             continue;
-         }
--        if ( option === 'first-party' ) {
-+        if ( option === 'first-party' || option === '1p' ) {
-             srcs.push(µburi.domainFromHostnameNoCache(des) || des);
-             continue;
-         }
-@@ -384,6 +384,12 @@ RedirectEngine.prototype.supportedTypes = (function() {
-     types.stylesheet = 'stylesheet';
-     types.subdocument = 'sub_frame';
-     types.xmlhttprequest = 'xmlhttprequest';
+@@ -370,6 +370,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
+     [ 'subdocument', 'sub_frame' ],
+     [ 'xhr', 'xmlhttprequest' ],
+     [ 'xmlhttprequest', 'xmlhttprequest' ],
 +
-+    types.css = 'stylesheet';
-+    types.frame = 'sub_frame';
-+    types.iframe = 'sub_frame';
-+    types.xhr = 'xmlhttprequest';
-+
-     return types;
- })();
++    [ 'iframe', 'sub_frame' ],
+ ]);
  
+ /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 197eebd6..f462904c 100644
+index f9c91647..1f887ab4 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1383,7 +1383,10 @@ FilterParser.prototype.toNormalizedType = {
+@@ -1408,7 +1408,10 @@ FilterParser.prototype.toNormalizedType = {
                 'xhr': 'xmlhttprequest',
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
@@ -40,7 +27,7 @@ index 197eebd6..f462904c 100644
  };
  
  /******************************************************************************/
-@@ -1501,7 +1504,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1526,7 +1529,7 @@ FilterParser.prototype.parseOptions = function(s) {
          // https://issues.adblockplus.org/ticket/616
          // `generichide` concept already supported, just a matter of
          // adding support for the new keyword.
@@ -49,7 +36,7 @@ index 197eebd6..f462904c 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -1555,8 +1558,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1580,8 +1583,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }
