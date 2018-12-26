@@ -46,7 +46,7 @@ index b1b95b88..a66ea344 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 4d19907c..18acc2be 100644
+index 4d19907c..7664459d 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -535,7 +535,7 @@ const renderTooltips = function(selector) {
@@ -72,7 +72,7 @@ index 4d19907c..18acc2be 100644
  })();
  
 -uDom('#switch').on('click', toggleNetFilteringSwitch);
-+uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
++uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
 -uDom('h2').on('click', toggleFirewallPane);
@@ -81,12 +81,15 @@ index 4d19907c..18acc2be 100644
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
-index fef2daa6..a38ad3ab 100644
+index fef2daa6..1daacc4a 100644
 --- a/src/popup.html
 +++ b/src/popup.html
-@@ -17,11 +17,14 @@
+@@ -15,13 +15,16 @@
+ <div id="appinfo"><span id="appname">&nbsp;</span>&nbsp;<span id="version">&nbsp;</span></div>
+ <div id="panes">
      <div class="tooltipContainer">
-         <p id="switch" role="button" aria-label data-tip-position="under" tabindex="0"><span class="fa-icon">power-off</span></p>
+-        <p id="switch" role="button" aria-label data-tip-position="under" tabindex="0"><span class="fa-icon">power-off</span></p>
++        <p id="switch" role="button" tabindex="0"><span class="fa-icon" aria-label data-tip-position="under">power-off</span></p>
          <p id="basicTools">
 -            <span id="gotoZap" class="fa-icon tool" data-i18n-tip="popupTipZapper" data-tip-position="under">bolt</span>
              <span id="gotoPick" class="fa-icon tool" data-i18n-tip="popupTipPicker" data-tip-position="under">eye-dropper</span>

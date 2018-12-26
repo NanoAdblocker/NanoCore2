@@ -14,7 +14,7 @@ index 99b4720f..3acd1d88 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 18acc2be..90a62898 100644
+index 7664459d..2d58ca47 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -432,6 +432,7 @@ const renderPopup = function() {
@@ -47,7 +47,7 @@ index 18acc2be..90a62898 100644
      if ( this.hasAttribute('href') === false ) { return; }
  
 @@ -1119,6 +1134,7 @@ const onHideTooltip = function() {
- uDom('#switch .fa').on('click', toggleNetFilteringSwitch);
+ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
 +uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
@@ -55,7 +55,7 @@ index 18acc2be..90a62898 100644
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
 diff --git a/src/popup.html b/src/popup.html
-index a38ad3ab..4cb4905b 100644
+index 1daacc4a..675f26ce 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -24,6 +24,7 @@
