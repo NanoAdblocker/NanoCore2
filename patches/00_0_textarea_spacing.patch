@@ -1,5 +1,5 @@
 diff --git a/src/css/common.css b/src/css/common.css
-index a483215d..3683de3c 100644
+index c6499ef5..a09ae70a 100644
 --- a/src/css/common.css
 +++ b/src/css/common.css
 @@ -25,6 +25,7 @@ code {
