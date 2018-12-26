@@ -77,6 +77,12 @@ exit     Exit the terminal
 9.  Add tags to repositories, and upload packages
 10. Upload packages to extension stores
 
+## Version Update Watchlist
+
+These are the potential problems to look out for:
+
+1. Font Awesome related CSS changes
+
 ## Subresource Integrity Incidence Response Protocol
 
 When there is a severe issue with the content of a subresource, an intervention
