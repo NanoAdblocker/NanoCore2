@@ -116,7 +116,7 @@ index 4d19907c..7664459d 100644
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
-index fef2daa6..d0d8f1f6 100644
+index fef2daa6..7fc037c9 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -15,23 +15,29 @@
@@ -128,13 +128,14 @@ index fef2daa6..d0d8f1f6 100644
          <p id="basicTools">
 -            <span id="gotoZap" class="fa-icon tool" data-i18n-tip="popupTipZapper" data-tip-position="under">bolt</span>
              <span id="gotoPick" class="fa-icon tool" data-i18n-tip="popupTipPicker" data-tip-position="under">eye-dropper</span>
-+            <span id="nanoFirewallPaneToggle" class="fa-icon tool enabled" data-i18n-tip="nano_p_open_firewall_pane" data-tip-position="under">eye-dropper</span>
++            <span id="nanoFirewallPaneToggle" class="fa tool enabled" data-i18n-tip="nano_p_open_firewall_pane" data-tip-position="under">&#xf0db;</span>
              <a href="logger-ui.html#tab_active" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipLog" data-tip-position="under" target="uBOLogger" tabindex="0">list-alt</a>
-             <a href="dashboard.html" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">sliders</a>
-         </p>
+-            <a href="dashboard.html" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">sliders</a>
++            <a href="dashboard.html" class="fa tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">&#xf0ad;</a>
++        </p>
 +        <p id="basicTools2">
 +            <span id="gotoZap" class="fa-icon tool" data-i18n-tip="popupTipZapper" data-tip-position="under">bolt</span>
-+        </p>
+         </p>
          <h2 id="dfToggler" data-i18n="popupBlockedRequestPrompt">&nbsp;</h2>
          <p class="statName">
              <span data-i18n="popupBlockedOnThisPagePrompt">&nbsp;</span>
