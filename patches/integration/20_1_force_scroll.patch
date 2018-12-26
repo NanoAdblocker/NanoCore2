@@ -55,7 +55,7 @@ index 7664459d..2d58ca47 100644
  uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
 diff --git a/src/popup.html b/src/popup.html
-index 4167843f..257f20df 100644
+index d0d8f1f6..eb8c7003 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -24,6 +24,7 @@
