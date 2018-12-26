@@ -12,10 +12,10 @@ index 8d02d2e1..5459131a 100644
  body {
      border: 0;
 diff --git a/src/css/logger-ui.css b/src/css/logger-ui.css
-index ad99cacf..98e0d7bf 100644
+index ad99cacf..c606cc0e 100644
 --- a/src/css/logger-ui.css
 +++ b/src/css/logger-ui.css
-@@ -51,6 +51,17 @@ textarea {
+@@ -51,6 +51,18 @@ textarea {
      height: auto;
      width: 1em;
      }
@@ -23,6 +23,7 @@ index ad99cacf..98e0d7bf 100644
 +    filter: initial !important;
 +    user-select: none;
 +    -webkit-user-select: none;
++    -moz-user-select: none;
 +    }
 +#showpopup:not(.active) > #nano_l_logger_popup_on {
 +    display: none;
