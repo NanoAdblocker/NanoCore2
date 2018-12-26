@@ -27,7 +27,7 @@ index 42ea241f..f81090b9 100644
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index f80e7724..ca676b2b 100644
+index d038c5d0..5ec05c8b 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
 @@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
@@ -42,7 +42,7 @@ index f80e7724..ca676b2b 100644
          window.location.replace(url);
          loadDashboardPanel();
      }
-@@ -85,4 +88,32 @@ loadDashboardPanel();
+@@ -81,4 +84,32 @@ loadDashboardPanel();
  
  /******************************************************************************/
  
@@ -76,7 +76,7 @@ index f80e7724..ca676b2b 100644
 +
  })();
 diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
-index 8ffe536b..09670b26 100644
+index 5e36ce91..cf4fc938 100644
 --- a/src/js/dyna-rules.js
 +++ b/src/js/dyna-rules.js
 @@ -25,6 +25,10 @@
@@ -90,7 +90,7 @@ index 8ffe536b..09670b26 100644
  (function() {
  
  /******************************************************************************/
-@@ -348,6 +352,7 @@ var onTextChanged = (function() {
+@@ -385,6 +389,7 @@ const onTextChanged = (function() {
              input.setAttribute('disabled', '');
              CodeMirror.commands.save = editSaveHandler;
          }

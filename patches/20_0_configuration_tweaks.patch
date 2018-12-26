@@ -21,10 +21,10 @@ index 23a12902..3d66f772 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index b73a8387..557536a7 100644
+index f1d0e741..6f66b049 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -40,8 +40,8 @@ const µBlock = (function() { // jshint ignore:line
+@@ -40,15 +40,15 @@ const µBlock = (function() { // jshint ignore:line
  
      const hiddenSettingsDefault = {
          assetFetchTimeout: 30,
@@ -32,10 +32,9 @@ index b73a8387..557536a7 100644
 -        autoUpdatePeriod: 7,
 +        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
-         benchmarkingPane: false,
          cacheStorageCompression: true,
          cacheControlForFirefox1376932: 'no-cache, no-store, must-revalidate',
-@@ -49,7 +49,7 @@ const µBlock = (function() { // jshint ignore:line
+         debugScriptlets: false,
          disableWebAssembly: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
@@ -44,7 +43,7 @@ index b73a8387..557536a7 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -65,6 +65,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -64,6 +64,7 @@ const µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
@@ -53,10 +52,10 @@ index b73a8387..557536a7 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 4855e71c..14471938 100644
+index 1a99a0fb..aa382f03 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -230,13 +230,6 @@ var onUserSettingsReady = function(fetched) {
+@@ -231,13 +231,6 @@ var onUserSettingsReady = function(fetched) {
      µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
      µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
      µb.sessionSwitches.assign(µb.permanentSwitches);
@@ -70,7 +69,7 @@ index 4855e71c..14471938 100644
  };
  
  /******************************************************************************/
-@@ -323,6 +316,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -324,6 +317,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
