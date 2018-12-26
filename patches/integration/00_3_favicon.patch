@@ -11,6 +11,28 @@ index 8d02d2e1..5459131a 100644
  <style>
  body {
      border: 0;
+diff --git a/src/css/logger-ui.css b/src/css/logger-ui.css
+index ad99cacf..98e0d7bf 100644
+--- a/src/css/logger-ui.css
++++ b/src/css/logger-ui.css
+@@ -51,6 +51,17 @@ textarea {
+     height: auto;
+     width: 1em;
+     }
++#nano_l_logger_popup_on, #nano_l_logger_popup_off {
++    filter: initial !important;
++    user-select: none;
++    -webkit-user-select: none;
++    }
++#showpopup:not(.active) > #nano_l_logger_popup_on {
++    display: none;
++    }
++#showpopup.active > #nano_l_logger_popup_off {
++    display: none;
++    }
+ #info {
+     fill: #ccc;
+     padding-left: 0.5em;
 diff --git a/src/dashboard.html b/src/dashboard.html
 index 3e3106ad..14abf2d6 100644
 --- a/src/dashboard.html
@@ -25,15 +47,18 @@ index 3e3106ad..14abf2d6 100644
       --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
       --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
 diff --git a/src/logger-ui.html b/src/logger-ui.html
-index 887c2ded..02022235 100644
+index 887c2ded..e786df6a 100644
 --- a/src/logger-ui.html
 +++ b/src/logger-ui.html
-@@ -21,7 +21,7 @@
+@@ -21,7 +21,10 @@
      </select>
      <span id="refresh" class="button fa-icon disabled needdom" data-i18n-title="loggerReloadTip">refresh</span>
      <span id="showdom" class="button fa-icon disabled needdom" data-i18n-title="loggerDomInspectorTip">code</span>
 -    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/ublock-defs.svg#ubo-solid"></use></svg></span>
-+    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/icons.svg#nano-empty"></use></svg></span>
++    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip">
++        <img id="nano_l_logger_popup_off" src="img/128_off.png">
++        <img id="nano_l_logger_popup_on" src="img/128_on.png">
++    </span>
      <a id="info" class="button fa-icon" href="https://github.com/gorhill/uBlock/wiki/The-logger" target="_blank" data-i18n-title="loggerInfoTip">info-circle</a>
  </div>
  
