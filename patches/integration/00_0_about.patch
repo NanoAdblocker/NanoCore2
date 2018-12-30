@@ -9,7 +9,7 @@ index 081ddfc7..1d1247a7 100644
 -    <p>Copyright (c) Raymond Hill 2014-present<br>
 -        &nbsp;
 -    </p>
-+    <p>Copyright (c) Nano Adblocker Contributors 2017-2018</p>
++    <p>Copyright (c) Nano Adblocker Contributors 2017-2019</p>
 +    <ul>
 +        <li><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a>
 +        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
@@ -21,7 +21,7 @@ index 081ddfc7..1d1247a7 100644
 +
 +    <br>
 +    <p data-i18n="nano_d_about_based_on"></p>
-+    <p>Copyright (c) Raymond Hill 2014-2018</p>
++    <p>Copyright (c) Raymond Hill 2014-2019</p>
      <ul>
          <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
          <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
