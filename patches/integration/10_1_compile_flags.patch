@@ -21,10 +21,10 @@ index 33c6b859..a8b7710c 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 51b31a6b..95593d6e 100644
+index 2ff97027..57ae2949 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -756,6 +756,8 @@
+@@ -778,6 +778,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
