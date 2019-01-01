@@ -14,7 +14,7 @@ default to a monospace font.
 ## Group `10`: Undo Regression
 
 `10_0_user_css.patch`: Disable UserCSS. This will unbreak the DOM inspector of
-the Logger on Chromium and Edge, and cosmetic filtering on Edge.
+the Logger on Chromium.
 
 ## Group `20`: Minor Behavior Changes
 
