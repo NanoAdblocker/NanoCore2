@@ -1,5 +1,5 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index f2754a5e..90d80975 100644
+index d10eb410..0b8aae4c 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
 @@ -542,7 +542,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
@@ -23,7 +23,7 @@ index f2754a5e..90d80975 100644
      const type = selector.charCodeAt(0);
 @@ -601,6 +602,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
          µb.logger.writeOne({
-             error: `Invalid generic cosmetic filter in ${who} : ##${selector}`
+             error: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
 +        if ( compiled === undefined ) {
 +            nano.flinte('nano_l_filter_bad_selector');
@@ -182,10 +182,10 @@ index e9282765..86c31dd7 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 95593d6e..2f387b0b 100644
+index 57ae2949..3848d601 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -740,7 +740,10 @@
+@@ -762,7 +762,10 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -197,7 +197,7 @@ index 95593d6e..2f387b0b 100644
              // Not a known extended filter.
              if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
                  return false;
-@@ -748,7 +751,10 @@
+@@ -770,7 +773,10 @@
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -209,7 +209,7 @@ index 95593d6e..2f387b0b 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -771,6 +777,7 @@
+@@ -793,6 +799,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
