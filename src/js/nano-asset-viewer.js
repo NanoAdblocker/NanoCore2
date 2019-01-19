@@ -45,7 +45,7 @@ nano.load_settings = () => {
         "dashboard",
         {
             what: "userSettings",
-            name: "nanoViewerSoftWrap"
+            name: "nanoViewerSoftWrap",
         },
         on_msg
     );
@@ -69,7 +69,7 @@ nano.render_filter = () => {
                     {
                         row: 0,
                         type: "error",
-                        text: vAPI.i18n("nano_v_read_error")
+                        text: vAPI.i18n("nano_v_read_error"),
                     }
                 ];
                 nano.editor.set_anno(anno);
@@ -84,7 +84,7 @@ nano.render_filter = () => {
             "default",
             {
                 what: "getAssetContent",
-                url: nano.active_asset
+                url: nano.active_asset,
             },
             on_msg
         );
