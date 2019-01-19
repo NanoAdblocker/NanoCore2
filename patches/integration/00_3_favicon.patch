@@ -12,10 +12,10 @@ index 8d02d2e1..5459131a 100644
  body {
      border: 0;
 diff --git a/src/css/logger-ui.css b/src/css/logger-ui.css
-index ad99cacf..c606cc0e 100644
+index b2dcc6cc..4fea9330 100644
 --- a/src/css/logger-ui.css
 +++ b/src/css/logger-ui.css
-@@ -51,6 +51,18 @@ textarea {
+@@ -61,6 +61,18 @@ body[dir="rtl"] #pageSelector {
      height: auto;
      width: 1em;
      }
@@ -33,7 +33,7 @@ index ad99cacf..c606cc0e 100644
 +    }
  #info {
      fill: #ccc;
-     padding-left: 0.5em;
+     }
 diff --git a/src/dashboard.html b/src/dashboard.html
 index 3e3106ad..14abf2d6 100644
 --- a/src/dashboard.html
@@ -48,18 +48,18 @@ index 3e3106ad..14abf2d6 100644
       --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
       --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
 diff --git a/src/logger-ui.html b/src/logger-ui.html
-index 887c2ded..e786df6a 100644
+index fda4df58..150bdd86 100644
 --- a/src/logger-ui.html
 +++ b/src/logger-ui.html
-@@ -21,7 +21,10 @@
-     </select>
-     <span id="refresh" class="button fa-icon disabled needdom" data-i18n-title="loggerReloadTip">refresh</span>
-     <span id="showdom" class="button fa-icon disabled needdom" data-i18n-title="loggerDomInspectorTip">code</span>
--    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/ublock-defs.svg#ubo-solid"></use></svg></span>
-+    <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip">
-+        <img id="nano_l_logger_popup_off" src="img/128_off.png">
-+        <img id="nano_l_logger_popup_on" src="img/128_on.png">
-+    </span>
-     <a id="info" class="button fa-icon" href="https://github.com/gorhill/uBlock/wiki/The-logger" target="_blank" data-i18n-title="loggerInfoTip">info-circle</a>
- </div>
- 
+@@ -22,7 +22,10 @@
+         </select>
+         <span id="refresh" class="button fa-icon disabled needdom" data-i18n-title="loggerReloadTip">refresh</span>
+         <span id="showdom" class="button fa-icon disabled needdom" data-i18n-title="loggerDomInspectorTip">code</span>
+-        <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip"><svg><use href="/img/ublock-defs.svg#ubo-solid"></use></svg></span>
++        <span id="showpopup" class="button ubo-icon disabled needdom" data-i18n-title="loggerPopupPanelTip">
++            <img id="nano_l_logger_popup_off" src="img/128_off.png">
++            <img id="nano_l_logger_popup_on" src="img/128_on.png">
++        </span>
+     </div>
+     <div>
+         <a id="info" class="button fa-icon" href="https://github.com/gorhill/uBlock/wiki/The-logger" target="_blank" data-i18n-title="loggerInfoTip">info-circle</a>

@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 33c6b859..a8b7710c 100644
+index 631b33df..d133d38b 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -49,6 +49,9 @@ const µBlock = (function() { // jshint ignore:line
+@@ -50,6 +50,9 @@ const µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -12,7 +12,7 @@ index 33c6b859..a8b7710c 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          strictBlockingBypassDuration: 120,
-@@ -154,6 +157,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -155,6 +158,7 @@ const µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
          userFiltersPath: 'user-filters',
@@ -21,7 +21,7 @@ index 33c6b859..a8b7710c 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 2ff97027..57ae2949 100644
+index 135cb098..05cf8cc9 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -778,6 +778,8 @@
@@ -34,7 +34,7 @@ index 2ff97027..57ae2949 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index dc8382d4..f9c91647 100644
+index 59518f05..3b4e6aff 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1586,6 +1586,10 @@ FilterParser.prototype.parseOptions = function(s) {
@@ -60,10 +60,10 @@ index dc8382d4..f9c91647 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 9bc87342..3d147fed 100644
+index c02bf557..e31c90c0 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -410,7 +410,8 @@
+@@ -428,7 +428,8 @@
      const onSaved = ( ) => {
          const compiledFilters = this.compileFilters(
              filters,
@@ -73,7 +73,7 @@ index 9bc87342..3d147fed 100644
          );
          const snfe = this.staticNetFilteringEngine;
          const cfe = this.cosmeticFilteringEngine;
-@@ -794,7 +795,7 @@
+@@ -823,7 +824,7 @@
  
  /******************************************************************************/
  
@@ -82,7 +82,7 @@ index 9bc87342..3d147fed 100644
      let writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -805,6 +806,9 @@
+@@ -834,6 +835,9 @@
          }
      }
  
@@ -92,7 +92,7 @@ index 9bc87342..3d147fed 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -864,6 +868,8 @@
+@@ -893,6 +897,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
