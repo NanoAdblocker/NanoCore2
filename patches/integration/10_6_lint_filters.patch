@@ -1,5 +1,5 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index d10eb410..0b8aae4c 100644
+index f03fdf68..0648cfa1 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
 @@ -542,7 +542,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
@@ -21,9 +21,9 @@ index d10eb410..0b8aae4c 100644
  ) {
      const selector = parsed.suffix;
      const type = selector.charCodeAt(0);
-@@ -601,6 +602,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
-         µb.logger.writeOne({
-             error: `Invalid generic cosmetic filter in ${who}: ##${selector}`
+@@ -603,6 +604,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+             type: 'error',
+             text: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
 +        if ( compiled === undefined ) {
 +            nano.flinte('nano_l_filter_bad_selector');
@@ -35,35 +35,35 @@ index d10eb410..0b8aae4c 100644
          return;
      }
  
-@@ -660,6 +668,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
-         µb.logger.writeOne({
-             error: `Invalid cosmetic filter in ${who} : #@#${parsed.suffix}`
+@@ -664,6 +672,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+             type: 'error',
+             text: `Invalid cosmetic filter in ${who}: #@#${parsed.suffix}`
          });
 +        nano.flinte('nano_l_filter_bad_selector');
          return;
      }
  
-@@ -689,6 +698,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
-         µb.logger.writeOne({
-             error: `Invalid cosmetic filter in ${who} : ##${parsed.suffix}`
+@@ -695,6 +704,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+             type: 'error',
+             text: `Invalid cosmetic filter in ${who}: ##${parsed.suffix}`
          });
 +        nano.flinte('nano_l_filter_bad_selector');
          return;
      }
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index 0863eec8..cf1083f5 100644
+index 3747bb72..8b83b376 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
-@@ -246,6 +246,7 @@
-             µb.logger.writeOne({
-                 error: `Invalid HTML filter in ${who} : ##${selector}`
+@@ -248,6 +248,7 @@
+                 type: 'error',
+                 text: `Invalid HTML filter in ${who}: ##${selector}`
              });
 +            nano.flinte('nano_l_filter_bad_selector');
              return;
          }
  
-@@ -255,7 +256,10 @@
+@@ -257,7 +258,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
          for ( const hn of parsed.hostnames ) {
@@ -182,7 +182,7 @@ index e9282765..86c31dd7 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 57ae2949..3848d601 100644
+index 05cf8cc9..eedbb2ad 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -762,7 +762,10 @@
@@ -218,7 +218,7 @@ index 57ae2949..3848d601 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 1f887ab4..ee674b8e 100644
+index fdffb2c0..462a64fe 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1463,6 +1463,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
@@ -325,7 +325,7 @@ index 1f887ab4..ee674b8e 100644
              return this;
          }
  
-@@ -2305,6 +2324,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2307,6 +2326,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
@@ -336,7 +336,7 @@ index 1f887ab4..ee674b8e 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 10c5e313..f48ad6e0 100644
+index e02a0d9e..08725775 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -393,7 +393,11 @@
@@ -352,7 +352,7 @@ index 10c5e313..f48ad6e0 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -808,6 +812,12 @@
+@@ -837,6 +841,12 @@
  
      const nanoKey = nanoAssetKeyOverride || details.assetKey;
      nano.cf.update(nanoKey);
@@ -365,7 +365,7 @@ index 10c5e313..f48ad6e0 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -821,6 +831,10 @@
+@@ -850,6 +860,10 @@
      const lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -376,7 +376,7 @@ index 10c5e313..f48ad6e0 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -829,7 +843,11 @@
+@@ -858,7 +872,11 @@
  
          // Strip comments
          const c = line.charAt(0);
@@ -389,7 +389,7 @@ index 10c5e313..f48ad6e0 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -850,6 +868,7 @@
+@@ -879,6 +897,7 @@
          const pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -397,7 +397,7 @@ index 10c5e313..f48ad6e0 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -859,15 +878,24 @@
+@@ -888,15 +907,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost
