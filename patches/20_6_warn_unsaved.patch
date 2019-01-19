@@ -99,16 +99,16 @@ index 5e36ce91..cf4fc938 100644
  
      return function(now) {
 diff --git a/src/js/udom.js b/src/js/udom.js
-index dc85e6b2..553b4b34 100644
+index caa2a824..d681b9dc 100644
 --- a/src/js/udom.js
 +++ b/src/js/udom.js
-@@ -675,20 +675,6 @@ DOMList.prototype.trigger = function(etype) {
+@@ -672,20 +672,6 @@ DOMList.prototype.trigger = function(etype) {
  
  /******************************************************************************/
  
 -// Cleanup
 -
--var onBeforeUnload = function() {
+-const onBeforeUnload = function() {
 -    var entry;
 -    while ( (entry = listenerEntries.pop()) ) {
 -        entry.dispose();
