@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index a8b7710c..f1d0e741 100644
+index d133d38b..b15b2dc9 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -86,6 +86,8 @@ const µBlock = (function() { // jshint ignore:line
+@@ -87,6 +87,8 @@ const µBlock = (function() { // jshint ignore:line
              hyperlinkAuditingDisabled: true,
              ignoreGenericCosmeticFilters: false,
              largeMediaSize: 50,
@@ -12,7 +12,7 @@ index a8b7710c..f1d0e741 100644
              prefetchingDisabled: true,
              requestLogMaxEntries: 1000,
 diff --git a/src/settings.html b/src/settings.html
-index 1d81543a..9c44ea29 100644
+index b6d461c5..e4aaae5a 100644
 --- a/src/settings.html
 +++ b/src/settings.html
 @@ -20,6 +20,8 @@

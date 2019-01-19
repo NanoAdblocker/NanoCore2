@@ -1,5 +1,5 @@
 diff --git a/src/settings.html b/src/settings.html
-index bec3d6bd..1d81543a 100644
+index 84037319..b6d461c5 100644
 --- a/src/settings.html
 +++ b/src/settings.html
 @@ -15,22 +15,24 @@
@@ -23,7 +23,7 @@ index bec3d6bd..1d81543a 100644
          <li class="subgroup"><span data-i18n="settingPerSiteSwitchGroup"></span><ul>
              <li><label class="synopsis"><span data-i18n="settingPerSiteSwitchGroupSynopsis"></span> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches" target="_blank">&#xf05a;</a></label>
 -            <li><input id="no-cosmetic-filtering" type="checkbox" data-setting-name="noCosmeticFiltering" data-setting-type="bool"><label data-i18n="settingsNoCosmeticFilteringPrompt" for="no-cosmetic-filtering"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-cosmetic-filtering" target="_blank">&#xf05a;</a>
-             <li><input id="no-large-media" type="checkbox" data-setting-name="noLargeMedia" data-setting-type="bool"><label data-i18n="settingsNoLargeMediaPrompt" for="no-large-media"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-large-media-elements" target="_blank">&#xf05a;</a>
+             <li><input id="no-large-media" type="checkbox" data-setting-name="noLargeMedia" data-setting-type="bool"><label data-i18n="settingsNoLargeMediaPrompt" for="no-large-media"><input type="number" min="0"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-large-media-elements" target="_blank">&#xf05a;</a>
 +            <li><input id="no-cosmetic-filtering" type="checkbox" data-setting-name="noCosmeticFiltering" data-setting-type="bool"><label data-i18n="settingsNoCosmeticFilteringPrompt" for="no-cosmetic-filtering"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-cosmetic-filtering" target="_blank">&#xf05a;</a>
              <li><input id="no-remote-fonts" type="checkbox" data-setting-name="noRemoteFonts" data-setting-type="bool"><label data-i18n="settingsNoRemoteFontsPrompt" for="no-remote-fonts"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-remote-fonts" target="_blank">&#xf05a;</a>
              <li><input id="no-scripting" type="checkbox" data-setting-name="noScripting" data-setting-type="bool"><label data-i18n="settingsNoScriptingPrompt" for="no-scripting"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-scripting" target="_blank">&#xf05a;</a>
