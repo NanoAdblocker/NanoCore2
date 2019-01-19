@@ -1,5 +1,5 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index 6a1c5f7f..20650dc7 100644
+index 6a1c5f7f..9d2b5e06 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
 @@ -16,7 +16,6 @@ h2 {
@@ -10,7 +10,7 @@ index 6a1c5f7f..20650dc7 100644
      font-size: 100%;
      font-weight: normal;
      padding: 0.2em;
-@@ -98,19 +97,22 @@ p {
+@@ -98,18 +97,22 @@ p {
  #switch .fa-icon {
      fill: #0046ff;
      cursor: pointer;
@@ -29,14 +29,14 @@ index 6a1c5f7f..20650dc7 100644
 -#basicTools {
 +#basicTools, #basicTools2 {
      margin: 1.2em 0 0.5em 0;
-     }
++    text-align: center;
++    }
 +#basicTools {
 +    margin-bottom: 1.2em;
-+    }
+     }
  .tool:first-child {
      margin-left: 0;
-     }
-@@ -181,26 +183,22 @@ body.responsive #extraTools {
+@@ -181,26 +184,22 @@ body.responsive #extraTools {
      fill: #222;
      }
  
@@ -71,7 +71,7 @@ index 6a1c5f7f..20650dc7 100644
      }
  
  #tooltip {
-@@ -230,8 +228,6 @@ body[dir="rtl"] #tooltip {
+@@ -230,8 +229,6 @@ body[dir="rtl"] #tooltip {
      direction: rtl;
      }
  #tooltip.show {
