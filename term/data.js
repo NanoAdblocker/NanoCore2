@@ -47,8 +47,8 @@ exports.version = "1.0.0.84";
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.17.5rc4",
-    "Commit/3e0b827",
+    "Version/1.17.7rc1",
+    "Commit/25ccc06",
 
     "UserCSS/disabled",
 ].join(" ");
