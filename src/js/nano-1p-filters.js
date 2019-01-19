@@ -49,7 +49,7 @@ nano.load_settings = () => {
         "dashboard",
         {
             what: "userSettings",
-            name: "nanoEditorSoftWrap"
+            name: "nanoEditorSoftWrap",
         },
         on_msg
     );
@@ -78,7 +78,7 @@ nano.render_filters = (first) => {
     vAPI.messaging.send(
         "dashboard",
         {
-            what: "readUserFilters"
+            what: "readUserFilters",
         },
         on_msg
     );
@@ -93,7 +93,7 @@ nano.render_anno = () => {
     vAPI.messaging.send(
         "dashboard",
         {
-            what: "nanoGetFilterLinterResult"
+            what: "nanoGetFilterLinterResult",
         },
         on_msg
     );
@@ -123,7 +123,7 @@ nano.filters_saved = () => {
     vAPI.messaging.send(
         "dashboard",
         {
-            what: "reloadAllFilters"
+            what: "reloadAllFilters",
         }
     );
 
@@ -153,7 +153,7 @@ nano.filters_apply = () => {
         "dashboard",
         {
             what: "writeUserFilters",
-            content: nano.editor.get_unix_value()
+            content: nano.editor.get_unix_value(),
         },
         on_msg
     );
