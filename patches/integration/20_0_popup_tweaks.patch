@@ -81,10 +81,10 @@ index 6a1c5f7f..20650dc7 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 4d19907c..7664459d 100644
+index b2c78b01..25b0a432 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -535,7 +535,7 @@ const renderTooltips = function(selector) {
+@@ -552,7 +552,7 @@ const renderTooltips = function(selector) {
  
  const tooltipTargetSelectors = new Map([
      [
@@ -93,7 +93,7 @@ index 4d19907c..7664459d 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -694,7 +694,7 @@ const toggleNetFilteringSwitch = function(ev) {
+@@ -711,7 +711,7 @@ const toggleNetFilteringSwitch = function(ev) {
              tabId: popupData.tabId
          }
      );
@@ -102,7 +102,7 @@ index 4d19907c..7664459d 100644
      hashFromPopupData();
  };
  
-@@ -1116,10 +1116,10 @@ const onHideTooltip = function() {
+@@ -1134,10 +1134,10 @@ const onHideTooltip = function() {
      getPopupData(tabId);
  })();
  
@@ -116,7 +116,7 @@ index 4d19907c..7664459d 100644
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
-index fef2daa6..7fc037c9 100644
+index 57366f74..97d8b974 100644
 --- a/src/popup.html
 +++ b/src/popup.html
 @@ -15,23 +15,29 @@
@@ -129,7 +129,7 @@ index fef2daa6..7fc037c9 100644
 -            <span id="gotoZap" class="fa-icon tool" data-i18n-tip="popupTipZapper" data-tip-position="under">bolt</span>
              <span id="gotoPick" class="fa-icon tool" data-i18n-tip="popupTipPicker" data-tip-position="under">eye-dropper</span>
 +            <span id="nanoFirewallPaneToggle" class="fa tool enabled" data-i18n-tip="nano_p_open_firewall_pane" data-tip-position="under">&#xf0db;</span>
-             <a href="logger-ui.html#tab_active" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipLog" data-tip-position="under" target="uBOLogger" tabindex="0">list-alt</a>
+             <a href="logger-ui.html#_" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipLog" data-tip-position="under" target="uBOLogger" tabindex="0">list-alt</a>
 -            <a href="dashboard.html" class="fa-icon tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">sliders</a>
 +            <a href="dashboard.html" class="fa tool enabled" aria-label="data-tip" data-i18n-tip="popupTipDashboard" data-tip-position="under" target="uBODashboard" tabindex="0">&#xf0ad;</a>
 +        </p>
