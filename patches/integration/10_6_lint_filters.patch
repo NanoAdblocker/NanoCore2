@@ -336,10 +336,10 @@ index fdffb2c0..462a64fe 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index e02a0d9e..08725775 100644
+index 7a139c41..b8b543d4 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -393,7 +393,11 @@
+@@ -394,7 +394,11 @@
      // https://github.com/gorhill/uBlock/issues/1022
      // Be sure to end with an empty line.
      content = content.trim();
@@ -352,7 +352,7 @@ index e02a0d9e..08725775 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -837,6 +841,12 @@
+@@ -838,6 +842,12 @@
  
      const nanoKey = nanoAssetKeyOverride || details.assetKey;
      nano.cf.update(nanoKey);
@@ -365,7 +365,7 @@ index e02a0d9e..08725775 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -850,6 +860,10 @@
+@@ -851,6 +861,10 @@
      const lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -376,7 +376,7 @@ index e02a0d9e..08725775 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -858,7 +872,11 @@
+@@ -859,7 +873,11 @@
  
          // Strip comments
          const c = line.charAt(0);
@@ -389,7 +389,7 @@ index e02a0d9e..08725775 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -879,6 +897,7 @@
+@@ -880,6 +898,7 @@
          const pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -397,7 +397,7 @@ index e02a0d9e..08725775 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -888,15 +907,24 @@
+@@ -889,15 +908,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost
