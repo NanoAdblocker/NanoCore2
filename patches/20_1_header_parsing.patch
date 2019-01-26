@@ -1,8 +1,8 @@
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 4cf72776..643811b2 100644
+index 6f13dee2..bda5ebcf 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -804,15 +804,33 @@
+@@ -805,15 +805,33 @@
      }
      // Extract update frequency information
      let matches = head.match(/(?:^|\n)(?:!|# )[\t ]*Expires[\t ]*:[\t ]*(\d+)[\t ]*(h)?/i);

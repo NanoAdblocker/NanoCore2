@@ -21,10 +21,10 @@ index 33f776a2..8c57ce57 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index b15b2dc9..fc9fe882 100644
+index 3b89d552..33de1cce 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -41,15 +41,15 @@ const µBlock = (function() { // jshint ignore:line
+@@ -41,8 +41,8 @@ const µBlock = (function() { // jshint ignore:line
      const hiddenSettingsDefault = {
          assetFetchTimeout: 30,
          autoCommentFilterTemplate: '{{date}} {{origin}}',
@@ -32,9 +32,10 @@ index b15b2dc9..fc9fe882 100644
 -        autoUpdatePeriod: 7,
 +        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
+         cacheStorageAPI: 'unset',
          cacheStorageCompression: true,
          cacheControlForFirefox1376932: 'no-cache, no-store, must-revalidate',
-         debugScriptlets: false,
+@@ -50,7 +50,7 @@ const µBlock = (function() { // jshint ignore:line
          disableWebAssembly: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
@@ -43,7 +44,7 @@ index b15b2dc9..fc9fe882 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -65,6 +65,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -66,6 +66,7 @@ const µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
@@ -78,10 +79,10 @@ index 1a99a0fb..aa382f03 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 08725775..4cf72776 100644
+index b8b543d4..6f13dee2 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1322,7 +1322,7 @@
+@@ -1323,7 +1323,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -90,7 +91,7 @@ index 08725775..4cf72776 100644
              });
          }, updateDelay);
      };
-@@ -1420,7 +1420,7 @@
+@@ -1421,7 +1421,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {
