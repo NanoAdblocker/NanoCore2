@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 33f776a2..8c57ce57 100644
+index 333e2b31..bade272e 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -313,7 +313,7 @@ const registerAssetSource = function(assetKey, dict) {
+@@ -331,7 +331,7 @@ const registerAssetSource = function(assetKey, dict) {
          entry.contentURL = [];
      }
      if ( typeof entry.updateAfter !== 'number' ) {
@@ -11,7 +11,7 @@ index 33f776a2..8c57ce57 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -900,7 +900,7 @@ api.rmrf = function() {
+@@ -918,7 +918,7 @@ api.rmrf = function() {
  // Asset updater area.
  var updaterStatus,
      updaterTimer,

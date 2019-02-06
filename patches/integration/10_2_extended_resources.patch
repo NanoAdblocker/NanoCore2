@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index c6f1410b..33f776a2 100644
+index a1a9e115..333e2b31 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -952,6 +952,9 @@ var updateNext = function() {
+@@ -970,6 +970,9 @@ var updateNext = function() {
              if ( assetKey === 'ublock-resources' && noRemoteResources ) {
                  continue;
              }
