@@ -60,7 +60,7 @@ index 59518f05..3b4e6aff 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 52b3eef6..fa381653 100644
+index 52b3eef6..f6188479 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -429,7 +429,8 @@
@@ -69,7 +69,7 @@ index 52b3eef6..fa381653 100644
              filters,
 -            { assetKey: this.userFiltersPath }
 +            { assetKey: this.userFiltersPath },
-+            µb.nanoPartialUserFiltersPath
++            nano.ub.nanoPartialUserFiltersPath
          );
          const snfe = this.staticNetFilteringEngine;
          const cfe = this.cosmeticFilteringEngine;
