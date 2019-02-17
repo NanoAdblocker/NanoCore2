@@ -20,11 +20,11 @@
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
-    "message": "Nano 规则编辑器是由 Ace 驱动，大部分快捷键都一样。",
+    "message": "Nano 规则编辑器是由 Ace 驱动的，大部分快捷键都一样。",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "离开标签？\n您所做的更改将不会被保存。",
+    "message": "离开本标签页？\n您所做的更改将不会被保存。",
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
