@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index 9396b47a..ac486d41 100644
+index d198b74b..b00fce12 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -138,6 +138,23 @@ vAPI.download = function(details) {
+@@ -143,6 +143,23 @@ vAPI.download = function(details) {
  
  vAPI.getURL = chrome.runtime.getURL;
  
@@ -27,7 +27,7 @@ index 9396b47a..ac486d41 100644
  
  vAPI.i18n = chrome.i18n.getMessage;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 79def108..1c41379f 100644
+index c982921a..4c27eb85 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -450,6 +450,7 @@ const renderPopup = function() {
