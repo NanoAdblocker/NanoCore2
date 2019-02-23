@@ -11,8 +11,8 @@ index 9396b47a..ac486d41 100644
 +
 +    chrome.tabs.query({
 +        active: true,
-+        currentWindow: true,
-+    }, (tabs) => {
++        currentWindow: true
++    }, function(tabs) {
 +        if (chrome.runtime.lastError || tabs.length === 0) {
 +            return;
 +        }
