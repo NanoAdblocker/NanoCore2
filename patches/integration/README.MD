@@ -40,6 +40,8 @@ settings page.
 
 `20_1_force_scroll.patch`: Enable force scroll mode button in popup panel.
 
+`20_2_bug_reporter.patch`: Open bug reporter button in popup panel.
+
 ## Group `30`: Dashboard Changes
 
 `30_0_settings_tweaks.patch`: Cosmetic tweaks to dashboard settings tab.
