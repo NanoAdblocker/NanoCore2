@@ -1,18 +1,18 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Интерфейс пользователя",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Мягкое обёртывание длинных строк в редакторе фильтров",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Мягкое обёртывание длинных строк в режиме просмотра фильтров",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "Принудительная пересборка фильтров",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -28,11 +28,11 @@
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "Основан на {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — Средство просмотра фильтров",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
@@ -40,7 +40,7 @@
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "управление кэшем",
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
@@ -48,7 +48,7 @@
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "Нажмите, чтобы обновить эту страницу.\n\nCtrl+click, чтобы обновить эту страницу, обходя кэш.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
