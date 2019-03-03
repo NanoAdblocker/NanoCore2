@@ -576,6 +576,7 @@ nano.Editor = function (elem, highlight, readonly) {
     else
         this.session.setMode("ace/mode/text");
 
+    this.editor.setPrintMarginColumn(120);
     this.editor.setReadOnly(readonly);
 
     const useless_commands = [
