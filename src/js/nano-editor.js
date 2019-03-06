@@ -123,7 +123,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
 
                     token: "invalid",
-                    regex: /#@?(?:\?|\$)?@#\^?(?!$).*/
+                    regex: /#@?(?:\?|\$\??)?@#\^?(?!$).*/
                 },
 
                 // Raw JavaScript injection is not supported
