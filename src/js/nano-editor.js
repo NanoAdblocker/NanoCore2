@@ -115,7 +115,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 // Extended filtering
                 {
                     token: "keyword",
-                    regex: /#@?(?:\?|\$)?#\^?(?!$)/,
+                    regex: /#@?(?:\?|\$\??)?#\^?(?!$)/,
                     next: "double_hash"
                 },
 
