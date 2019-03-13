@@ -38,7 +38,7 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.92";
+exports.version = "1.0.0.93";
 
 /**
  * The based on string.

@@ -314,6 +314,10 @@ exports.build_resources = async (browser) => {
 
     const process_one = async (name, db_entry, record_stream) => {
         const re_extract_mime = /^[^/]+\/([^\s;]+)/;
+        const safe_exts = {
+            "javascript": "js",
+            "plain": "txt",
+        }
 
         record_stream.write(name);
         record_stream.write("\n");
@@ -331,6 +335,9 @@ exports.build_resources = async (browser) => {
         // around a Mac OS operating system bug)
         const suffix = re_extract_mime.exec(db_entry.mime);
         assert(suffix !== null);
+        if (suffix[1] in safe_exts) {
+            suffix[1] = safe_exts[suffix[1]];
+        }
         name = "\t" + name + "." + suffix[1];
 
         record_stream.write(name);
