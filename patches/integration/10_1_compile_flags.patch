@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 239411bb..33b4b81b 100644
+index 1c5b0668..919c6112 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -51,6 +51,9 @@ const µBlock = (function() { // jshint ignore:line
+@@ -49,6 +49,9 @@ const µBlock = (function() { // jshint ignore:line
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
          manualUpdateAssetFetchPeriod: 500,
@@ -11,7 +11,7 @@ index 239411bb..33b4b81b 100644
 +        nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
-         strictBlockingBypassDuration: 120,
+         selfieAfter: 11,
 @@ -156,6 +159,7 @@ const µBlock = (function() { // jshint ignore:line
          assetsBootstrapLocation: 'assets/assets.json',
  
@@ -21,10 +21,10 @@ index 239411bb..33b4b81b 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 135cb098..05cf8cc9 100644
+index 7e0bef59..14c03449 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -778,6 +778,8 @@
+@@ -790,6 +790,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
@@ -34,10 +34,10 @@ index 135cb098..05cf8cc9 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 59518f05..3b4e6aff 100644
+index db6361a3..729792b1 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1586,6 +1586,10 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1584,6 +1584,10 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
          if ( opt === 'badfilter' ) {
@@ -48,7 +48,7 @@ index 59518f05..3b4e6aff 100644
              this.badFilter = true;
              continue;
          }
-@@ -1725,6 +1729,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1633,6 +1637,10 @@ FilterParser.prototype.parse = function(raw) {
      // block or allow filter?
      // Important: this must be executed before parsing options
      if ( s.startsWith('@@') ) {
@@ -60,10 +60,10 @@ index 59518f05..3b4e6aff 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 52b3eef6..f6188479 100644
+index a536f90e..85acec49 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -429,7 +429,8 @@
+@@ -446,7 +446,8 @@
      const onSaved = ( ) => {
          const compiledFilters = this.compileFilters(
              filters,
@@ -73,7 +73,7 @@ index 52b3eef6..f6188479 100644
          );
          const snfe = this.staticNetFilteringEngine;
          const cfe = this.cosmeticFilteringEngine;
-@@ -824,7 +825,7 @@
+@@ -841,7 +842,7 @@
  
  /******************************************************************************/
  
@@ -82,7 +82,7 @@ index 52b3eef6..f6188479 100644
      let writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -835,6 +836,9 @@
+@@ -852,6 +853,9 @@
          }
      }
  
@@ -92,7 +92,7 @@ index 52b3eef6..f6188479 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -894,6 +898,8 @@
+@@ -911,6 +915,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
