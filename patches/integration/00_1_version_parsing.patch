@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index 1df622c5..2d8f76c9 100644
+index 02c091d8..b876089b 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
 @@ -66,16 +66,9 @@ var noopFunc = function(){};

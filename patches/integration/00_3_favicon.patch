@@ -12,7 +12,7 @@ index 8d02d2e1..5459131a 100644
  body {
      border: 0;
 diff --git a/src/css/logger-ui.css b/src/css/logger-ui.css
-index b2dcc6cc..4fea9330 100644
+index 775e88e7..c5182a34 100644
 --- a/src/css/logger-ui.css
 +++ b/src/css/logger-ui.css
 @@ -61,6 +61,18 @@ body[dir="rtl"] #pageSelector {
