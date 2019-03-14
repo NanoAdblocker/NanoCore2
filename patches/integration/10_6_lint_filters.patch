@@ -76,7 +76,7 @@ index 3747bb72..8b83b376 100644
              if ( parsed.exception ) {
                  hash |= 0b0001;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index d27c40d6..deb1209b 100644
+index fa2ea5b3..67f0bef9 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -300,7 +300,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -146,7 +146,7 @@ index d27c40d6..deb1209b 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index e9282765..86c31dd7 100644
+index ac43aece..f51c6b27 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -252,6 +252,8 @@
@@ -182,10 +182,10 @@ index e9282765..86c31dd7 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 05cf8cc9..eedbb2ad 100644
+index 14c03449..b848a3aa 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -762,7 +762,10 @@
+@@ -775,14 +775,20 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -194,10 +194,9 @@ index 05cf8cc9..eedbb2ad 100644
 +                nano.flinte('nano_l_filter_ag_js_injection');
 +                return true;
 +            }
-             // Not a known extended filter.
-             if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
-                 return false;
-@@ -770,7 +773,10 @@
+             if ( cCode === 0x3F /* '?' */ && anchorLen > 2 ) {
+                 cCode = raw.charCodeAt(rpos - 2);
+             }
              // Adguard's style injection: translate to uBO's format.
              if ( cCode === 0x24 /* '$' */ ) {
                  suffix = translateAdguardCSSInjectionFilter(suffix);
@@ -209,7 +208,7 @@ index 05cf8cc9..eedbb2ad 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -793,6 +799,7 @@
+@@ -805,6 +811,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -218,10 +217,10 @@ index 05cf8cc9..eedbb2ad 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index fdffb2c0..462a64fe 100644
+index bf2d6018..8b7913c9 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1463,6 +1463,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+@@ -1461,6 +1461,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
  
      // Non-discrete network types can't be negated.
      if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
@@ -232,7 +231,7 @@ index fdffb2c0..462a64fe 100644
          return;
      }
  
-@@ -1535,6 +1539,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1533,6 +1537,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -240,7 +239,7 @@ index fdffb2c0..462a64fe 100644
              break;
          }
          // Test before handling all other types.
-@@ -1544,6 +1549,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1542,6 +1547,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -248,7 +247,7 @@ index fdffb2c0..462a64fe 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1557,6 +1563,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1555,6 +1561,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -256,7 +255,7 @@ index fdffb2c0..462a64fe 100644
                  break;
              }
              continue;
-@@ -1574,6 +1581,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1572,6 +1579,8 @@ FilterParser.prototype.parseOptions = function(s) {
                  this.parseTypeOption('data', not);
                  this.dataType = 'csp';
                  this.dataStr = opt.slice(4).trim();
@@ -265,7 +264,7 @@ index fdffb2c0..462a64fe 100644
              }
              continue;
          }
-@@ -1588,6 +1597,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1586,6 +1595,8 @@ FilterParser.prototype.parseOptions = function(s) {
              this.fopts = opts.join(',');
              var pos = this.raw.lastIndexOf('$');
              this.raw = this.raw.slice(0, pos + 1) + this.fopts;
@@ -274,7 +273,7 @@ index fdffb2c0..462a64fe 100644
              continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-@@ -1601,6 +1612,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1599,6 +1610,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -282,7 +281,7 @@ index fdffb2c0..462a64fe 100644
          break;
      }
  };
-@@ -1728,6 +1740,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1636,6 +1648,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -290,7 +289,7 @@ index fdffb2c0..462a64fe 100644
              return this;
          }
      }
-@@ -1754,6 +1767,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1662,6 +1675,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -298,7 +297,7 @@ index fdffb2c0..462a64fe 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1764,7 +1778,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1672,7 +1686,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -309,7 +308,7 @@ index fdffb2c0..462a64fe 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1786,6 +1803,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1694,6 +1711,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -317,7 +316,7 @@ index fdffb2c0..462a64fe 100644
          }
          return this;
      }
-@@ -1810,6 +1828,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -1718,6 +1736,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -325,7 +324,7 @@ index fdffb2c0..462a64fe 100644
              return this;
          }
  
-@@ -2307,6 +2326,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2230,6 +2249,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
@@ -336,10 +335,10 @@ index fdffb2c0..462a64fe 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index c6040078..f82ea42c 100644
+index 2e53737d..1a5d0cd4 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -394,7 +394,11 @@
+@@ -411,7 +411,11 @@
      // https://github.com/gorhill/uBlock/issues/1022
      // Be sure to end with an empty line.
      content = content.trim();
@@ -352,7 +351,7 @@ index c6040078..f82ea42c 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -838,6 +842,12 @@
+@@ -855,6 +859,12 @@
  
      const nanoKey = nanoAssetKeyOverride || details.assetKey;
      nano.cf.update(nanoKey);
@@ -365,7 +364,7 @@ index c6040078..f82ea42c 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -851,6 +861,10 @@
+@@ -868,6 +878,10 @@
      const lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -376,7 +375,7 @@ index c6040078..f82ea42c 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -859,7 +873,11 @@
+@@ -876,7 +890,11 @@
  
          // Strip comments
          const c = line.charAt(0);
@@ -389,7 +388,7 @@ index c6040078..f82ea42c 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -880,6 +898,7 @@
+@@ -897,6 +915,7 @@
          const pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -397,7 +396,7 @@ index c6040078..f82ea42c 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -889,15 +908,24 @@
+@@ -906,15 +925,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost
