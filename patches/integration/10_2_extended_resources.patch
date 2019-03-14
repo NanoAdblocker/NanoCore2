@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index a1a9e115..333e2b31 100644
+index 7c6b32b8..00c0e07f 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -970,6 +970,9 @@ var updateNext = function() {
+@@ -973,6 +973,9 @@ var updateNext = function() {
              if ( assetKey === 'ublock-resources' && noRemoteResources ) {
                  continue;
              }
@@ -13,7 +13,7 @@ index a1a9e115..333e2b31 100644
                  fireNotification(
                      'before-asset-updated',
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 877b3c9a..24f36910 100644
+index 9904df11..b8853689 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -1069,10 +1069,14 @@ var onMessage = function(request, sender, callback) {
@@ -33,7 +33,7 @@ index 877b3c9a..24f36910 100644
  
      case 'readHiddenSettings':
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 57441bf8..e9282765 100644
+index 038079e1..ac43aece 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -194,7 +194,7 @@
@@ -61,29 +61,29 @@ index 57441bf8..e9282765 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index f6188479..c6040078 100644
+index 85acec49..2e53737d 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -974,7 +974,7 @@
+@@ -991,7 +991,7 @@
  
  /******************************************************************************/
  
 -µBlock.loadRedirectResources = function(updatedContent) {
 +µBlock.loadRedirectResources = function(updatedContent, nanoIsExtended) {
-     var µb = this,
-         content = '';
+     let content = '';
  
-@@ -989,9 +989,28 @@
+     const onDone = ( ) => {
+@@ -1005,9 +1005,28 @@
          onDone();
      };
  
--    var onResourcesLoaded = function(details) {
-+    var nanoHasChange =
+-    const onResourcesLoaded = details => {
++    const nanoHasChange =
 +        typeof updatedContent === 'string' && updatedContent.length !== 0;
 +
-+    var nanoFetchResourceByKey = function(key, callback) {
++    const nanoFetchResourceByKey = (key, callback) => {
 +        if ( !nanoHasChange ) {
-+            µb.assets.get(key, callback);
++            this.assets.get(key, callback);
 +            return;
 +        }
 +        if ( key === 'ublock-resources' && !nanoIsExtended ) {
@@ -94,46 +94,42 @@ index f6188479..c6040078 100644
 +            callback({ content: updatedContent });
 +            return;
 +        }
-+        µb.assets.get(key, callback);
++        this.assets.get(key, callback);
 +    };
 +
-+    var nanoOnExtendedResourcesLoaded = function(details) {
++    const nanoOnExtendedResourcesLoaded = details => {
          if ( details.content !== '' ) {
 -            content = details.content;
 +            content += '\n\n' + details.content;
          }
-         if ( µb.hiddenSettings.userResourcesLocation === 'unset' ) {
+         if ( this.hiddenSettings.userResourcesLocation === 'unset' ) {
              return onDone();
-@@ -999,16 +1018,24 @@
-         µb.assets.fetchText(µb.hiddenSettings.userResourcesLocation, onUserResourcesLoaded);
+@@ -1018,13 +1037,21 @@
+         );
      };
  
 -    if ( typeof updatedContent === 'string' && updatedContent.length !== 0 ) {
 -        return onResourcesLoaded({ content: updatedContent });
--    }
-+    var nanoOnResourcesLoaded = function(details) {
++    const nanoOnResourcesLoaded = details => {
 +        if ( details.content !== '' ) {
 +            content = details.content;
 +        }
 +        nanoFetchResourceByKey('nano-resources', nanoOnExtendedResourcesLoaded);
 +    };
- 
-     var onSelfieReady = function(success) {
-         if ( success !== true ) {
--            µb.assets.get('ublock-resources', onResourcesLoaded);
-+            nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
-         }
-     };
- 
++
 +    if ( nanoHasChange ) {
 +        nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
 +        return;
-+    }
-+
-     µb.redirectEngine.resourcesFromSelfie(onSelfieReady);
- };
+     }
  
-@@ -1288,7 +1315,10 @@
+     this.redirectEngine.resourcesFromSelfie().then(success => {
+         if ( success !== true ) {
+-            this.assets.get('ublock-resources', onResourcesLoaded);
++            nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
+         }
+     });
+ };
+@@ -1311,7 +1338,10 @@
              }
          }
          // https://github.com/gorhill/uBlock/issues/2594
@@ -145,7 +141,7 @@ index f6188479..c6040078 100644
              if (
                  this.hiddenSettings.ignoreRedirectFilters === true &&
                  this.hiddenSettings.ignoreScriptInjectFilters === true
-@@ -1329,6 +1359,11 @@
+@@ -1354,6 +1384,11 @@
              if ( cached ) {
                  this.loadRedirectResources(details.content);
              }
