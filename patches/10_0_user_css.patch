@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index b00fce12..2e00ffeb 100644
+index 2b58510d..b2b8b30d 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -103,11 +103,6 @@ vAPI.webextFlavor = {
+@@ -108,11 +108,6 @@ vAPI.webextFlavor = {
          soup.add('apple').add('safari');
      }
  
@@ -12,8 +12,8 @@ index b00fce12..2e00ffeb 100644
 -    }
 -
      // Don't starve potential listeners
-     if ( !async ) {
-         vAPI.setTimeout(dispatch, 97);
+     vAPI.setTimeout(dispatch, 97);
+ })();
 diff --git a/platform/chromium/vapi-usercss.js b/platform/chromium/vapi-usercss.js
 index 72b9c23c..cebc2d1d 100644
 --- a/platform/chromium/vapi-usercss.js

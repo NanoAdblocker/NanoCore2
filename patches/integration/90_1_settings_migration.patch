@@ -1,11 +1,11 @@
 diff --git a/src/js/start.js b/src/js/start.js
-index ad7ba5e7..1a99a0fb 100644
+index 13b55182..5f4256c8 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -177,42 +177,22 @@ var onVersionReady = function(lastVersion) {
+@@ -186,42 +186,22 @@ const onVersionReady = function(lastVersion) {
      // If unused, just comment out for when we need to compare versions in the
      // future.
-     let intFromVersion = function(s) {
+     const intFromVersion = function(s) {
 -        let parts = s.match(/(?:^|\.|b|rc)\d+/g);
 -        if ( parts === null ) { return 0; }
 -        let vint = 0;
