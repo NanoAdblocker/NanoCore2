@@ -194,11 +194,11 @@ nano.FilterLinter.prototype.cache_result = function () {
     const entry = {};
     entry[this.cache_key] = JSON.stringify(payload);
 
-    nano.ub.cacheStorage.set(entry);
+    vAPI.storage.set(entry);
 };
 
 nano.FilterLinter.prototype.restore_result = function () {
-    nano.ub.cacheStorage.get(this.cache_key, (result) => {
+    vAPI.storage.get(this.cache_key, (result) => {
         if (this.changed)
             return;
 
@@ -226,7 +226,7 @@ nano.FilterLinter.prototype.restore_result = function () {
 
 nano.FilterLinter.prototype.clear_result = function () {
     this.reset();
-    nano.ub.cacheStorage.remove(this.cache_key);
+    vAPI.storage.remove(this.cache_key);
 };
 
 /*****************************************************************************/
