@@ -79,10 +79,10 @@ index 5f4256c8..36438eab 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 1a5d0cd4..7b7684c5 100644
+index 530e9162..3d4bf1e2 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1346,7 +1346,7 @@
+@@ -1349,7 +1349,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -91,7 +91,7 @@ index 1a5d0cd4..7b7684c5 100644
              });
          }, updateDelay);
      };
-@@ -1446,7 +1446,7 @@
+@@ -1449,7 +1449,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

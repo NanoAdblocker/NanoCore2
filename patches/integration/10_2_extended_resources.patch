@@ -61,7 +61,7 @@ index 038079e1..ac43aece 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 85acec49..2e53737d 100644
+index 156acb48..0223d58f 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -991,7 +991,7 @@
@@ -129,7 +129,7 @@ index 85acec49..2e53737d 100644
          }
      });
  };
-@@ -1311,7 +1338,10 @@
+@@ -1314,7 +1341,10 @@
              }
          }
          // https://github.com/gorhill/uBlock/issues/2594
@@ -141,7 +141,7 @@ index 85acec49..2e53737d 100644
              if (
                  this.hiddenSettings.ignoreRedirectFilters === true &&
                  this.hiddenSettings.ignoreScriptInjectFilters === true
-@@ -1354,6 +1384,11 @@
+@@ -1357,6 +1387,11 @@
              if ( cached ) {
                  this.loadRedirectResources(details.content);
              }

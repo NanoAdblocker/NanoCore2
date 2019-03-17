@@ -60,7 +60,7 @@ index db6361a3..729792b1 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index a536f90e..85acec49 100644
+index 049db27a..156acb48 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -446,7 +446,8 @@
