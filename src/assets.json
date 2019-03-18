@@ -356,15 +356,6 @@
     "contentURL": "https://hosts-file.net/ad_servers.txt",
     "supportURL": "https://hosts-file.net/"
   },
-  "mvps-0": {
-    "content": "filters",
-    "group": "multipurpose",
-    "updateAfter": 5,
-    "off": true,
-    "title": "MVPS HOSTS",
-    "contentURL": "http://winhelp2002.mvps.org/hosts.txt",
-    "supportURL": "http://winhelp2002.mvps.org/"
-  },
   "plowe-0": {
     "content": "filters",
     "group": "multipurpose",
