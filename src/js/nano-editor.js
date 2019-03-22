@@ -1,34 +1,34 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Main thread entry point
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Editor with syntax highlighting.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 var nano = nano || {};
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 const safeCompileRegExp = (str, fallback) => {
     try {
@@ -38,7 +38,7 @@ const safeCompileRegExp = (str, fallback) => {
     }
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const oop = ace.require("ace/lib/oop");
@@ -48,8 +48,7 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const HighlightRules =
         ace.require("ace/mode/nano_filters_hr").HighlightRules;
 
-    // The way tokenRe works seems to have changed, must test when updating
-    // Ace
+    // The way tokenRe works seems to have changed, must test when updating Ace
     // https://github.com/ajaxorg/ace/pull/3454/files#diff-2a8db065be808cdb78daf80b97fcb4aa
     exports.Mode = function () {
         this.HighlightRules = HighlightRules;
@@ -66,7 +65,7 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
     oop.inherits(exports.Mode, TextMode);
 });
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
     var oop = ace.require("ace/lib/oop");
@@ -77,11 +76,11 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
     exports.HighlightRules = function () {
         this.$rules = {
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             start: [
 
-                /*************************************************************/
+                // ------------------------------------------------------------------------------------------------- //
 
                 // Subfilter
                 {
@@ -97,7 +96,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "preprocessor"
                 },
 
-                /*************************************************************/
+                // ------------------------------------------------------------------------------------------------- //
 
                 // Comments
                 {
@@ -110,7 +109,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     regex: / #.*/
                 },
 
-                /*************************************************************/
+                // ------------------------------------------------------------------------------------------------- //
 
                 // Extended filtering
                 {
@@ -119,7 +118,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "double_hash"
                 },
 
-                // Operator @ misused
+                // Misused whitelist operator
                 {
 
                     token: "invalid",
@@ -132,7 +131,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     regex: /#@?%@?#.*/
                 },
 
-                /*************************************************************/
+                // ------------------------------------------------------------------------------------------------- //
 
                 // Network filtering
                 {
@@ -153,7 +152,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "options"
                 },
 
-                // Trailing operator $
+                // Trailing option operator
                 {
                     token: "invalid",
                     regex: /\$$/
@@ -171,11 +170,11 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     defaultToken: "string"
                 }
 
-                /*************************************************************/
+                // ------------------------------------------------------------------------------------------------- //
 
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             subfilter: [
                 // Exit
@@ -191,7 +190,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             preprocessor: [
                 // Exit
@@ -228,7 +227,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             include_url: [
                 // Exit
@@ -244,7 +243,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             double_hash: [
                 // Exit
@@ -267,7 +266,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             script_inject_part1: [
                 // Trailing comma
@@ -304,7 +303,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             script_inject_part2: [
                 // Mismatch parentheses
@@ -334,7 +333,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             options: [
                 // Trailing comma
@@ -375,8 +374,6 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // Actions
                 {
-                    // inline-font and inline-script must be before font
-                    // and script
                     token: "variable",
                     regex: new RegExp([
                         "elemhide",
@@ -391,7 +388,6 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // Resource type
                 {
-                    // object-subrequest must be before object
                     token: "variable",
                     regex: new RegExp([
                         "~?(?:" + [
@@ -458,7 +454,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             options_redirect: [
                 // Trailing comma
@@ -482,7 +478,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "options"
                 },
 
-                // Keywork "none"
+                // Keyword "none"
                 {
                     token: "keyword",
                     regex: safeCompileRegExp(
@@ -497,7 +493,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             options_domain: [
                 // Trailing comma
@@ -527,7 +523,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ],
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
             options_csp: [
                 // Trailing comma
@@ -557,14 +553,14 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 }
             ]
 
-            /*****************************************************************/
+            // ----------------------------------------------------------------------------------------------------- //
 
         };
     };
     oop.inherits(exports.HighlightRules, TextHighlightRules);
 });
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.Editor = function (elem, highlight, readonly) {
     this.editor = ace.edit(elem);
@@ -616,7 +612,7 @@ nano.Editor.prototype.destroy = function () {
     removeEventListener("resize", this.on_resize);
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.Editor.prototype.set_line_wrap = function (wrap) {
     this.session.setUseWrapMode(wrap);
@@ -640,7 +636,7 @@ nano.Editor.prototype.set_anno = function (anno) {
     this.session.setAnnotations(anno);
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.Editor.prototype.get_platform_line_break = function () {
     if (this.is_win)
@@ -665,7 +661,7 @@ nano.Editor.prototype.get_unix_value = function () {
     return data;
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.Editor.prototype.on = function (ev, callback) {
     this.session.on(ev, callback);
@@ -685,21 +681,27 @@ nano.Editor.prototype.on_key = function (name, key, callback) {
     });
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 addEventListener("load", () => {
     const style = document.createElement("style");
     style.id = "nano-highlight-override";
     style.innerText = [
+
+        // Style tweaks
+
         ".ace-tm .ace_invisible {",
         "    color: rgb(175, 175, 175);",
         "}",
-        "",
+
+        // Extended style
+
         ".ace-tm .ace_keyword.ace_preprocessor {",
         "    font-weight: bold;",
         "}",
+
     ].join("\n");
     document.head.append(style);
 });
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
