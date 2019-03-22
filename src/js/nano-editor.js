@@ -85,14 +85,14 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // Subfilter
                 {
-                    token: "keyword",
+                    token: "keyword.preprocessor",
                     regex: /! (?:>>>>>>>>|<<<<<<<<) /,
                     next: "subfilter"
                 },
 
                 // Preprocessor
                 {
-                    token: "keyword",
+                    token: "keyword.preprocessor",
                     regex: /^!#/,
                     next: "preprocessor"
                 },
@@ -203,21 +203,21 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // Includes
                 {
-                    token: "keyword",
+                    token: "keyword.preprocessor",
                     regex: /include (?!$)/,
                     next: "include_url"
                 },
 
                 // If condition
                 {
-                    token: "keyword",
+                    token: "keyword.preprocessor",
                     regex: /if (?!$)/,
                     next: "include_url"
                 },
 
                 // End if condition
                 {
-                    token: "keyword",
+                    token: "keyword.preprocessor",
                     regex: /endif/,
                     next: "start"
                 },
@@ -684,5 +684,22 @@ nano.Editor.prototype.on_key = function (name, key, callback) {
         exec: callback
     });
 };
+
+/*****************************************************************************/
+
+addEventListener("load", () => {
+    const style = document.createElement("style");
+    style.id = "nano-highlight-override";
+    style.innerText = [
+        ".ace-tm .ace_invisible {",
+        "    color: rgb(175, 175, 175);",
+        "}",
+        "",
+        ".ace-tm .ace_keyword.ace_preprocessor {",
+        "    font-weight: bold;",
+        "}",
+    ].join("\n");
+    document.head.append(style);
+});
 
 /*****************************************************************************/
