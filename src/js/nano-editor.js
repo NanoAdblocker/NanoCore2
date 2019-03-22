@@ -45,8 +45,7 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const unicode = require("ace/unicode");
 
     const TextMode = ace.require("ace/mode/text").Mode;
-    const HighlightRules =
-        ace.require("ace/mode/nano_filters_hr").HighlightRules;
+    const HighlightRules = ace.require("ace/mode/nano_filters_hr").HighlightRules;
 
     // The way tokenRe works seems to have changed, must test when updating Ace
     // https://github.com/ajaxorg/ace/pull/3454/files#diff-2a8db065be808cdb78daf80b97fcb4aa
@@ -55,8 +54,7 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
         this.lineCommentStart = "!";
         this.tokenRe = new RegExp(
             "^[" +
-            unicode.packages.L + unicode.packages.Mn +
-            unicode.packages.Mc + unicode.packages.Nd +
+            unicode.packages.L + unicode.packages.Mn + unicode.packages.Mc + unicode.packages.Nd +
             unicode.packages.Pc +
             "\\-_.]+",
             "g"
@@ -69,8 +67,7 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
 
 ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
     var oop = ace.require("ace/lib/oop");
-    var TextHighlightRules =
-        ace.require("ace/mode/text_highlight_rules").TextHighlightRules;
+    var TextHighlightRules = ace.require("ace/mode/text_highlight_rules").TextHighlightRules;
 
     // Order is important
     exports.HighlightRules = function () {
@@ -579,7 +576,7 @@ nano.Editor = function (elem, highlight, readonly) {
         "blockindent",
         "blockoutdent",
         "indent",
-        "outdent"
+        "outdent",
     ];
     for (const cmd of useless_commands)
         this.editor.commands.removeCommand(cmd);
