@@ -36,7 +36,7 @@
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "Не удалось загрузить содержимое, пожалуйста, обновите.",
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
@@ -44,7 +44,7 @@
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Переключение панели обзора",
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
@@ -52,35 +52,35 @@
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "(бета) Войти в режим принудительной прокрутки (это сломает макет)",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(бета) Открыть репортер ошибок",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano не сканировал остальные строки на предмет предупреждений, потому что слишком много предупреждений.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "This line is treated as a regular expression, is that intended?",
+    "message": "Эта строка рассматривается как регулярное выражение, это предназначено?",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano не сканировал остальные строки на наличие ошибок, потому что слишком много ошибок.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "This hostname is not valid.",
+    "message": "Это имя хоста недействительно.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "This regular expression has syntax errors.",
+    "message": "Это регулярное выражение имеет синтаксические ошибки.",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "This URL is not valid.",
+    "message": "Этот URL недействителен.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
