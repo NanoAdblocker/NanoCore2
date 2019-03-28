@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>.",
+    "message": "Nano поставляется с двумя наборами ресурсов, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ресурсы</a> и <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Дополнительные Ресурсы Nano</a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
@@ -180,7 +180,7 @@
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "A type option is not yet supported.",
+    "message": "Опция типа еще не поддерживается.",
     "description": "Error when unsupported type option used and entire rule discarded"
   },
   "nano_l_filter_bad_re": {
