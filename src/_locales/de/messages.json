@@ -1,18 +1,18 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Benutzeroberfläche",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Lange Zeilen im Filter-Editor automatisch umbrechen",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Lange Zeilen im Filter-Betrachter automatisch umbrechen",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "Filter neu kompilieren erzwingen",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
