@@ -116,17 +116,13 @@
 
         "nano_p_open_firewall_pane": {
             "message": "Toggle the overview panel",
-            "description": "Tooltip for toggle firewall (sometimes called " +
-                "overview) panel button",
+            "description": "Tooltip for toggle firewall (sometimes called overview) panel button",
         },
 
         "nano_p_refresh_button": {
-            "message": "Click to refresh this page.\n\nCtrl+click to " +
-                "refresh this page while bypassing cache.",
-
-            "description": "English: Click to refresh this " +
-                "page.\n\nCtrl+click to refresh this page while bypassing " +
-                "cache.",
+            "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+            "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing" +
+                " cache.",
         },
 
         // Beta buttons
@@ -146,18 +142,13 @@
         // Whitelist linter warnings
 
         "nano_l_whitelist_aborted_w": {
-            "message": "Nano did not scan the rest of the lines for " +
-                "warnings because there are too many warnings.",
-
+            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
             "description": "Warning when too many warnings in whitelists",
         },
 
         "nano_l_whitelist_suspecious_re": {
-            "message": "This line is treated as a regular expression, is " +
-                "that intended?",
-
-            "description": "Warning when parsed as regular expression but " +
-                "is unlikely the intention of user",
+            "message": "This line is treated as a regular expression, is that intended?",
+            "description": "Warning when parsed as regular expression but is unlikely the intention of user",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
@@ -165,9 +156,7 @@
         // Whitelist linter errors
 
         "nano_l_whitelist_aborted_e": {
-            "message": "Nano did not scan the rest of the lines for errors " +
-                "because there are too many errors.",
-
+            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
             "description": "Error when too many errors in whitelists",
         },
 
@@ -191,18 +180,13 @@
         // Filter linter warnings
 
         "nano_l_filter_aborted_w": {
-            "message": "Nano did not scan the rest of the lines for " +
-                "warnings because there are too many warnings.",
-
+            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
             "description": "Warning when too many warnings in filter rules",
         },
 
         "nano_l_filter_script_snippet_double_exception": {
-            "message": "Nano discarded a negated domain because it cannot " +
-                "be used in a script snippet exception rule.",
-
-            "description": "Warning when negated domain used with script " +
-                "snippet exception",
+            "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+            "description": "Warning when negated domain used with script snippet exception",
         },
 
         "nano_l_filter_converted_to_exception": {
