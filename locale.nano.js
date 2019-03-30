@@ -82,7 +82,8 @@
 
         "nano_d_unsaved_warning": {
             "message": "Leave tab?\nChanges you made will not be saved.",
-            "description": "Unsaved change warning",
+            "description": "Unsaved change warning, this should match Chrome's native prompt except that 'may' " +
+                "should be changed to 'will'",
         },
 
         "nano_d_about_based_on": {
