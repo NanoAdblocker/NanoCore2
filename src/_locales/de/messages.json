@@ -16,23 +16,23 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>.",
+    "message": "Nano enthält zwei Ressourcensätze, die <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ressourcen</a> und die <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>zusätzlichen Ressourcen von Nano</a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "Der Nano Filter-Editor basiert auf Ace und die meisten Tastenkombinationen funktionieren identisch.",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "Leave tab?\nChanges you made will not be saved.",
+    "message": "Tab verlassen?\nDeine Änderungen werden nicht gespeichert.",
     "description": "Unsaved change warning"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "Basierend auf {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — Filter-Betrachter",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
@@ -40,15 +40,15 @@
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "Cache-Kontrolle",
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Übersichtsfenster umschalten",
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "Klicken, um diese Seite neu zu laden.\n\nStrg+Klick, um diese Seite neu zu laden und dabei die im Cache gespeicherten Inhalte zu ignorieren.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -56,11 +56,11 @@
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) Fehlerberichterstattung öffnen",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Warnungen durchsucht, weil es zu viele Warnungen gibt.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
