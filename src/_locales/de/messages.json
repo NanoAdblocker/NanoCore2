@@ -64,39 +64,39 @@
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "This line is treated as a regular expression, is that intended?",
+    "message": "Diese Zeile wird als regulärer Ausdruck behandelt, ist das beabsichtigt?",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Fehlern durchsucht, weil es zu viele Fehler gibt.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "This hostname is not valid.",
+    "message": "Dieser Hostname ist ungültig.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "This regular expression has syntax errors.",
+    "message": "Dieser reguläre Ausdruck hat Syntax-Fehler.",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "This URL is not valid.",
+    "message": "Diese URL ist ungültig.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Warnungen durchsucht, weil es zu viele Warnungen gibt.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "Nano hat eine ausgeschlossene Domain verworfen, weil sie nicht in der Ausnahmeregel eines Skript-Schnipsels verwendet werden kann.",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+    "message": "Nano hat diese Regel in eine Ausnahmeregel umgewandelt, da sie nur ausgeschlossene Domains enthält.",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Negated domain is not yet supported for HTML filtering.",
+    "message": "Die ausgeschlossene Domain wird noch nicht für die HTML-Filterung unterstützt.",
     "description": "Warning when negated domain used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
@@ -104,7 +104,7 @@
     "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
+    "message": "Nano hat die Auswahl 'mp4' durch 'media,redirect=noopmp4-1s' ersetzt.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
@@ -112,7 +112,7 @@
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "message": "Die Ressource '{{res}}' konnte nicht gefunden werden, ist sie korrekt geschrieben?",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
@@ -120,7 +120,7 @@
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Inline comments are deprecated.",
+    "message": "Inline-Kommentare sind veraltet.",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
@@ -132,35 +132,35 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Fehlern durchsucht, weil es zu viele Fehler gibt.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not accepted due to security concerns.",
+    "message": "Aus Sicherheitsgründen wird rohe JavaScript Injection nicht akzeptiert.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "The selector in this rule has syntax errors.",
+    "message": "Der Selektor in dieser Regel hat Syntax-Fehler.",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
-    "message": "This rule cannot be generic.",
+    "message": "Diese Regel kann nicht generisch sein.",
     "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "This CSS injection rule has syntax errors.",
+    "message": "Diese Regel für eine CSS Injection hat Syntax-Fehler.",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "Nicht privilegierte Filter können nicht auf privilegierte Ressourcen verweisen.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "This host file entry is discarded because it is localhost declaration.",
+    "message": "Dieser Hostdatei-Eintrag wird verworfen, da es sich um eine Deklaration des localhost handelt.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
+    "message": "Regeln zum Entfernen von Elementen mit AdGuard-Syntax werden noch nicht unterstützt, stattdessen '##^' verwenden.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
