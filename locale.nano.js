@@ -38,8 +38,8 @@
     // ------------------------------------------------------------------------------------------------------------- //
 
     const ubo_res_doc = "https://github.com/gorhill/uBlock/wiki/Resources-Library";
-    const nano_res_doc = "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources." +
-        "txt";
+    const nano_res_doc = "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/" +
+        "NanoResources.txt";
 
     // ------------------------------------------------------------------------------------------------------------- //
 
@@ -72,7 +72,6 @@
         "nano_d_resources_links": {
             "message": "Nano comes with two sets of resources, " + mk_link(ubo_res_doc, "uBlock Origin Resources") +
                 " and " + mk_link(nano_res_doc, "Nano Extra Resources") + ".",
-
             "description": "Resources reference links",
         },
 
@@ -121,8 +120,8 @@
 
         "nano_p_refresh_button": {
             "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
-            "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing" +
-                " cache.",
+            "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while " +
+                "bypassing cache.",
         },
 
         // Beta buttons
@@ -185,7 +184,8 @@
         },
 
         "nano_l_filter_script_snippet_double_exception": {
-            "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+            "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception " +
+                "rule.",
             "description": "Warning when negated domain used with script snippet exception",
         },
 
@@ -347,40 +347,31 @@
         },
 
         "nano_r_no_supported_type": {
-            "message": "Nano discarded the option 'redirect=...' because it " +
-                "has no supported type option.",
-
+            "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
             "description": "Warning when 'redirect=' has no supported type",
         },
 
         "nano_r_negated_domain": {
-            "message": "Nano discarded a negated domain because it cannot " +
-                "be used with the option 'redirect=...'.",
-
+            "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
             "description": "Warning when negated domain used with 'redirect='",
         },
 
         "nano_r_no_destination": {
-            "message": "Nano discarded the option 'redirect=...' because it " +
-                "has no valid destination domain.",
-
+            "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
             "description": "Warning when 'redirect=' has no destination",
         },
 
         "nano_r_redirect_in_exception": {
-            "message": "The option 'redirect=...' cannot be used in " +
-                "exception rules.",
+            "message": "The option 'redirect=...' cannot be used in exception rules.",
             "description": "Error when 'redirect=' used in exception",
         },
 
         "nano_r_does_not_match_re": {
             // TODO: Think of a better warning message
-            "message": "Nano discarded the option 'redirect=...' because " +
-                "this network rule does not match this regular expression: " +
-                "{{regexp}}",
-
-            "description": "Warning when 'redirect=' failed initial test, " +
-                "use '{{regexp}}' to denote the tester if needed",
+            "message": "Nano discarded the option 'redirect=...' because this network rule does not match this " +
+                "regular expression: {{regexp}}",
+            "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester " +
+                "if needed",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
@@ -390,7 +381,6 @@
         "nano_b_cosmetic_filter_passed_through": {
             "message": "This rule is rejected for now. More information: " +
                 "https://github.com/NanoAdblocker/NanoCore/issues/77",
-
             "description": "https://github.com/NanoAdblocker/NanoCore/issues/77",
         },
 
