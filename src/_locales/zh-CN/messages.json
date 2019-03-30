@@ -17,7 +17,7 @@
   },
   "nano_d_resources_links": {
     "message": "Nano 拥有两套资源，<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'> uBlock Origin 的资源</a>和<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'> Nano 的额外资源</a>。",
-    "description": "Resources reference links"
+    "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
     "message": "Nano 规则编辑器是由 Ace 驱动的，大部分快捷键都一样。",
@@ -41,7 +41,7 @@
   },
   "nano_p_cache_control": {
     "message": "缓存管理",
-    "description": "The cache control strip name"
+    "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
     "message": "显示或隐藏概要边窗",
