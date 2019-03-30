@@ -1,53 +1,51 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Locale definition
+// Note that not every string is used
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Locale definition.
-
-    Note that not every string is used.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 (() => {
 
-    /*************************************************************************/
+    // ------------------------------------------------------------------------------------------------------------- //
 
     const mk_link = (url, name) => {
         return "<a href='" + url + "'>" + name + "</a>";
     };
 
-    /*************************************************************************/
+    // ------------------------------------------------------------------------------------------------------------- //
 
-    const ubo_res_doc =
-        "https://github.com/gorhill/uBlock/wiki/Resources-Library";
-    const nano_res_doc =
-        "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt";
+    const ubo_res_doc = "https://github.com/gorhill/uBlock/wiki/Resources-Library";
+    const nano_res_doc = "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources." +
+        "txt";
 
-    /*************************************************************************/
+    // ------------------------------------------------------------------------------------------------------------- //
 
     return {
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Dashboard
 
@@ -72,19 +70,15 @@
         },
 
         "nano_d_resources_links": {
-            "message": "Nano comes with two sets of resources, " +
-                mk_link(ubo_res_doc, "uBlock Origin Resources") + " and " +
-                mk_link(nano_res_doc, "Nano Extra Resources") + ".",
+            "message": "Nano comes with two sets of resources, " + mk_link(ubo_res_doc, "uBlock Origin Resources") +
+                " and " + mk_link(nano_res_doc, "Nano Extra Resources") + ".",
 
             "description": "Resources reference links",
         },
 
         "nano_d_ace_help": {
-            "message": "Nano Filter Editor is powered by Ace and most " +
-                "shortcut keys works the same.",
-
-            "description": "Explain the similarity between Nano Filter " +
-                "Editor and Ace in terms of shortcut keys",
+            "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+            "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys",
         },
 
         "nano_d_unsaved_warning": {
@@ -97,7 +91,7 @@
             "description": "English: Based on {{@data}}",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Filter viewer
 
@@ -111,7 +105,7 @@
             "description": "Error when filter content could not be loaded",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Popup panel
 
@@ -147,7 +141,7 @@
             "description": "Tooltip for bug reporter button"
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Whitelist linter warnings
 
@@ -166,7 +160,7 @@
                 "is unlikely the intention of user",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Whitelist linter errors
 
@@ -192,7 +186,7 @@
             "description": "Error when a URL not valid",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Filter linter warnings
 
@@ -257,7 +251,7 @@
             "description": "Warning when resource not found",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Filter linter deprecations
 
@@ -287,7 +281,7 @@
             "description": "Deprecation when 'mp4'",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Filter linter errors
 
@@ -393,7 +387,7 @@
             "description": "Error when the bad rule from SMed79 is discarded",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Redirect rule warnings
 
@@ -455,7 +449,7 @@
                 "use '{{regexp}}' to denote the tester if needed",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
         // Known bugs warnings
 
@@ -466,9 +460,9 @@
             "description": "https://github.com/NanoAdblocker/NanoCore/issues/77",
         },
 
-        /*********************************************************************/
+        // --------------------------------------------------------------------------------------------------------- //
 
     };
 })();
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
