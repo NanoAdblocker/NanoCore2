@@ -25,7 +25,7 @@
   },
   "nano_d_unsaved_warning": {
     "message": "离开本标签页？\n您所做的更改将不会被保存。",
-    "description": "Unsaved change warning"
+    "description": "Unsaved change warning, this should match Chrome's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
     "message": "基于 {{@data}}",

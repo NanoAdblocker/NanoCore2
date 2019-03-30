@@ -25,7 +25,7 @@
   },
   "nano_d_unsaved_warning": {
     "message": "Tab verlassen?\nDeine Änderungen werden nicht gespeichert.",
-    "description": "Unsaved change warning"
+    "description": "Unsaved change warning, this should match Chrome's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
     "message": "Basierend auf {{@data}}",
@@ -164,47 +164,47 @@
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
-    "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
+    "message": "Die Optionen 'generichide', 'ghide' und 'elemhide' können nicht negiert werden.",
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "The option 'domain=...' has invalid arguments.",
+    "message": "Die Option 'domain=...' hat ungültige Argumente.",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has invalid arguments.",
+    "message": "Die Option 'csp=...' hat ungültige Argumente.",
     "description": "Error when 'csp=' has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "The option '{{option}}' is not recognized.",
+    "message": "Die Option '{{option}}' wird nicht erkannt.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "A type option is not yet supported.",
+    "message": "Eine Typenangabe wird noch nicht unterstützt.",
     "description": "Error when unsupported type option used and entire rule discarded"
   },
   "nano_l_filter_bad_re": {
-    "message": "This network rule has regular expression syntax errors.",
+    "message": "Diese Netzwerkregel hat Syntax-Fehler im regulären Ausdruck.",
     "description": "Error when network has regular expression syntax errors"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "The domain anchor may not be immediately followed by '^'.",
+    "message": "Der Domänen-Anker kann nicht sofort von '^' gefolgt werden.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, da sie eine Typenangabe benötigt.",
     "description": "Warning when 'redirect=' has no type"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, weil sie zu viele Typenangaben enthält.",
     "description": "Warning when 'redirect=' has too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the option 'redirect=...' because it has no arguments.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, weil sie keine Argumente hat.",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, da sie keine unterstützte Typenangabe enthält.",
     "description": "Warning when 'redirect=' has no supported type"
   },
   "nano_r_negated_domain": {
@@ -216,7 +216,7 @@
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {
-    "message": "The option 'redirect=...' cannot be used in exception rules.",
+    "message": "Die Option 'redirect=...' kann nicht in Ausnahmeregeln verwendet werden.",
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
@@ -224,7 +224,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "Diese Regel wird vorerst abgelehnt. Weitere Informationen: https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
