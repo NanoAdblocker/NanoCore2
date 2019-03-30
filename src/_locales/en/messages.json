@@ -17,7 +17,7 @@
   },
   "nano_d_resources_links": {
     "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>.",
-    "description": "Resources reference links"
+    "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
     "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
@@ -41,7 +41,7 @@
   },
   "nano_p_cache_control": {
     "message": "cache control",
-    "description": "The cache control strip name"
+    "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
     "message": "Toggle the overview panel",

@@ -72,7 +72,7 @@
         "nano_d_resources_links": {
             "message": "Nano comes with two sets of resources, " + mk_link(ubo_res_doc, "uBlock Origin Resources") +
                 " and " + mk_link(nano_res_doc, "Nano Extra Resources") + ".",
-            "description": "Resources reference links",
+            "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated",
         },
 
         "nano_d_ace_help": {
@@ -110,7 +110,7 @@
 
         "nano_p_cache_control": {
             "message": "cache control",
-            "description": "The cache control strip name",
+            "description": "The cache control strip name, can be at most 20 English characters wide",
         },
 
         "nano_p_open_firewall_pane": {
