@@ -1,5 +1,5 @@
 diff --git a/src/css/codemirror.css b/src/css/codemirror.css
-index 4b06717e..c4ebdf08 100644
+index 3d5b7d6f..e8167e32 100644
 --- a/src/css/codemirror.css
 +++ b/src/css/codemirror.css
 @@ -17,7 +17,8 @@
@@ -9,6 +9,6 @@ index 4b06717e..c4ebdf08 100644
 -.cm-s-default .cm-comment { color: #777; }
 +.cm-s-default .cm-comment { color: rgb(191, 191, 191); }
 +.cm-s-default .cm-error { background-color: rgba(255, 0, 0, 0.1); color: red; }
+ .cm-directive { color: #333; font-weight: bold; }
  .cm-staticext { color: #008; }
  .cm-staticnetBlock { color: #800; }
- .cm-staticnetAllow { color: #004f00; }
