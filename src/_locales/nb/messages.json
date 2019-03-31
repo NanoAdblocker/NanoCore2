@@ -25,7 +25,7 @@
   },
   "nano_d_unsaved_warning": {
     "message": "Vil du forlate fanen?\nEndringer du har gjort, vil ikke bli lagret.",
-    "description": "Unsaved change warning, this should match Chrome's native prompt except that 'may' should be changed to 'will'"
+    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
     "message": "Basert på {{@data}}",

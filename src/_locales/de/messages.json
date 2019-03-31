@@ -25,7 +25,7 @@
   },
   "nano_d_unsaved_warning": {
     "message": "Tab verlassen?\nDeine Änderungen werden nicht gespeichert.",
-    "description": "Unsaved change warning, this should match Chrome's native prompt except that 'may' should be changed to 'will'"
+    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
     "message": "Basierend auf {{@data}}",
