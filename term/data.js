@@ -38,7 +38,7 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.97";
+exports.version = "1.0.0.98";
 
 /**
  * The based on string.
@@ -47,8 +47,8 @@ exports.version = "1.0.0.97";
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.18.9rc0",
-    "Commit/8b5d3d8",
+    "Version/1.18.14",
+    "Commit/4e01e26",
 
     "UserCSS/disabled",
 ].join(" ");
