@@ -20,7 +20,7 @@
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "Средство редактирования фильтров Nano основано на Ace и большинство сочетаний клавиш работают одинаково.",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
