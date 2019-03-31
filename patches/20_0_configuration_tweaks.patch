@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 00c0e07f..598c0a88 100644
+index de28ff19..7075160b 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -331,7 +331,7 @@ const registerAssetSource = function(assetKey, dict) {
@@ -11,7 +11,7 @@ index 00c0e07f..598c0a88 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -921,7 +921,7 @@ api.rmrf = function() {
+@@ -898,7 +898,7 @@ api.rmrf = function() {
  // Asset updater area.
  var updaterStatus,
      updaterTimer,
@@ -79,10 +79,10 @@ index 5f4256c8..36438eab 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 530e9162..3d4bf1e2 100644
+index 141ef523..32daddc3 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1349,7 +1349,7 @@
+@@ -1352,7 +1352,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -91,7 +91,7 @@ index 530e9162..3d4bf1e2 100644
              });
          }, updateDelay);
      };
-@@ -1449,7 +1449,7 @@
+@@ -1452,7 +1452,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

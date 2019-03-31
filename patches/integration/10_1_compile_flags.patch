@@ -60,10 +60,10 @@ index db6361a3..729792b1 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 049db27a..156acb48 100644
+index ba0c732b..4d307415 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -446,7 +446,8 @@
+@@ -449,7 +449,8 @@
      const onSaved = ( ) => {
          const compiledFilters = this.compileFilters(
              filters,
@@ -73,7 +73,7 @@ index 049db27a..156acb48 100644
          );
          const snfe = this.staticNetFilteringEngine;
          const cfe = this.cosmeticFilteringEngine;
-@@ -841,7 +842,7 @@
+@@ -844,7 +845,7 @@
  
  /******************************************************************************/
  
@@ -82,7 +82,7 @@ index 049db27a..156acb48 100644
      let writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -852,6 +853,9 @@
+@@ -855,6 +856,9 @@
          }
      }
  
@@ -92,7 +92,7 @@ index 049db27a..156acb48 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -911,6 +915,8 @@
+@@ -914,6 +918,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  

@@ -44,10 +44,10 @@ index b65ad7a1..62d0a4ca 100644
  renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index b8853689..f116ae1a 100644
+index 0effde4f..b33db194 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1099,6 +1099,10 @@ var onMessage = function(request, sender, callback) {
+@@ -1103,6 +1103,10 @@ var onMessage = function(request, sender, callback) {
          µb.changeHiddenSettings(µb.hiddenSettingsFromString(request.content));
          break;
  
