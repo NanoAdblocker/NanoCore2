@@ -65,7 +65,7 @@
 
             "./patches/00_0_textarea_spacing.patch",
 
-            "./patches/10_0_user_css.patch",
+            // "./patches/10_0_user_css.patch",
 
             "./patches/20_0_configuration_tweaks.patch",
             "./patches/20_1_header_parsing.patch",
