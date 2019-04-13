@@ -51,7 +51,7 @@ index d038c5d0..5ec05c8b 100644
 +
 +let nano_check_unsaved_changes = function() {
 +    const iframe = nano_content_iframe;
-+    if ( iframe.src == '' ) {
++    if ( iframe.src === '' ) {
 +        return false;
 +    } else {
 +        return iframe.contentWindow.nano_has_unsaved_changes === true;
