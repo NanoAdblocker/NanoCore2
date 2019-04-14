@@ -38,3 +38,5 @@ These may or may not be out of date.
   the comments.
 
 - Logger messages for invalid filters are not formatted consistently.
+
+- `background.js > systemSettings` has misaligned comments.
