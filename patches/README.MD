@@ -39,3 +39,5 @@ category because a pull request is opened upstream.
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
+
+## Group `40`: Code Cleanup
