@@ -154,6 +154,7 @@ const validated_write = (file, stream, on_done, on_error) => {
 const locales = new Map([
     ["es-ES", "es"],
     ["de", "de"],
+    ["it", "it"],
     ["nb", "nb"],
     ["pl", "pl"],
     ["ru", "ru"],
