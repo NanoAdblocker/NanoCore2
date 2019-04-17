@@ -48,7 +48,7 @@
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
-    "message": "Clicca per aggiornare la pagina.\n\nCtrl+click per aggiornare la pagina durante il bypass della cache.",
+    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
