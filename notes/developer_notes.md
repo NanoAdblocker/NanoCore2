@@ -37,6 +37,4 @@ These may or may not be out of date.
 - `storage.js > µBlock.loadFilterLists > onFilterListsReady` has a typo in
   the comments.
 
-- `background.js > systemSettings` has misaligned comments.
-
 - Logger messages for invalid filters are not formatted consistently.
