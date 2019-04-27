@@ -91,7 +91,7 @@ const validate_html = async (file) => {
 /**
  * Validate content of a directory recursively.
  * @async @function
- * @param {string} directory - Path to the directory to check.
+ * @param {string} dir - Path to the directory to check.
  */
 exports.validate_dir = async (dir) => {
     const files = await fs.readdir(dir);
@@ -109,11 +109,11 @@ exports.validate_dir = async (dir) => {
 
         assert(tasks[i].isFile());
         if (files[i].endsWith(".js"))
-            await validate_js(path.resolve(dir, files[i]))
+            await validate_js(path.resolve(dir, files[i]));
         else if (files[i].endsWith(".json"))
-            await validate_json(path.resolve(dir, files[i]))
+            await validate_json(path.resolve(dir, files[i]));
         else if (files[i].endsWith(".html"))
-            await validate_html(path.resolve(dir, files[i]))
+            await validate_html(path.resolve(dir, files[i]));
     }
 };
 
