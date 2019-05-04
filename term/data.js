@@ -1,49 +1,37 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Build data
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Build data.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Modules.
- * @const {Module}
- */
 const assert = require("assert");
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Version number.
- * @const {string}
- */
 exports.version = "1.0.0.105";
 
-/**
- * The based on string.
- * @const {string}
- */
 exports.based_on = [
     "uBlock Origin",
 
@@ -53,20 +41,10 @@ exports.based_on = [
     "UserCSS/disabled",
 ].join(" ");
 
-/**
- * Chromium extension identification string.
- * @const {string}
- */
 exports.chromium_id = "gabbbocakeomblphkmmnoamkioajlkfo";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Generate manifest.
- * @function
- * @param {Enum} browser - One of "chromium", "edge".
- * @return {string} Generated manifest file.
- */
 exports.manifest = (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -156,8 +134,7 @@ exports.manifest = (browser) => {
     };
 
     if (browser === "edge") {
-        // Edge does not care if the size is actually right but does care if
-        // the key name is right
+        // Edge does not care if the size is actually right but does care if the key name is right
         manifest["-ms-preload"] = {
             "backgroundScript": "js/edgyfy.js",
             "contentScript": "js/edgyfy.js",
@@ -175,8 +152,10 @@ exports.manifest = (browser) => {
             "128": "img/128_on.png",
             "16": "img/128_on.png",
         };
+
         // TODO: Remove when Edge properly support split mode
         manifest.incognito = "spanning";
+
         delete manifest.minimum_chrome_version;
         manifest.minimum_edge_version = "41.16299.248.0";
         manifest.options_page = "dashboard.html";
@@ -190,4 +169,4 @@ exports.manifest = (browser) => {
     return JSON.stringify(manifest, null, 2);
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
