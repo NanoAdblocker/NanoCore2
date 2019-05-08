@@ -158,6 +158,7 @@ const locales = new Map([
     ["nb", "nb"],
     ["pl", "pl"],
     ["ru", "ru"],
+    ["sv-SE", "sv"],
     ["zh-CN", "zh_CN"],
 ]);
 
