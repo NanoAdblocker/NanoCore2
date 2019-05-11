@@ -79,7 +79,7 @@ index 6a5868ad..f197607e 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index eb2f8aef..dcf5743a 100644
+index 42f26c9c..c128c938 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -1326,7 +1326,7 @@

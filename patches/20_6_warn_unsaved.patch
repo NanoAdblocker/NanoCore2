@@ -27,10 +27,10 @@ index 42ea241f..f81090b9 100644
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index d038c5d0..84cbf9bc 100644
+index efd74430..6cb02258 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
-@@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
+@@ -62,7 +62,10 @@ const onTabClickHandler = function(e) {
          url = url.slice(0, pos);
      }
      url += this.hash;
@@ -42,7 +42,7 @@ index d038c5d0..84cbf9bc 100644
          window.location.replace(url);
          loadDashboardPanel();
      }
-@@ -81,4 +84,32 @@ loadDashboardPanel();
+@@ -82,4 +85,32 @@ uDom('.tabButton').on('click', onTabClickHandler);
  
  /******************************************************************************/
  
@@ -98,31 +98,6 @@ index 5e36ce91..cf4fc938 100644
      };
  
      return function(now) {
-diff --git a/src/js/udom.js b/src/js/udom.js
-index caa2a824..d681b9dc 100644
---- a/src/js/udom.js
-+++ b/src/js/udom.js
-@@ -672,20 +672,6 @@ DOMList.prototype.trigger = function(etype) {
- 
- /******************************************************************************/
- 
--// Cleanup
--
--const onBeforeUnload = function() {
--    var entry;
--    while ( (entry = listenerEntries.pop()) ) {
--        entry.dispose();
--    }
--    window.removeEventListener('beforeunload', onBeforeUnload);
--};
--
--window.addEventListener('beforeunload', onBeforeUnload);
--
--/******************************************************************************/
--
- return DOMListFactory;
- 
- })();
 diff --git a/src/js/whitelist.js b/src/js/whitelist.js
 index 13456f01..dd6980c9 100644
 --- a/src/js/whitelist.js

@@ -61,7 +61,7 @@ index 038079e1..ac43aece 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 2f4caeb4..eaa8c072 100644
+index 2f4caeb4..8838355b 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -998,7 +998,10 @@
@@ -71,7 +71,7 @@ index 2f4caeb4..eaa8c072 100644
 -        const fetchPromises = [ this.assets.get('ublock-resources') ];
 +        const fetchPromises = [ 
 +            this.assets.get('ublock-resources'),
-+            this.assets.get('nano-resources'),
++            this.assets.get('nano-resources')
 +        ];
  
          const userResourcesLocation = this.hiddenSettings.userResourcesLocation;
