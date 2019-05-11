@@ -1,5 +1,5 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index f03fdf68..0648cfa1 100644
+index dc2217dc..2ca3d0ab 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
 @@ -542,7 +542,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
@@ -21,7 +21,7 @@ index f03fdf68..0648cfa1 100644
  ) {
      const selector = parsed.suffix;
      const type = selector.charCodeAt(0);
-@@ -603,6 +604,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+@@ -610,6 +611,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
              type: 'error',
              text: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
@@ -35,7 +35,7 @@ index f03fdf68..0648cfa1 100644
          return;
      }
  
-@@ -664,6 +672,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -671,6 +679,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: #@#${parsed.suffix}`
          });
@@ -43,7 +43,7 @@ index f03fdf68..0648cfa1 100644
          return;
      }
  
-@@ -695,6 +704,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -702,6 +711,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: ##${parsed.suffix}`
          });
@@ -76,7 +76,7 @@ index 3747bb72..8b83b376 100644
              if ( parsed.exception ) {
                  hash |= 0b0001;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index fa2ea5b3..67f0bef9 100644
+index b94966c9..c72d18c7 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -300,7 +300,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -182,10 +182,10 @@ index ac43aece..f51c6b27 100644
              } else if ( negated ) {
                  hash |= 0b0001;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 14c03449..b848a3aa 100644
+index 4c41f7b1..8ce6b22a 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -775,14 +775,20 @@
+@@ -787,14 +787,20 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -208,7 +208,7 @@ index 14c03449..b848a3aa 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -805,6 +811,7 @@
+@@ -817,6 +823,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -217,10 +217,10 @@ index 14c03449..b848a3aa 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index bf2d6018..8b7913c9 100644
+index 259ed992..8482b07c 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1461,6 +1461,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
+@@ -1842,6 +1842,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
  
      // Non-discrete network types can't be negated.
      if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
@@ -231,7 +231,7 @@ index bf2d6018..8b7913c9 100644
          return;
      }
  
-@@ -1533,6 +1537,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1912,6 +1916,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -239,7 +239,7 @@ index bf2d6018..8b7913c9 100644
              break;
          }
          // Test before handling all other types.
-@@ -1542,6 +1547,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1921,6 +1926,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -247,7 +247,7 @@ index bf2d6018..8b7913c9 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1555,6 +1561,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1934,6 +1940,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -255,7 +255,7 @@ index bf2d6018..8b7913c9 100644
                  break;
              }
              continue;
-@@ -1572,6 +1579,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1951,6 +1958,8 @@ FilterParser.prototype.parseOptions = function(s) {
                  this.parseTypeOption('data', not);
                  this.dataType = 'csp';
                  this.dataStr = opt.slice(4).trim();
@@ -264,7 +264,7 @@ index bf2d6018..8b7913c9 100644
              }
              continue;
          }
-@@ -1586,6 +1595,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1965,6 +1974,8 @@ FilterParser.prototype.parseOptions = function(s) {
              this.fopts = opts.join(',');
              var pos = this.raw.lastIndexOf('$');
              this.raw = this.raw.slice(0, pos + 1) + this.fopts;
@@ -273,7 +273,7 @@ index bf2d6018..8b7913c9 100644
              continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-@@ -1599,6 +1610,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1978,6 +1989,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -281,7 +281,7 @@ index bf2d6018..8b7913c9 100644
          break;
      }
  };
-@@ -1636,6 +1648,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2015,6 +2027,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -289,7 +289,7 @@ index bf2d6018..8b7913c9 100644
              return this;
          }
      }
-@@ -1662,6 +1675,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2041,6 +2054,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -297,7 +297,7 @@ index bf2d6018..8b7913c9 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -1672,7 +1686,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2051,7 +2065,10 @@ FilterParser.prototype.parse = function(raw) {
                  this.types &= ~this.unsupportedTypeBit;
                  if ( this.types === 0 ) {
                      this.unsupported = true;
@@ -308,7 +308,7 @@ index bf2d6018..8b7913c9 100644
                  }
              }
              s = s.slice(0, pos);
-@@ -1694,6 +1711,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2073,6 +2090,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -316,7 +316,7 @@ index bf2d6018..8b7913c9 100644
          }
          return this;
      }
-@@ -1718,6 +1736,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2097,6 +2115,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -324,7 +324,7 @@ index bf2d6018..8b7913c9 100644
              return this;
          }
  
-@@ -2230,6 +2249,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2697,6 +2716,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
      if ( type === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
@@ -335,7 +335,7 @@ index bf2d6018..8b7913c9 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 157c1986..141ef523 100644
+index eaa8c072..eb2f8aef 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -414,7 +414,11 @@

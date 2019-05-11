@@ -37,4 +37,7 @@ These may or may not be out of date.
 - `storage.js > µBlock.loadFilterLists > onFilterListsReady` has a typo in
   the comments.
 
+- `storage.js > µBlock.loadRedirectResources` checks whether `results` is an
+  array, but it is guaranteed to be an array as it comes from `Promise.all`.
+
 - Logger messages for invalid filters are not formatted consistently.

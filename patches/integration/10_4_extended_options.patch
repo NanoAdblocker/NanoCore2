@@ -1,5 +1,5 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 15982c43..fa2ea5b3 100644
+index 6e8cefd4..b94966c9 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -370,6 +370,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
@@ -12,10 +12,10 @@ index 15982c43..fa2ea5b3 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 729792b1..bf2d6018 100644
+index fa30c7e3..259ed992 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1406,7 +1406,10 @@ FilterParser.prototype.toNormalizedType = {
+@@ -1786,7 +1786,10 @@ FilterParser.prototype.toNormalizedType = {
                 'xhr': 'xmlhttprequest',
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
@@ -27,7 +27,7 @@ index 729792b1..bf2d6018 100644
  };
  
  /******************************************************************************/
-@@ -1524,7 +1527,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1903,7 +1906,7 @@ FilterParser.prototype.parseOptions = function(s) {
          // https://issues.adblockplus.org/ticket/616
          // `generichide` concept already supported, just a matter of
          // adding support for the new keyword.
@@ -36,7 +36,7 @@ index 729792b1..bf2d6018 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -1578,8 +1581,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1957,8 +1960,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }

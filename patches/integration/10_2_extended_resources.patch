@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 9317bba0..de28ff19 100644
+index 286a4320..ad343006 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -950,6 +950,9 @@ var updateNext = function() {
+@@ -970,6 +970,9 @@ var updateNext = function() {
              if ( assetKey === 'ublock-resources' && noRemoteResources ) {
                  continue;
              }
@@ -61,75 +61,22 @@ index 038079e1..ac43aece 100644
          //   Ignore instances of exception filter with negated hostnames,
          //   because there is no way to create an exception to an exception.
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 4d307415..157c1986 100644
+index 2f4caeb4..eaa8c072 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -994,7 +994,7 @@
+@@ -998,7 +998,10 @@
+     return this.redirectEngine.resourcesFromSelfie().then(success => {
+         if ( success === true ) { return; }
  
- /******************************************************************************/
+-        const fetchPromises = [ this.assets.get('ublock-resources') ];
++        const fetchPromises = [ 
++            this.assets.get('ublock-resources'),
++            this.assets.get('nano-resources'),
++        ];
  
--µBlock.loadRedirectResources = function(updatedContent) {
-+µBlock.loadRedirectResources = function(updatedContent, nanoIsExtended) {
-     let content = '';
- 
-     const onDone = ( ) => {
-@@ -1008,9 +1008,28 @@
-         onDone();
-     };
- 
--    const onResourcesLoaded = details => {
-+    const nanoHasChange =
-+        typeof updatedContent === 'string' && updatedContent.length !== 0;
-+
-+    const nanoFetchResourceByKey = (key, callback) => {
-+        if ( !nanoHasChange ) {
-+            this.assets.get(key, callback);
-+            return;
-+        }
-+        if ( key === 'ublock-resources' && !nanoIsExtended ) {
-+            callback({ content: updatedContent });
-+            return;
-+        }
-+        if ( key === 'nano-resources' && nanoIsExtended ) {
-+            callback({ content: updatedContent });
-+            return;
-+        }
-+        this.assets.get(key, callback);
-+    };
-+
-+    const nanoOnExtendedResourcesLoaded = details => {
-         if ( details.content !== '' ) {
--            content = details.content;
-+            content += '\n\n' + details.content;
-         }
-         if ( this.hiddenSettings.userResourcesLocation === 'unset' ) {
-             return onDone();
-@@ -1021,13 +1040,21 @@
-         );
-     };
- 
--    if ( typeof updatedContent === 'string' && updatedContent.length !== 0 ) {
--        return onResourcesLoaded({ content: updatedContent });
-+    const nanoOnResourcesLoaded = details => {
-+        if ( details.content !== '' ) {
-+            content = details.content;
-+        }
-+        nanoFetchResourceByKey('nano-resources', nanoOnExtendedResourcesLoaded);
-+    };
-+
-+    if ( nanoHasChange ) {
-+        nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
-+        return;
-     }
- 
-     this.redirectEngine.resourcesFromSelfie().then(success => {
-         if ( success !== true ) {
--            this.assets.get('ublock-resources', onResourcesLoaded);
-+            nanoFetchResourceByKey('ublock-resources', nanoOnResourcesLoaded);
-         }
-     });
- };
-@@ -1317,7 +1344,10 @@
+         const userResourcesLocation = this.hiddenSettings.userResourcesLocation;
+         if ( userResourcesLocation !== 'unset' ) {
+@@ -1315,7 +1318,10 @@
              }
          }
          // https://github.com/gorhill/uBlock/issues/2594
@@ -141,15 +88,15 @@ index 4d307415..157c1986 100644
              if (
                  this.hiddenSettings.ignoreRedirectFilters === true &&
                  this.hiddenSettings.ignoreScriptInjectFilters === true
-@@ -1360,6 +1390,11 @@
+@@ -1353,7 +1359,10 @@
              if ( cached ) {
-                 this.loadRedirectResources(details.content);
+                 this.compilePublicSuffixList(details.content);
              }
-+        } else if ( details.assetKey === 'nano-resources' ) {
-+            this.redirectEngine.invalidateResourcesSelfie();
-+            if ( cached ) {
-+                this.loadRedirectResources(details.content, true);
-+            }
+-        } else if ( details.assetKey === 'ublock-resources' ) {
++        } else if (
++            details.assetKey === 'ublock-resources' ||
++            details.assetKey === 'nano-resources'
++        ) {
+             this.redirectEngine.invalidateResourcesSelfie();
          }
          vAPI.messaging.broadcast({
-             what: 'assetUpdated',

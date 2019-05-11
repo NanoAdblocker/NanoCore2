@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index de28ff19..7075160b 100644
+index ad343006..259a49f9 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -331,7 +331,7 @@ const registerAssetSource = function(assetKey, dict) {
+@@ -351,7 +351,7 @@ const registerAssetSource = function(assetKey, dict) {
          entry.contentURL = [];
      }
      if ( typeof entry.updateAfter !== 'number' ) {
@@ -11,7 +11,7 @@ index de28ff19..7075160b 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -898,7 +898,7 @@ api.rmrf = function() {
+@@ -918,7 +918,7 @@ api.rmrf = function() {
  // Asset updater area.
  var updaterStatus,
      updaterTimer,
@@ -21,7 +21,7 @@ index de28ff19..7075160b 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 78ed2290..9a569450 100644
+index 0d9d5824..364468fa 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -38,8 +38,8 @@ const µBlock = (function() { // jshint ignore:line
@@ -53,7 +53,7 @@ index 78ed2290..9a569450 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 5f4256c8..36438eab 100644
+index 6a5868ad..f197607e 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -242,13 +242,6 @@ const onUserSettingsReady = function(fetched) {
@@ -70,7 +70,7 @@ index 5f4256c8..36438eab 100644
  };
  
  /******************************************************************************/
-@@ -330,6 +323,7 @@ const onSelectedFilterListsReady = function() {
+@@ -333,6 +326,7 @@ const createDefaultProps = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
@@ -79,10 +79,10 @@ index 5f4256c8..36438eab 100644
              'no-scripting: behind-the-scene false'
          ].join('\n'),
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 141ef523..32daddc3 100644
+index eb2f8aef..dcf5743a 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1352,7 +1352,7 @@
+@@ -1326,7 +1326,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -91,7 +91,7 @@ index 141ef523..32daddc3 100644
              });
          }, updateDelay);
      };
-@@ -1452,7 +1452,7 @@
+@@ -1421,7 +1421,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

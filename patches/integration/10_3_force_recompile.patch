@@ -11,10 +11,10 @@ index 4b260c58..54c4e8db 100644
  
  <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index b65ad7a1..62d0a4ca 100644
+index 53c209c5..a4c65cc8 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
-@@ -116,6 +116,17 @@ let applyChanges = function() {
+@@ -117,6 +117,17 @@ const applyChanges = function() {
  
  /******************************************************************************/
  
@@ -32,7 +32,7 @@ index b65ad7a1..62d0a4ca 100644
  uDom.nodeFromId('advancedSettings').addEventListener(
      'input',
      advancedSettingsChanged
-@@ -124,6 +135,10 @@ uDom.nodeFromId('advancedSettingsApply').addEventListener(
+@@ -125,6 +136,10 @@ uDom.nodeFromId('advancedSettingsApply').addEventListener(
      'click',
      applyChanges
  );
