@@ -1,43 +1,43 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Dashboard my filters tab script
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Dashboard my filters tab script.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 var nano = nano || {};
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.filters_cache = "";
 nano.editor = new nano.Editor("userFilters", true, false);
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 window.nano_has_unsaved_changes = false;
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.load_settings = () => {
     const on_msg = (wrap) => {
@@ -55,7 +55,7 @@ nano.load_settings = () => {
     );
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.render_filters = (first) => {
     const on_msg = function (details) {
@@ -99,7 +99,7 @@ nano.render_anno = () => {
     );
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.filters_changed = (changed) => {
     if (typeof changed !== "boolean")
@@ -168,7 +168,7 @@ nano.filters_revert = () => {
     nano.filters_changed(false);
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.import_picked = function () {
     const abp_importer = (s) => {
@@ -220,7 +220,7 @@ nano.import_filters = () => {
     input.click();
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.export_filters = () => {
     const val = nano.editor.get_platform_value().trim();
@@ -239,7 +239,7 @@ nano.export_filters = () => {
     });
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.init = () => {
     let elem = document.getElementById("importUserFiltersFromFile");
@@ -261,7 +261,7 @@ nano.init = () => {
     nano.load_settings();
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 cloud.onPush = () => {
     return nano.editor.get_unix_value();
@@ -282,7 +282,7 @@ cloud.onPull = (data, append) => {
     nano.filters_changed();
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 nano.init();
 
@@ -291,4 +291,4 @@ nano.editor.on_key("save", "Ctrl-S", () => {
     btn.click();
 });
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
