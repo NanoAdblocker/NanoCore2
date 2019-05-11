@@ -181,14 +181,14 @@ nano.import_picked = function () {
             return s;
 
         const out = [];
-        while (matches !== null) {
+        do {
             if (matches.length === 2) {
                 let filter_match = re_abp_filter_extractor.exec(matches[1].trim());
                 if (filter_match !== null && filter_match.length === 2)
                     out.push(filter_match[1].trim().replace(/\\\[/g, "["));
             }
             matches = re_abp_subscription_extractor.exec(s);
-        }
+        } while (matches !== null);
 
         return out.join("\n");
     };
