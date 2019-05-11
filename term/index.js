@@ -31,12 +31,12 @@ const APP_NAME = "Nano Core 2 Terminal";
 // ----------------------------------------------------------------------------------------------------------------- //
 
 const assert = require("assert");
-const build = require("./build.js");
-const crowdin = require("./crowdin.js");
 const fs = require("fs-extra");
 const os = require("os");
 const path = require("path");
 
+const build = require("./build.js");
+const crowdin = require("./crowdin.js");
 const Term = require("./term.js");
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -53,6 +53,7 @@ const exec = async (expected, ...args) => {
     assert(typeof expected === "number");
 
     const exit_code = await term.exec(...args);
+
     if (exit_code !== expected)
         throw new Error("Exit code is not " + expected.toString() + ".");
 };
@@ -74,6 +75,7 @@ const config_load = async () => {
     const data = eval(await fs.readFile("./config.nano.js", "utf8"));
 
     config.Patches = data.Patches.map((p) => path.resolve(p));
+
     if (os.platform() === "win32") {
         config.Source = data.Source.Win;
         config.Target = data.Target.Win;
@@ -91,7 +93,9 @@ const config_load = async () => {
         const slashes = p.match(/\//g);
         assert(slashes !== null && slashes.length >= 2);
     };
+
     assert(Array.isArray(config.Patches));
+
     validate_path(config.Source);
     validate_path(config.Target);
     validate_path(config.Output);
@@ -146,6 +150,7 @@ const diff = async (p) => {
     const stream = fs.createWriteStream(p, {
         encoding: "utf8",
     });
+
     stream.on("error", (err) => {
         has_error = true;
         term.write_line(err.stack);
@@ -159,6 +164,7 @@ const diff = async (p) => {
         },
         exec_opt(),
     ), "diff");
+
     await new Promise((resolve, reject) => {
         stream.end(() => {
             if (has_error)
@@ -203,6 +209,7 @@ cmd_handlers.set("sync", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -222,6 +229,7 @@ cmd_handlers.set("apply", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -235,6 +243,7 @@ cmd_handlers.set("mark", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -242,7 +251,7 @@ cmd_handlers.set("mark", async () => {
 
 const browsers = [
     "chromium",
-    // "edge",
+    "edge",
 ];
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -300,6 +309,7 @@ cmd_handlers.set("make", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -315,6 +325,7 @@ cmd_handlers.set("pack", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -331,6 +342,7 @@ cmd_handlers.set("publish", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -348,6 +360,7 @@ for (const b of browsers) {
         }
 
         busy = false;
+
         term.ready();
     });
 }
@@ -362,6 +375,7 @@ cmd_handlers.set("clean", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -371,6 +385,7 @@ const lmake = async () => {
     const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
 
     const output = path.resolve("./src/_locales/en/");
+
     await fs.mkdirp(output);
 
     await fs.writeFile(
@@ -396,6 +411,7 @@ cmd_handlers.set("lmake", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -409,6 +425,7 @@ cmd_handlers.set("lsync", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -425,6 +442,7 @@ cmd_handlers.set("reload", async () => {
     await config_load();
 
     busy = false;
+
     term.ready();
 });
 
@@ -446,6 +464,7 @@ const main = async () => {
     await config_load();
 
     busy = false;
+
     term.ready();
 };
 
