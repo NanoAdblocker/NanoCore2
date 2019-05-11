@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 1c5b0668..919c6112 100644
+index 39439363..78d42308 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -49,6 +49,9 @@ const µBlock = (function() { // jshint ignore:line
@@ -21,10 +21,10 @@ index 1c5b0668..919c6112 100644
  
          selectedFilterLists: [],
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 7e0bef59..14c03449 100644
+index e805777d..4c41f7b1 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -790,6 +790,8 @@
+@@ -802,6 +802,8 @@
          // Exception filter?
          parsed.exception = raw.charCodeAt(lpos + 1) === 0x40 /* '@' */;
  
@@ -34,10 +34,10 @@ index 7e0bef59..14c03449 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index db6361a3..729792b1 100644
+index 169e6251..fa30c7e3 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1584,6 +1584,10 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1963,6 +1963,10 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
          if ( opt === 'badfilter' ) {
@@ -48,7 +48,7 @@ index db6361a3..729792b1 100644
              this.badFilter = true;
              continue;
          }
-@@ -1633,6 +1637,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2012,6 +2016,10 @@ FilterParser.prototype.parse = function(raw) {
      // block or allow filter?
      // Important: this must be executed before parsing options
      if ( s.startsWith('@@') ) {
@@ -60,7 +60,7 @@ index db6361a3..729792b1 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index ba0c732b..4d307415 100644
+index a2ce93e8..2f4caeb4 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -449,7 +449,8 @@
