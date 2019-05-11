@@ -174,8 +174,7 @@ nano.import_picked = function () {
     const abp_importer = (s) => {
         const re_abp_subscription_extractor =
             /\n\[Subscription\]\n+url=~[^\n]+([\x08-\x7E]*?)(?:\[Subscription\]|$)/ig;
-        const re_abp_filter_extractor =
-            /\[Subscription filters\]([\x08-\x7E]*?)(?:\[Subscription\]|$)/i;
+        const re_abp_filter_extractor = /\[Subscription filters\]([\x08-\x7E]*?)(?:\[Subscription\]|$)/i;
 
         let matches = re_abp_subscription_extractor.exec(s);
         if (matches === null)
