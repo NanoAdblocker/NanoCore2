@@ -152,11 +152,11 @@
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "Ej privilegierade filter kan inte referera till privilegierade resurser.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "This host file entry is discarded because it is localhost declaration.",
+    "message": "Denna värdfilinmatning förkastades eftersom den är en localhost-deklaration.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
@@ -188,7 +188,7 @@
     "description": "Error when network has regular expression syntax errors"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "The domain anchor may not be immediately followed by '^'.",
+    "message": "Domänankaret får inte följas omedelbart av ett '^'.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
