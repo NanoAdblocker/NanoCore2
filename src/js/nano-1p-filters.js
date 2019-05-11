@@ -194,10 +194,10 @@ nano.import_picked = function () {
     };
 
     const on_file_reader_load = function () {
-        const sanitized = abp_importer(this.result);
-        nano.editor.set_value_focus(
-            nano.editor.get_unix_value().trim() + "\n" + sanitized
-        );
+        let content = abp_importer(this.result);
+        content = uBlockDashboard.mergeNewLines(nano.editor.get_unix_value().trim(), content);
+
+        nano.editor.set_value_focus(content + "\n");
         nano.filters_changed();
     };
 
