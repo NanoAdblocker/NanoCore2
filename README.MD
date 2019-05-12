@@ -110,8 +110,7 @@ Do not forget to copy and commit generated patches from `mark` to make them
 permanent. Also adjust the configuration file as appropriate.
 
 To update a patch, simply paste further changes to the bottom of that patch and
-`sync` them in. If something breaks, try disabling patches after that patch
-temporarily.
+`sync` them in.
 
 To fix conflict, either edit the broken patch file manually or disable it
 along with patches after it then recreate the changes.
