@@ -40,6 +40,6 @@ category because a pull request is opened upstream.
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
 
-## Group `40`: Code Cleanup
+## Group `90`: Other Changes
 
-(nothing for now)
+`90_0_temp_magic_override.patch`: Compile magic overrides.

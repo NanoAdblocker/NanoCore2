@@ -77,6 +77,8 @@
 
             "./patches/30_0_link_resources.patch",
 
+            "./patches/90_0_temp_magic_override.patch",
+
             /*****************************************************************/
 
         ],
