@@ -34,7 +34,7 @@ index e805777d..4c41f7b1 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 169e6251..fa30c7e3 100644
+index b71be872..be1211a0 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1963,6 +1963,10 @@ FilterParser.prototype.parseOptions = function(s) {
