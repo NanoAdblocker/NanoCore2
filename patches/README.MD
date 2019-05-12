@@ -42,4 +42,5 @@ category because a pull request is opened upstream.
 
 ## Group `90`: Other Changes
 
-`90_0_temp_magic_override.patch`: Compile magic overrides.
+`90_0_temp_magic_override.patch`: Temporary compile magic and selfie magic
+overrides.
