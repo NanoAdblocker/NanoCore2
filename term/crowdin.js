@@ -1,52 +1,55 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Crowdin project helper
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Crowdin project helper.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Modules.
- * @const {Module}
- */
 const fs = require("fs-extra");
 const https = require("https");
 const path = require("path");
 const url = require("url");
 const yauzl = require("yauzl");
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Read stream into a buffer.
- * @function
- * @param {ReadableStream} stream - Stream to read.
- * @param {Function} on_done - Done event handler.
- *     @param {Buffer} data - Data read from the stream.
- * @param {Function} on_error - Error event handler.
- *     @param {Error} err - Error object.
- */
+// Supported locales
+// Crowdin key to Chromium key
+const locales = new Map([
+    ["es-ES", "es"],
+    ["de", "de"],
+    ["it", "it"],
+    ["nb", "nb"],
+    ["pl", "pl"],
+    ["ru", "ru"],
+    ["sv-SE", "sv"],
+    ["zh-CN", "zh_CN"],
+    ["zh-TW", "zh_TW"],
+]);
+
+// ----------------------------------------------------------------------------------------------------------------- //
+
 const stream_to_buffer = (stream, on_done, on_error) => {
     const data = [];
 
@@ -57,21 +60,10 @@ const stream_to_buffer = (stream, on_done, on_error) => {
     stream.on("end", () => {
         on_done(Buffer.concat(data));
     });
+
     stream.on("error", on_error);
 };
 
-/**
- * Download a file.
- * @function
- * @param {string} link - URL to the file to download. Must be using the HTTPS
- * protocol.
- * @param {Function} on_done - Done event handler.
- *     @param {Buffer} file - File content.
- * @param {Function} on_error - Error event handler.
- *     @param {Error} err - Error object.
- * @param {boolean} [no_redir=false] - Whether redirection is forbidden. If
- * false, redirect will be followed for at most once.
- */
 const download = (link, on_done, on_error, no_redir = false) => {
     const opt = url.parse(link);
 
@@ -100,7 +92,6 @@ const download = (link, on_done, on_error, no_redir = false) => {
 
         if (res.statusCode !== 200) {
             on_error(new Error("Connection error."));
-
             return void res.resume();
         }
 
@@ -108,22 +99,16 @@ const download = (link, on_done, on_error, no_redir = false) => {
     });
 
     req.on("error", on_error);
+
     req.end();
 };
 
-/**
- * Validate a JSON stream and write to a file.
- * @function
- * @param {string} file - Path to output file.
- * @param {ReadableStream} stream - Data stream.
- * @param {Function} on_done - Done event handler.
- * @param {Function} on_error - Error event handler.
- *     @param {Error} err - Error object.
- */
+// Validates JSON
 const validated_write = (file, stream, on_done, on_error) => {
     let data = "";
 
     stream.setEncoding("utf8");
+
     stream.on("data", (c) => {
         data += c;
     });
@@ -142,36 +127,14 @@ const validated_write = (file, stream, on_done, on_error) => {
                 on_done();
         });
     });
+
     stream.on("error", on_error);
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Supported locales with their normalized keys.
- * @const {Map}
- */
-const locales = new Map([
-    ["es-ES", "es"],
-    ["de", "de"],
-    ["it", "it"],
-    ["nb", "nb"],
-    ["pl", "pl"],
-    ["ru", "ru"],
-    ["sv-SE", "sv"],
-    ["zh-CN", "zh_CN"],
-]);
-
-/*****************************************************************************/
-
-/**
- * Download, safely unpack, validate, then build supported non-English locales
- * from the latest build of the Crowdin project.
- * Note that you still have to manually build the project on Crowdin when
- * there are changes.
- * @async @function
- * @throws When things go wrong.
- */
+// Download, safely unpack, validate, then build supported non-English locales from Crowdin
+// Note that you still have to manually build the project on Crowdin when there are changes
 exports.sync = async () => {
     const file = await new Promise((resolve, reject) => {
         download(
@@ -231,6 +194,7 @@ exports.sync = async () => {
                 else
                     resolve();
             });
+
             zip.on("error", reject);
 
             next();
@@ -238,4 +202,4 @@ exports.sync = async () => {
     });
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
