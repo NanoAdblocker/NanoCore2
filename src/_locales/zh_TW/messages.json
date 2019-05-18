@@ -12,11 +12,11 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "強制重新編譯過濾器",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>.",
+    "message": "Nano 擁有兩組資源，<a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'> uBlock Origin 的資源</a>和<a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'> Nano 的額外資源</a>。",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
@@ -28,7 +28,7 @@
     "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "基於 {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
@@ -36,11 +36,11 @@
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "內容讀取失敗，請重新整理。",
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "快取控制",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
@@ -48,35 +48,35 @@
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "按一下：重新整理目前頁面\n\nCtrl + 按一下：無視快取並重新整理目前頁面",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "（測試階段）進入強制捲動模式（會破壞佈局）",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "（測試階段）打開錯誤報告",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+    "message": "Nano 沒有檢查剩下的白名單，因為已經有太多警告。",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "This line is treated as a regular expression, is that intended?",
+    "message": "這行被解析成了正則表示式，您確定這是正確的麼？",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+    "message": "Nano 沒有掃描剩下的白名單，因為已經有太多錯誤。",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "This hostname is not valid.",
+    "message": "這個主機名稱無效。",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "This regular expression has syntax errors.",
+    "message": "這個正規表示式有語法錯誤。",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {

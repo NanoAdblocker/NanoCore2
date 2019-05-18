@@ -24,7 +24,7 @@
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "离开本标签页？\n您所做的更改将不会被保存。",
+    "message": "离开此标签？\n系统将不会保存您所做的更改。",
     "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
@@ -40,7 +40,7 @@
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "缓存管理",
+    "message": "缓存控制",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
