@@ -80,7 +80,7 @@
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "这个路径无效。",
+    "message": "这个网址无效。",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
