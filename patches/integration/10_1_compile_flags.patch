@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 39439363..78d42308 100644
+index fac5b9db..a1959033 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -49,6 +49,9 @@ const µBlock = (function() { // jshint ignore:line
@@ -34,7 +34,7 @@ index e805777d..4c41f7b1 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index b71be872..be1211a0 100644
+index a153907d..a322fb23 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1963,6 +1963,10 @@ FilterParser.prototype.parseOptions = function(s) {
