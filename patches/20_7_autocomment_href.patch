@@ -1,0 +1,26 @@
+diff --git a/src/js/scriptlets/element-picker.js b/src/js/scriptlets/element-picker.js
+index 888bf4a7..61cb6d4d 100644
+--- a/src/js/scriptlets/element-picker.js
++++ b/src/js/scriptlets/element-picker.js
+@@ -1158,6 +1158,7 @@ const onDialogClicked = function(ev) {
+                     what: 'createUserFilter',
+                     autoComment: true,
+                     filters: filter,
++                    nanoHref: window.location.href,
+                     origin: window.location.origin,
+                     pageDomain: window.location.hostname
+                 }
+diff --git a/src/js/storage.js b/src/js/storage.js
+index 1d99934f..f6468ee4 100644
+--- a/src/js/storage.js
++++ b/src/js/storage.js
+@@ -447,7 +447,8 @@
+             this.hiddenSettings.autoCommentFilterTemplate
+                 .replace('{{date}}', d.toLocaleDateString())
+                 .replace('{{time}}', d.toLocaleTimeString())
+-                .replace('{{origin}}', options.origin);
++                .replace('{{origin}}', options.origin)
++                .replace('{{nanoHref}}', options.nanoHref);
+     }
+ 
+     const onSaved = ( ) => {
