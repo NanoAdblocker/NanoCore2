@@ -357,6 +357,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
                     token: "keyword",
                     regex: new RegExp([
+                        "all",
                         "~?(?:" + [
                             "third-party",
                             "3p",
