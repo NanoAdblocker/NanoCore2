@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 77f92304..528adf09 100644
+index b857cde8..831ad39a 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -351,7 +351,7 @@ const registerAssetSource = function(assetKey, dict) {
@@ -11,31 +11,32 @@ index 77f92304..528adf09 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -922,7 +922,7 @@ api.rmrf = function() {
+@@ -931,7 +931,7 @@ api.rmrf = function() {
+ /******************************************************************************/
+ 
  // Asset updater area.
- var updaterStatus,
-     updaterTimer,
--    updaterAssetDelayDefault = 120000,
-+    updaterAssetDelayDefault = 300000,
-     updaterAssetDelay = updaterAssetDelayDefault,
-     updaterUpdated = [],
-     updaterFetched = new Set(),
+-const updaterAssetDelayDefault = 120000;
++const updaterAssetDelayDefault = 300000;
+ const updaterUpdated = [];
+ const updaterFetched = new Set();
+ 
 diff --git a/src/js/background.js b/src/js/background.js
-index ea34a13c..edb59b16 100644
+index faa357ac..a43e9ced 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -38,8 +38,8 @@ const µBlock = (function() { // jshint ignore:line
-     const hiddenSettingsDefault = {
+@@ -39,9 +39,9 @@ const µBlock = (function() { // jshint ignore:line
+         allowGenericProceduralFilters: false,
          assetFetchTimeout: 30,
          autoCommentFilterTemplate: '{{date}} {{origin}}',
 -        autoUpdateAssetFetchPeriod: 120,
++        autoUpdateAssetFetchPeriod: 180,
+         autoUpdateDelayAfterLaunch: 180,
 -        autoUpdatePeriod: 7,
-+        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
          cacheStorageAPI: 'unset',
          cacheStorageCompression: true,
          cacheControlForFirefox1376932: 'no-cache, no-store, must-revalidate',
-@@ -48,7 +48,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -50,7 +50,7 @@ const µBlock = (function() { // jshint ignore:line
          disableWebAssembly: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
@@ -44,54 +45,49 @@ index ea34a13c..edb59b16 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -65,6 +65,7 @@ const µBlock = (function() { // jshint ignore:line
-         'chrome-extension-scheme',
-         'chrome-scheme',
-         'moz-extension-scheme',
-+        'ms-browser-extension-scheme',
-         'opera-scheme',
-         'vivaldi-scheme',
-         'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
+@@ -77,7 +77,7 @@ const µBlock = (function() { // jshint ignore:line
+             externalLists: [],
+             firewallPaneMinimized: true,
+             hyperlinkAuditingDisabled: true,
+-            ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
++            ignoreGenericCosmeticFilters: false,
+             largeMediaSize: 50,
+             nanoEditorSoftWrap: false,
+             nanoViewerSoftWrap: true,
+@@ -128,6 +128,7 @@ const µBlock = (function() { // jshint ignore:line
+             'chrome-extension-scheme',
+             'chrome-scheme',
+             'moz-extension-scheme',
++            'ms-browser-extension-scheme',
+             'opera-scheme',
+             'vivaldi-scheme',
+             'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 6a5868ad..f197607e 100644
+index 2491f732..cc0f9bc3 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -242,13 +242,6 @@ const onUserSettingsReady = function(fetched) {
-     µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
-     µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
-     µb.sessionSwitches.assign(µb.permanentSwitches);
--
--    // https://github.com/gorhill/uBlock/issues/1892
--    // For first installation on a battery-powered device, disable generic
--    // cosmetic filtering.
--    if ( µb.firstInstall && vAPI.webextFlavor.soup.has('mobile') ) {
--        userSettings.ignoreGenericCosmeticFilters = true;
--    }
- };
- 
- /******************************************************************************/
-@@ -333,6 +326,7 @@ const createDefaultProps = function() {
+@@ -332,6 +332,7 @@ const createDefaultProps = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
 +            'no-csp-reports: * true',
              'no-large-media: behind-the-scene false',
-             'no-scripting: behind-the-scene false'
          ].join('\n'),
+         'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 42f26c9c..c128c938 100644
+index c69c4de5..9c162c45 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1326,7 +1326,7 @@
+@@ -1321,7 +1321,7 @@
              next = 0;
-             var µb = µBlock;
-             µb.assets.updateStart({
--                delay: µb.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 || 120000
-+                delay: µb.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 || 300000
+             this.assets.updateStart({
+                 delay: this.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 ||
+-                       120000
++                       180000
              });
          }, updateDelay);
      };
-@@ -1421,7 +1421,7 @@
+@@ -1417,7 +1417,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

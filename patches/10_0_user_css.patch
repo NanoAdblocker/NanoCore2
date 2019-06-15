@@ -15,7 +15,7 @@ index 2b58510d..b2b8b30d 100644
      vAPI.setTimeout(dispatch, 97);
  })();
 diff --git a/platform/chromium/vapi-usercss.js b/platform/chromium/vapi-usercss.js
-index 72b9c23c..cebc2d1d 100644
+index 0cf97b7a..cebc2d1d 100644
 --- a/platform/chromium/vapi-usercss.js
 +++ b/platform/chromium/vapi-usercss.js
 @@ -29,8 +29,7 @@
@@ -23,7 +23,7 @@ index 72b9c23c..cebc2d1d 100644
  
  if ( typeof vAPI === 'object' ) {
 -    vAPI.supportsUserStylesheets =
--        /\bChrom(?:e|ium)\/(?:6[6789]|[789]|1\d\d)/.test(navigator.userAgent);
+-        /\bChrom(?:e|ium)\/(?:5\d|6[012345])\b/.test(navigator.userAgent) === false;
 +    vAPI.supportsUserStylesheets = false;
  }
  
