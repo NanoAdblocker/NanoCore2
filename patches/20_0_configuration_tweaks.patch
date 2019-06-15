@@ -16,7 +16,7 @@ index b857cde8..831ad39a 100644
  
  // Asset updater area.
 -const updaterAssetDelayDefault = 120000;
-+const updaterAssetDelayDefault = 300000;
++const updaterAssetDelayDefault = 180000;
  const updaterUpdated = [];
  const updaterFetched = new Set();
  
