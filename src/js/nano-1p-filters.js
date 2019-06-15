@@ -32,10 +32,13 @@ var nano = nano || {};
 
 nano.filters_cache = "";
 nano.editor = new nano.Editor("userFilters", true, false);
+nano.has_unsaved_changes = false;
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-window.nano_has_unsaved_changes = false;
+window.hasUnsavedData = () => {
+    return nano.has_unsaved_changes;
+};
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
@@ -63,10 +66,10 @@ nano.render_filters = (first) => {
             return;
 
         let content = details.content.trim();
+        nano.filters_cache = content;
+
         if (content.length > 0)
             content += "\n";
-
-        nano.filters_cache = content;
         nano.editor.set_value_focus(content);
 
         nano.filters_changed(false);
@@ -116,7 +119,7 @@ nano.filters_changed = (changed) => {
     apply_disable("userFiltersApply", !changed);
     apply_disable("userFiltersRevert", !changed);
 
-    nano_has_unsaved_changes = changed;
+    nano.has_unsaved_changes = changed;
 };
 
 nano.filters_saved = () => {
