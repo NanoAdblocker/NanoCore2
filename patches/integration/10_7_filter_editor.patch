@@ -1,16 +1,16 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index 9c482cf4..a1c89ef3 100644
+index 2f2f06f1..c64abb64 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
-@@ -4,15 +4,10 @@
- <meta charset="utf-8">
+@@ -5,15 +5,11 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>uBlock — Your filters</title>
--
+ 
 -<link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
 -<link rel="stylesheet" href="lib/codemirror/addon/search/matchesonscrollbar.css">
 -
  <link rel="stylesheet" href="css/common.css">
+ <link rel="stylesheet" href="css/fa-icons.css">
  <link rel="stylesheet" href="css/dashboard-common.css">
  <link rel="stylesheet" href="css/cloud-ui.css">
  <link rel="stylesheet" href="css/1p-filters.css">
@@ -18,7 +18,7 @@ index 9c482cf4..a1c89ef3 100644
  </head>
  
  <body>
-@@ -34,15 +29,9 @@
+@@ -35,15 +31,9 @@
      <input id="importFilePicker" type="file" accept="text/plain">
  </div>
  
@@ -35,9 +35,9 @@ index 9c482cf4..a1c89ef3 100644
 +<script src="lib/ace/ext-searchbox-1.2.9.js"></script>
 +<script src="js/nano-editor.js"></script>
  
+ <script src="js/fa-icons.js"></script>
  <script src="js/vapi.js"></script>
- <script src="js/vapi-common.js"></script>
-@@ -51,7 +40,7 @@
+@@ -53,7 +43,7 @@
  <script src="js/i18n.js"></script>
  <script src="js/dashboard-common.js"></script>
  <script src="js/cloud-ui.js"></script>
