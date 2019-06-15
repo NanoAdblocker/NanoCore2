@@ -33,9 +33,6 @@ everything.
 
 `20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
 
-`20_6_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
-category because a pull request is opened upstream.
-
 `20_7_autocomment_href.patch`: Add the full URL as an option for the generated
 filters automatic comment template.
 
