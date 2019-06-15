@@ -1,8 +1,8 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index dc2217dc..2ca3d0ab 100644
+index 4c25d246..e1b515ca 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
-@@ -542,7 +542,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
+@@ -365,7 +365,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
          this.compileSpecificSelector(hostname, parsed, writer);
      }
      if ( applyGlobally ) {
@@ -11,7 +11,7 @@ index dc2217dc..2ca3d0ab 100644
      }
  
      return true;
-@@ -562,7 +562,8 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
+@@ -385,7 +385,8 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
  
  FilterContainer.prototype.compileGenericHideSelector = function(
      parsed,
@@ -21,7 +21,7 @@ index dc2217dc..2ca3d0ab 100644
  ) {
      const selector = parsed.suffix;
      const type = selector.charCodeAt(0);
-@@ -610,6 +611,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+@@ -439,6 +440,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
              type: 'error',
              text: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
@@ -35,7 +35,7 @@ index dc2217dc..2ca3d0ab 100644
          return;
      }
  
-@@ -671,6 +679,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -500,6 +508,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: #@#${parsed.suffix}`
          });
@@ -43,7 +43,7 @@ index dc2217dc..2ca3d0ab 100644
          return;
      }
  
-@@ -702,6 +711,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -534,6 +543,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: ##${parsed.suffix}`
          });
@@ -52,10 +52,10 @@ index dc2217dc..2ca3d0ab 100644
      }
  
 diff --git a/src/js/html-filtering.js b/src/js/html-filtering.js
-index 3747bb72..8b83b376 100644
+index 129ffabe..34789f35 100644
 --- a/src/js/html-filtering.js
 +++ b/src/js/html-filtering.js
-@@ -248,6 +248,7 @@
+@@ -274,6 +274,7 @@
                  type: 'error',
                  text: `Invalid HTML filter in ${who}: ##${selector}`
              });
@@ -63,7 +63,7 @@ index 3747bb72..8b83b376 100644
              return;
          }
  
-@@ -257,7 +258,10 @@
+@@ -283,7 +284,10 @@
          // TODO: Mind negated hostnames, they are currently discarded.
  
          for ( const hn of parsed.hostnames ) {
@@ -72,14 +72,14 @@ index 3747bb72..8b83b376 100644
 +                nano.flintw('nano_l_filter_negated_html_filtering');
 +                continue;
 +            }
-             let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
+             let kind = 0;
              if ( parsed.exception ) {
-                 hash |= 0b0001;
+                 kind |= 0b01;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index b94966c9..c72d18c7 100644
+index 412636e4..1b049a34 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -300,7 +300,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+@@ -298,7 +298,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
  
  RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const matches = this.reFilterParser.exec(line);
@@ -92,9 +92,9 @@ index b94966c9..c72d18c7 100644
 +        return;
 +    }
  
-     let des = matches[1] || '';
-     const pattern = (des + matches[2]).replace(/[.+?{}()|[\]\/\\]/g, '\\$&')
-@@ -324,17 +330,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+     const des = matches[1] || '';
+ 
+@@ -343,17 +349,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -122,18 +122,18 @@ index b94966c9..c72d18c7 100644
 +        return;
 +    }
  
-     if ( des === '' ) {
-         des = '*';
-@@ -347,10 +362,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+     if ( deshn === '' ) {
+         deshn = '*';
+@@ -366,10 +381,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
-     for ( const src of srcs ) {
-         if ( src === '' ) { continue; }
--        if ( src.startsWith('~') ) { continue; }
-+        if ( src.startsWith('~') ) {
+     for ( const srchn of srchns ) {
+         if ( srchn === '' ) { continue; }
+-        if ( srchn.startsWith('~') ) { continue; }
++        if ( srchn.startsWith('~') ) {
 +            nano.flintw('nano_r_negated_domain');
 +            continue;
 +        }
-         out.push(src + '\t' + des + '\t' + type + '\t' + pattern + '\t' + redirect);
+         out.push(srchn + '\t' + deshn + '\t' + type + '\t' + pattern + '\t' + redirect);
      }
  
 +    if ( out.length === 0 ) {
@@ -146,19 +146,19 @@ index b94966c9..c72d18c7 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index ac43aece..f51c6b27 100644
+index e370611c..e08d5b04 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
-@@ -252,6 +252,8 @@
+@@ -253,6 +253,8 @@
          if ( parsed.hostnames.length === 0 ) {
              if ( parsed.exception ) {
-                 writer.push([ 32, 0 | 0b0001, '', parsed.suffix ]);
+                 writer.push([ 32, '', 1, parsed.suffix ]);
 +            } else {
 +                nano.flinte('nano_l_filter_too_expensive');
              }
              return;
          }
-@@ -261,8 +263,10 @@
+@@ -262,8 +264,10 @@
              !nano.cf.is_privileged &&
              nanoInjectArgs.startsWith(nano.privileged_assets_previx)
          ) {
@@ -169,23 +169,23 @@ index ac43aece..f51c6b27 100644
  
          // https://github.com/gorhill/uBlock/issues/3375
          //   Ignore instances of exception filter with negated hostnames,
-@@ -275,7 +279,10 @@
+@@ -276,7 +280,10 @@
              }
-             let hash = µb.staticExtFilteringEngine.compileHostnameToHash(hn);
+             let kind = 0;
              if ( parsed.exception ) {
 -                if ( negated ) { continue; }
 +                if ( negated ) {
 +                    nano.flintw('nano_l_filter_script_snippet_double_exception');
 +                    continue;
 +                }
-                 hash |= 0b0001;
+                 kind |= 1;
              } else if ( negated ) {
-                 hash |= 0b0001;
+                 kind |= 1;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 4c41f7b1..8ce6b22a 100644
+index 16017596..782b13de 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
-@@ -787,14 +787,20 @@
+@@ -761,14 +761,20 @@
          let cCode = raw.charCodeAt(rpos - 1);
          if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
              // Adguard's scriptlet injection: not supported.
@@ -208,7 +208,7 @@ index 4c41f7b1..8ce6b22a 100644
                  parsed.suffix = suffix;
              }
          }
-@@ -817,6 +823,7 @@
+@@ -791,6 +797,7 @@
                  suffix = parsed.suffix = '+js' + suffix.slice(13);
              } else if ( suffix.startsWith('script:contains') ) {
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
@@ -217,21 +217,10 @@ index 4c41f7b1..8ce6b22a 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 0d326e2e..8cf12c68 100644
+index 3c48b2e2..9617172f 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1842,6 +1842,10 @@ FilterParser.prototype.parseTypeOption = function(raw, not) {
- 
-     // Non-discrete network types can't be negated.
-     if ( (typeBit & this.allNetRequestTypeBits) === 0 ) {
-+        nano.flintw(
-+            'nano_l_filter_discarded_non_negatable_type',
-+            ['{{type}}', raw]
-+        );
-         return;
-     }
- 
-@@ -1912,6 +1916,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1959,6 +1959,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -239,7 +228,7 @@ index 0d326e2e..8cf12c68 100644
              break;
          }
          // Test before handling all other types.
-@@ -1921,6 +1926,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1968,6 +1969,7 @@ FilterParser.prototype.parseOptions = function(s) {
                  continue;
              }
              this.unsupported = true;
@@ -247,7 +236,7 @@ index 0d326e2e..8cf12c68 100644
              break;
          }
          if ( this.toNormalizedType.hasOwnProperty(opt) ) {
-@@ -1934,6 +1940,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1981,6 +1983,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -255,16 +244,7 @@ index 0d326e2e..8cf12c68 100644
                  break;
              }
              continue;
-@@ -1951,6 +1958,8 @@ FilterParser.prototype.parseOptions = function(s) {
-                 this.parseTypeOption('data', not);
-                 this.dataType = 'csp';
-                 this.dataStr = opt.slice(4).trim();
-+            } else {
-+                nano.flinte('nano_l_filter_bad_csp_option_arguments');
-             }
-             continue;
-         }
-@@ -1965,6 +1974,8 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2014,6 +2017,8 @@ FilterParser.prototype.parseOptions = function(s) {
              this.fopts = opts.join(',');
              var pos = this.raw.lastIndexOf('$');
              this.raw = this.raw.slice(0, pos + 1) + this.fopts;
@@ -273,15 +253,15 @@ index 0d326e2e..8cf12c68 100644
              continue;
          }
          // https://github.com/uBlockOrigin/uAssets/issues/192
-@@ -1978,6 +1989,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2027,6 +2032,7 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
 +        nano.flinte('nano_l_filter_unknown_option', ['{{option}}', opt]);
          break;
      }
- };
-@@ -2015,6 +2027,7 @@ FilterParser.prototype.parse = function(raw) {
+ 
+@@ -2086,6 +2092,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -289,7 +269,7 @@ index 0d326e2e..8cf12c68 100644
              return this;
          }
      }
-@@ -2041,6 +2054,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2112,6 +2119,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -297,18 +277,7 @@ index 0d326e2e..8cf12c68 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -2051,7 +2065,10 @@ FilterParser.prototype.parse = function(raw) {
-                 this.types &= ~this.unsupportedTypeBit;
-                 if ( this.types === 0 ) {
-                     this.unsupported = true;
-+                    nano.flinte('nano_l_filter_only_unsupported_type');
-                     return this;
-+                } else {
-+                    nano.flintw('nano_l_filter_unsupported_type_ignored');
-                 }
-             }
-             s = s.slice(0, pos);
-@@ -2073,6 +2090,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2135,6 +2143,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -316,7 +285,7 @@ index 0d326e2e..8cf12c68 100644
          }
          return this;
      }
-@@ -2097,6 +2115,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2159,6 +2168,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -324,9 +293,9 @@ index 0d326e2e..8cf12c68 100644
              return this;
          }
  
-@@ -2697,6 +2716,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
+@@ -2761,6 +2771,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
      // Typeless
-     if ( type === 0 ) {
+     if ( typeBits === 0 ) {
          writer.push([ descBits, parsed.tokenHash, fdata ]);
 +        if ( parsed.redirect ) {
 +            nano.flintw('nano_r_no_type');
@@ -335,12 +304,12 @@ index 0d326e2e..8cf12c68 100644
      }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 8838355b..42f26c9c 100644
+index f916d1da..c69c4de5 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -414,7 +414,11 @@
+@@ -404,7 +404,11 @@
      // https://github.com/gorhill/uBlock/issues/1022
-     // Be sure to end with an empty line.
+     //   Be sure to end with an empty line.
      content = content.trim();
 -    if ( content !== '' ) { content += '\n'; }
 +    if ( content !== '' ) {
@@ -351,7 +320,7 @@ index 8838355b..42f26c9c 100644
      this.assets.put(this.userFiltersPath, content, callback);
      this.removeCompiledFilterList(this.userFiltersPath);
  };
-@@ -858,6 +862,12 @@
+@@ -842,6 +846,12 @@
  
      const nanoKey = nanoAssetKeyOverride || details.assetKey;
      nano.cf.update(nanoKey);
@@ -364,7 +333,7 @@ index 8838355b..42f26c9c 100644
  
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
-@@ -871,6 +881,10 @@
+@@ -855,6 +865,10 @@
      const lineIter = new this.LineIterator(this.processDirectives(rawText));
  
      while ( lineIter.eot() === false ) {
@@ -375,7 +344,7 @@ index 8838355b..42f26c9c 100644
          // rhill 2014-04-18: The trim is important here, as without it there
          // could be a lingering `\r` which would cause problems in the
          // following parsing code.
-@@ -879,7 +893,11 @@
+@@ -863,7 +877,11 @@
  
          // Strip comments
          const c = line.charAt(0);
@@ -388,7 +357,7 @@ index 8838355b..42f26c9c 100644
  
          // Parse or skip cosmetic filters
          // All cosmetic filters are caught here
-@@ -900,6 +918,7 @@
+@@ -884,6 +902,7 @@
          const pos = line.indexOf('#');
          if ( pos !== -1 && reIsWhitespaceChar.test(line.charAt(pos - 1)) ) {
              line = line.slice(0, pos).trim();
@@ -396,7 +365,7 @@ index 8838355b..42f26c9c 100644
          }
  
          // https://github.com/gorhill/httpswitchboard/issues/15
-@@ -909,15 +928,24 @@
+@@ -893,15 +912,24 @@
              // Ignore hosts file redirect configuration
              // 127.0.0.1 localhost
              // 255.255.255.255 broadcasthost
