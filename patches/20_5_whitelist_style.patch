@@ -1,5 +1,5 @@
 diff --git a/src/css/codemirror.css b/src/css/codemirror.css
-index 3d5b7d6f..e8167e32 100644
+index ff2de8f8..8c59ff13 100644
 --- a/src/css/codemirror.css
 +++ b/src/css/codemirror.css
 @@ -17,7 +17,8 @@

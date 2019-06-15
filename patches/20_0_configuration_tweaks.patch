@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index b857cde8..831ad39a 100644
+index b857cde8..8531ad03 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -351,7 +351,7 @@ const registerAssetSource = function(assetKey, dict) {
