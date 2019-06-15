@@ -33,7 +33,7 @@ everything.
 
 `20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
 
-`20_7_autocomment_href.patch`: Add the full URL as an option for the generated
+`20_6_autocomment_href.patch`: Add the full URL as an option for the generated
 filters automatic comment template.
 
 ## Group `30`: User Interface Changes
