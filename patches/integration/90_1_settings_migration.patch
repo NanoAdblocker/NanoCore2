@@ -1,16 +1,16 @@
 diff --git a/src/js/start.js b/src/js/start.js
-index 592686d0..6a5868ad 100644
+index 80828c10..2491f732 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -186,42 +186,22 @@ const onVersionReady = function(lastVersion) {
+@@ -190,44 +190,24 @@ const onVersionReady = function(lastVersion) {
      // If unused, just comment out for when we need to compare versions in the
      // future.
      const intFromVersion = function(s) {
--        let parts = s.match(/(?:^|\.|b|rc)\d+/g);
+-        const parts = s.match(/(?:^|\.|b|rc)\d+/g);
 -        if ( parts === null ) { return 0; }
 -        let vint = 0;
 -        for ( let i = 0; i < 4; i++ ) {
--            let pstr = parts[i] || '';
+-            const pstr = parts[i] || '';
 -            let pint;
 -            if ( pstr === '' ) {
 -                pint = 0;
@@ -22,8 +22,8 @@ index 592686d0..6a5868ad 100644
 -                pint = parseInt(pstr, 10);
 -            }
 -            vint = vint * 1000 + pint;
-+        let parts = s.split('.');
-+        if ( parts[3] === '0' ) { // Edge
++        const parts = s.split('.');
++        if ( parts[3] === '0' ) { // Legacy Edge
 +            return parseInt(parts[2], 10);
 +        } else {
 +            return parseInt(parts[3], 10);
@@ -31,12 +31,14 @@ index 592686d0..6a5868ad 100644
 -        return vint;
      };
  
-     let lastVersionInt = intFromVersion(lastVersion);
+     const lastVersionInt = intFromVersion(lastVersion);
  
--    if ( lastVersionInt <= 1016021007 ) {
-+    if ( lastVersionInt <= 66 ) {
-         µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 2);
-         µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 2);
+     // https://github.com/uBlockOrigin/uBlock-issues/issues/494
+     //   Remove useless per-site switches.
+-    if ( lastVersionInt <= 1019003007 ) {
++    if ( lastVersionInt <= 111 ) {
+         µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 0);
+         µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.saveHostnameSwitches();
      }
  
