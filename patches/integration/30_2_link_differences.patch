@@ -1,8 +1,8 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index a1c89ef3..dc0b7f31 100644
+index c64abb64..452ef529 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
-@@ -15,7 +15,7 @@
+@@ -17,7 +17,7 @@
  <div class="body">
      <div id="cloudWidget" class="hide" data-cloud-entry="myFiltersPane"></div>
  
@@ -38,10 +38,10 @@ index 87bc10a0..3f925936 100644
          <div class="tools">
              <div class="ruleActions">
 diff --git a/src/whitelist.html b/src/whitelist.html
-index 8c31ed2d..7cc62ead 100644
+index 19154028..081efe79 100644
 --- a/src/whitelist.html
 +++ b/src/whitelist.html
-@@ -20,7 +20,7 @@
+@@ -21,7 +21,7 @@
  <div class="body">
      <div id="cloudWidget" class="hide" data-cloud-entry="whitelistPane"></div>
  
