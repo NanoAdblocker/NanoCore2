@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 7741e3af..81995b97 100644
+index f229d286..38ed0b8a 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -140,6 +140,10 @@ const onMessage = function(request, sender, callback) {
+@@ -139,6 +139,10 @@ const onMessage = function(request, sender, callback) {
          µb.elementPickerExec(request.tabId, request.targetURL, request.zap);
          break;
  
