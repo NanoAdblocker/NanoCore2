@@ -25,6 +25,13 @@ want to play around with them. Please open an issue when they break for you, or
 otherwise behave in a way that contradicts the description below. We cannot fix
 issues that we are not aware of, so please take the time to report them!
 
+### `autoCommentFilterTemplate` option
+
+Available since 1.0.0.113
+
+Following placeholders are also supported:
+- `{{nanoHref}}`: Full URL of the webpage
+
 ### `Force recompile filters` button
 
 Available since 1.0.0.22
