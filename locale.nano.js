@@ -80,12 +80,6 @@
             "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys",
         },
 
-        "nano_d_unsaved_warning": {
-            "message": "Leave tab?\nChanges you made will not be saved.",
-            "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' " +
-                "should be changed to 'will'",
-        },
-
         "nano_d_about_based_on": {
             "message": "Based on {{@data}}",
             "description": "English: Based on {{@data}}",
@@ -299,8 +293,8 @@
         },
 
         "nano_l_filter_bad_csp_option_arguments": {
-            "message": "The option 'csp=...' has invalid arguments.",
-            "description": "Error when 'csp=' has invalid arguments",
+            "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+            "description": "Error when 'csp=' has no arguments or has invalid arguments",
         },
 
         "nano_l_filter_unknown_option": {
@@ -309,12 +303,8 @@
         },
 
         "nano_l_filter_only_unsupported_type": {
-            // TODO: This was phrased like this due to weird behavior of thetype option 'webrtc', but turns out to be
-            //       a bug:
-            //       https://github.com/gorhill/uBlock/issues/3433
-            //       Need to investigate whether this should be changed.
-            "message": "A type option is not yet supported.",
-            "description": "Error when unsupported type option used and entire rule discarded",
+            "message": "This filter contains only unsupported type options.",
+            "description": "Error when filter rule contains only unsupported type options",
         },
 
         "nano_l_filter_bad_re": {
@@ -348,7 +338,7 @@
         },
 
         "nano_r_no_supported_type": {
-            "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
+            "message": "Nano discarded the option 'redirect=...' because it has no supported type options.",
             "description": "Warning when 'redirect=' has no supported type",
         },
 
