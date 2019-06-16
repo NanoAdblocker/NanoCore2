@@ -319,8 +319,8 @@
         },
 
         "nano_l_filter_no_type": {
-            "message": "This filter rule explicitly selected zero type option.",
-            "description": "Error when filter rule explicitly selected zero type",
+            "message": "This filter rule explicitly selected no type options.",
+            "description": "Error when filter rule explicitly selected no types",
         },
 
         "nano_l_filter_bad_re": {

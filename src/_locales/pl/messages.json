@@ -21,11 +21,7 @@
   },
   "nano_d_ace_help": {
     "message": "Edytor filtrów Nano jest obsługiwany przez Ace i większość skrótów klawiszowych działa tak samo.",
-    "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
-  },
-  "nano_d_unsaved_warning": {
-    "message": "Chcesz opuścić kartę?\nZmiany, których dokonałeś, nie zostaną zapisane.",
-    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
+    "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
     "message": "Bazuje na {{@data}}",
@@ -37,7 +33,7 @@
   },
   "nano_v_read_error": {
     "message": "Nie można załadować zawartości, proszę odświeżyć.",
-    "description": "Error when filter content could not be loaded"
+    "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
     "message": "sterowanie cache",
@@ -45,7 +41,7 @@
   },
   "nano_p_open_firewall_pane": {
     "message": "Przełącz panel przeglądowy",
-    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
+    "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
     "message": "Kliknij, by odświeżyć tę stronę.\n\nCtrl+klik, by odświeżyć tę stronę, pomijając pamięć podręczną.",
@@ -60,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
+    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -68,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
+    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -84,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
+    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -101,7 +97,7 @@
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano odrzucił opcję typu '{{type}}', ponieważ nie można jej zanegować.",
-    "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
+    "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
     "message": "Nano zamienił opcję 'mp4' na 'media,redirect=noopmp4-1s'.",
@@ -109,7 +105,7 @@
   },
   "nano_l_filter_unsupported_type_ignored": {
     "message": "Nano odrzucił typy opcji, które nie są jeszcze obsługiwane.",
-    "description": "Warning when unsupported type options discarded but not entire rule"
+    "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
     "message": "Zasób '{{res}}' nie został odnaleziony, czy na pewno poprawnie napisałeś?",
@@ -132,11 +128,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano nie skanował pozostałych linii w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
+    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Wstrzykiwanie surowego JavaScript nie jest akceptowane ze względów bezpieczeństwa.",
+    "message": "Raw JavaScript injection is not allowed due to security concerns.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -172,16 +168,20 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "Opcja 'csp=...' zawiera nieprawidłowe argumenty.",
-    "description": "Error when 'csp=' has invalid arguments"
+    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
     "message": "Opcja '{{option}}' nie jest rozpoznawana.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "Opcja typu nie jest jeszcze obsługiwana.",
-    "description": "Error when unsupported type option used and entire rule discarded"
+    "message": "This filter rule selected only unsupported type options.",
+    "description": "Error when filter rule selected only unsupported types"
+  },
+  "nano_l_filter_no_type": {
+    "message": "This filter rule explicitly selected no type options.",
+    "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
     "message": "Ta reguła sieciowa zawiera błędy w składni wyrażeń regularnych.",
@@ -192,20 +192,20 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano odrzucił opcję 'redirect=...', ponieważ wymagana ona typu opcji.",
-    "description": "Warning when 'redirect=' has no type"
+    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+    "description": "Warning when 'redirect=' selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano odrzucił opcję 'redirect=...', ponieważ zawiera ona zbyt wiele typów opcji.",
-    "description": "Warning when 'redirect=' has too many types"
+    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+    "description": "Warning when 'redirect=' selected too many types"
   },
   "nano_r_no_resource_token": {
     "message": "Nano odrzucił opcję 'redirect=...', ponieważ nie zawiera ona żadnych argumentów.",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano odrzucił opcję 'redirect=...', ponieważ nie zawiera ona żadnych obsługiwanych opcji typu.",
-    "description": "Warning when 'redirect=' has no supported type"
+    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
+    "description": "Warning when 'redirect=' selected no supported type"
   },
   "nano_r_negated_domain": {
     "message": "Nano odrzucił zanegowaną domenę, ponieważ nie może ona zostać użyta z opcją 'redirect=...'.",

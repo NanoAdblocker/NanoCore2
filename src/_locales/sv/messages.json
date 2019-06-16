@@ -21,11 +21,7 @@
   },
   "nano_d_ace_help": {
     "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
-    "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
-  },
-  "nano_d_unsaved_warning": {
-    "message": "Lämna fliken?\nÄndringar du har gjort kommer inte att sparas.",
-    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
+    "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
     "message": "Baserat på {{@data}}",
@@ -37,7 +33,7 @@
   },
   "nano_v_read_error": {
     "message": "Det gick inte att ladda innehållet, prova uppdatera.",
-    "description": "Error when filter content could not be loaded"
+    "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
     "message": "cache-kontroll",
@@ -45,7 +41,7 @@
   },
   "nano_p_open_firewall_pane": {
     "message": "Växla översiktspanelen",
-    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
+    "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
     "message": "Tryck för att uppdatera den här sidan.\n\nCtrl+tryck för att uppdatera den här sidan när du kringgår cachen.",
@@ -60,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano sökte inte igenom resten av raderna för varningar eftersom det finns för många varningar.",
+    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -68,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano sökte inte igenom resten av raderna efter fel eftersom det finns för många fel.",
+    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -84,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano sökte inte igenom resten av raderna för varningar eftersom det finns för många varningar.",
+    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -101,7 +97,7 @@
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano förkastade typalternativet '{{type}}' eftersom det inte kan bli förnekande.",
-    "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
+    "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
     "message": "Nano ersatte alternativet 'mp4' med 'media,redirect=noopmp4-1s'.",
@@ -109,7 +105,7 @@
   },
   "nano_l_filter_unsupported_type_ignored": {
     "message": "Nano förkastar typalternativ som ännu inte stöds.",
-    "description": "Warning when unsupported type options discarded but not entire rule"
+    "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
     "message": "Resursen '{{res}}' kunde inte hittas, är det stavat korrekt?",
@@ -132,11 +128,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano sökte inte igenom resten av raderna efter fel eftersom det finns för många fel.",
+    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript-injektion accepteras inte på grund av säkerhetsproblem.",
+    "message": "Raw JavaScript injection is not allowed due to security concerns.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -172,16 +168,20 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "Alternativet 'csp=...' har ogiltiga argument.",
-    "description": "Error when 'csp=' has invalid arguments"
+    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
     "message": "Alternativet '{{option}}' känns inte igen.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "Ett typalternativ stöds inte ännu.",
-    "description": "Error when unsupported type option used and entire rule discarded"
+    "message": "This filter rule selected only unsupported type options.",
+    "description": "Error when filter rule selected only unsupported types"
+  },
+  "nano_l_filter_no_type": {
+    "message": "This filter rule explicitly selected no type options.",
+    "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
     "message": "Denna nätverksregeln har syntaxfel i det reguljära uttrycket.",
@@ -192,20 +192,20 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano förkastade alternativet 'redirect=...' eftersom det kräver ett typalternativ.",
-    "description": "Warning when 'redirect=' has no type"
+    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+    "description": "Warning when 'redirect=' selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano förkastade alternativet 'redirect=...' eftersom det har för många typalternativ.",
-    "description": "Warning when 'redirect=' has too many types"
+    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+    "description": "Warning when 'redirect=' selected too many types"
   },
   "nano_r_no_resource_token": {
     "message": "Nano förkastade alternativet 'redirect=...' eftersom det har inga argument.",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano förkastade alternativet 'redirect=...' eftersom det inte har något typalternativ som stöds.",
-    "description": "Warning when 'redirect=' has no supported type"
+    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
+    "description": "Warning when 'redirect=' selected no supported type"
   },
   "nano_r_negated_domain": {
     "message": "Nano förkastade en förnekad domän eftersom den inte kan användas med alternativet 'redirect=...'.",

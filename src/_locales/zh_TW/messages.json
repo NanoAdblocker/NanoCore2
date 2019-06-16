@@ -21,11 +21,7 @@
   },
   "nano_d_ace_help": {
     "message": "Nano 過濾規則編輯器是由 Ace 驅動的，大部分快速鍵都一樣。",
-    "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
-  },
-  "nano_d_unsaved_warning": {
-    "message": "要離開標籤嗎？\n系統將不會儲存您所做的變更。",
-    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
+    "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
     "message": "基於 {{@data}}",
@@ -37,7 +33,7 @@
   },
   "nano_v_read_error": {
     "message": "內容讀取失敗，請重新整理。",
-    "description": "Error when filter content could not be loaded"
+    "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
     "message": "快取控制",
@@ -45,7 +41,7 @@
   },
   "nano_p_open_firewall_pane": {
     "message": "顯示或隱藏概要邊窗",
-    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
+    "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
     "message": "按一下：重新整理目前頁面\n\nCtrl + 按一下：無視快取並重新整理目前頁面",
@@ -60,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano 沒有檢查剩下的白名單，因為已經有太多的警告。",
+    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -68,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano 沒有驗證剩下的白名單，因為已經有太多錯誤。",
+    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -84,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano 沒有檢查剩下的過濾規則，因為已經有太多的警告。",
+    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -101,7 +97,7 @@
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano 捨棄了 '{{type}}' 類型選項，因為它不能被反選。",
-    "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
+    "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
     "message": "Nano 將 'mp4' 選項取代為 'media,redirect=noopmp4-1s' 。",
@@ -109,7 +105,7 @@
   },
   "nano_l_filter_unsupported_type_ignored": {
     "message": "Nano 捨棄了目前不支持的類型選項。",
-    "description": "Warning when unsupported type options discarded but not entire rule"
+    "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
     "message": "找不到資源 ‘{{res}}’ ，拼寫是否正確？",
@@ -132,11 +128,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano 沒有驗證剩下的過濾規則，因為有太多的錯誤。",
+    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "由於安全考量，不接受原始 JavaScript 注入。",
+    "message": "Raw JavaScript injection is not allowed due to security concerns.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -172,16 +168,20 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "這個 'csp=...' 選項有無效參數。",
-    "description": "Error when 'csp=' has invalid arguments"
+    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
     "message": "'{{option}}' 選項無法被識別。",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "一個類型選項暫不支持。",
-    "description": "Error when unsupported type option used and entire rule discarded"
+    "message": "This filter rule selected only unsupported type options.",
+    "description": "Error when filter rule selected only unsupported types"
+  },
+  "nano_l_filter_no_type": {
+    "message": "This filter rule explicitly selected no type options.",
+    "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
     "message": "這個網絡過濾規則的正規表示式有語法錯誤。",
@@ -192,20 +192,20 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano 捨棄了 'redirect=...' 選項，因為它需要一個類型選項。",
-    "description": "Warning when 'redirect=' has no type"
+    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+    "description": "Warning when 'redirect=' selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano 捨棄了 'redirect=...' 選項，因為它有太多的類型選項。",
-    "description": "Warning when 'redirect=' has too many types"
+    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+    "description": "Warning when 'redirect=' selected too many types"
   },
   "nano_r_no_resource_token": {
     "message": "Nano 捨棄了 'redirect=...' 選項，因為它沒有參數。",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano 捨棄了 'redirect=...' 選項，因為它沒有被支援的類型選項。",
-    "description": "Warning when 'redirect=' has no supported type"
+    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
+    "description": "Warning when 'redirect=' selected no supported type"
   },
   "nano_r_negated_domain": {
     "message": "Nano 捨棄了一個反選網域，因為它不能與選項 'redirect=...' 一起使用。",
