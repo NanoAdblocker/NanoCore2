@@ -195,6 +195,7 @@
         },
 
         "nano_l_filter_discarded_non_negatable_type": {
+            // TODO: No longer in use
             "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
             "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated.",
         },
@@ -305,6 +306,11 @@
         "nano_l_filter_only_unsupported_type": {
             "message": "This filter contains only unsupported type options.",
             "description": "Error when filter rule contains only unsupported type options",
+        },
+
+        "nano_l_filter_no_type": {
+            "message": "This filter does not select any type options.",
+            "description": "Error when filter rule does not select any type options",
         },
 
         "nano_l_filter_bad_re": {
