@@ -14,6 +14,9 @@ These may or may not be out of date.
   considering websites that are not using HTTPS are unlikely to use CSP, this
   seems to be a reasonable tradeoff.
 
+- `redirect-engine.js > RedirectEngine.prototype.compileRuleFromStaticFilter`
+  accepts `first-party` and `1p`, but not `~third-party` nor `~3p`.
+
 - `scriptlet-filtering.js > api.compile` will convert script snippet rules with
   negated domains to exception rules. If the domains do not match, it can cause
   unintended behavior.
