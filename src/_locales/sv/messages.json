@@ -176,11 +176,11 @@
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "This filter rule selected only unsupported type options.",
+    "message": "Den här filterregeln valdes endast av icke-stödda typalternativ.",
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
-    "message": "This filter rule explicitly selected no type options.",
+    "message": "Den här filterregeln valdes uttryckligen ingen typalternativ.",
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
