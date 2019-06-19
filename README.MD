@@ -74,7 +74,7 @@ exit     Exit the terminal
 5.  If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
 6.  If needed, build and pull locale updates
 7.  Bump version number
-8.  Test to make sure everything is working
+8.  Perform [sanity tests](notes/sanity_tests.md)
 9.  Add tags to repositories, and upload packages
 10. Upload packages to extension stores
 
