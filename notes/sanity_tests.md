@@ -13,6 +13,6 @@ Open the dashboard and add these custom filters:
 
 Expected:
 1. No error thrown in the background console
-2. Linter marks:
-  1. `2` warnings on line `1`
-3. Dashboard shows `2` total filters
+1. Linter marks:
+   1. `2` warnings on line `1`
+1. Dashboard shows `2` total filters
