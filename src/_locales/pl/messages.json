@@ -56,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
+    "message": "Nano nie skanował pozostałych białych list w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -64,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
+    "message": "Nano nie skanował pozostałych białych list w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -80,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
+    "message": "Nano nie skanował pozostałych reguł filtrujących w poszukiwaniu ostrzeżeń, ponieważ jest zbyt wiele ostrzeżeń.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -128,11 +128,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
+    "message": "Nano nie skanował pozostałych reguł filtrujących w poszukiwaniu błędów, ponieważ jest zbyt wiele błędów.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not allowed due to security concerns.",
+    "message": "Wstrzykiwanie surowego JavaScript nie jest dozwolone ze względów bezpieczeństwa.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -168,7 +168,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "Opcja 'csp=...' nie zawiera żadnych argumentów lub zawiera nieprawidłowe argumenty.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -176,7 +176,7 @@
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "This filter rule selected only unsupported type options.",
+    "message": "Ta reguła filtrująca wybrała jedynie nieobsługiwane opcje typu.",
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
@@ -192,11 +192,11 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+    "message": "Nano odrzucił opcję 'redirect=...', ponieważ musi ona wybierać opcję typu.",
     "description": "Warning when 'redirect=' selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+    "message": "Nano odrzucił opcję 'redirect=...', ponieważ wybrała ona zbyt wiele typów opcji.",
     "description": "Warning when 'redirect=' selected too many types"
   },
   "nano_r_no_resource_token": {
@@ -204,7 +204,7 @@
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
+    "message": "Nano odrzucił opcję 'redirect=...', ponieważ nie wybrała ona żadnych obsługiwanych opcji typu.",
     "description": "Warning when 'redirect=' selected no supported type"
   },
   "nano_r_negated_domain": {
