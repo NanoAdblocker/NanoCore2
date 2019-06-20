@@ -180,7 +180,7 @@
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
-    "message": "This filter rule explicitly selected no type options.",
+    "message": "Ta reguła filtrująca jawnie nie wybrała żadnych opcji typu.",
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
