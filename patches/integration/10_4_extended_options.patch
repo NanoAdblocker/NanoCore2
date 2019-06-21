@@ -12,7 +12,7 @@ index 6a938b35..412636e4 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 02baadbe..3c48b2e2 100644
+index 02baadbe..420cef0c 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1847,6 +1847,9 @@ FilterParser.prototype.toNormalizedType = {
@@ -25,7 +25,18 @@ index 02baadbe..3c48b2e2 100644
  };
  
  /******************************************************************************/
-@@ -1950,7 +1953,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1938,7 +1941,9 @@ FilterParser.prototype.parseDomainOption = function(s) {
+ 
+ FilterParser.prototype.parseOptions = function(s) {
+     this.fopts = s;
+-    for ( let opt of s.split(/\s*,\s*/) ) {
++    const opts = s.split(/\s*,\s*/);
++    for ( let i = 0; i < opts.length; i++ ) {
++        let opt = opts[i];
+         const not = opt.startsWith('~');
+         if ( not ) {
+             opt = opt.slice(1);
+@@ -1950,7 +1955,7 @@ FilterParser.prototype.parseOptions = function(s) {
          // https://issues.adblockplus.org/ticket/616
          // `generichide` concept already supported, just a matter of
          // adding support for the new keyword.
@@ -34,7 +45,7 @@ index 02baadbe..3c48b2e2 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -2006,8 +2009,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2006,8 +2011,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }
