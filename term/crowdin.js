@@ -44,6 +44,7 @@ const locales = new Map([
     ["pl", "pl"],
     ["ru", "ru"],
     ["sv-SE", "sv"],
+    ["tr", "tr"],
     ["zh-CN", "zh_CN"],
     ["zh-TW", "zh_TW"],
 ]);
