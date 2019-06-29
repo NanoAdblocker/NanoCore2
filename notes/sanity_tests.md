@@ -3,10 +3,39 @@
 Until a reliable unit tests and integration tests system is up and running, a
 sanity test need to be performed manually before each release.
 
+## Setup
+
+Actions:
+1. Open the background console
+
+Expected:
+1. No error is ever logged to the background console
+
+## Popup Panel 
+
+Actions:
+1. Go to `example.com`
+1. Open the popup panel
+
+Expected:
+1. Two rows of tools are visible
+1. Refresh button is visible
+
+## Basic Functionality
+
+Actions:
+1. Open the dashboard
+1. Restore to default settings
+
+Expected:
+1. Settings are restored
+1. Filter cache is purged
+1. Filters are reloaded from the package
+
 ## Filter Parsing Logic
 
-Open the dashboard and add these custom filters:
-
+Actions:
+1. Open the dashboard and add these custom filters:
 ```
 ||example.com^$mp4
 ```
