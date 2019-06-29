@@ -128,7 +128,7 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano 沒有驗證剩下的過濾規則，因為有太多的錯誤。",
+    "message": "Nano 沒有驗證剩下的過濾規則，因為已經有太多的錯誤。",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
