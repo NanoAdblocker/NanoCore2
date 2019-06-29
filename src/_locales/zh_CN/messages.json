@@ -185,7 +185,11 @@
   },
   "nano_l_filter_bad_re": {
     "message": "这个网络过滤规则的正则表达式有语法错误。",
-    "description": "Error when network has regular expression syntax errors"
+    "description": "Error when network rule has regular expression syntax errors"
+  },
+  "nano_l_filter_too_short": {
+    "message": "这个网络过滤规则太短了。",
+    "description": "Error when network rule is too short"
   },
   "nano_l_filter_intervention_smed79": {
     "message": "'^' 不能紧跟在域名锚点的后面。",

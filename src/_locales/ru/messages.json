@@ -185,7 +185,11 @@
   },
   "nano_l_filter_bad_re": {
     "message": "Это сетевое правило имеет ошибки в синтаксисе регулярных выражений.",
-    "description": "Error when network has regular expression syntax errors"
+    "description": "Error when network rule has regular expression syntax errors"
+  },
+  "nano_l_filter_too_short": {
+    "message": "This network rule is too short.",
+    "description": "Error when network rule is too short"
   },
   "nano_l_filter_intervention_smed79": {
     "message": "Привязка домена не может сразу сопровождаться '^'.",
