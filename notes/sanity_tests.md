@@ -11,7 +11,7 @@ Actions:
 Expected:
 1. No error is ever logged to the background console
 
-## Popup Panel 
+## Popup Panel
 
 Actions:
 1. Go to `example.com`
@@ -21,7 +21,7 @@ Expected:
 1. Two rows of tools are visible
 1. Refresh button is visible
 
-## Basic Functionality
+## Basic Functionalities
 
 Actions:
 1. Open the dashboard
@@ -32,7 +32,7 @@ Expected:
 1. Filter cache is purged
 1. Filters are reloaded from the package
 
-## Filter Parsing Logic
+## Edge Case Filter Parsing
 
 Actions:
 1. Open the dashboard and add these custom filters:
