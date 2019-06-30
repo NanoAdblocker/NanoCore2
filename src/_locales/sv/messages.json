@@ -112,7 +112,7 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "'[' används inte längre som kommentar, använd i stället '!'.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
@@ -168,7 +168,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "Alternativet 'csp=...' har inget argument eller så är argumentet ogiltigt.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -188,7 +188,7 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "Den här nätverksregeln är för kort.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_intervention_smed79": {
