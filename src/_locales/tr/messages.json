@@ -1,6 +1,6 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Kullanıcı arayüzü",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
@@ -12,7 +12,7 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "Yeniden derleme filtrelerini zorla",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -20,7 +20,7 @@
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "Nano Filtre Editörü, Ace tarafından desteklenmektedir ve çoğu kısayol tuşu aynı şekilde çalışır.",
     "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
@@ -28,15 +28,15 @@
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — Filtre Görüntüleyici",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "İçerik yüklenemedi, lütfen yenileyin.",
     "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "önbellek kontrolü",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
@@ -52,7 +52,7 @@
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) Hata raporlama aracını aç",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
@@ -76,7 +76,7 @@
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "This URL is not valid.",
+    "message": "Bu URL geçerli değil.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {

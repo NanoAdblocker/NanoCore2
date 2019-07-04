@@ -28,7 +28,7 @@
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano－過濾規則檢視器",
+    "message": "Nano — 過濾規則檢視器",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
