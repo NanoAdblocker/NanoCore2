@@ -18,6 +18,7 @@ Actions:
 1. Open the popup panel
 
 Expected:
+1. Version shown at the top is correct
 1. Two rows of tools are visible
 1. Refresh button is visible
 
