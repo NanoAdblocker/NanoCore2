@@ -1,35 +1,31 @@
-/******************************************************************************
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    Nano Core 2 - An adblocker
-    Copyright (C) 2018  Nano Core 2 contributors
+// Nano Core 2 - An adblocker
+// Copyright (C) 2018-2019  Nano Core 2 contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+// ----------------------------------------------------------------------------------------------------------------- //
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+// Build script.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*******************************************************************************
-
-    Build script.
-
-******************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
 "use strict";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Required modules.
- * @const {Module}
- */
 const archiver = require("archiver");
 const assert = require("assert");
 const crypto = require("crypto");
@@ -37,38 +33,20 @@ const fs = require("fs-extra");
 const path = require("path");
 const syntax = require("./syntax.js");
 
-/**
- * Optional modules.
- * @const {Module}
- */
+const data = require("./data.js");
+
+// Optional modules
 let edge = null;
 let store = null;
 
-/**
- * Build data.
- * @const {Module}
- */
-const data = require("./data.js");
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/*****************************************************************************/
-
-/**
- * Find MD5 hash of a string.
- * @function
- * @param {string} data - Data to hash.
- */
 const md5 = (data) => {
     assert(typeof data === "string");
 
     return crypto.createHash("md5").update(data, "utf8").digest("hex");
 };
 
-/**
- * Create ZIP archive.
- * @async @function
- * @param {string} in_dir - Directory to ZIP.
- * @param {string} out_file - Path to the file to write to.
- */
 const zip = (in_dir, out_file) => {
     assert(typeof in_dir === "string" && typeof out_file === "string");
 
@@ -84,22 +62,13 @@ const zip = (in_dir, out_file) => {
     });
 };
 
-/**
- * Resolve path.
- * @function
- * @param {Any} ...args - Arguments for path.resolve().
- */
+// Shortcut for resolving path
 const r = (...args) => {
     return path.resolve(...args);
 };
 
-/**
- * Create a one level file ending filter.
- * @function
- * @param {string} root - Path to root level.
- * @param {string} ext - File ending to filter.
- * @param {boolean} [match=true] - Whether the filter is a match filter.
- */
+// Create a one level file ending filter
+// Path to root level, file ending filter, match or unmatch
 const f = (root, ext, match = true) => {
     root = r(root);
 
@@ -136,26 +105,21 @@ const f = (root, ext, match = true) => {
     }
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Configuration.
- * The source repository must be explicitly set before calling any of the
- * functions.
- * @const {string}
- */
+// This must be set externally before calling any of the exported function
 exports.src_repo = null;
+
 exports.assets_repo = "../NanoFilters";
 exports.defender_repo = "../uBlockProtector";
 exports.edge_shim = "../Edgyfy/edgyfy.js";
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Build Nano Core 2.
- * @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
+// Supported browsers:
+// "chromium"
+// "edge"     (legacy edge)
+
 exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -171,14 +135,8 @@ exports.build_core = async (browser) => {
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
     await fs.copy(r(src, "src"), r(output), f(r(src, "src"), ".html"));
 
-    await fs.copy(
-        r(src, "platform/chromium"), r(output, "js"),
-        f(r(src, "platform/chromium"), ".js"),
-    );
-    await fs.copy(
-        r(src, "platform/chromium"), r(output),
-        f(r(src, "platform/chromium"), ".js", false),
-    );
+    await fs.copy(r(src, "platform/chromium"), r(output, "js"), f(r(src, "platform/chromium"), ".js"));
+    await fs.copy(r(src, "platform/chromium"), r(output), f(r(src, "platform/chromium"), ".js", false));
 
     await fs.copy(r("./src/ace"), r(output, "lib/ace"));
     await fs.copy(r("./src/fonts"), r(output, "css/fonts"));
@@ -187,28 +145,16 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
-    await fs.copy(
-        r(exports.defender_repo, "src/reporter"), r(output, "reporter"),
-    );
-    await fs.copy(
-        r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"),
-    );
+    await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
+    await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
 
     // This must be after copying platform files
-    await fs.writeFile(
-        r(output, "manifest.json"), data.manifest(browser), "utf8",
-    );
+    await fs.writeFile(r(output, "manifest.json"), data.manifest(browser), "utf8");
 
-    if (browser === "edge") {
+    if (browser === "edge")
         await fs.copy(exports.edge_shim, r(output, "js/edgyfy.js"));
-    }
 };
 
-/**
- * Build filters.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
 exports.build_filters = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -220,27 +166,13 @@ exports.build_filters = async (browser) => {
 
     await fs.copy(r("./src/assets.json"), r(output, "assets.json"));
 
-    await fs.copy(
-        r(assets, "NanoFilters/NanoBase.txt"),
-        r(output, "NanoFilters/NanoBase.txt"),
-    );
-    await fs.copy(
-        r(assets, "NanoFilters/NanoResources.txt"),
-        r(output, "NanoFilters/NanoResources.txt"),
-    );
-    await fs.copy(
-        r(assets, "NanoFilters/NanoWhitelist.txt"),
-        r(output, "NanoFilters/NanoWhitelist.txt"),
-    );
+    await fs.copy(r(assets, "NanoFilters/NanoBase.txt"), r(output, "NanoFilters/NanoBase.txt"));
+    await fs.copy(r(assets, "NanoFilters/NanoResources.txt"), r(output, "NanoFilters/NanoResources.txt"));
+    await fs.copy(r(assets, "NanoFilters/NanoWhitelist.txt"), r(output, "NanoFilters/NanoWhitelist.txt"));
 
     await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
 };
 
-/**
- * Build web accessible resources.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
 exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -320,15 +252,13 @@ exports.build_resources = async (browser) => {
 
         name = md5(name);
 
-        // TODO: uBlock Origin's build script will map suffix to file
-        // extension as follows:
+        // TODO: uBlock Origin's build script will map suffix to file extension as follows:
         //
         // javascript -> js
         // plain      -> txt
         // (others)   -> (no change)
         //
-        // Need to investigate the benefit of doing that (beside working
-        // around a Mac OS operating system bug)
+        // Need to investigate the benefit of doing that (beside working around a Mac OS operating system bug)
         const suffix = re_extract_mime.exec(db_entry.mime);
         assert(suffix !== null);
         name = "\t" + name + "." + suffix[1];
@@ -376,18 +306,22 @@ exports.build_resources = async (browser) => {
             encoding: "utf8",
         });
         record_stream.on("error", (err) => {
-            // TODO: Error thrown inside event handlers are not caught by
-            // async
+            // TODO: Error thrown inside event handlers are not caught by async
             throw err;
         });
 
         for (const file of to_import) {
+            // TODO: Temporary override to keep build flowing, this entire function will have to be refactored anyway
+            //       Note that this resource is no longer in use
+            if (file === "antiAdBlock.js")
+                continue;
+
             if (nano.hasOwnProperty(file))
                 await process_one(file, nano[file], record_stream);
             else if (ubo.hasOwnProperty(file))
                 await process_one(file, ubo[file], record_stream);
             else
-                assert(false);
+                assert(false, "Resource '" + file + "' could not be found");
         }
 
         await new Promise((resolve) => {
@@ -397,11 +331,6 @@ exports.build_resources = async (browser) => {
     await process_all();
 };
 
-/**
- * Build locale files.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
 exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -412,12 +341,8 @@ exports.build_locale = async (browser) => {
     assert(typeof src === "string");
 
     const all_keys = [];
-    const en_ubo = JSON.parse(
-        await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"),
-    );
-    const en_nano = JSON.parse(
-        await fs.readFile(r("./src/_locales/en/messages.json"), "utf8"),
-    );
+    const en_ubo = JSON.parse(await fs.readFile(r(src, "src/_locales/en/messages.json"), "utf8"));
+    const en_nano = JSON.parse(await fs.readFile(r("./src/_locales/en/messages.json"), "utf8"));
     assert(typeof en_ubo === "object" && en_ubo !== null);
     assert(typeof en_nano === "object" && en_nano !== null);
 
@@ -452,14 +377,10 @@ exports.build_locale = async (browser) => {
     const process_one = async (lang, has_nano) => {
         await fs.mkdirp(r(output, lang));
 
-        const ubo = JSON.parse(await fs.readFile(
-            r(src, "src/_locales", lang, "messages.json"), "utf8",
-        ));
+        const ubo = JSON.parse(await fs.readFile(r(src, "src/_locales", lang, "messages.json"), "utf8"));
         let nano;
         if (has_nano) {
-            nano = JSON.parse(await fs.readFile(
-                r("./src/_locales", lang, "messages.json"), "utf8",
-            ));
+            nano = JSON.parse(await fs.readFile(r("./src/_locales", lang, "messages.json"), "utf8"));
         } else {
             nano = {};
         }
@@ -508,16 +429,11 @@ exports.build_locale = async (browser) => {
                 const based_on = data.based_on;
                 assert(typeof based_on === "string");
 
-                result[key].message = result[key].message
-                    .replace("{{@data}}", based_on);
+                result[key].message = result[key].message.replace("{{@data}}", based_on);
             }
         }
 
-        await fs.writeFile(
-            r(output, lang, "messages.json"),
-            JSON.stringify(result, null, 2),
-            "utf8",
-        );
+        await fs.writeFile(r(output, lang, "messages.json"), JSON.stringify(result, null, 2), "utf8");
     };
 
     const [langs_ubo, langs_nano] = await Promise.all([
@@ -537,24 +453,14 @@ exports.build_locale = async (browser) => {
         await fs.copy(r(output, "nb"), r(output, "no"));
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
 
-/**
- * Test the build result.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
 exports.test = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     await syntax.validate_dir(r("./build", browser));
 };
 
-/**
- * Create ZIP package.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- */
 exports.pack = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -564,12 +470,6 @@ exports.pack = async (browser) => {
     await zip(in_dir, out_file);
 };
 
-/**
- * Publish package to extension store.
- * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
- * @param {Term} term - Terminal for child process.
- */
 exports.publish = async (browser, term) => {
     assert(browser === "chromium" || browser === "edge");
 
@@ -581,7 +481,7 @@ exports.publish = async (browser, term) => {
 
         await store.publish(input, data.chromium_id, term);
     } else if (browser === "edge") {
-        // https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/packaging/using-manifoldjs-to-package-extensions
+        // https://bit.ly/2FS2ts0
 
         if (!edge)
             edge = require("../../Prototype/NanoCore2/edge.js");
@@ -602,4 +502,4 @@ exports.publish = async (browser, term) => {
     }
 };
 
-/*****************************************************************************/
+// ----------------------------------------------------------------------------------------------------------------- //
