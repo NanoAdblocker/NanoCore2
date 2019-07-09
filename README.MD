@@ -82,7 +82,8 @@ exit     Exit the terminal
 
 These are the potential problems to look out for:
 
-1. Font Awesome related CSS changes
+1. Development build detection logic
+2. Font Awesome related CSS changes
 
 ## Subresource Integrity Incidence Response Protocol
 
