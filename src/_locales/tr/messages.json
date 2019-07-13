@@ -188,7 +188,7 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "Bu ağ kuralı çok kısa.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_intervention_smed79": {
@@ -228,7 +228,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "Bu kural şimdilik reddedildi. Daha fazla bilgi: https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
