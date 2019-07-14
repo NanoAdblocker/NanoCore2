@@ -4,10 +4,10 @@
     "url": "https://github.com/NanoAdblocker/NanoCore/issues"
   },
   "dependencies": {
-    "archiver": "~2.1.1",
-    "esprima": "~4.0.1",
-    "fs-extra": "~7.0.1",
-    "yauzl": "~2.10.0"
+    "archiver": "2.1.1",
+    "esprima": "4.0.1",
+    "fs-extra": "7.0.1",
+    "yauzl": "2.10.0"
   },
   "description": "Nano Core 2 Terminal",
   "engines": {
