@@ -6,17 +6,17 @@
   "dependencies": {
     "archiver": "~2.1.1",
     "esprima": "~4.0.1",
-    "fs-extra": "~7.0.0",
+    "fs-extra": "~7.0.1",
     "yauzl": "~2.10.0"
   },
   "description": "Nano Core 2 Terminal",
   "engines": {
-    "node": ">=10.7.0"
+    "node": "^10.16.0"
   },
   "homepage": "https://github.com/jspenguin2017/NanoCore2",
   "license": "GPL-3.0",
   "name": "nano-core-2-term",
   "private": true,
   "repository": "https://github.com/jspenguin2017/NanoCore2",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
