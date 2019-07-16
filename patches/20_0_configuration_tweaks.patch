@@ -21,7 +21,7 @@ index b857cde8..8531ad03 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index faa357ac..a43e9ced 100644
+index faa357ac..1f30d826 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (function() { // jshint ignore:line
@@ -54,11 +54,14 @@ index faa357ac..a43e9ced 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -128,6 +128,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -127,7 +127,10 @@ const µBlock = (function() { // jshint ignore:line
+             'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
++            'edge-extension-scheme',
++            'edge-scheme',
              'moz-extension-scheme',
-+            'ms-browser-extension-scheme',
++            'ms-browser-extension-scheme', // For legacy Edge
              'opera-scheme',
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
