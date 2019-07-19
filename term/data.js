@@ -47,32 +47,35 @@ exports.manifest = (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const manifest = {
-        "author": "Nano Core 2 contributors",
-        "background": {
-            "page": "background.html",
+        author: "Nano Core 2 contributors",
+        background: {
+            page: "background.html",
         },
-        "browser_action": {
-            "default_icon": {
-                "128": "img/128_on.png",
+        browser_action: {
+            default_icon: {
+                128: "img/128_on.png",
             },
-            "default_popup": "popup.html",
-            "default_title": "Nano Adblocker",
+            default_popup: "popup.html",
+            default_title: "Nano Adblocker",
         },
-        "commands": {
+        commands: {
             "launch-element-picker": {
-                "description": "__MSG_popupTipPicker__",
+                description: "__MSG_popupTipPicker__",
             },
             "launch-element-zapper": {
-                "description": "__MSG_popupTipZapper__",
+                description: "__MSG_popupTipZapper__",
             },
             "launch-logger": {
-                "description": "__MSG_popupTipLog__",
+                description: "__MSG_popupTipLog__",
+            },
+            "toggle-blocking-profile": {
+                description: "__MSG_toggleBlockingProfile__",
             },
         },
-        "content_scripts": [
+        content_scripts: [
             {
-                "all_frames": true,
-                "js": [
+                all_frames: true,
+                js: [
                     "js/vapi.js",
                     "js/vapi-client.js",
                     "js/vapi-usercss.js",
@@ -80,38 +83,38 @@ exports.manifest = (browser) => {
                     "js/vapi-usercss.pseudo.js",
                     "js/contentscript.js",
                 ],
-                "matches": [
+                matches: [
                     "http://*/*",
                     "https://*/*",
                 ],
-                "run_at": "document_start",
+                run_at: "document_start",
             },
             {
-                "all_frames": false,
-                "js": [
+                all_frames: false,
+                js: [
                     "js/scriptlets/subscriber.js"
                 ],
-                "matches": [
+                matches: [
                     "http://*/*",
                     "https://*/*",
                 ],
-                "run_at": "document_idle",
+                run_at: "document_idle",
             },
         ],
-        "default_locale": "en",
-        "description": "An adblocker",
-        "icons": {
-            "128": "img/128_on.png",
+        default_locale: "en",
+        description: "An adblocker",
+        icons: {
+            128: "img/128_on.png",
         },
-        "incognito": "split",
-        "manifest_version": 2,
-        "minimum_chrome_version": "51.0",
-        "name": "Nano Adblocker",
-        "options_ui": {
-            "page": "dashboard.html",
-            "open_in_tab": true,
+        incognito: "split",
+        manifest_version: 2,
+        minimum_chrome_version: "51.0",
+        name: "Nano Adblocker",
+        options_ui: {
+            open_in_tab: true,
+            page: "dashboard.html",
         },
-        "permissions": [
+        permissions: [
             "<all_urls>",
             "contextMenus",
             "privacy",
@@ -122,11 +125,11 @@ exports.manifest = (browser) => {
             "webRequest",
             "webRequestBlocking",
         ],
-        "storage": {
-            "managed_schema": "managed_storage.json",
+        storage: {
+            managed_schema: "managed_storage.json",
         },
-        "version": exports.version,
-        "web_accessible_resources": [
+        version: exports.version,
+        web_accessible_resources: [
             "web_accessible_resources/*",
         ],
     };
@@ -134,8 +137,8 @@ exports.manifest = (browser) => {
     if (browser === "edge") {
         // Edge does not care if the size is actually right but does care if the key name is right
         manifest["-ms-preload"] = {
-            "backgroundScript": "js/edgyfy.js",
-            "contentScript": "js/edgyfy.js",
+            backgroundScript: "js/edgyfy.js",
+            contentScript: "js/edgyfy.js",
         };
         manifest.background.persistent = true;
         manifest.browser_action.default_icon = {
@@ -150,10 +153,6 @@ exports.manifest = (browser) => {
             "128": "img/128_on.png",
             "16": "img/128_on.png",
         };
-
-        // TODO: Remove when Edge properly support split mode
-        manifest.incognito = "spanning";
-
         delete manifest.minimum_chrome_version;
         manifest.minimum_edge_version = "41.16299.248.0";
         manifest.options_page = "dashboard.html";
@@ -162,6 +161,9 @@ exports.manifest = (browser) => {
             const i = manifest.version.indexOf(".");
             manifest.version = manifest.version.substring(i + 1) + ".0";
         }
+
+        // TODO: Remove when Edge properly support split mode
+        manifest.incognito = "spanning";
     }
 
     return JSON.stringify(manifest, null, 2);
