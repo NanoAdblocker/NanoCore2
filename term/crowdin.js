@@ -157,10 +157,12 @@ exports.sync = async () => {
 
             zip.on("entry", (entry) => {
                 const name = entry.fileName;
+
                 if (name.endsWith("/"))
                     return void next();
 
                 const [key, messages, ...rest] = name.split("/");
+
                 if (messages !== "messages.json" || rest.length !== 0)
                     return void reject(new Error("Unexpected file."));
                 if (!locales.has(key)) {
@@ -170,9 +172,11 @@ exports.sync = async () => {
                 }
 
                 const norm_key = locales.get(key);
+
                 done.add(key);
 
                 const outdir = path.resolve("./src/_locales", norm_key);
+
                 fs.mkdirp(outdir, (err) => {
                     if (err)
                         return void reject(err);

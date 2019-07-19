@@ -123,9 +123,11 @@ exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const output = r("./build", browser);
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
+
     assert(typeof src === "string");
 
     await fs.copy(r(src, "src/css"), r(output, "css"));
@@ -158,6 +160,7 @@ exports.build_filters = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const output = r("./build", browser, "assets");
+
     await fs.mkdirp(output);
 
     const assets = exports.assets_repo;
@@ -177,6 +180,7 @@ exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const output = r("./build", browser, "web_accessible_resources");
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -200,8 +204,8 @@ exports.build_resources = async (browser) => {
 
         const register_entry = () => {
             const [name, mime] = fields.splice(0, 2);
-
             let content;
+
             if (encoded)
                 content = fields.join("");
             else
@@ -221,7 +225,6 @@ exports.build_resources = async (browser) => {
                 continue;
 
             if (fields === null) {
-
                 line = line.trim();
 
                 if (!line)
@@ -230,20 +233,16 @@ exports.build_resources = async (browser) => {
                 fields = line.split(re_split_fields);
                 assert(fields.length === 2);
                 encoded = fields[1].includes(";");
-
             } else if (re_non_empty_line.test(line)) {
-
                 if (encoded)
                     fields.push(line.trim());
                 else
                     fields.push(line);
-
             } else {
-
                 register_entry();
-
             }
         }
+
         if (fields)
             register_entry();
 
@@ -266,7 +265,9 @@ exports.build_resources = async (browser) => {
         //
         // Need to investigate the benefit of doing that (beside working around a Mac OS operating system bug)
         const suffix = re_extract_mime.exec(db_entry.mime);
+
         assert(suffix !== null);
+
         name = "\t" + name + "." + suffix[1];
 
         record_stream.write(name);
@@ -337,6 +338,7 @@ exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const output = r("./build", browser, "_locales");
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -365,6 +367,7 @@ exports.build_locale = async (browser) => {
             all_keys.push(key);
         }
     }
+
     for (const key in en_nano) {
         if (en_nano.hasOwnProperty(key)) {
             assert(!all_keys.includes(key));
@@ -390,6 +393,7 @@ exports.build_locale = async (browser) => {
             nano = {};
 
         const result = {};
+
         for (const key of all_keys) {
             const ubo_has = ubo.hasOwnProperty(key);
             const nano_has = nano.hasOwnProperty(key);

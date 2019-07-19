@@ -89,9 +89,10 @@ const config_load = async () => {
     const validate_path = (p) => {
         assert(typeof p === "string");
         assert(path.isAbsolute(p));
-
-        const slashes = p.match(/\//g);
-        assert(slashes !== null && slashes.length >= 2);
+        {
+            const slashes = p.match(/\//g);
+            assert(slashes !== null && slashes.length >= 2);
+        }
     };
 
     assert(Array.isArray(config.Patches));
@@ -456,7 +457,6 @@ cmd_handlers.set("exit", () => {
 process.on("unhandledRejection", (err) => {
     throw err;
 });
-
 
 term.title(APP_NAME).write_line(APP_NAME);
 
