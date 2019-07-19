@@ -69,31 +69,27 @@ const download = (link, on_done, on_error, no_redir = false) => {
     const opt = url.parse(link);
 
     const req = https.request(opt, (res) => {
-        if (
-            res.statusCode === 301 ||
-            res.statusCode === 302 ||
-            res.statusCode === 307 ||
-            res.statusCode === 308
-        ) {
+        if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
             const new_link = res.headers["location"];
 
-            if (no_redir) {
+            if (no_redir)
                 on_error(new Error("Too many redirects."));
-            } else if (
-                typeof new_link !== "string" ||
-                !new_link.startsWith("https://")
-            ) {
+            else if (typeof new_link !== "string" || !new_link.startsWith("https://"))
                 on_error(new Error("Bad server response."));
-            } else {
+            else
                 download(new_link, on_done, on_error, true);
-            }
 
-            return void res.resume();
+            res.resume();
+
+            return;
         }
 
         if (res.statusCode !== 200) {
             on_error(new Error("Connection error."));
-            return void res.resume();
+
+            res.resume();
+
+            return;
         }
 
         stream_to_buffer(res, on_done, on_error);
@@ -114,20 +110,24 @@ const validated_write = (file, stream, on_done, on_error) => {
         data += c;
     });
 
-    stream.on("end", () => {
+    const on_end = () => {
         try {
             data = JSON.parse(data);
         } catch (err) {
             return void on_error(err);
         }
 
-        fs.writeFile(file, JSON.stringify(data, null, 2), (err) => {
-            if (err)
-                on_error(err);
-            else
-                on_done();
-        });
-    });
+        fs.writeFile(file, JSON.stringify(data, null, 2), on_wrote);
+    };
+
+    const on_wrote = (err) => {
+        if (err)
+            on_error(err);
+        else
+            on_done();
+    };
+
+    stream.on("end", on_end);
 
     stream.on("error", on_error);
 };
@@ -138,10 +138,7 @@ const validated_write = (file, stream, on_done, on_error) => {
 // Note that you still have to manually build the project on Crowdin when there are changes
 exports.sync = async () => {
     const file = await new Promise((resolve, reject) => {
-        download(
-            "https://crowdin.com/backend/download/project/nano-adblocker.zip",
-            resolve, reject,
-        );
+        download("https://crowdin.com/backend/download/project/nano-adblocker.zip", resolve, reject);
     });
 
     await new Promise((resolve, reject) => {
@@ -164,12 +161,9 @@ exports.sync = async () => {
                 const [key, messages, ...rest] = name.split("/");
 
                 if (messages !== "messages.json" || rest.length !== 0)
-                    return void reject(new Error("Unexpected file."));
-                if (!locales.has(key)) {
-                    return void reject(
-                        new Error("Locale " + key + " is not recognized."),
-                    );
-                }
+                    return void reject(new Error("Unexpected file '" + name + "'"));
+                if (!locales.has(key))
+                    return void reject(new Error("Locale '" + key + "' is not recognized."));
 
                 const norm_key = locales.get(key);
 
@@ -185,10 +179,7 @@ exports.sync = async () => {
                         if (err)
                             return void reject(err);
 
-                        validated_write(
-                            path.resolve(outdir, "messages.json"),
-                            stream, next, reject,
-                        );
+                        validated_write(path.resolve(outdir, "messages.json"), stream, next, reject);
                     });
                 });
             });

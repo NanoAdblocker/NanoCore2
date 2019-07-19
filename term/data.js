@@ -92,7 +92,7 @@ exports.manifest = (browser) => {
             {
                 all_frames: false,
                 js: [
-                    "js/scriptlets/subscriber.js"
+                    "js/scriptlets/subscriber.js",
                 ],
                 matches: [
                     "http://*/*",
@@ -134,6 +134,7 @@ exports.manifest = (browser) => {
         ],
     };
 
+    // Legaycy Edge
     if (browser === "edge") {
         // Edge does not care if the size is actually right but does care if the key name is right
         manifest["-ms-preload"] = {

@@ -43,6 +43,7 @@ let store = null;
 
 const md5 = (data) => {
     assert(typeof data === "string");
+
     return crypto.createHash("md5").update(data, "utf8").digest("hex");
 };
 
@@ -54,9 +55,11 @@ const zip = (in_dir, out_file) => {
         const output = fs.createWriteStream(out_file);
 
         input.on("end", resolve).on("warning", reject).on("error", reject);
+
         output.on("error", reject);
 
         input.pipe(output);
+
         input.directory(in_dir, false).finalize();
     });
 };
@@ -231,7 +234,9 @@ exports.build_resources = async (browser) => {
                     continue;
 
                 fields = line.split(re_split_fields);
+
                 assert(fields.length === 2);
+
                 encoded = fields[1].includes(";");
             } else if (re_non_empty_line.test(line)) {
                 if (encoded)
@@ -471,6 +476,7 @@ exports.build_locale = async (browser) => {
 
 exports.test = async (browser) => {
     assert(browser === "chromium" || browser === "edge");
+
     await syntax.validate_dir(r("./build", browser));
 };
 
@@ -504,11 +510,7 @@ exports.publish = async (browser, term) => {
         await fs.remove("./build/NanoAdblocker");
         await fs.copy("./build/edge", "./build/edge_appx");
 
-        await edge.pack(
-            fs, term,
-            r("./src/icons"), r("./build"),
-            r("./build/edge_appx"),
-        );
+        await edge.pack(fs, term, r("./src/icons"), r("./build"), r("./build/edge_appx"));
 
         term.write_line("APPX package created. Automatic publishing of Edge extensions is not yet implemented.");
     }

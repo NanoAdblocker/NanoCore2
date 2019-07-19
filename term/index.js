@@ -137,6 +137,7 @@ const exec_opt = () => {
 // Apply patch
 const apply = async (p) => {
     term.write_line("Applying " + p);
+
     await exec(0, "git", exec_opt(), "apply", p);
 };
 

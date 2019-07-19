@@ -105,15 +105,19 @@ exports.publish = async (file, ext_id, term = null) => {
             "Content-Length": Buffer.byteLength(payload),
         };
 
-        const req = https.request(opt, (res) => {
-            stream_to_text(res, (data) => {
-                data = JSON.parse(data);
+        const on_response = (res) => {
+            stream_to_text(res, on_data, reject);
+        };
 
-                assert(typeof data.access_token === "string");
+        const on_data = (data) => {
+            data = JSON.parse(data);
 
-                resolve(data.access_token);
-            }, reject);
-        });
+            assert(typeof data.access_token === "string");
+
+            resolve(data.access_token);
+        };
+
+        const req = https.request(opt, on_response);
 
         req.on("error", reject);
 
@@ -134,20 +138,24 @@ exports.publish = async (file, ext_id, term = null) => {
             "X-Goog-API-Version": "2",
         };
 
-        const req = https.request(opt, (res) => {
-            stream_to_text(res, (data) => {
-                data = JSON.parse(data);
+        const on_response = (res) => {
+            stream_to_text(res, on_data, reject);
+        };
 
-                if (term) {
-                    term.write_line("Package sent.");
-                    term.write_line(JSON.stringify(data, null, 2));
-                }
+        const on_data = (data) => {
+            data = JSON.parse(data);
 
-                assert(data.uploadState === "SUCCESS");
+            if (term) {
+                term.write_line("Package uploaded.");
+                term.write_line(JSON.stringify(data, null, 2));
+            }
 
-                resolve();
-            }, reject);
-        });
+            assert(data.uploadState === "SUCCESS");
+
+            resolve();
+        };
+
+        const req = https.request(opt, on_response);
 
         req.on("error", reject);
 
@@ -165,20 +173,24 @@ exports.publish = async (file, ext_id, term = null) => {
             "Content-Length": "0",
         };
 
-        const req = https.request(opt, (res) => {
-            stream_to_text(res, (data) => {
-                data = JSON.parse(data);
+        const on_response = (res) => {
+            stream_to_text(res, on_data, reject);
+        };
 
-                if (term) {
-                    term.write_line("Publish requested.");
-                    term.write_line(JSON.stringify(data, null, 2));
-                }
+        const on_data = (data) => {
+            data = JSON.parse(data);
 
-                assert(data.status.includes("OK") || data.status.includes("ITEM_PENDING_REVIEW"));
+            if (term) {
+                term.write_line("Publish requested.");
+                term.write_line(JSON.stringify(data, null, 2));
+            }
 
-                resolve();
-            }, reject);
-        });
+            assert(data.status.includes("OK") || data.status.includes("ITEM_PENDING_REVIEW"));
+
+            resolve();
+        };
+
+        const req = https.request(opt, on_response);
 
         req.on("error", reject);
 
