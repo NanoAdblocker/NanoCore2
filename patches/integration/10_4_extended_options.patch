@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 6a938b35..412636e4 100644
+index 9368c812..6c538e80 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -389,6 +389,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
+@@ -499,6 +499,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
      [ 'subdocument', 'sub_frame' ],
      [ 'xhr', 'xmlhttprequest' ],
      [ 'xmlhttprequest', 'xmlhttprequest' ],
@@ -12,10 +12,10 @@ index 6a938b35..412636e4 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 02baadbe..420cef0c 100644
+index d2d59c28..be6ff7f7 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1847,6 +1847,9 @@ FilterParser.prototype.toNormalizedType = {
+@@ -1863,6 +1863,9 @@ FilterParser.prototype.toNormalizedType = {
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
           'websocket': 'websocket',
@@ -25,7 +25,7 @@ index 02baadbe..420cef0c 100644
  };
  
  /******************************************************************************/
-@@ -1938,7 +1941,9 @@ FilterParser.prototype.parseDomainOption = function(s) {
+@@ -1954,7 +1957,9 @@ FilterParser.prototype.parseDomainOption = function(s) {
  
  FilterParser.prototype.parseOptions = function(s) {
      this.fopts = s;
@@ -36,7 +36,7 @@ index 02baadbe..420cef0c 100644
          const not = opt.startsWith('~');
          if ( not ) {
              opt = opt.slice(1);
-@@ -1950,7 +1955,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -1966,7 +1971,7 @@ FilterParser.prototype.parseOptions = function(s) {
          // https://issues.adblockplus.org/ticket/616
          // `generichide` concept already supported, just a matter of
          // adding support for the new keyword.
@@ -45,7 +45,7 @@ index 02baadbe..420cef0c 100644
              if ( not === false ) {
                  this.parseTypeOption('generichide', false);
                  continue;
-@@ -2006,8 +2011,11 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2022,8 +2027,11 @@ FilterParser.prototype.parseOptions = function(s) {
              this.dataStr = '';
              continue;
          }

@@ -43,7 +43,7 @@
 
             "./patches/integration/10_0_load_scripts.patch",
             "./patches/integration/10_1_compile_flags.patch",
-            "./patches/integration/10_2_extended_resources.patch",
+            //"./patches/integration/10_2_extended_resources.patch",
             "./patches/integration/10_3_force_recompile.patch",
             "./patches/integration/10_4_extended_options.patch",
             "./patches/integration/10_5_linters.patch",

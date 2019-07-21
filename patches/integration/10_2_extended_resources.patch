@@ -69,7 +69,7 @@ index ebf47b10..f916d1da 100644
          if ( success === true ) { return; }
  
 -        const fetchPromises = [ this.assets.get('ublock-resources') ];
-+        const fetchPromises = [ 
++        const fetchPromises = [
 +            this.assets.get('ublock-resources'),
 +            this.assets.get('nano-resources')
 +        ];
