@@ -68,8 +68,8 @@ exports.manifest = (browser) => {
             "launch-logger": {
                 description: "__MSG_popupTipLog__",
             },
-            "toggle-blocking-profile": {
-                description: "__MSG_toggleBlockingProfile__",
+            "relax-blocking-mode": {
+                description: "__MSG_relaxBlockingMode__",
             },
         },
         content_scripts: [
