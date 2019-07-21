@@ -34,6 +34,24 @@ nano.ub = window.__ublock__;
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
+nano.insert_redirect_declaration = (map) => {
+    map.set("nano-tiny-noopvast-2.xml", {
+        alias: "nano-tiny-noopvast-2.0",
+        inject: false,
+    });
+
+    map.set("nano-tiny-noopvast-3.xml", {
+        alias: "nano-tiny-noopvast-3.0",
+        inject: false,
+    });
+};
+
+nano.inject_mime_declaration = (map) => {
+    map.set("xml", "text/xml");
+};
+
+// ----------------------------------------------------------------------------------------------------------------- //
+
 nano.inject_force_scroll = (tab) => {
     const payload = {
         code: "* { overflow: auto !important; }",

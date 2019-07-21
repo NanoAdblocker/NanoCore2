@@ -76,10 +76,10 @@ index 58a23b14..d87ea24b 100644
              if ( parsed.exception ) {
                  kind |= 0b01;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 6c538e80..d0e95195 100644
+index a1323a9b..c5eab189 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -408,7 +408,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+@@ -411,7 +411,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
  
  RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const matches = this.reFilterParser.exec(line);
@@ -94,7 +94,7 @@ index 6c538e80..d0e95195 100644
  
      const des = matches[1] || '';
  
-@@ -453,17 +459,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -456,17 +462,26 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -124,7 +124,7 @@ index 6c538e80..d0e95195 100644
  
      if ( deshn === '' ) {
          deshn = '*';
-@@ -476,10 +491,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -479,10 +494,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
      for ( const srchn of srchns ) {
          if ( srchn === '' ) { continue; }

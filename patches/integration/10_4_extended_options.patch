@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 9368c812..6c538e80 100644
+index 024e2812..a1323a9b 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -499,6 +499,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
+@@ -502,6 +502,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
      [ 'subdocument', 'sub_frame' ],
      [ 'xhr', 'xmlhttprequest' ],
      [ 'xmlhttprequest', 'xmlhttprequest' ],
