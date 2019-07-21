@@ -97,10 +97,7 @@
         temp = Array.from(document.querySelectorAll(
             'script:not([src]):not([' + magic + '])'
         ));
-        if (
-            document.currentScript &&
-            !document.currentScript.hasAttribute(magic)
-        ) {
+        if (document.currentScript && !document.currentScript.hasAttribute(magic)) {
             temp.unshift(document.currentScript);
         }
         if (temp.length === 0) {
@@ -120,10 +117,7 @@
         var prev = script.previousSibling;
         temp = prev;
         while (temp = temp.previousSibling) {
-            if (
-                temp.nodeType === Node.COMMENT_NODE &&
-                testComment.test(temp.data)
-            ) {
+            if (temp.nodeType === Node.COMMENT_NODE && testComment.test(temp.data)) {
                 prev.style.setProperty('display', 'none', 'important');
                 return false;
             }
@@ -154,25 +148,18 @@
         if (isInBackground || !document.body) {
             return;
         }
-        var iterator = document.createTreeWalker(
-            document.body, NodeFilter.SHOW_COMMENT
-        );
+        var iterator = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT);
         var comment;
         while (comment = iterator.nextNode()) {
             if (reStart.test(comment.data)) {
                 var toHide = [];
                 var prev = comment;
                 while (prev = prev.previousSibling) {
-                    if (
-                        prev.nodeType === Node.COMMENT_NODE &&
-                        reEnd.test(prev.data)
-                    ) {
+                    if (prev.nodeType === Node.COMMENT_NODE && reEnd.test(prev.data)) {
                         if (toHide.length < 15) {
                             for (var e of toHide) {
                                 try {
-                                    e.style.setProperty(
-                                        'display', 'none', 'important'
-                                    );
+                                    e.style.setProperty('display', 'none', 'important');
                                 } catch (err) { }
                             }
                         }
@@ -201,8 +188,7 @@
     var needle = '{{1}}';
     if (needle === '' || needle === '{{1}}') {
         needle = '.?';
-    } else if (needle.length > 2 &&
-        needle.startsWith('/') && needle.endsWith('/')) {
+    } else if (needle.length > 2 && needle.startsWith('/') && needle.endsWith('/')) {
         needle = needle.slice(1, -1);
     } else {
         needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -239,8 +225,7 @@
             element.remove();
         }
     };
-    if (document.readyState === 'interactive' ||
-        document.readyState === 'complete') {
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
         remove();
     } else {
         addEventListener('DOMContentLoaded', remove);
@@ -275,7 +260,7 @@
         Notification.permission = 'grante';
         if (callback) {
             setTimeout(callback, 0, 'granted');
-        };
+        }
         return Promise.resolve('granted');
     };
 })();
@@ -303,8 +288,7 @@
             element.click();
         }
     };
-    if (document.readyState === 'interactive' ||
-        document.readyState === 'complete') {
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
         click();
     } else {
         addEventListener('DOMContentLoaded', click);
