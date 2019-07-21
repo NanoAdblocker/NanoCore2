@@ -68,6 +68,12 @@ Expected:
    1. Line `2`: `1` error
 1. Dashboard shows `2` total filters
 
+Actions:
+1. Refresh the dashboard
+
+Expected:
+1. Warnings and errors are reloaded
+
 Cleanup:
 1. Remove added filters
 
