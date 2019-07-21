@@ -100,6 +100,7 @@ These are the potential problems to look out for:
 
 1. Development build detection logic
 1. Font Awesome related CSS changes
+1. Image assets changes
 
 ## Subresource Integrity Incidence Response Protocol
 
