@@ -14,10 +14,10 @@ index b3ba1610..6adaa9e1 100644
 +
  })();
 diff --git a/src/js/settings.js b/src/js/settings.js
-index adc38102..5f83df03 100644
+index aebab6c3..5af0f801 100644
 --- a/src/js/settings.js
 +++ b/src/js/settings.js
-@@ -184,6 +184,15 @@ const synchronizeDOM = function() {
+@@ -187,6 +187,15 @@ const synchronizeDOM = function() {
          'advancedUser',
          uDom.nodeFromId('advanced-user-enabled').checked === true
      );
@@ -34,10 +34,10 @@ index adc38102..5f83df03 100644
  
  /******************************************************************************/
 diff --git a/src/js/ublock.js b/src/js/ublock.js
-index 4afad498..f944edbe 100644
+index d151f12e..ccd4e635 100644
 --- a/src/js/ublock.js
 +++ b/src/js/ublock.js
-@@ -429,7 +429,9 @@ var matchBucket = function(url, hostname, bucket, start) {
+@@ -439,7 +439,9 @@ const matchBucket = function(url, hostname, bucket, start) {
              runAt: 'document_end'
          },
          ( ) => {
