@@ -59,13 +59,17 @@ Actions:
 ```
 ||example.com^$mp4
 1
+||ww2.example.com^$xmlhtprequest
 ```
 
 Expected:
 1. No error thrown in the background console
+1. Highlighter marks:
+   1. Line `3`: `xmlhtprequest` marked as invalid
 1. Linter marks:
    1. Line `1`: `2` warnings
    1. Line `2`: `1` error
+   1. Line `3`: `1` error
 1. Dashboard shows `2` total filters
 
 Actions:
