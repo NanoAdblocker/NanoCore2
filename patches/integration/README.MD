@@ -18,8 +18,7 @@ These patches must be applied in order.
 
 `10_1_compile_flags.patch`: Integrate with compile flags.
 
-`10_2_extended_resources.patch`: Extend resources and implement privileged
-filters system.
+`10_2_privileged_resources.patch`: Implement privileged filters system.
 
 `10_3_force_recompile.patch`: Enable force recompile filters button in advanced
 settings page.

@@ -1,0 +1,28 @@
+diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
+index 4f9ddee4..e370611c 100644
+--- a/src/js/scriptlet-filtering.js
++++ b/src/js/scriptlet-filtering.js
+@@ -194,7 +194,7 @@
+             }
+             content =
+                 'try {\n' +
+-                    content + '\n' +
++                    content.replace('{{nano}}', '') + '\n' +
+                 '} catch ( e ) { }';
+             scriptletCache.add(raw, content);
+         }
+@@ -257,6 +257,14 @@
+             return;
+         }
+ 
++        var nanoInjectArgs = parsed.suffix.slice(4, -1);
++        if (
++            !nano.cf.is_privileged &&
++            nanoInjectArgs.startsWith(nano.privileged_assets_previx)
++        ) {
++            return;
++        }
++
+         // https://github.com/gorhill/uBlock/issues/3375
+         //   Ignore instances of exception filter with negated hostnames,
+         //   because there is no way to create an exception to an exception.

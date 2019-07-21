@@ -133,7 +133,7 @@ index 412636e4..1b049a34 100644
 +            nano.flintw('nano_r_negated_domain');
 +            continue;
 +        }
-         out.push(srchn + '\t' + deshn + '\t' + type + '\t' + pattern + '\t' + redirect);
+         out.push(`${srchn}\t${deshn}\t${type}\t${pattern}\t${redirect}`);
      }
  
 +    if ( out.length === 0 ) {
@@ -152,7 +152,7 @@ index e370611c..e08d5b04 100644
 @@ -253,6 +253,8 @@
          if ( parsed.hostnames.length === 0 ) {
              if ( parsed.exception ) {
-                 writer.push([ 32, '', 1, parsed.suffix ]);
+                 writer.push([ 32, '', 1, normalized ]);
 +            } else {
 +                nano.flinte('nano_l_filter_too_expensive');
              }
