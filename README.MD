@@ -99,8 +99,9 @@ exit     Exit the terminal
 These are the potential problems to look out for:
 
 1. Development build detection logic
-1. Font Awesome related CSS changes
-1. Image assets changes
+1. Font Awesome related CSS
+1. Image resources
+1. `/assets` directory structure
 
 ## Subresource Integrity Incidence Response Protocol
 
