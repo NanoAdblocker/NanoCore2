@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 38ed0b8a..276cfecc 100644
+index 5bcdf472..8bfd0084 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -863,11 +863,8 @@ const restoreUserData = function(request) {
+@@ -875,11 +875,8 @@ const restoreUserData = function(request) {
      vAPI.localStorage.removeItem('immediateHiddenSettings');
  };
  
@@ -15,7 +15,7 @@ index 38ed0b8a..276cfecc 100644
      const countdown = ( ) => {
          count -= 1;
          if ( count === 0 ) {
-@@ -876,8 +873,7 @@ const resetUserData = function() {
+@@ -888,8 +885,7 @@ const resetUserData = function() {
      };
      µb.cacheStorage.clear().then(( ) => countdown());   // 1
      vAPI.storage.clear(countdown);                      // 2

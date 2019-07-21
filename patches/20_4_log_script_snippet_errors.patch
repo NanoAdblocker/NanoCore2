@@ -10,6 +10,6 @@ index e08d5b04..e2d95a0a 100644
 +                '} catch ( e ) {\n' +
 +                '    console.error("[Nano] Script Snippet ::", e);\n' +
 +                '}';
-             scriptletCache.add(raw, content);
+             scriptletCache.add(rawToken, content);
          }
-         toInject.set(raw, content);
+         toInject.set(rawToken, content);
