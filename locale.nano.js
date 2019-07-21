@@ -70,16 +70,14 @@
         },
 
         nano_d_resources_links: {
-            message: "Nano comes with two sets of resources, " + mk_link(ubo_res_doc, "uBlock Origin Resources") +
-                " and " + mk_link(nano_res_doc, "Nano Extra Resources") + ".",
+            message: "Nano comes with two sets of resources, " + mk_link(ubo_res_doc, "uBlock Origin Resources") + " and " + mk_link(nano_res_doc, "Nano Extra Resources") + ".",
             description: "Resources reference links, 'Resources' and 'Extra Resources' should be translated",
         },
 
+        // TODO: Not used
         nano_d_ace_help: {
-            // TODO: Not used
             message: "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
-            description: "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of " +
-                "shortcut keys",
+            description: "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys",
         },
 
         nano_d_about_based_on: {
@@ -117,8 +115,7 @@
 
         nano_p_refresh_button: {
             message: "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
-            description: "English: Click to refresh this page.\n\nCtrl+click to refresh this page while " +
-                "bypassing cache.",
+            description: "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
         },
 
         // Beta buttons
@@ -140,8 +137,7 @@
         // TODO: Are these used?
 
         nano_l_whitelist_aborted_w: {
-            message: "Nano did not scan the rest of the whitelists for warnings because there are too many " +
-                "warnings.",
+            message: "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
             description: "Warning when too many warnings in whitelists",
         },
 
@@ -181,14 +177,12 @@
         // Filter linter warnings
 
         nano_l_filter_aborted_w: {
-            message: "Nano did not scan the rest of the filter rules for warnings because there are too many " +
-                "warnings.",
+            message: "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
             description: "Warning when too many warnings in filter rules",
         },
 
         nano_l_filter_script_snippet_double_exception: {
-            message: "Nano discarded a negated domain because it cannot be used in a script snippet exception " +
-                "rule.",
+            message: "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
             description: "Warning when negated domain used with script snippet exception",
         },
 
@@ -202,11 +196,10 @@
             description: "Warning when negated domain used with HTML filtering",
         },
 
+        // TODO: Not used
         nano_l_filter_discarded_non_negatable_type: {
-            // TODO: Not used
             message: "Nano discarded the type option '{{type}}' because it cannot be negated.",
-            description: "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be " +
-                "negated.",
+            description: "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated.",
         },
 
         nano_l_filter_expanded_mp4_option: {
@@ -358,8 +351,7 @@
         },
 
         nano_r_no_supported_type: {
-            message: "Nano discarded the option 'redirect=...' because it did not select any supported type " +
-                "options.",
+            message: "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
             description: "Warning when 'redirect=' selected no supported type",
         },
 
@@ -378,12 +370,10 @@
             description: "Error when 'redirect=' used in exception",
         },
 
+        // TODO: Think of a better warning message
         nano_r_does_not_match_re: {
-            // TODO: Think of a better warning message
-            message: "Nano discarded the option 'redirect=...' because this network rule does not match this " +
-                "regular expression: {{regexp}}",
-            description: "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester " +
-                "if needed",
+            message: "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
+            description: "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
@@ -391,8 +381,7 @@
         // Known bugs warnings
 
         nano_b_cosmetic_filter_passed_through: {
-            message: "This rule is rejected for now. More information: " +
-                "https://github.com/NanoAdblocker/NanoCore/issues/77",
+            message: "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
             description: "https://github.com/NanoAdblocker/NanoCore/issues/77",
         },
 

@@ -52,7 +52,7 @@ index d2d59c28..be6ff7f7 100644
 -        // Used by Adguard, purpose is unclear -- just ignore for now.
 -        if ( opt === 'empty' ) {
 +        if ( opt === 'mp4' ) {
-+            opts.push('media', 'redirect=noopmp4-1s');
++            opts.push('media', 'redirect=noop-1s.mp4');
 +            this.fopts = opts.join(',');
 +            var pos = this.raw.lastIndexOf('$');
 +            this.raw = this.raw.slice(0, pos + 1) + this.fopts;
