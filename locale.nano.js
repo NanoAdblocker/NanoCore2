@@ -203,7 +203,7 @@
         },
 
         nano_l_filter_expanded_mp4_option: {
-            message: "Nano replaced the option 'mp4' with 'media,redirect=noopmp4-1s'.",
+            message: "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
             description: "Warning when 'mp4' is replaced",
         },
 
@@ -215,6 +215,21 @@
         nano_l_filter_resource_not_found: {
             message: "The resource '{{res}}' could not be found, is it spelled correctly?",
             description: "Warning when resource not found",
+        },
+
+        nano_l_filter_resource_not_redirectable: {
+            message: "The resource '{{res}}' cannot be used as a redirect target.",
+            description: "Warning when resource not redirectable",
+        },
+
+        nano_l_filter_resource_not_injectable: {
+            message: "The resource '{{res}}' cannot be injected as a script snippet.",
+            description: "Warning when resource not injectable",
+        },
+
+        nano_l_filter_resource_alias_used: {
+            message: "'{{alias}}' is the alias of {{res}}, consider using the real name instead.",
+            description: "Warning when resource alias used",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
