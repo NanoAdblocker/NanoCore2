@@ -30,6 +30,7 @@ const archiver = require("archiver");
 const assert = require("assert");
 const crypto = require("crypto");
 const fs = require("fs-extra");
+const os = require("os");
 const path = require("path");
 
 const data = require("./data.js");
@@ -148,11 +149,13 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/img"), r(output, "img"));
     await fs.copy(r("./src/icons/icon_16.png"), r(output, "img/icon_16.png"));
     await fs.copy(r("./src/js"), r(output, "js"));
-    await fs.copy(r("./src/war"), r(output, "web_accessible_resources"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
     await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
+
+    // This must be done after copying upstream web accessible resources
+    await fs.copy(r("./src/war"), r(output, "web_accessible_resources"));
 
     // This must be done after copying platform files
     await fs.writeFile(r(output, "manifest.json"), data.manifest(browser), "utf8");
@@ -179,15 +182,59 @@ exports.build_filters = async (browser) => {
 
     await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"), {
         filter: (file) => {
-            console.log(file);
+            if (/[\\/]uBlockResources\.txt$/.test(file))
+                return false;
+
+            return true;
         },
     });
 };
 
 exports.build_resources = async (browser) => {
-    // TODO: Update this function to build snippets into resources manifest for backward compatibility
-    console.log("build_resources is disabled for now.");
-    return;
+    assert(browser === "chromium" || browser === "edge");
+
+    const output = r("./build", browser, "assets/resources");
+
+    await fs.mkdirp(output);
+
+    const src = exports.src_repo;
+
+    assert(typeof src === "string");
+
+    // TODO: Handle stream errors
+    const write_stream = fs.createWriteStream(r(output, "scriptlets.js"), "utf8");
+
+    const [ubo, nano] = await Promise.all([
+        fs.readFile(r(src, "assets/resources/scriptlets.js"), "utf8"),
+        fs.readFile(r("./src/snippets.js"), "utf8"),
+    ]);
+
+    const process_one = (data) => {
+        for (const line of data.split("\n")) {
+            const trimmed = line.trimEnd();
+
+            if (line !== trimmed && line !== trimmed + "\r")
+                console.warn("WARN: Line '" + trimmed + "' becomes much shorter when trimmed");
+
+            write_stream.write(trimmed);
+            write_stream.write(os.EOL);
+        }
+    };
+
+    process_one(ubo);
+    write_stream.write(os.EOL);
+    write_stream.write(os.EOL);
+    process_one(nano);
+
+    await new Promise((resolve) => {
+        write_stream.end(resolve);
+    });
+};
+
+exports.build_resources_old = async (browser) => {
+    // TODO
+    console.error("ERRO: This function is currently disabled");
+    assert(false);
 
     assert(browser === "chromium" || browser === "edge");
 
