@@ -36,11 +36,14 @@ Expected:
 Actions:
 1. Open the dashboard using the popup panel
 
+Expected:
+1. Correct icon shown in the top left corner
+
 ### Settings Tab
 
 Actions:
 1. Go to the settings tab
-1. Click restore to default settings
+1. Click restore to default settings button
 1. Confirm action
 
 Expected:
@@ -64,3 +67,29 @@ Expected:
    1. Line `1`: `2` warnings
    1. Line `2`: `1` error
 1. Dashboard shows `2` total filters
+
+Cleanup:
+1. Remove added filters
+
+### About Tab
+
+Actions:
+1. Go to about tab
+
+Expected:
+1. Page showing correct information
+
+## Cosmetic Filtering
+
+Actions:
+1. Go to `https://gorhill.github.io/uBlock/tests/`
+1. Navigate to procedural cosmetic filters page
+1. Add filters
+1. Reload the page
+1. Wait 5 seconds
+
+Expected:
+1. All boxes are green and stays green
+
+Cleanup:
+1. Remove added filters
