@@ -39,8 +39,7 @@
 
     const ubo_res_doc = "https://github.com/gorhill/uBlock/wiki/Resources-Library";
 
-    const nano_res_doc =
-        "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt";
+    const nano_res_doc = "https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js";
 
     // ------------------------------------------------------------------------------------------------------------- //
 
