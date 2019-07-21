@@ -39,3 +39,7 @@ filters automatic comment template.
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
+
+## Group `90`: Other Changes
+
+`90_0_temporary_migration.patch`: Temporary migration, to be removed later.
