@@ -137,6 +137,7 @@ exports.build_core = async (browser) => {
     await fs.copy(r(src, "src/img/fontawesome"), r(output, "img/fontawesome"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
+    await fs.copy(r(src, "src/web_accessible_resources"), r(output, "web_accessible_resources"));
     await fs.copy(r(src, "src"), r(output), f(r(src, "src"), ".html"));
 
     await fs.copy(r(src, "platform/chromium"), r(output, "js"), f(r(src, "platform/chromium"), ".js"));
@@ -147,6 +148,7 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/img"), r(output, "img"));
     await fs.copy(r("./src/icons/icon_16.png"), r(output, "img/icon_16.png"));
     await fs.copy(r("./src/js"), r(output, "js"));
+    await fs.copy(r("./src/war"), r(output, "web_accessible_resources"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
     await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
@@ -173,13 +175,20 @@ exports.build_filters = async (browser) => {
     await fs.copy(r("./src/assets.json"), r(output, "assets.json"));
 
     await fs.copy(r(assets, "NanoFilters/NanoBase.txt"), r(output, "NanoFilters/NanoBase.txt"));
-    await fs.copy(r(assets, "NanoFilters/NanoResources.txt"), r(output, "NanoFilters/NanoResources.txt"));
     await fs.copy(r(assets, "NanoFilters/NanoWhitelist.txt"), r(output, "NanoFilters/NanoWhitelist.txt"));
 
-    await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
+    await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"), {
+        filter: (file) => {
+            console.log(file);
+        },
+    });
 };
 
 exports.build_resources = async (browser) => {
+    // TODO: Update this function to build snippets into resources manifest for backward compatibility
+    console.log("build_resources is disabled for now.");
+    return;
+
     assert(browser === "chromium" || browser === "edge");
 
     const output = r("./build", browser, "web_accessible_resources");
