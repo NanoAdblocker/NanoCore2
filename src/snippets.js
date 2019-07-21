@@ -54,8 +54,7 @@
         }
         parent[chain[chain.length - 1]] = value;
     };
-    if (document.readyState === 'interactive' ||
-        document.readyState === 'complete') {
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
         assign();
     } else {
         addEventListener('DOMContentLoaded', assign);
