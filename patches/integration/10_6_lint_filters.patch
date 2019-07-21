@@ -420,3 +420,15 @@ index 5dfebcf9..1a1f6011 100644
      nano.cf.reset();
  
      return writer.toString();
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index fefba47d..9643a946 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -2113,6 +2113,7 @@ FilterParser.prototype.parse = function(raw) {
+     // as unsupported.
+     if ( s.length === 1 && /[0-9a-z]/i.test(s) ) {
+         this.unsupported = true;
++        nano.flinte('nano_l_filter_too_short');
+         return this;
+     }
+ 
