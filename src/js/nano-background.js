@@ -314,6 +314,9 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
                 // TODO: Some resources are no longer injectable
                 let token = data[0];
 
+                if (!token)
+                    token = "";
+
                 const i = token.indexOf(",");
 
                 if (i !== -1)
@@ -327,7 +330,10 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
         case nano.flintable.ResRedirect:
             {
                 // TODO: Some resources are no longer redirectable
-                const token = data[0];
+                let token = data[0];
+
+                if (!token)
+                    token = "";
 
                 if (
                     token !== "none" &&
@@ -358,6 +364,9 @@ nano.flint = (is_err, key, placeholders) => {
         return;
 
     let msg = vAPI.i18n(key);
+
+    if (!msg)
+        msg = "(message not found)";
 
     for (const pair of placeholders)
         msg = msg.replace(...pair);
