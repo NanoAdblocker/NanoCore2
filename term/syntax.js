@@ -72,12 +72,12 @@ const validate_html = async (file) => {
 
 exports.validate_dir = async (dir) => {
     const files = await fs.readdir(dir);
-    const tasks = [];
+    let tasks = [];
 
     for (const file of files)
         tasks.push(fs.lstat(path.resolve(dir, file)));
 
-    await Promise.all(tasks);
+    tasks = await Promise.all(tasks);
 
     for (let i = 0; i < files.length; i++) {
         assert(!tasks[i].isSymbolicLink());
