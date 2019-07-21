@@ -46,7 +46,7 @@ nano.insert_redirect_declaration = (map) => {
     });
 };
 
-nano.inject_mime_declaration = (map) => {
+nano.insert_mime_declaration = (map) => {
     map.set("xml", "text/xml");
 };
 
