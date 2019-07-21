@@ -311,6 +311,7 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
     switch (lintable) {
         case nano.flintable.ResScriptInject:
             {
+                // TODO: Some resources are no longer injectable
                 let token = data[0];
 
                 const i = token.indexOf(",");
@@ -318,17 +319,23 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
                 if (i !== -1)
                     token = token.substring(0, i);
 
-                if (!nano.ub.redirectEngine.resources.has(token))
+                if (!nano.ub.redirectEngine.resources.has(token) && !nano.ub.redirectEngine.aliases.has(token))
                     nano.flintw("nano_l_filter_resource_not_found", ["{{res}}", token]);
             }
             break;
 
         case nano.flintable.ResRedirect:
             {
+                // TODO: Some resources are no longer redirectable
                 const token = data[0];
 
-                if (token !== "none" && !nano.ub.redirectEngine.resources.has(token))
+                if (
+                    token !== "none" &&
+                    !nano.ub.redirectEngine.resources.has(token) &&
+                    !nano.ub.redirectEngine.aliases.has(token)
+                ) {
                     nano.flintw("nano_l_filter_resource_not_found", ["{{res}}", token]);
+                }
             }
             break;
 
