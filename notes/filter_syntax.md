@@ -9,7 +9,7 @@ however, there are a few exceptions.
 ## Extra Resources
 
 Nano Adblocker has
-[extra resources](https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt),
+[extra resources](https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js),
 and when a filter references one of those resources, it will not work as
 intended in uBlock Origin out of the box. You can, however, load these extra
 resources to uBlock Origin in advanced settings to make those filters work.
