@@ -217,7 +217,7 @@ index f8adb9c1..46f9df70 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index be6ff7f7..9643a946 100644
+index c8b85889..96ee1580 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1977,6 +1977,7 @@ FilterParser.prototype.parseOptions = function(s) {
