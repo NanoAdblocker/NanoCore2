@@ -17,22 +17,17 @@
       "assets/ThirdParty/PublicSuffix.dat"
     ]
   },
+
+
   "ublock-resources": {
     "content": "internal",
     "updateAfter": 5,
-    "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoMirror/uBlockResources.txt",
-      "assets/ThirdParty/uBlockResources.txt"
-    ]
+    "contentURL": "assets/ThirdParty/uBlockResources.txt"
   },
   "nano-resources": {
     "content": "internal",
     "updateAfter": 5,
-    "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
-      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
-      "assets/NanoFilters/NanoResources.txt"
-    ]
+    "contentURL": "assets/NanoFilters/NanoResources.txt"
   },
 
 
