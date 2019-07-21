@@ -93,3 +93,18 @@ Expected:
 
 Cleanup:
 1. Remove added filters
+
+## Element Picker
+
+Actions:
+1. Go to `example.com`
+1. Bring up the element picker using the popup panel
+1. Pick some text
+1. Add the filter
+1. Refresh the page
+
+Expected:
+1. Picked text stays hidden
+
+Cleanup:
+1. Remove added filter
