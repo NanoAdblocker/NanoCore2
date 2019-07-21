@@ -21,18 +21,18 @@ Your language is not listed? Submit an issue to let me know.
 ## Setup
 
 1. Install latest version of Git and Node.js.
-2. In an appropriate directory, run:
+1. In an appropriate directory, run:
    1. `git clone --depth 1 https://github.com/NanoAdblocker/NanoCore2.git`
-   2. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
-   3. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
-   4. `git clone --depth 1 https://github.com/jspenguin2017/uBlockProtector`
-3. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
+   1. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
+   1. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
+   1. `git clone --depth 1 https://github.com/jspenguin2017/uBlockProtector`
+1. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit as
    appropriate.
-4. In Nano Core 2 repository:
+1. In Nano Core 2 repository:
    1. Navigate to `/term` directory and run `npm install`.
-   2. Update `/config.json` as appropriate.
-   3. Run `node ./term` to open Nano Core 2 Terminal.
+   1. Update `/config.json` as appropriate.
+   1. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
@@ -65,25 +65,41 @@ reload   Reload configuration data
 exit     Exit the terminal
 ```
 
+### Creating a New Patch
+
+1. Run `mark`
+1. Copy generated patch file to an appropriate directory
+1. Give the new patch a good name
+1. Add it to the README file
+1. Add it to the configuration file
+1. Run `reload` in the Terminal
+
+### Renaming a Patch
+
+1. Give the patch a new name
+1. Update the README file
+1. Update the configuration file
+1. Run `reload` in the Terminal
+
 ## Version Update Checklist
 
-1.  Pull filters updates
-2.  If needed, pull upstream updates then update about string and commit pin
-3.  If needed, pull upstream updates to build scripts
-4.  If needed, pull upstream updates to `assets.json` and `manifest.json`
-5.  If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
-6.  If needed, build and pull locale updates
-7.  Bump version number
-8.  Perform [sanity tests](notes/sanity_tests.md)
-9.  Add tags to repositories, and upload packages
-10. Upload packages to extension stores
+1. Pull filters updates
+1. If needed, pull upstream updates then update about string and commit pin
+1. If needed, pull upstream updates to build scripts
+1. If needed, pull upstream updates to `assets.json` and `manifest.json`
+1. If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
+1. If needed, build and pull locale updates
+1. Bump version number
+1. Perform [sanity tests](notes/sanity_tests.md)
+1. Add tags to repositories, and upload packages
+1. Upload packages to extension stores
 
 ## Version Update Watchlist
 
 These are the potential problems to look out for:
 
 1. Development build detection logic
-2. Font Awesome related CSS changes
+1. Font Awesome related CSS changes
 
 ## Subresource Integrity Incidence Response Protocol
 
@@ -93,22 +109,19 @@ can be easily placed with the help of
 [MirrorEngine](https://github.com/NanoMeow/MirrorEngine):
 
 1. Lock the subresource in UltimateMirror
-2. Remove problematic content from UltimateMirror, if needed
-3. Update `assets.json` so the sanitized subresource will be loaded from
+1. Remove problematic content from UltimateMirror, if needed
+1. Update `assets.json` so the sanitized subresource will be loaded from
    UltimateMirror
 
 Later, the intervention can be lifted as follows:
 
 1. Update `assets.json` as appropriate, the subresource should no longer be
    loaded from UltimateMirror
-2. Wait a bit for cache to expire (takes about 10 minutes), then restart
+1. Wait a bit for cache to expire (takes about 10 minutes), then restart
    MirrorEngine
-3. Unlock the subresource in UltimateMirror
+1. Unlock the subresource in UltimateMirror
 
 ## Tips
-
-Do not forget to copy and commit generated patches from `mark` to make them
-permanent. Also adjust the configuration file as appropriate.
 
 To update a patch, simply paste further changes to the bottom of that patch and
 `sync` them in.
