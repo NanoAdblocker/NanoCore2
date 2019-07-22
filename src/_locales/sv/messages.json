@@ -112,7 +112,7 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "Resursen '{{res}}' kan inte användas som omdirigeringsmål.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
@@ -120,7 +120,7 @@
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of {{res}}, consider using the real name instead.",
+    "message": "'{{alias}}' är aliaset av '{{res}}', överväg att använda det riktiga namnet i stället.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {

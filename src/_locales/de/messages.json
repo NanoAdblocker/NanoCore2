@@ -120,7 +120,7 @@
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of {{res}}, consider using the real name instead.",
+    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
@@ -236,7 +236,7 @@
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano hat die Angabe 'redirect=...' verworfen, da diese Netzwerkregel nicht diesem regulären Ausdruck entspricht: {{regexp}}",
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {

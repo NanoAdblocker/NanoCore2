@@ -120,7 +120,7 @@
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of {{res}}, consider using the real name instead.",
+    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
