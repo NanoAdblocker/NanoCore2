@@ -228,7 +228,7 @@
         },
 
         nano_l_filter_resource_alias_used: {
-            message: "'{{alias}}' is the alias of {{res}}, consider using the real name instead.",
+            message: "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
             description: "Warning when resource alias used",
         },
 
@@ -340,8 +340,8 @@
             description: "Error when network rule is too short",
         },
 
+        // https://github.com/uBlock-LLC/uBlock/issues/1096
         nano_l_filter_intervention_smed79: {
-            // https://github.com/uBlock-LLC/uBlock/issues/1096
             message: "The domain anchor may not be immediately followed by '^'.",
             description: "Error when the bad rule from SMed79 is discarded",
         },
