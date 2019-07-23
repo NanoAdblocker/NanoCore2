@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Nano Extra Resources</a>.",
+    "message": "Nano enthält zwei Ressourcensätze, die <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ressourcen</a> und die <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>zusätzlichen Ressourcen von Nano</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
@@ -44,7 +44,7 @@
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "Klicken, um diese Seite neu zu laden.\n\nStrg+Klick, um diese Seite neu zu laden und dabei die im Cache gespeicherten Inhalte zu ignorieren.",
+    "message": "Klicken, um diese Seite neu zu laden.\n\nStrg+Klick, um diese Seite neu zu laden und dabei die zwischengespeicherten Inhalte zu ignorieren.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -56,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
+    "message": "Nano hat den Rest der Positivlisten nicht nach Warnungen durchsucht, da es zu viele Warnmeldungen gibt.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -64,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
+    "message": "Nano hat den Rest der Positivlisten nicht nach Fehlern durchsucht, da es zu viele Fehler gibt.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -80,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
+    "message": "Nano hat den Rest der Filterregeln nicht nach Warnungen durchsucht, da es zu viele Warnungen gibt.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -100,11 +100,11 @@
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
+    "message": "Nano hat die Auswahl 'mp4' durch 'media,redirect=noop-1s.mp4' ersetzt.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano discarded type options that are not yet supported.",
+    "message": "Nano hat Typ-Optionen verworfen, die noch nicht unterstützt werden.",
     "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
@@ -112,19 +112,19 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "Die Ressource '{{res}}' kann nicht als Umleitungsziel verwendet werden.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "Die Ressource '{{res}}' kann nicht als Skript-Ausschnitt eingebunden werden.",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' ist der Alias von '{{res}}', verwenden Sie stattdessen den echten Namen.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "Das Verwenden von '[' zur Kennzeichnung von Kommentaren ist veraltet, bitte verwenden Sie stattdessen '!'.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
@@ -136,15 +136,15 @@
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "message": "Das Verwenden der Option 'mp4' ist veraltet, schreiben Sie stattdessen die vollständigen Optionen aus.",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
+    "message": "Nano hat den Rest der Filterregeln nicht nach Fehlern durchsucht, da es zu viele Fehler gibt.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not allowed due to security concerns.",
+    "message": "Roh-Script-Injektion ist aus Sicherheitsgründen nicht erlaubt.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -164,7 +164,7 @@
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "Dieser Hostdatei-Eintrag wird verworfen, da es sich um eine Deklaration des localhost handelt.",
+    "message": "Dieser Eintrag der Hostdatei wird verworfen, da es sich um eine localhost-Deklaration handelt.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
@@ -228,7 +228,7 @@
     "description": "Warning when negated domain used with 'redirect='"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
+    "message": "Nano hat die Option 'redirect=....' verworfen, da sie keine gültige Zieldomain enthält.",
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {

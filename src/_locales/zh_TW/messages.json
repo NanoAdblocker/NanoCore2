@@ -100,7 +100,7 @@
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
+    "message": "Nano 將 'mp4' 選項取代為 'media,redirect=noop-1s.mp4' 。",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
