@@ -2,7 +2,7 @@
 
 This Privacy Policy (the "Policy") applies to Nano Adblocker and Nano Defender
 (the "Projects") published and distributed by @jspenguin2017 (the "Author").
-The Author has little control over forks of the Projects and the Policy may
+The Author has little control over forks of the Projects so the Policy may
 not apply to them. Furthermore, the Policy only applies to unmodified
 production builds of the Projects.
 
@@ -15,8 +15,8 @@ The Projects do not actively collect any data of any kind.
 
 ### Passive Data Disclosure
 
-Nano Adblocker may connect to first-party and/or third-party servers to
-download assets updates. Built-in assets are defined
+Nano Adblocker may connect to remote servers to download assets updates.
+Built-in assets are defined
 [here](https://github.com/NanoAdblocker/NanoCore2/blob/master/src/assets.json).
 You may import other assets, in which case Nano Adblocker will connect to
 additional servers as per your instruction.
