@@ -84,7 +84,7 @@
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano 弃置了一个反选域名，因为它不能在脚本注入例外规则中使用。",
+    "message": "Nano 弃置了一个反选域名，因为它不能在脚本片段注入例外规则中使用。",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
@@ -112,15 +112,15 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "资源 '{{res}}' 不能用作重定向目标。",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "资源 '{{res}}' 不能当作脚本片段注入。",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' 是 '{{res}}' 的别名，请考虑使用原名。",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
