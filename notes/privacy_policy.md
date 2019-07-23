@@ -29,8 +29,8 @@ request will be sent. Nano Defender will never connect to first-party servers.
 ### Other Features
 
 If you choose to use these features, you must consent to additional privacy
-policies. These features are optional and are not required for the Projects to
-function.
+policies. These features are optional and do not affect the primary
+functionalities of the Projects.
 
 - [Quick Issue Reporter](https://github.com/jspenguin2017/uBlockProtector/blob/master/notes/issue-reporter.MD)
 
