@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Nano Extra Resources</a>.",
+    "message": "Nano поставляется с двумя наборами ресурсов, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ресурсы</a> и <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Дополнительные Ресурсы Nano</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
@@ -100,7 +100,7 @@
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
+    "message": "Nano заменил опцию 'mp4' с 'media,redirect=noop-1s.mp4'.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
