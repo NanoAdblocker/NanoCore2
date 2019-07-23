@@ -6,6 +6,9 @@ The Author has little control over forks of the Projects and the Policy may
 not apply to them. Furthermore, the Policy only applies to unmodified
 production builds of the Projects.
 
+By using one or both of the Projects, you consent to:
+- The most recent version of the Policy.
+
 ### Active Data Collection
 
 The Projects do not actively collect any data of any kind.
@@ -37,5 +40,4 @@ functionalities of the Projects.
 ### Modification to the Policy
 
 We reserve the right to modify this privacy policy at any time, with or without
-notice. By using either or both of the Projects, you consent to this privacy
-policy as well as the GPL-3.0 license.
+notice.
