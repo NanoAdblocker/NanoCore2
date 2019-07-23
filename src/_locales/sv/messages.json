@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano kommer med två uppsättningar resurser, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> och <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Nano Extra Resources</a>.",
+    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Nano Extra Resources</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
