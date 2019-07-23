@@ -39,5 +39,4 @@ functionalities of the Projects.
 
 ### Modification to the Policy
 
-We reserve the right to modify this privacy policy at any time, with or without
-notice.
+The Policy may be modified at any time, with or without notice.
