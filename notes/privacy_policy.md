@@ -3,7 +3,7 @@
 This Privacy Policy (the "Policy") applies to Nano Adblocker and Nano Defender
 (the "Projects") published and distributed by @jspenguin2017 (the "Author").
 The Author has little control over forks of the Projects so the Policy may
-not apply to them. Furthermore, the Policy only applies to unmodified
+not apply to them. Furthermore, the Policy only applies to latest unmodified
 production builds of the Projects.
 
 By using one or both of the Projects, you consent to:
