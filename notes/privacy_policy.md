@@ -7,7 +7,7 @@ not apply to them. Furthermore, the Policy only applies to latest unmodified
 production builds of the Projects.
 
 By using one or both of the Projects, you consent to:
-- The most recent version of the Policy.
+- The most recent version of the Policy
 
 ### Data Collection
 
