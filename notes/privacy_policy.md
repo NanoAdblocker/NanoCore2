@@ -9,11 +9,11 @@ production builds of the Projects.
 By using one or both of the Projects, you consent to:
 - The most recent version of the Policy.
 
-### Active Data Collection
+### Data Collection
 
 The Projects do not actively collect any data of any kind.
 
-### Passive Data Disclosure
+### Side Channels
 
 Nano Adblocker may connect to remote servers to download assets updates.
 Built-in assets are defined
