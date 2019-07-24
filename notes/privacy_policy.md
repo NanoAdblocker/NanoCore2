@@ -37,6 +37,6 @@ functionalities of the Projects.
 
 - [Quick Issue Reporter](https://github.com/jspenguin2017/uBlockProtector/blob/master/notes/issue-reporter.MD)
 
-### Modification to the Policy
+### Future Versions
 
 The Policy may be modified at any time, with or without notice.
