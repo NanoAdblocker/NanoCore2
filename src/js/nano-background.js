@@ -322,6 +322,9 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
                 if (i !== -1)
                     token = token.substring(0, i);
 
+                if (!token.endsWith(".js"))
+                    token += ".js";
+
                 if (!nano.ub.redirectEngine.resources.has(token) && !nano.ub.redirectEngine.aliases.has(token))
                     nano.flintw("nano_l_filter_resource_not_found", ["{{res}}", token]);
             }
