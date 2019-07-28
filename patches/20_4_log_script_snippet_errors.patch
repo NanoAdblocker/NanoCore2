@@ -1,5 +1,5 @@
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 8859b465..fa93503c 100644
+index 2d57147d..625c81b5 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -224,7 +224,9 @@

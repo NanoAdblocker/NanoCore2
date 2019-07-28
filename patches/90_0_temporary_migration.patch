@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index c5eab189..6c08209c 100644
+index bb480670..2c105e0e 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -711,6 +711,7 @@ RedirectEngine.prototype.loadBuiltinResources = function() {
+@@ -699,6 +699,7 @@ RedirectEngine.prototype.loadBuiltinResources = function() {
  
      // TODO: remove once usage of uBO 1.20.4 is widespread.
      µBlock.assets.remove('ublock-resources');
