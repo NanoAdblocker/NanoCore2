@@ -40,7 +40,7 @@
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Alternar el panel de vista general",
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
@@ -84,7 +84,7 @@
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "Nano descartó un dominio negado porque no se puede usar en una regla de excepción dentro de un fragmento de script.",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
@@ -112,15 +112,15 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "El recurso '{{res}}' no se puede usar como un objetivo de redireccionamiento.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "El recurso '{{res}}' no se puede inyectar como un fragmento de script.",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' es el alias de '{{res}}', considera usar el nombre real en su lugar.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
@@ -180,7 +180,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "La opción 'csp=...' no tiene argumentos o tiene argumentos inválidos.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -188,11 +188,11 @@
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "This filter rule selected only unsupported type options.",
+    "message": "Esta regla de filtrado seleccionó solo opciones de tipo aún no admitidas.",
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
-    "message": "This filter rule explicitly selected no type options.",
+    "message": "Esta regla de filtrado explícitamente no seleccionó ninguna opción de tipo.",
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
@@ -200,7 +200,7 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "Esta regla de red es demasiado corta.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_intervention_smed79": {
@@ -208,11 +208,11 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+    "message": "Nano descartó la opción 'redirect=...' porque debe seleccionar una opción de tipo.",
     "description": "Warning when 'redirect=' selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+    "message": "Nano descartó la opción 'redirect=...' porque seleccionó demasiadas opciones de tipo.",
     "description": "Warning when 'redirect=' selected too many types"
   },
   "nano_r_no_resource_token": {
@@ -220,7 +220,7 @@
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
+    "message": "Nano descartó la opción 'redirect=...' porque no seleccionó ninguna opción de tipo admitida.",
     "description": "Warning when 'redirect=' selected no supported type"
   },
   "nano_r_negated_domain": {
