@@ -35,15 +35,6 @@ Additionally, Nano Adblocker will map `ghide` to `generichide` and `iframe` to
 `subdocument`. uBlock Origin will discard filters that use `ghide` or `iframe`
 options.
 
-## The option `empty`
-
-Nano Adblocker will discard the filter if it has the option `empty`, uBlock
-Origin will instead ignore the option.
-
-This option is from Adguard and means redirect requests to an appropriate
-blank file, ignoring the option and block the request instead will likely to
-make things worse.
-
 ## The option `fetch`
 
 Nano Adblocker does not differentiate between `fetch` and `xmlhttprequest`
@@ -54,20 +45,3 @@ option.
 
 If you are a filters maintainer and this difference is causing problems for
 you, please let us know.
-
-## The option `mp4`
-
-Nano Adblocker will replace the option `mp4` with
-`media,redirect=noopmp4-1s`, uBlock Origin will instead discard the filter.
-
-This option should not be negated, however, Nano Adblocker will treat `~mp4` to
-be the same as `mp4`, **this may change in the future without notice**.
-
-This option is from Adguard and means redirect MP4 requests to a blank MP4 file,
-Nano Adblocker will instead redirect media requests to a blank MP4 file. Keep
-in mind that not all media requests are MP4 requests and not all MP4 requests
-are media requests. Because of this difference, **this option may change in the
-future without notice**.
-
-A deprecation warning will be dispatched when this option is used in Nano
-Adblocker.
