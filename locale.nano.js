@@ -202,6 +202,7 @@
             description: "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated.",
         },
 
+        // TODO: Not used
         nano_l_filter_expanded_mp4_option: {
             message: "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
             description: "Warning when 'mp4' is replaced",
@@ -251,6 +252,7 @@
             description: "Deprecation when 'script:contains' is used",
         },
 
+        // TODO: Not used
         nano_l_filter_mp4_option: {
             message: "The use of the option 'mp4' is deprecated, write out the full options instead.",
             description: "Deprecation when 'mp4'",
@@ -300,6 +302,7 @@
             description: "Error when AdGuard style element remove rule",
         },
 
+        // TODO: Not used
         nano_l_filter_negated_generichide: {
             message: "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
             description: "Error when 'generichide' is negated",
@@ -351,44 +354,46 @@
         // Redirect rule warnings
 
         nano_r_no_type: {
-            message: "Nano discarded the option 'redirect=...' because it must select a type option.",
-            description: "Warning when 'redirect=' selected no types",
+            message: "Nano discarded the redirect portion of this rule because it must select a type option.",
+            description: "Warning when redirect selected no types",
         },
 
         nano_r_too_many_types: {
-            message: "Nano discarded the option 'redirect=...' because it selected too many type options.",
-            description: "Warning when 'redirect=' selected too many types",
+            message: "Nano discarded the redirect portion of this rule because it selected too many type options.",
+            description: "Warning when redirect selected too many types",
         },
 
         nano_r_no_resource_token: {
-            message: "Nano discarded the option 'redirect=...' because it has no arguments.",
-            description: "Warning when 'redirect=' has no arguments",
+            message: "Nano discarded the redirect portion of this rule because it has no arguments.",
+            description: "Warning when redirect has no arguments",
         },
 
         nano_r_no_supported_type: {
-            message: "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
-            description: "Warning when 'redirect=' selected no supported type",
+            message: "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+            description: "Warning when redirect selected no supported type",
         },
 
         nano_r_negated_domain: {
-            message: "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
-            description: "Warning when negated domain used with 'redirect='",
+            message: "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+            description: "Warning when negated domain used with redirect",
         },
 
         nano_r_no_destination: {
-            message: "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
-            description: "Warning when 'redirect=' has no destination",
-        },
-
-        nano_r_redirect_in_exception: {
-            message: "The option 'redirect=...' cannot be used in exception rules.",
-            description: "Error when 'redirect=' used in exception",
+            message: "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+            description: "Warning when redirect has no destination",
         },
 
         // TODO: Think of a better warning message
         nano_r_does_not_match_re: {
-            message: "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
-            description: "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed",
+            message: "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+            description: "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed",
+        },
+
+        // Redirect rule errors
+
+        nano_r_redirect_in_exception: {
+            message: "Redirect rules cannot be exceptions.",
+            description: "Error when redirect used in exception",
         },
 
         // --------------------------------------------------------------------------------------------------------- //

@@ -422,7 +422,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 // Redirect
                 {
                     token: "keyword",
-                    regex: /redirect=/,
+                    regex: /redirect(?:-rule)?=/,
                     next: "options_redirect"
                 },
 
