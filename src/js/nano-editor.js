@@ -317,11 +317,16 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "start"
                 },
 
+                // Escaped separator
+                {
+                    token: "constant",
+                    regex: /\\,/
+                },
+
                 // Separator
                 {
                     token: "keyword",
-                    regex: /,/,
-                    next: "script_inject_part2"
+                    regex: /,/
                 },
 
                 // Parameter (default)
