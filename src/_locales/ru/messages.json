@@ -203,41 +203,53 @@
     "message": "This network rule is too short.",
     "description": "Error when network rule is too short"
   },
+  "nano_l_filter_generic_js_in_block": {
+    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "description": "Error when '##+js()' is used"
+  },
   "nano_l_filter_intervention_smed79": {
     "message": "Привязка домена не может сразу сопровождаться '^'.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
-    "description": "Warning when 'redirect=' selected no types"
+    "message": "Nano discarded the redirect portion of this rule because it must select a type option.",
+    "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
-    "description": "Warning when 'redirect=' selected too many types"
+    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano отказался от опции 'redirect=...', потому что у него нет аргументов.",
-    "description": "Warning when 'redirect=' has no arguments"
+    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the option 'redirect=...' because it did not select any supported type options.",
-    "description": "Warning when 'redirect=' selected no supported type"
+    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
-    "description": "Warning when negated domain used with 'redirect='"
+    "message": "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+    "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano отказался от опции 'redirect=...', потому что у него нет допустимого домена назначения.",
-    "description": "Warning when 'redirect=' has no destination"
-  },
-  "nano_r_redirect_in_exception": {
-    "message": "Опция 'redirect=...' не может использоваться в правилах исключений.",
-    "description": "Error when 'redirect=' used in exception"
+    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano отказался от опции 'redirect=...', потому что это сетевое правило не соответствует этому регулярному выражению: {{regexp}}",
-    "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
+    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
+  },
+  "nano_r_simplified_to_star": {
+    "message": "Nano simplified the matcher of this rule to '*'.",
+    "description": "Warning when the '*/*' workaround is simplified"
+  },
+  "nano_r_redirect_in_exception": {
+    "message": "Redirect rules cannot be exceptions.",
+    "description": "Error when redirect used in exception"
+  },
+  "nano_r_redirected_twice": {
+    "message": "Redirect rules can only contain one redirect directive.",
+    "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
     "message": "Это правило пока отклонено. Дополнительная информация: https://github.com/NanoAdblocker/NanoCore/issues/77",
