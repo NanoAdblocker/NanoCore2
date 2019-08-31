@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 75f8b567..9b070639 100644
+index c9b176fd..c5afd71c 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -490,6 +490,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
+@@ -554,6 +554,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
      [ 'subdocument', 'sub_frame' ],
      [ 'xhr', 'xmlhttprequest' ],
      [ 'xmlhttprequest', 'xmlhttprequest' ],
@@ -12,10 +12,10 @@ index 75f8b567..9b070639 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index d2d59c28..c8b85889 100644
+index 4d92d478..7c7850cd 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1863,6 +1863,9 @@ FilterParser.prototype.toNormalizedType = {
+@@ -1870,6 +1870,9 @@ FilterParser.prototype.toNormalizedType = {
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
           'websocket': 'websocket',
@@ -25,37 +25,3 @@ index d2d59c28..c8b85889 100644
  };
  
  /******************************************************************************/
-@@ -1954,7 +1957,9 @@ FilterParser.prototype.parseDomainOption = function(s) {
- 
- FilterParser.prototype.parseOptions = function(s) {
-     this.fopts = s;
--    for ( let opt of s.split(/\s*,\s*/) ) {
-+    const opts = s.split(/\s*,\s*/);
-+    for ( let i = 0; i < opts.length; i++ ) {
-+        let opt = opts[i];
-         const not = opt.startsWith('~');
-         if ( not ) {
-             opt = opt.slice(1);
-@@ -1966,7 +1971,7 @@ FilterParser.prototype.parseOptions = function(s) {
-         // https://issues.adblockplus.org/ticket/616
-         // `generichide` concept already supported, just a matter of
-         // adding support for the new keyword.
--        if ( opt === 'elemhide' || opt === 'generichide' ) {
-+        if ( opt === 'generichide' || opt === 'ghide' || opt === 'elemhide' ) {
-             if ( not === false ) {
-                 this.parseTypeOption('generichide', false);
-                 continue;
-@@ -2022,8 +2027,11 @@ FilterParser.prototype.parseOptions = function(s) {
-             this.dataStr = '';
-             continue;
-         }
--        // Used by Adguard, purpose is unclear -- just ignore for now.
--        if ( opt === 'empty' ) {
-+        if ( opt === 'mp4' ) {
-+            opts.push('media', 'redirect=noop-1s.mp4');
-+            this.fopts = opts.join(',');
-+            var pos = this.raw.lastIndexOf('$');
-+            this.raw = this.raw.slice(0, pos + 1) + this.fopts;
-             continue;
-         }
-         // https://github.com/uBlockOrigin/uAssets/issues/192
