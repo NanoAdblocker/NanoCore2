@@ -81,7 +81,7 @@ index 6a1c5f7f..9d2b5e06 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index b2c78b01..25b0a432 100644
+index 6da05476..dd6ac4c0 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -552,7 +552,7 @@ const renderTooltips = function(selector) {
@@ -102,7 +102,7 @@ index b2c78b01..25b0a432 100644
      hashFromPopupData();
  };
  
-@@ -1134,10 +1134,10 @@ const onHideTooltip = function() {
+@@ -1147,10 +1147,10 @@ const onHideTooltip = function() {
      getPopupData(tabId);
  })();
  
@@ -112,9 +112,9 @@ index b2c78b01..25b0a432 100644
  uDom('#gotoPick').on('click', gotoPick);
 -uDom('h2').on('click', toggleFirewallPane);
 +uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
- uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
  uDom('#saveRules').on('click', saveFirewallRules);
+ uDom('#revertRules').on('click', revertFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
 index 57366f74..97d8b974 100644
 --- a/src/popup.html

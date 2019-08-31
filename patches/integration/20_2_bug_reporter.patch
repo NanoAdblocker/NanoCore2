@@ -27,7 +27,7 @@ index 0454086d..2b58510d 100644
  
  vAPI.i18n = chrome.i18n.getMessage;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index c982921a..b3ba1610 100644
+index 31d0dedb..e8f67b1c 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -759,6 +759,8 @@ const nanoForceEnableScroll = function() {
@@ -39,14 +39,14 @@ index c982921a..b3ba1610 100644
  /******************************************************************************/
  
  const gotoURL = function(ev) {
-@@ -1153,6 +1155,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
+@@ -1166,6 +1168,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
  uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
 +uDom('#nanoOpenBugReporter').on('click', nanoOpenBugReporter);
  uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
- uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+ uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
 index 48f78ec3..ab45a351 100644
 --- a/src/popup.html

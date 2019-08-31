@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 5c1e581d..5bcdf472 100644
+index 70ea183c..3332c334 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -139,6 +139,10 @@ const onMessage = function(request, sender, callback) {
@@ -14,7 +14,7 @@ index 5c1e581d..5bcdf472 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 25b0a432..c982921a 100644
+index dd6ac4c0..31d0dedb 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -449,6 +449,7 @@ const renderPopup = function() {
@@ -46,14 +46,14 @@ index 25b0a432..c982921a 100644
  const gotoURL = function(ev) {
      if ( this.hasAttribute('href') === false ) { return; }
  
-@@ -1137,6 +1152,7 @@ const onHideTooltip = function() {
+@@ -1150,6 +1165,7 @@ const onHideTooltip = function() {
  uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
 +uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
  uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
- uDom('#refresh').on('click', reloadTab);
  uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+ uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
 index 97d8b974..48f78ec3 100644
 --- a/src/popup.html

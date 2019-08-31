@@ -1,20 +1,20 @@
 diff --git a/src/js/scriptlets/element-picker.js b/src/js/scriptlets/element-picker.js
-index 64620f45..b0ff0b85 100644
+index 082dcda9..1eb0521a 100644
 --- a/src/js/scriptlets/element-picker.js
 +++ b/src/js/scriptlets/element-picker.js
-@@ -1186,6 +1186,7 @@ const onDialogClicked = function(ev) {
+@@ -1196,6 +1196,7 @@ const onDialogClicked = function(ev) {
                      what: 'createUserFilter',
                      autoComment: true,
                      filters: filter,
 +                    nanoHref: window.location.href,
                      origin: window.location.origin,
-                     pageDomain: window.location.hostname
-                 }
+                     pageDomain: window.location.hostname,
+                     killCache: isCosmetic === false,
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 6c18ed8c..89c49578 100644
+index 7c00c404..1cc23d59 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -445,7 +445,8 @@
+@@ -446,7 +446,8 @@
              this.hiddenSettings.autoCommentFilterTemplate
                  .replace('{{date}}', d.toLocaleDateString())
                  .replace('{{time}}', d.toLocaleTimeString())
