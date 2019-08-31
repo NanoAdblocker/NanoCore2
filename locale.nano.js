@@ -343,6 +343,11 @@
             description: "Error when network rule is too short",
         },
 
+        nano_l_filter_generic_js_in_block: {
+            message: "Script injection syntax that selects all resources can only be used in exception filters.",
+            description: "Error when '##+js()' is used",
+        },
+
         // https://github.com/uBlock-LLC/uBlock/issues/1096
         nano_l_filter_intervention_smed79: {
             message: "The domain anchor may not be immediately followed by '^'.",

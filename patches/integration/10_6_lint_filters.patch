@@ -148,10 +148,17 @@ index c5afd71c..e94a033e 100644
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index f614e019..4fb1fe85 100644
+index f614e019..63713dc7 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
-@@ -295,6 +295,8 @@
+@@ -289,12 +289,15 @@
+ 
+         // Tokenless is meaningful only for exception filters.
+         if ( normalized === '+js()' && parsed.exception === false ) {
++            nano.flinte('nano_l_filter_generic_js_in_block');
+             return;
+         }
+ 
          if ( parsed.hostnames.length === 0 ) {
              if ( parsed.exception ) {
                  writer.push([ 32, '', 1, normalized ]);
@@ -160,7 +167,7 @@ index f614e019..4fb1fe85 100644
              }
              return;
          }
-@@ -304,8 +306,10 @@
+@@ -304,8 +307,10 @@
              !nano.cf.is_privileged &&
              nanoInjectArgs.startsWith(nano.privileged_assets_previx)
          ) {
@@ -171,7 +178,7 @@ index f614e019..4fb1fe85 100644
  
          // https://github.com/gorhill/uBlock/issues/3375
          //   Ignore instances of exception filter with negated hostnames,
-@@ -318,7 +322,10 @@
+@@ -318,7 +323,10 @@
              }
              let kind = 0;
              if ( parsed.exception ) {
