@@ -399,6 +399,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                             "xhr",
                             "xmlhttprequest"
                         ].join("|") + ")",
+                        "empty",
                         "i?frame",
                         "mp4",
                         "subdocument"
