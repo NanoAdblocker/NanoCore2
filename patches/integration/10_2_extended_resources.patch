@@ -1,9 +1,9 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index b6c4b6e2..75f8b567 100644
+index 4825588a..c9b176fd 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -168,6 +168,9 @@ const extToMimeMap = new Map([
-     [  'txt', 'text/plain' ],
+@@ -177,6 +177,9 @@ const typeToMimeMap = new Map([
+     [ 'xmlhttprequest', 'text/plain' ],
  ]);
  
 +nano.insert_redirect_declaration(redirectableResources);
@@ -13,10 +13,10 @@ index b6c4b6e2..75f8b567 100644
  
  const mimeFromName = function(name) {
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index be98e80b..9568af74 100644
+index 7c2b4890..f614e019 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
-@@ -223,7 +223,7 @@
+@@ -221,7 +221,7 @@
              }
              content =
                  'try {\n' +
@@ -25,7 +25,7 @@ index be98e80b..9568af74 100644
                  '} catch ( e ) { }';
              scriptletCache.add(rawToken, content);
          }
-@@ -287,6 +287,14 @@
+@@ -299,6 +299,14 @@
              return;
          }
  

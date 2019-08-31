@@ -44,3 +44,6 @@ These may or may not be out of date.
   array, but it is guaranteed to be an array as it comes from `Promise.all`.
 
 - Logger messages for invalid filters are not formatted consistently.
+
+- `redirect-engine.js > RedirectEngine.prototype.loadBuiltinResources` has an
+  extra space at the end.
