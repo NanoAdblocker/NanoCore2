@@ -389,11 +389,21 @@
             description: "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed",
         },
 
+        nano_r_simplified_to_star: {
+            message: "Nano simplified the matcher of this rule to '*'.",
+            description: "Warning when the '*/*' workaround is simplified",
+        },
+
         // Redirect rule errors
 
         nano_r_redirect_in_exception: {
             message: "Redirect rules cannot be exceptions.",
             description: "Error when redirect used in exception",
+        },
+
+        nano_r_redirected_twice: {
+            message: "Redirect rules can only contain one redirect directive.",
+            description: "Error when two redirects in one rule",
         },
 
         // --------------------------------------------------------------------------------------------------------- //

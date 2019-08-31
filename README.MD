@@ -102,6 +102,7 @@ These are the potential problems to look out for:
 1. Font Awesome related CSS
 1. Image resources
 1. `/assets` directory structure
+1. Redirect declaration format
 
 ## Subresource Integrity Incidence Response Protocol
 
