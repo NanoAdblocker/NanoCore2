@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 60a4674a..27462575 100644
+index b3e761fa..d99a9be5 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -53,6 +53,9 @@ const µBlock = (function() { // jshint ignore:line
@@ -12,8 +12,8 @@ index 60a4674a..27462575 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          selfieAfter: 3,
-@@ -158,6 +161,7 @@ const µBlock = (function() { // jshint ignore:line
-         assetsBootstrapLocation: 'assets/assets.json',
+@@ -159,6 +162,7 @@ const µBlock = (function() { // jshint ignore:line
+         assetsBootstrapLocation: undefined,
  
          userFiltersPath: 'user-filters',
 +        nanoPartialUserFiltersPath: 'nano-partial-user-filters',
@@ -34,7 +34,7 @@ index 6e4a6d1d..f8adb9c1 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 365c3803..d2d59c28 100644
+index 04e2fa3b..4d92d478 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -2028,6 +2028,10 @@ FilterParser.prototype.parseOptions = function(s) {
@@ -48,7 +48,7 @@ index 365c3803..d2d59c28 100644
              this.badFilter = true;
              continue;
          }
-@@ -2106,6 +2110,10 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2111,6 +2115,10 @@ FilterParser.prototype.parse = function(raw) {
      // block or allow filter?
      // Important: this must be executed before parsing options
      if ( s.startsWith('@@') ) {
@@ -60,10 +60,10 @@ index 365c3803..d2d59c28 100644
          s = s.slice(2);
      }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 24ea2d8e..5dfebcf9 100644
+index 2d1619b7..f57d928f 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -447,7 +447,8 @@
+@@ -448,7 +448,8 @@
      const onSaved = ( ) => {
          const compiledFilters = this.compileFilters(
              filters,
@@ -73,7 +73,7 @@ index 24ea2d8e..5dfebcf9 100644
          );
          const snfe = this.staticNetFilteringEngine;
          const cfe = this.cosmeticFilteringEngine;
-@@ -839,7 +840,7 @@
+@@ -846,7 +847,7 @@
  
  /******************************************************************************/
  
@@ -82,7 +82,7 @@ index 24ea2d8e..5dfebcf9 100644
      let writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -850,6 +851,9 @@
+@@ -857,6 +858,9 @@
          }
      }
  
@@ -92,7 +92,7 @@ index 24ea2d8e..5dfebcf9 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -909,6 +913,8 @@
+@@ -916,6 +920,8 @@
          staticNetFilteringEngine.compile(line, writer);
      }
  
