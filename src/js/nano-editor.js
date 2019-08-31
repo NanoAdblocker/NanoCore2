@@ -108,6 +108,12 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // ------------------------------------------------------------------------------------------------- //
 
+                // Special case
+                {
+                    token: "invalid",
+                    regex: /##\+js\(\)$/
+                },
+
                 // Extended filtering
                 {
                     token: "keyword",
