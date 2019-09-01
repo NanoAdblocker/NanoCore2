@@ -101,6 +101,10 @@ exports.manifest = (browser) => {
                 run_at: "document_idle",
             },
         ],
+
+        // TODO: I do not like how this is being done upstream
+        //content_security_policy: "script-src 'self'; object-src 'self'",
+
         default_locale: "en",
         description: "An adblocker",
         icons: {
