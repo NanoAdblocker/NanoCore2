@@ -56,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
+    "message": "Nano sökte inte igenom resten av vitlistan efter varningar eftersom det finns för många varningar.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -64,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
+    "message": "Nano sökte inte igenom resten av vitlistan efter fel eftersom det finns för många fel.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -80,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
+    "message": "Nano sökte inte igenom resten av filterreglerna efter varningar eftersom det finns för många varningar.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -140,7 +140,7 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
+    "message": "Nano sökte inte igenom resten av filterreglerna efter fel eftersom det finns för många fel.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {

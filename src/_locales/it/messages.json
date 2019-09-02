@@ -1,14 +1,14 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Interfaccia utente",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Manda a capo le linee lunghe nell' editor di filtri",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Manda a capo le linee lunghe nel visualizzatore di filtri",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
@@ -44,11 +44,11 @@
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "Clicca per aggiornare la pagina.\n\nCtrl+click per aggiornare la pagina durante il bypass della cache.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "(beta) Entra nella modalità di scorrimento forzato (interromperà il layout)",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
@@ -56,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
+    "message": "Nano non ha scansionato il resto della whitelist alla ricerca di avvisi perchè ci sono troppi avvisi.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -64,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
+    "message": "Nano non ha scansionato il resto della whitelist alla ricerca di errori perchè ci sono troppi errori.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -80,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
+    "message": "Nano non ha scansionato il resto delle regole di filtraggio alla ricerca di avvisi perchè ci sono troppi avvisi.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -112,15 +112,15 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "La risorsa '{{res}}' non può essere utilizzata come destinazione di reindirizzamento.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "La risorsa '{{res}}' non può essere iniettata come frammento di script.",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' è l'alias di '{{res}}', considera invece l'utilizzo del vero nome.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
@@ -140,7 +140,7 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
+    "message": "Nano non ha scansionato il resto delle regole di filtraggio alla ricerca di errori perchè ci sono troppi errori.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
@@ -160,7 +160,7 @@
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "I filtri non privilegiati non possono fare riferimento alle risorse privilegiate.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
@@ -180,7 +180,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "L'opzione 'csp=...' non ha argomenti o ha argomenti non validi.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -200,7 +200,7 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "Questa regola di rete è troppo breve.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
@@ -220,23 +220,23 @@
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "message": "Nano ha scartato la parte di reindirizzamento di questa regola perché non ha argomenti.",
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "Nano ha scartato la parte di reindirizzamento di questa regola perché non ha selezionato alcuna opzione di tipo supportato.",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+    "message": "Nano ha scartato parte della parte di reindirizzamento di questa regola perché i domini negati non possono essere usati con il reindirizzamento.",
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "Nano ha scartato la parte di reindirizzamento di questa regola perché non ha un dominio di destinazione valido.",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano ha scartato la parte di reindirizzamento di questa regola perché questa regola di rete non corrisponde a questa espressione regolare: {{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
@@ -244,7 +244,7 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Le regole di reindirizzamento non possone essere eccezioni.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {

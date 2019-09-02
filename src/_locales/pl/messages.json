@@ -204,7 +204,7 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "Składnia wstrzykiwania skryptu, która wybiera wszystkie zasoby, może być używana tylko w filtrach wyjątków.",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
@@ -212,43 +212,43 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the redirect portion of this rule because it must select a type option.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ musi ona wybierać opcję typu.",
     "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ wybrała ona zbyt wiele opcji typu.",
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ nie zawiera ona argumentów.",
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ nie wybrała ona żadnych obsługiwanych opcji typu.",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ zanegowanych domen nie można używać z przekierowaniem.",
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ nie zawiera ona prawidłowej domeny docelowej.",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano odrzucił część przekierowującą tej reguły, ponieważ ta reguła sieciowa nie pasuje do tego wyrażenia regularnego: {{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano uprościł dopasowanie tej reguły do '*'.",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Reguły przekierowujące nie mogą być wyjątkami.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "Reguły przekierowujące mogą zawierać tylko jedną dyrektywę przekierowania.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
