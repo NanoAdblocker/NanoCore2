@@ -112,7 +112,7 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "El recurso '{{res}}' no se puede usar como un objetivo de redireccionamiento.",
+    "message": "El recurso '{{res}}' no se puede usar como un objetivo de redirección.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
@@ -204,7 +204,7 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "La sintaxis de inyección de script que selecciona todos los recursos solo se puede usar en filtros de excepción.",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
@@ -244,11 +244,11 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Las reglas de redirección no pueden ser excepciones.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "Las reglas de redirección solo pueden contener una directiva de redirección.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {

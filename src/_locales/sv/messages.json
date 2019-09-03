@@ -212,31 +212,31 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the redirect portion of this rule because it must select a type option.",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom det måste välja ett typalternativ.",
     "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom den valde för många typalternativ.",
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom den har inget argument.",
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom den inte valde några typalternativ som stöds.",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+    "message": "Nano förkastade delar av omdirigeringsdelen av den här regeln eftersom negerade domäner inte kan användas med omdirigeringen.",
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom den har ingen giltig måldomän.",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano förkastade omdirigeringsdelen av den här regeln eftersom den här nätverksregeln inte matchar det här reguljära uttrycket: {{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
@@ -244,11 +244,11 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Omdirigeringsregler kan inte vara undantag.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "Omdirigeringsregler kan endast innehålla ett omdirigeringsdirektiv.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
