@@ -103,6 +103,7 @@ exports.manifest = (browser) => {
         ],
 
         // TODO: I do not like how this is being done upstream
+        //       https://bit.ly/2m2iFQx
         //content_security_policy: "script-src 'self'; object-src 'self'",
 
         default_locale: "en",
