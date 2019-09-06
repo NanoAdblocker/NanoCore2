@@ -127,8 +127,8 @@ www2.example.com##+js()
 1. Wait 5 seconds
 
 **Expected**
-1. No highlight markers and no linter markers
 1. All boxes are green and stays green
+1. No highlight markers and no linter markers in my filters tab
 
 **Cleanup**
 1. Remove added filters
@@ -144,6 +144,7 @@ www2.example.com##+js()
 
 **Expected**
 1. Picked text stays hidden
+1. No highlight markers and no linter markers in my filters tab
 
 **Cleanup**
 1. Remove added filter
