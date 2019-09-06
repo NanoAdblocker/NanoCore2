@@ -60,22 +60,29 @@ Expected:
 ```
 ||www1.example.com^$mp4
 ||www2.example.com^$empty
+||www3.example.com^$redirect=
 ||www3.example.com^$redirect=noopjs
 
 1
 
 ||ww2.example.com^$xmlhtprequest
 
+www1.example.com#@#+js()
+www2.example.com##+js()
 ```
 
 **Expected**
 1. No error thrown in the background console
 1. Highlighter marks:
+   1. Section `1` Line `3`: `redirect=` marked as invalid
    1. Section `3` Line `3`: `xmlhtprequest` marked as invalid
+   1. Section `4` Line `2`: `##+js()` marked as invalid
 1. Linter marks:
    1. Section `1` Line `3`: `1` warning
+   1. Section `1` Line `4`: `1` warning
    1. Section `2` Line `1`: `1` error
    1. Section `3` Line `1`: `1` error
+   1. Section `4` Line `2`: `1` error
 1. Dashboard shows `2` total filters
 
 **Actions**
