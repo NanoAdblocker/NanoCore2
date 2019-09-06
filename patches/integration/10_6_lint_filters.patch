@@ -226,7 +226,7 @@ index f8adb9c1..46f9df70 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 7c7850cd..760827ce 100644
+index 7c7850cd..7e6a67fd 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1988,6 +1988,7 @@ FilterParser.prototype.parseOptions = function(s) {
@@ -340,7 +340,7 @@ index 7c7850cd..760827ce 100644
      // TODO: remove once redirect rules with `*/*` pattern are no longer used.
      else if ( this.redirect !== 0 && s === '/' ) {
          s = '*';
-+        nano.flintw('nano_r_redirect_in_exception');
++        nano.flintw('nano_r_simplified_to_star');
      }
  
      // https://github.com/gorhill/uBlock/issues/1047
