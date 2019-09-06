@@ -76,18 +76,24 @@ www2.example.com##+js()
 **Expected**
 1. No error thrown in the background console
 1. Highlighter marks:
-   1. Section `1` Line `3`: `redirect=` marked as invalid
-   1. Section `3` Line `3`: `xmlhtprequest` marked as invalid
-   1. Section `4` Line `2`: `##+js()` marked as invalid
+   1. Section `1`:
+      1. Line `3`: `redirect=` marked as invalid
+   1. Section `3`:
+      1. Line `3`: `xmlhtprequest` marked as invalid
+   1. Section `4`:
+      1. Line `2`: `##+js()` marked as invalid
 1. Linter marks:
-   1. Section `1`
+   1. Section `1`:
       1. Line `3`: `1` warning
       1. Line `4`: `1` warning
       1. Line `5`: `2` warnings
       1. Line `6`: `1` error
-   1. Section `2` Line `1`: `1` error
-   1. Section `3` Line `1`: `1` error
-   1. Section `4` Line `2`: `1` error
+   1. Section `2`:
+      1. Line `1`: `1` error
+   1. Section `3`:
+      1. Line `1`: `1` error
+   1. Section `4`:
+      1. Line `2`: `1` error
 1. Dashboard shows `2` total filters
 
 **Actions**
@@ -117,6 +123,7 @@ www2.example.com##+js()
 1. Wait 5 seconds
 
 **Expected**
+1. No highlight markers and no linter markers
 1. All boxes are green and stays green
 
 **Cleanup**
