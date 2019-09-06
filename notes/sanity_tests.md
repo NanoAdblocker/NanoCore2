@@ -62,6 +62,8 @@ Expected:
 ||www2.example.com^$empty
 ||www3.example.com^$redirect=
 ||www3.example.com^$redirect=noopjs
+*/*$redirect=nooptext
+@@||www4.example.com^$mp4
 
 1
 
@@ -80,6 +82,8 @@ www2.example.com##+js()
 1. Linter marks:
    1. Section `1` Line `3`: `1` warning
    1. Section `1` Line `4`: `1` warning
+   1. Section `1` Line `5`: `2` warnings
+   1. Section `1` Line `6`: `1` error
    1. Section `2` Line `1`: `1` error
    1. Section `3` Line `1`: `1` error
    1. Section `4` Line `2`: `1` error
