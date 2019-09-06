@@ -434,21 +434,21 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 // Redirect
                 {
                     token: "keyword",
-                    regex: /redirect(?:-rule)?=/,
+                    regex: /redirect(?:-rule)?=(?!$)/,
                     next: "options_redirect"
                 },
 
                 // Domains restriction
                 {
                     token: "keyword",
-                    regex: /domain=/,
+                    regex: /domain=(?!$)/,
                     next: "options_domain"
                 },
 
                 // CSP injection
                 {
                     token: "keyword",
-                    regex: /csp=/,
+                    regex: /csp=(?!$)/,
                     next: "options_csp"
                 },
 
@@ -491,10 +491,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 // Keyword "none"
                 {
                     token: "keyword",
-                    regex: safeCompileRegExp(
-                        "(?<==)none(?=,|$)",
-                        /none(?=,|$)/
-                    )
+                    regex: safeCompileRegExp("(?<==)none(?=,|$)", /none(?=,|$)/)
                 },
 
                 // Redirect resource name (default)

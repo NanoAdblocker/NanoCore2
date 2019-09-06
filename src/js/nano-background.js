@@ -313,7 +313,7 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
                 let token = data[0];
 
                 if (!token)
-                    token = "";
+                    return;
 
                 const i = token.indexOf(",");
 
