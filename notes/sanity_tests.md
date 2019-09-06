@@ -47,9 +47,10 @@ Expected:
 1. Confirm action
 
 **Expected**
-1. Settings are restored
-1. Filter cache is purged
-1. Filters are reloaded from the package
+1. Settings are restored (check outdated warning markers in filter lists tab)
+1. Filter cache is purged (check timestamp in `Malware Domain List`)
+1. Filters are reloaded from the package (check `Network` tab of background
+   console)
 
 ### My Filters Tab
 
