@@ -61,9 +61,11 @@ Expected:
 ||www1.example.com^$mp4
 ||www2.example.com^$empty
 ||www3.example.com^$redirect=
-||www3.example.com^$redirect=noopjs
+||www4.example.com^$redirect=noopjs
 */*$redirect=nooptext
-@@||www4.example.com^$mp4
+/[w\d]\.example\.com/$mp4
+||www5.example.com^$mp4,empty
+@@||www6.example.com^$mp4
 
 1
 
@@ -79,7 +81,7 @@ www2.example.com##+js()
    1. Section `1`:
       1. Line `3`: `redirect=` marked as invalid
    1. Section `3`:
-      1. Line `3`: `xmlhtprequest` marked as invalid
+      1. Line `1`: `xmlhtprequest` marked as invalid
    1. Section `4`:
       1. Line `2`: `##+js()` marked as invalid
 1. Linter marks:
@@ -87,14 +89,16 @@ www2.example.com##+js()
       1. Line `3`: `1` warning
       1. Line `4`: `1` warning
       1. Line `5`: `2` warnings
-      1. Line `6`: `1` error
+      1. Line `6`: `1` warning
+      1. Line `7`: `1` error
+      1. Line `8`: `1` error
    1. Section `2`:
       1. Line `1`: `1` error
    1. Section `3`:
       1. Line `1`: `1` error
    1. Section `4`:
       1. Line `2`: `1` error
-1. Dashboard shows `2` total filters
+1. Dashboard shows `5` total filters
 
 **Actions**
 1. Refresh the dashboard
