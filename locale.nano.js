@@ -358,6 +358,7 @@
 
         // Redirect rule warnings
 
+        // TODO: Not used
         nano_r_no_type: {
             message: "Nano discarded the redirect portion of this rule because it must select a type option.",
             description: "Warning when redirect selected no types",
