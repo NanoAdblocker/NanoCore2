@@ -58,19 +58,24 @@ Expected:
 1. Go to my filters tab
 1. Add these filters:
 ```
-||example.com^$mp4
+||www1.example.com^$mp4
+||www2.example.com^$empty
+||www3.example.com^$redirect=noopjs
+
 1
+
 ||ww2.example.com^$xmlhtprequest
+
 ```
 
 **Expected**
 1. No error thrown in the background console
 1. Highlighter marks:
-   1. Line `3`: `xmlhtprequest` marked as invalid
+   1. Section `3` Line `3`: `xmlhtprequest` marked as invalid
 1. Linter marks:
-   1. Line `1`: `2` warnings
-   1. Line `2`: `1` error
-   1. Line `3`: `1` error
+   1. Section `1` Line `3`: `1` warning
+   1. Section `2` Line `1`: `1` error
+   1. Section `3` Line `1`: `1` error
 1. Dashboard shows `2` total filters
 
 **Actions**
