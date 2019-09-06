@@ -226,7 +226,7 @@ index f8adb9c1..46f9df70 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 7c7850cd..775e9841 100644
+index 7c7850cd..760827ce 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -1988,6 +1988,7 @@ FilterParser.prototype.parseOptions = function(s) {
@@ -344,16 +344,6 @@ index 7c7850cd..775e9841 100644
      }
  
      // https://github.com/gorhill/uBlock/issues/1047
-@@ -2790,6 +2815,9 @@ FilterContainer.prototype.compileToAtomicFilter = function(
-     // Typeless
-     if ( typeBits === 0 ) {
-         writer.push([ descBits, parsed.tokenHash, fdata ]);
-+        if ( parsed.redirect ) {
-+            nano.flintw('nano_r_no_type');
-+        }
-         return;
-     }
- 
 diff --git a/src/js/storage.js b/src/js/storage.js
 index f57d928f..c5c23d0b 100644
 --- a/src/js/storage.js
