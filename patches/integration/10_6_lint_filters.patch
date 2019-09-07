@@ -76,10 +76,10 @@ index 58a23b14..d87ea24b 100644
              if ( parsed.exception ) {
                  kind |= 0b01;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index c5afd71c..e94a033e 100644
+index cdcc195e..a289bfeb 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -437,7 +437,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+@@ -425,7 +425,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
  
  RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const matches = this.reFilterParser.exec(line);
@@ -94,7 +94,7 @@ index c5afd71c..e94a033e 100644
  
      const des = matches[1] || '';
  
-@@ -498,14 +504,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -486,14 +492,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -117,7 +117,7 @@ index c5afd71c..e94a033e 100644
  
      // Need one single type -- not negated.
      if ( type === undefined ) {
-@@ -514,6 +526,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -502,6 +514,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          } else if ( redirect === 'noopmp4-1s' ) {
              type = 'media';
          } else {
@@ -125,7 +125,7 @@ index c5afd71c..e94a033e 100644
              return;
          }
      }
-@@ -529,12 +542,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -517,12 +530,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
      for ( const srchn of srchns ) {
          if ( srchn === '' ) { continue; }

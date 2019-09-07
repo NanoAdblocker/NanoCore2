@@ -1,5 +1,5 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 4825588a..c9b176fd 100644
+index fc40b388..16580dfb 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -177,6 +177,9 @@ const typeToMimeMap = new Map([
