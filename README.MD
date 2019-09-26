@@ -4,7 +4,7 @@ Restarting fresh
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `ac7825c789ce8f8b3ffe8cfc34aa121df63c2d27` or `1.22.2`
+Upstream commit pin: `135a45a878f5b93bc538f822981e3a42b1e9073f` or `1.22.4`
 
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/NanoAdblocker/NanoCore/issues).**
