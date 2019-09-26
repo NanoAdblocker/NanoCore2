@@ -30,6 +30,7 @@ Expected:
 
 **Expected**
 1. Appropriate network requests are logged
+1. Correct icons showing in the toolbar
 
 ## Dashboard
 
