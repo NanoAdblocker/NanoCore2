@@ -204,7 +204,7 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "Tüm kaynakları seçen komut dosyası ekleme sözdizimi yalnızca özel durum filtrelerinde kullanılabilir.",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
