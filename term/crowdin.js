@@ -42,6 +42,7 @@ const locales = new Map([
     ["it", "it"],
     ["nb", "nb"],
     ["pl", "pl"],
+    ["pt-BR", "pt_BR"],
     ["ru", "ru"],
     ["sv-SE", "sv"],
     ["tr", "tr"],
