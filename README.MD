@@ -46,9 +46,10 @@ reset    Nuke development environment and create a fresh one without any
          patches applied
 sync     Resynchronize all existing patches, in order
 cont     Clear uncommitted changes and continue to resynchronize patches
-         starting from the last one that failed
-mark     Create a patch based on the difference between tip of applied patches
-         and current code in development environment
+         starting from the last one that failed (or from the beginning if
+         nothing failed)
+mark     Create a patch based on the difference between tip of resynchronize
+         patches and current code in development environment
 
 make     Build extension from development environment
 pack     Build, test, then package the extension
