@@ -65,6 +65,7 @@ nano.render_filters = async (first) => {
         return;
 
     let content = details.content.trim();
+
     nano.filters_cache = content;
 
     if (content.length > 0)
@@ -139,6 +140,7 @@ nano.filters_apply = async () => {
 
 nano.filters_revert = () => {
     let content = nano.filters_cache;
+
     if (content.length > 0)
         content += "\n";
 
@@ -155,10 +157,12 @@ nano.import_picked = function () {
         const re_abp_filter_extractor = /\[Subscription filters\]([\x08-\x7E]*?)(?:\[Subscription\]|$)/i;
 
         let matches = re_abp_subscription_extractor.exec(s);
+
         if (matches === null)
             return s;
 
         const out = [];
+
         do {
             if (matches.length === 2) {
                 let filter_match = re_abp_filter_extractor.exec(matches[1].trim());
@@ -201,6 +205,7 @@ nano.import_filters = () => {
 
 nano.export_filters = () => {
     const val = nano.editor.get_platform_value().trim();
+
     if (val === "")
         return;
 
@@ -209,10 +214,8 @@ nano.export_filters = () => {
         .replace(/ +/g, "_");
 
     vAPI.download({
-        "url": "data:text/plain;charset=utf-8," +
-            encodeURIComponent(val + nano.editor.get_platform_line_break()),
-
-        "filename": filename
+        "url": "data:text/plain;charset=utf-8," + encodeURIComponent(val + nano.editor.get_platform_line_break()),
+        "filename": filename,
     });
 };
 
@@ -248,12 +251,8 @@ cloud.onPull = (data, append) => {
     if (typeof data !== "string")
         return;
 
-    if (append) {
-        data = uBlockDashboard.mergeNewLines(
-            nano.editor.get_unix_value(),
-            data
-        );
-    }
+    if (append)
+        data = uBlockDashboard.mergeNewLines(nano.editor.get_unix_value(), data);
 
     nano.editor.set_value_focus(data);
     nano.filters_changed();

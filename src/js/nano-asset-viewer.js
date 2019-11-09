@@ -36,25 +36,18 @@ nano.editor = new nano.Editor("content", true, true);
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.load_settings = () => {
-    const on_msg = (wrap) => {
-        nano.editor.set_line_wrap(wrap !== false);
-        nano.render_filter();
-    };
+nano.load_settings = async () => {
+    const wrap = await vAPI.messaging.send("dashboard", {
+        what: "userSettings",
+        name: "nanoViewerSoftWrap",
+    });
 
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            name: "nanoViewerSoftWrap",
-            what: "userSettings",
-        },
-        on_msg,
-    );
+    nano.editor.set_line_wrap(wrap !== false);
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.render_filter = () => {
+nano.render_filter = async () => {
     const on_msg = (details) => {
         if (details && details.content) {
             let content = details.content;
@@ -82,20 +75,16 @@ nano.render_filter = () => {
     if (nano.active_asset === "") {
         on_msg();
     } else {
-        vAPI.messaging.send(
-            "default",
-            {
-                url: nano.active_asset,
-                what: "getAssetContent",
-            },
-            on_msg,
-        );
+        on_msg(await vAPI.messaging.send("default", {
+            what: "getAssetContent",
+            url: nano.active_asset,
+        }));
     }
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.init = () => {
+nano.init = async () => {
     const url = new URL(document.location);
     const params = url.searchParams;
     const key = params.get("url");
@@ -103,7 +92,8 @@ nano.init = () => {
     if (typeof key === "string")
         nano.active_asset = key;
 
-    nano.load_settings();
+    await nano.load_settings();
+    await nano.render_filter();
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
