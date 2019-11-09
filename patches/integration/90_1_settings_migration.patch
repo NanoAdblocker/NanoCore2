@@ -1,11 +1,11 @@
-diff --git a/src/js/start.js b/src/js/start.js
-index 97b20db1..1adf3d2c 100644
---- a/src/js/start.js
-+++ b/src/js/start.js
-@@ -184,44 +184,24 @@ const onVersionReady = function(lastVersion) {
-     // If unused, just comment out for when we need to compare versions in the
-     // future.
-     const intFromVersion = function(s) {
+diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
+index 16157619..bd3047d8 100644
+--- a/platform/chromium/vapi-background.js
++++ b/platform/chromium/vapi-background.js
+@@ -54,24 +54,12 @@ vAPI.app = {
+     version: manifest.version,
+ 
+     intFromVersion: function(s) {
 -        const parts = s.match(/(?:^|\.|b|rc)\d+/g);
 -        if ( parts === null ) { return 0; }
 -        let vint = 0;
@@ -29,9 +29,14 @@ index 97b20db1..1adf3d2c 100644
 +            return parseInt(parts[3], 10);
          }
 -        return vint;
-     };
+     },
  
-     const lastVersionInt = intFromVersion(lastVersion);
+     restart: function() {
+diff --git a/src/js/start.js b/src/js/start.js
+index a52e9c78..a7eb65c8 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -119,7 +119,7 @@ const onVersionReady = function(lastVersion) {
  
      // https://github.com/uBlockOrigin/uBlock-issues/issues/494
      //   Remove useless per-site switches.
@@ -40,16 +45,3 @@ index 97b20db1..1adf3d2c 100644
          µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.saveHostnameSwitches();
-     }
- 
--    // https://github.com/uBlockOrigin/uBlock-issues/issues/212#issuecomment-419741324
--    if ( lastVersionInt <= 1015024000 ) {
--        if ( µb.hiddenSettings.manualUpdateAssetFetchPeriod === 2000 ) {
--            µb.hiddenSettings.manualUpdateAssetFetchPeriod = 500;
--            µb.saveHiddenSettings();
--        }
--    }
--
-     vAPI.storage.set({ version: vAPI.app.version });
- };
- 
