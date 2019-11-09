@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 8e39f41f..77c531a8 100644
+index 899af85d..b9f8d6a1 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -370,7 +370,7 @@ const registerAssetSource = function(assetKey, dict) {
+@@ -362,7 +362,7 @@ const registerAssetSource = function(assetKey, dict) {
          entry.contentURL = [];
      }
      if ( typeof entry.updateAfter !== 'number' ) {
@@ -11,7 +11,7 @@ index 8e39f41f..77c531a8 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -943,7 +943,7 @@ api.rmrf = function() {
+@@ -828,7 +828,7 @@ api.rmrf = function() {
  /******************************************************************************/
  
  // Asset updater area.
@@ -21,10 +21,10 @@ index 8e39f41f..77c531a8 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index 5633b74c..88ad8fa5 100644
+index 697e0676..40b0e9c9 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -39,9 +39,9 @@ const µBlock = (function() { // jshint ignore:line
+@@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
          allowGenericProceduralFilters: false,
          assetFetchTimeout: 30,
          autoCommentFilterTemplate: '{{date}} {{origin}}',
@@ -36,16 +36,16 @@ index 5633b74c..88ad8fa5 100644
          blockingProfiles: '11111/#F00 11011/#C0F 11001/#00F 00001',
          cacheStorageAPI: 'unset',
          cacheStorageCompression: true,
-@@ -52,7 +52,7 @@ const µBlock = (function() { // jshint ignore:line
-         disableWebAssembly: false,
-         ignoreRedirectFilters: false,
+@@ -55,7 +55,7 @@ const µBlock = (( ) => { // jshint ignore:line
          ignoreScriptInjectFilters: false,
+         filterAuthorMode: false,
+         loggerPopupType: 'popup',
 -        manualUpdateAssetFetchPeriod: 500,
 +        manualUpdateAssetFetchPeriod: 1,
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -80,7 +80,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -81,7 +81,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -54,7 +54,7 @@ index 5633b74c..88ad8fa5 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -130,7 +130,10 @@ const µBlock = (function() { // jshint ignore:line
+@@ -131,7 +131,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
@@ -66,10 +66,10 @@ index 5633b74c..88ad8fa5 100644
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 1adf3d2c..bc89d2be 100644
+index a7eb65c8..e6e0fcf5 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -328,6 +328,7 @@ const createDefaultProps = function() {
+@@ -240,6 +240,7 @@ const createDefaultProps = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
@@ -78,10 +78,10 @@ index 1adf3d2c..bc89d2be 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index c5c23d0b..a1e5360f 100644
+index b1e1bca2..12d2ea47 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1355,7 +1355,7 @@
+@@ -1307,7 +1307,7 @@
              next = 0;
              this.assets.updateStart({
                  delay: this.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 ||
@@ -90,7 +90,7 @@ index c5c23d0b..a1e5360f 100644
              });
          }, updateDelay);
      };
-@@ -1441,7 +1441,7 @@
+@@ -1393,7 +1393,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

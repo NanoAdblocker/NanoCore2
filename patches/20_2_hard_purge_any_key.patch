@@ -1,13 +1,13 @@
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index f34caaa6..7545074d 100644
+index 31c80273..6a43cc6f 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
-@@ -496,7 +496,7 @@ const buttonPurgeAllHandler = function(ev) {
-         'dashboard',
-         {
-             what: 'purgeAllCaches',
--            hard: ev.ctrlKey && ev.shiftKey
-+            hard: ev.ctrlKey || ev.metaKey || ev.shiftKey
-         },
-         ( ) => {
-             renderFilterLists(true);
+@@ -670,7 +670,7 @@ uDom('#ignoreGenericCosmeticFilters').on('change', onFilteringSettingsChanged);
+ uDom('#buttonApply').on('click', ( ) => { buttonApplyHandler(); });
+ uDom('#buttonUpdate').on('click', ( ) => { buttonUpdateHandler(); });
+ uDom('#buttonPurgeAll').on('click', ev => {
+-    buttonPurgeAllHandler(ev.ctrlKey && ev.shiftKey);
++    buttonPurgeAllHandler(ev.ctrlKey || ev.metaKey || ev.shiftKey);
+ });
+ uDom('#lists').on('change', '.listEntry > input', onFilteringSettingsChanged);
+ uDom('#lists').on('click', '.listEntry > a.remove', onRemoveExternalList);
