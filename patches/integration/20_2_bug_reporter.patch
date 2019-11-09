@@ -1,10 +1,10 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index 0454086d..2b58510d 100644
+index c255b1dd..efe39e61 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -135,6 +135,23 @@ vAPI.download = function(details) {
+@@ -129,6 +129,23 @@ vAPI.download = function(details) {
  
- vAPI.getURL = chrome.runtime.getURL;
+ vAPI.getURL = browser.runtime.getURL;
  
 +vAPI.nanoOpenBugReporter = function() {
 +    const reporter = vAPI.getURL('/reporter/index.html');
@@ -25,12 +25,12 @@ index 0454086d..2b58510d 100644
 +
  /******************************************************************************/
  
- vAPI.i18n = chrome.i18n.getMessage;
+ vAPI.i18n = browser.i18n.getMessage;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 31d0dedb..e8f67b1c 100644
+index 841d0646..ab3f7f45 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -759,6 +759,8 @@ const nanoForceEnableScroll = function() {
+@@ -740,6 +740,8 @@ const nanoForceEnableScroll = function() {
      vAPI.closePopup();
  };
  
@@ -39,13 +39,13 @@ index 31d0dedb..e8f67b1c 100644
  /******************************************************************************/
  
  const gotoURL = function(ev) {
-@@ -1166,6 +1168,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
+@@ -1112,6 +1114,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
  uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
 +uDom('#nanoOpenBugReporter').on('click', nanoOpenBugReporter);
  uDom('#nanoFirewallPaneToggle').on('click', toggleFirewallPane);
- uDom('.hnSwitch').on('click', toggleHostnameSwitch);
+ uDom('.hnSwitch').on('click', ev => { toggleHostnameSwitch(ev); });
  uDom('#saveRules').on('click', saveFirewallRules);
 diff --git a/src/popup.html b/src/popup.html
 index 48f78ec3..ab45a351 100644
