@@ -12,7 +12,7 @@ index 76b5fa74..0fff1e84 100644
  body {
      border: 0;
 diff --git a/src/css/logger-ui.css b/src/css/logger-ui.css
-index cb3316b0..e54055c8 100644
+index 3df70a86..e8c38c47 100644
 --- a/src/css/logger-ui.css
 +++ b/src/css/logger-ui.css
 @@ -61,6 +61,18 @@ body[dir="rtl"] #pageSelector {
@@ -48,7 +48,7 @@ index 92689608..c5d5600a 100644
       --><a class="tabButton" href="#3p-filters.html" data-i18n="3pPageName"></a><!--
       --><a class="tabButton" href="#1p-filters.html" data-i18n="1pPageName"></a><!--
 diff --git a/src/logger-ui.html b/src/logger-ui.html
-index f6b153e1..b87747c9 100644
+index 657b0926..28c9ac2e 100644
 --- a/src/logger-ui.html
 +++ b/src/logger-ui.html
 @@ -22,7 +22,10 @@
