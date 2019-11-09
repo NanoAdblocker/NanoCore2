@@ -41,6 +41,8 @@ nAPI.add_public_api_handler = (trusted, handler) => {
         if (!handler(msg))
             return;
 
+        // TODO: The handler function can return a Promise
+
         if (typeof res === "function")
             res({ data: "ok" });
     });

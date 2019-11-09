@@ -73,7 +73,7 @@ nano.recompile_filters = async () => {
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.enable_integration_filter = () => {
+nano.enable_integration_filter = async () => {
     if (nano.ub.selectedFilterLists.includes("nano-defender"))
         return true;
 
@@ -83,8 +83,8 @@ nano.enable_integration_filter = () => {
     if (nano.ub.selectedFilterLists.length < 10)
         return false;
 
-    nano.ub.saveSelectedFilterLists(["nano-defender"], true);
-    nano.ub.loadFilterLists();
+    await nano.ub.saveSelectedFilterLists(["nano-defender"], true);
+    await nano.ub.loadFilterLists();
 
     return true;
 };
@@ -210,7 +210,7 @@ nano.FilterLinter.prototype.cache_result = function () {
 };
 
 nano.FilterLinter.prototype.restore_result = async function () {
-    const result = await vAPI.storage.get(this.cache_key);
+    let result = await vAPI.storage.get(this.cache_key);
 
     if (this.changed)
         return;
