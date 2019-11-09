@@ -44,64 +44,46 @@ window.hasUnsavedData = () => {
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.load_settings = () => {
-    const on_msg = (wrap) => {
-        nano.editor.set_line_wrap(wrap === true);
-        nano.render_filters(true);
-    };
+nano.load_settings = async () => {
+    const wrap = await vAPI.messaging.send("dashboard", {
+        what: "userSettings",
+        name: "nanoEditorSoftWrap",
+    });
 
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            what: "userSettings",
-            name: "nanoEditorSoftWrap",
-        },
-        on_msg
-    );
+    nano.editor.set_line_wrap(wrap === true);
+    nano.render_filters(true);
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.render_filters = (first) => {
-    const on_msg = function (details) {
-        if (details.error)
-            return;
+nano.render_filters = async (first) => {
+    const details = await vAPI.messaging.send("dashboard", {
+        what: "readUserFilters",
+    });
 
-        let content = details.content.trim();
-        nano.filters_cache = content;
+    if (details instanceof Object === false || details.error)
+        return;
 
-        if (content.length > 0)
-            content += "\n";
-        nano.editor.set_value_focus(content);
+    let content = details.content.trim();
+    nano.filters_cache = content;
 
-        nano.filters_changed(false);
-        nano.render_anno();
+    if (content.length > 0)
+        content += "\n";
+    nano.editor.set_value_focus(content);
 
-        // TODO: Clear undo history if first is true?
-    };
+    nano.filters_changed(false);
+    nano.render_anno();
 
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            what: "readUserFilters",
-        },
-        on_msg
-    );
+    // TODO: Clear undo history if first is true?
 };
 
-nano.render_anno = () => {
-    const on_msg = (data) => {
-        if (data)
-            nano.editor.set_anno(data.errors.concat(data.warnings));
-    };
+nano.render_anno = async () => {
+    const data = await vAPI.messaging.send("dashboard", {
+        what: "nanoGetFilterLinterResult",
+    });
 
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            what: "nanoGetFilterLinterResult",
-        },
-        on_msg
-    );
+    if (data)
+        nano.editor.set_anno(data.errors.concat(data.warnings));
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -125,12 +107,9 @@ nano.filters_changed = (changed) => {
 };
 
 nano.filters_saved = () => {
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            what: "reloadAllFilters",
-        }
-    );
+    vAPI.messaging.send("dashboard", {
+        what: "reloadAllFilters",
+    });
 
     const btn = document.getElementById("userFiltersApply");
     btn.setAttribute("disabled", "");
@@ -139,29 +118,23 @@ nano.filters_saved = () => {
     setTimeout(nano.render_anno, 1000);
 };
 
-nano.filters_apply = () => {
-    const on_msg = function (details) {
-        if (details.error)
-            return;
+nano.filters_apply = async () => {
+    const details = await vAPI.messaging.send("dashboard", {
+        what: "writeUserFilters",
+        content: nano.editor.get_unix_value(),
+    });
 
-        nano.filters_cache = details.content.trim();
-        nano.editor.set_value_focus(details.content);
+    if (details instanceof Object === false || details.error)
+        return;
 
-        nano.filters_changed(false);
-        nano.filters_saved();
+    nano.filters_cache = details.content.trim();
+    nano.editor.set_value_focus(details.content);
 
-        // TODO: Set the cursor back to its original position?
-        // TODO: Clear undo history?
-    };
+    nano.filters_changed(false);
+    nano.filters_saved();
 
-    vAPI.messaging.send(
-        "dashboard",
-        {
-            what: "writeUserFilters",
-            content: nano.editor.get_unix_value(),
-        },
-        on_msg
-    );
+    // TODO: Set the cursor back to its original position?
+    // TODO: Clear undo history?
 };
 
 nano.filters_revert = () => {
