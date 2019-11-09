@@ -1,6 +1,6 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "Interface do usuário",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
@@ -12,7 +12,7 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "Forçar filtros de recompilação",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -24,35 +24,35 @@
     "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "Baseado em {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — Visualizador de filtros",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "Não foi possível carregar o conteúdo, por favor recarregue.",
     "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "controle de cache",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Exibir/ocultar o painel de visão geral",
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "Clique para atualizar esta página.\n\nCtrl+clique para atualizar esta página enquanto ignora o cache.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(beta) Enter force scroll mode (will break layout)",
+    "message": "(beta) Entre no modo de rolagem forçada (irá quebrar o layout)",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) Abra o reportador de bug",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
