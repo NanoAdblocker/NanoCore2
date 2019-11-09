@@ -1,5 +1,5 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 16580dfb..cdcc195e 100644
+index 8a093e77..28093cfb 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -542,6 +542,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
@@ -12,10 +12,10 @@ index 16580dfb..cdcc195e 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 4d92d478..7c7850cd 100644
+index dc2d8746..2ffe221d 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -1870,6 +1870,9 @@ FilterParser.prototype.toNormalizedType = {
+@@ -156,6 +156,9 @@ const toNormalizedType = {
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
           'websocket': 'websocket',
@@ -24,4 +24,4 @@ index 4d92d478..7c7850cd 100644
 +            'iframe': 'subdocument',
  };
  
- /******************************************************************************/
+ const BlockImportant = BlockAction | Important;
