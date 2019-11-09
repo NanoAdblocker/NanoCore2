@@ -177,6 +177,24 @@ const diff = async (p) => {
     });
 };
 
+let last_sync_i = 0;
+
+const sync = async (cont) => {
+    if (!cont)
+        last_sync_i = 0;
+
+    for (i = last_sync_i; i < config.Patches.length; i++) {
+        last_sync_i = i;
+        const p = config.Patches[i];
+
+        await apply(p);
+        await diff(p);
+        await commit();
+    }
+
+    last_sync_i = 0;
+};
+
 // ----------------------------------------------------------------------------------------------------------------- //
 
 cmd_handlers.set("reset", async () => {
@@ -201,11 +219,7 @@ cmd_handlers.set("sync", async () => {
     busy = true;
 
     try {
-        for (const p of config.Patches) {
-            await apply(p);
-            await diff(p);
-            await commit();
-        }
+        await sync(false);
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -215,17 +229,12 @@ cmd_handlers.set("sync", async () => {
     term.ready();
 });
 
-cmd_handlers.set("apply", async () => {
-    if (config.Patches.length === 0)
-        return void term.ready();
-
+cmd_handlers.set("cont", async () => {
     busy = true;
 
     try {
-        for (const p of config.Patches)
-            await apply(p);
-
-        await commit();
+        await exec(0, "git", exec_opt(), "reset", "--hard");
+        await sync(true);
     } catch (err) {
         term.write_line(err.stack);
     }
