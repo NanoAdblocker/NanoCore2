@@ -74,6 +74,8 @@ Expected:
 
 www1.example.com#@#+js()
 www2.example.com##+js()
+
+||example.com^$csp=default-src 'none'; report-to https://other.example.com;
 ```
 
 **Expected**
@@ -99,6 +101,8 @@ www2.example.com##+js()
       1. Line `1`: `1` error
    1. Section `4`:
       1. Line `2`: `1` error
+   1. Section `5`:
+      1. Line `1`: `1` error
 1. Dashboard shows `5` total filters
 
 **Actions**
