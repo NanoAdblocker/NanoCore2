@@ -11,20 +11,17 @@ index 4b260c58..54c4e8db 100644
  
  <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index ce92f3b1..9c01b1c4 100644
+index ce92f3b1..a1ccd080 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
-@@ -115,6 +115,17 @@ const applyChanges = async function() {
+@@ -115,6 +115,14 @@ const applyChanges = async function() {
  
  /******************************************************************************/
  
 +const nanoForceRecompile = function() {
-+    messaging.send(
-+        'dashboard',
-+        {
-+            what: 'nanoForceRecompile'
-+        }
-+    );
++    vAPI.messaging.send('dashboard', {
++        what: 'nanoForceRecompile'
++    });
 +};
 +
 +/******************************************************************************/
@@ -32,7 +29,7 @@ index ce92f3b1..9c01b1c4 100644
  uDom.nodeFromId('advancedSettings').addEventListener(
      'input',
      advancedSettingsChanged
-@@ -122,6 +133,10 @@ uDom.nodeFromId('advancedSettings').addEventListener(
+@@ -122,6 +130,10 @@ uDom.nodeFromId('advancedSettings').addEventListener(
  uDom.nodeFromId('advancedSettingsApply').addEventListener('click', ( ) => {
      applyChanges();
  });
