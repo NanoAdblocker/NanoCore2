@@ -12,15 +12,14 @@ index 8a093e77..28093cfb 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index dc2d8746..2ffe221d 100644
+index dc2d8746..73e13225 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -156,6 +156,9 @@ const toNormalizedType = {
+@@ -156,6 +156,8 @@ const toNormalizedType = {
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
           'websocket': 'websocket',
 +
-+             'ghide': 'generichide',
 +            'iframe': 'subdocument',
  };
  

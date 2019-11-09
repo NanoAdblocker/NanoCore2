@@ -226,10 +226,10 @@ index 79680a72..62f8440a 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 2ffe221d..210aa496 100644
+index 73e13225..5cbe633f 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2013,6 +2013,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2012,6 +2012,7 @@ FilterParser.prototype.parseOptions = function(s) {
              this.domainOpt = this.parseDomainOption(opt.slice(7));
              if ( this.domainOpt === '' ) {
                  this.unsupported = true;
@@ -237,7 +237,7 @@ index 2ffe221d..210aa496 100644
                  break;
              }
              continue;
-@@ -2024,6 +2025,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2023,6 +2024,7 @@ FilterParser.prototype.parseOptions = function(s) {
          if ( /^redirect(?:-rule)?=/.test(opt) ) {
              if ( this.redirect !== 0 ) {
                  this.unsupported = true;
@@ -245,7 +245,7 @@ index 2ffe221d..210aa496 100644
                  break;
              }
              this.redirect = opt.charCodeAt(8) === 0x3D /* '=' */ ? 1 : 2;
-@@ -2050,6 +2052,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2049,6 +2051,7 @@ FilterParser.prototype.parseOptions = function(s) {
          if ( opt === 'empty' || opt === 'mp4' ) {
              if ( this.redirect !== 0 ) {
                  this.unsupported = true;
@@ -253,7 +253,7 @@ index 2ffe221d..210aa496 100644
                  break;
              }
              this.redirect = 1;
-@@ -2073,12 +2076,24 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2072,12 +2075,24 @@ FilterParser.prototype.parseOptions = function(s) {
          }
          // Unrecognized filter option: ignore whole filter.
          this.unsupported = true;
@@ -278,7 +278,7 @@ index 2ffe221d..210aa496 100644
      }
  
      // Negated network types? Toggle on all network type bits.
-@@ -2090,6 +2105,7 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2089,6 +2104,7 @@ FilterParser.prototype.parseOptions = function(s) {
          this.types &= ~this.notTypes;
          if ( this.types === 0 ) {
              this.unsupported = true;
@@ -286,7 +286,7 @@ index 2ffe221d..210aa496 100644
          }
      }
  
-@@ -2100,6 +2116,9 @@ FilterParser.prototype.parseOptions = function(s) {
+@@ -2099,6 +2115,9 @@ FilterParser.prototype.parseOptions = function(s) {
          this.types &= ~unsupportedTypeBit;
          if ( this.types === 0 ) {
              this.unsupported = true;
@@ -296,7 +296,7 @@ index 2ffe221d..210aa496 100644
          }
      }
  };
-@@ -2126,6 +2145,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2125,6 +2144,7 @@ FilterParser.prototype.parse = function(raw) {
      // as unsupported.
      if ( s.length === 1 && /[0-9a-z]/i.test(s) ) {
          this.unsupported = true;
@@ -304,7 +304,7 @@ index 2ffe221d..210aa496 100644
          return this;
      }
  
-@@ -2144,6 +2164,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2143,6 +2163,7 @@ FilterParser.prototype.parse = function(raw) {
          if ( c === '#' || c === '@' ) {
              console.error('static-net-filtering.js > unexpected cosmetic filters');
              this.elemHiding = true;
@@ -312,7 +312,7 @@ index 2ffe221d..210aa496 100644
              return this;
          }
      }
-@@ -2170,6 +2191,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2169,6 +2190,7 @@ FilterParser.prototype.parse = function(raw) {
              //   Discard Adguard-specific `$$` filters.
              if ( s.indexOf('$$') !== -1 ) {
                  this.unsupported = true;
@@ -320,7 +320,7 @@ index 2ffe221d..210aa496 100644
                  return this;
              }
              this.parseOptions(s.slice(pos + 1));
-@@ -2193,6 +2215,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2192,6 +2214,7 @@ FilterParser.prototype.parse = function(raw) {
                  normalizeRegexSource.message
              );
              this.unsupported = true;
@@ -328,7 +328,7 @@ index 2ffe221d..210aa496 100644
          }
          return this;
      }
-@@ -2217,6 +2240,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2216,6 +2239,7 @@ FilterParser.prototype.parse = function(raw) {
          // https://github.com/chrisaljoudi/uBlock/issues/1096
          if ( s.startsWith('^') ) {
              this.unsupported = true;
@@ -336,7 +336,7 @@ index 2ffe221d..210aa496 100644
              return this;
          }
  
-@@ -2268,6 +2292,7 @@ FilterParser.prototype.parse = function(raw) {
+@@ -2267,6 +2291,7 @@ FilterParser.prototype.parse = function(raw) {
      // TODO: remove once redirect rules with `*/*` pattern are no longer used.
      else if ( this.redirect !== 0 && s === '/' ) {
          s = '*';
