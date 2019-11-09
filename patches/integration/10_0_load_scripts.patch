@@ -1,12 +1,13 @@
 diff --git a/src/background.html b/src/background.html
-index 0f9b3707..26e5ff8a 100644
+index 8db73659..010fc82f 100644
 --- a/src/background.html
 +++ b/src/background.html
-@@ -9,11 +9,14 @@
+@@ -9,12 +9,15 @@
  <script src="lib/lz4/lz4-block-codec-any.js"></script>
  <script src="lib/punycode.js"></script>
  <script src="lib/publicsuffixlist/publicsuffixlist.js"></script>
 +<script src="js/nano-platform-vars.js"></script>
+ <script src="js/webext.js"></script>
  <script src="js/vapi.js"></script>
  <script src="js/vapi-common.js"></script>
  <script src="js/vapi-background.js"></script>
@@ -18,10 +19,10 @@ index 0f9b3707..26e5ff8a 100644
  <script src="js/hntrie.js"></script>
  <script src="js/strie.js"></script>
 diff --git a/src/js/background.js b/src/js/background.js
-index 76c53104..b3e761fa 100644
+index c08f91c8..52f0ff29 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -198,3 +198,7 @@ const µBlock = (function() { // jshint ignore:line
+@@ -200,3 +200,7 @@ const µBlock = (( ) => { // jshint ignore:line
  })();
  
  /******************************************************************************/
