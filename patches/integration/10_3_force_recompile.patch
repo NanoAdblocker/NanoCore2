@@ -11,14 +11,14 @@ index 4b260c58..54c4e8db 100644
  
  <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index 53c209c5..a4c65cc8 100644
+index ce92f3b1..9c01b1c4 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
-@@ -117,6 +117,17 @@ const applyChanges = function() {
+@@ -115,6 +115,17 @@ const applyChanges = async function() {
  
  /******************************************************************************/
  
-+let nanoForceRecompile = function() {
++const nanoForceRecompile = function() {
 +    messaging.send(
 +        'dashboard',
 +        {
@@ -32,10 +32,10 @@ index 53c209c5..a4c65cc8 100644
  uDom.nodeFromId('advancedSettings').addEventListener(
      'input',
      advancedSettingsChanged
-@@ -125,6 +136,10 @@ uDom.nodeFromId('advancedSettingsApply').addEventListener(
-     'click',
-     applyChanges
- );
+@@ -122,6 +133,10 @@ uDom.nodeFromId('advancedSettings').addEventListener(
+ uDom.nodeFromId('advancedSettingsApply').addEventListener('click', ( ) => {
+     applyChanges();
+ });
 +uDom.nodeFromId('nanoForceRecompile').addEventListener(
 +    'click',
 +    nanoForceRecompile
@@ -44,10 +44,10 @@ index 53c209c5..a4c65cc8 100644
  renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index bc79b36d..97f30da6 100644
+index be2f64f8..e1f34a0b 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1117,6 +1117,10 @@ const onMessage = function(request, sender, callback) {
+@@ -1172,6 +1172,10 @@ const onMessage = function(request, sender, callback) {
          µb.changeHiddenSettings(µb.hiddenSettingsFromString(request.content));
          break;
  
