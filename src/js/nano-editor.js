@@ -386,8 +386,11 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     token: "variable",
                     regex: new RegExp([
                         "elemhide",
+                        "ehide",
                         "generichide",
                         "ghide",
+                        "specifichide",
+                        "shide",
                         "inline-font",
                         "inline-script",
                         "popunder",

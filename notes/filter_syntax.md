@@ -27,13 +27,15 @@ Nano Adblocker and uBlock Origin will map options as follows for convenience:
    3p -> third-party
   css -> stylesheet
   doc -> document
+ehide -> elemhide
 frame -> subdocument
+ghide -> generichide
+shide -> specifichide
   xhr -> xmlhttprequest
 ```
 
-Additionally, Nano Adblocker will map `ghide` to `generichide` and `iframe` to
-`subdocument`. uBlock Origin will discard filters that use `ghide` or `iframe`
-options.
+Additionally, Nano Adblocker will map `iframe` to `subdocument`. uBlock Origin
+will discard filters that use the `iframe` option.
 
 ## The option `fetch`
 
