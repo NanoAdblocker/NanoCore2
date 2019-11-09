@@ -183,7 +183,7 @@ const sync = async (cont) => {
     if (!cont)
         last_sync_i = 0;
 
-    for (i = last_sync_i; i < config.Patches.length; i++) {
+    for (let i = last_sync_i; i < config.Patches.length; i++) {
         last_sync_i = i;
         const p = config.Patches[i];
 
