@@ -374,8 +374,8 @@
     document.cookie = data;
 })();
 
-// Redirect to the URL in GET parameter
-// key - The parameter key to use
+// Redirect to a URL in GET parameter
+// key - The parameter key
 //
 /// nanop-get-redirect.js
 (() => {
