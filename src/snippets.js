@@ -374,4 +374,25 @@
     document.cookie = data;
 })();
 
+// Redirect to the URL in GET parameter
+// key - The parameter key to use
+//
+/// nanop-get-redirect.js
+(() => {
+    var guard = '{{nano}}';
+    if (guard === '{{nano}}') {
+        return;
+    }
+    var data = '{{1}}';
+    if (data === '' || data === '{{1}}') {
+        return;
+    }
+    var url = new URL(location.href);
+    var param = url.searchParams.get(data);
+    if (typeof param !== 'string' || !/^https?:\/\//.test(param)) {
+        return;
+    }
+    location.href = param;
+})();
+
 // ----------------------------------------------------------------------------------------------------------------- //
