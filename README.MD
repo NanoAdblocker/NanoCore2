@@ -106,6 +106,8 @@ These are the potential problems to look out for:
 1. `/assets` directory structure
 1. Redirect declaration format
 1. Existance of `messaging` variable in `popup.js`
+1. Local IP related regular expressions in `storage.js` (may need to update
+   minimization scripts)
 
 ## Subresource Integrity Incidence Response Protocol
 
