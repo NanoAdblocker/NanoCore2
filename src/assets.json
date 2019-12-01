@@ -151,7 +151,7 @@
   "awrl-0": {
     "content": "filters",
     "group": "ads",
-    "title": "Adblock Warning Removal List",
+    "title": "Adblock Warning Removal",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
       "assets/ThirdParty/WarningRemoval.txt"
@@ -162,7 +162,7 @@
     "content": "filters",
     "group": "ads",
     "off": true,
-    "title": "AdGuard Base List",
+    "title": "AdGuard Base",
     "contentURL": "https://filters.adtidy.org/extension/ublock/filters/2_without_easylist.txt",
     "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
     "instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
@@ -295,7 +295,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Anti-Facebook List",
+    "title": "Anti-Facebook",
     "contentURL": "https://fanboy.co.nz/fanboy-antifacebook.txt",
     "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
   },
@@ -303,7 +303,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy's Annoyance List",
+    "title": "Fanboy's Annoyance",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt",
       "https://easylist.to/easylist/fanboy-annoyance.txt",
@@ -315,15 +315,15 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy's Cookie List",
-    "contentURL": "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
-    "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
+    "title": "EasyList Cookie",
+    "contentURL": "https://easylist-downloads.adblockplus.org/easylist-cookie.txt",
+    "supportURL": "https://github.com/easylist/easylist/issues"
   },
   "fanboy-social": {
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy's Social Blocking List",
+    "title": "Fanboy's Social",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-social.txt",
       "https://easylist.to/easylist/fanboy-social.txt",
