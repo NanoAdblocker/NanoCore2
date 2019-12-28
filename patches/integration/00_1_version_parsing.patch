@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index 01dbb2b8..a20853df 100644
+index 2f066951..bf567bbe 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
-@@ -50,16 +50,8 @@ window.addEventListener('webextFlavor', function() {
+@@ -57,16 +57,8 @@ window.addEventListener('webextFlavor', function() {
  /******************************************************************************/
  
  vAPI.app = {

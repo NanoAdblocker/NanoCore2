@@ -19,10 +19,10 @@ index 8db73659..010fc82f 100644
  <script src="js/hntrie.js"></script>
  <script src="js/strie.js"></script>
 diff --git a/src/js/background.js b/src/js/background.js
-index c08f91c8..52f0ff29 100644
+index 86ea12ee..97a28f5f 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -200,3 +200,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -217,3 +217,7 @@ const µBlock = (( ) => { // jshint ignore:line
  })();
  
  /******************************************************************************/
