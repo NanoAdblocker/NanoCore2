@@ -104,7 +104,8 @@ These are the potential problems to look out for:
 1. Font Awesome related CSS
 1. Image resources
 1. `/assets` directory structure
-1. Redirect declaration format
+1. `scriptlets.js` format
+1. Redirect declaration maps format in `redirect-engine.js`
 1. Existance of `messaging` variable in `popup.js`
 1. Local IP related regular expressions in `storage.js` (may need to update
    minimization scripts)
