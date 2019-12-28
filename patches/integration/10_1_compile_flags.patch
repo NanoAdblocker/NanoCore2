@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 52f0ff29..2a5aa6f8 100644
+index 97a28f5f..70e56441 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -56,6 +56,9 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -63,6 +63,9 @@ const µBlock = (( ) => { // jshint ignore:line
          filterAuthorMode: false,
          loggerPopupType: 'popup',
          manualUpdateAssetFetchPeriod: 500,
@@ -12,7 +12,7 @@ index 52f0ff29..2a5aa6f8 100644
          popupFontSize: 'unset',
          requestJournalProcessPeriod: 1000,
          selfieAfter: 3,
-@@ -160,6 +163,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -177,6 +180,7 @@ const µBlock = (( ) => { // jshint ignore:line
          assetsBootstrapLocation: undefined,
  
          userFiltersPath: 'user-filters',
@@ -34,36 +34,36 @@ index bace836c..79680a72 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 855635b1..dc2d8746 100644
+index 0f792cc4..de28e753 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2054,6 +2054,10 @@ FilterParser.prototype.parseOptions = function(s) {
-         }
-         // https://github.com/uBlockOrigin/uAssets/issues/192
-         if ( opt === 'badfilter' ) {
+@@ -2283,6 +2283,10 @@ const FilterParser = class {
+             }
+             // https://github.com/uBlockOrigin/uAssets/issues/192
+             if ( opt === 'badfilter' ) {
++                if ( nano.cf.strip_whitelist ) {
++                    this.unsupported = true;
++                    break;
++                }
+                 this.badFilter = true;
+                 continue;
+             }
+@@ -2368,6 +2372,10 @@ const FilterParser = class {
+         // block or allow filter?
+         // Important: this must be executed before parsing options
+         if ( s.startsWith('@@') ) {
 +            if ( nano.cf.strip_whitelist ) {
 +                this.unsupported = true;
-+                break;
++                return this;
 +            }
-             this.badFilter = true;
-             continue;
+             this.action = AllowAction;
+             s = s.slice(2);
          }
-@@ -2144,6 +2148,10 @@ FilterParser.prototype.parse = function(raw) {
-     // block or allow filter?
-     // Important: this must be executed before parsing options
-     if ( s.startsWith('@@') ) {
-+        if ( nano.cf.strip_whitelist ) {
-+            this.unsupported = true;
-+            return this;
-+        }
-         this.action = AllowAction;
-         s = s.slice(2);
-     }
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 3e8c7f9a..54fa30c5 100644
+index 7a214dbe..3a5dac03 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -433,7 +433,8 @@
+@@ -444,7 +444,8 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
  
      const compiledFilters = this.compileFilters(
          filters,
@@ -73,7 +73,7 @@ index 3e8c7f9a..54fa30c5 100644
      );
      const snfe = this.staticNetFilteringEngine;
      const cfe = this.cosmeticFilteringEngine;
-@@ -791,7 +792,7 @@
+@@ -809,7 +810,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
  
  /******************************************************************************/
  
@@ -82,7 +82,7 @@ index 3e8c7f9a..54fa30c5 100644
      const writer = new this.CompiledLineIO.Writer();
  
      // Populate the writer with information potentially useful to the
-@@ -802,6 +803,9 @@
+@@ -820,6 +821,9 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
          }
      }
  
@@ -92,7 +92,7 @@ index 3e8c7f9a..54fa30c5 100644
      // Useful references:
      //    https://adblockplus.org/en/filter-cheatsheet
      //    https://adblockplus.org/en/filters
-@@ -861,6 +865,8 @@
+@@ -879,6 +883,8 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
          staticNetFilteringEngine.compile(line, writer);
      }
  

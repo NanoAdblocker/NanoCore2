@@ -1,5 +1,5 @@
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index 4b260c58..54c4e8db 100644
+index 583596b8..820c61dd 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
 @@ -19,6 +19,7 @@
@@ -41,10 +41,10 @@ index ce92f3b1..a1ccd080 100644
  renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index be2f64f8..e1f34a0b 100644
+index e6eeefd0..de4ebd96 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1172,6 +1172,10 @@ const onMessage = function(request, sender, callback) {
+@@ -1180,6 +1180,10 @@ const onMessage = function(request, sender, callback) {
          µb.changeHiddenSettings(µb.hiddenSettingsFromString(request.content));
          break;
  
