@@ -108,6 +108,7 @@ These are the potential problems to look out for:
 1. Existance of `messaging` variable in `popup.js`
 1. Local IP related regular expressions in `storage.js` (may need to update
    minimization scripts)
+1. CNAME uncloaking (may need to adjust default advanced settings)
 
 ## Subresource Integrity Incidence Response Protocol
 
