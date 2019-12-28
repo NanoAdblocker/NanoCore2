@@ -12,7 +12,7 @@ index c64abb64..452ef529 100644
          <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
          <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index 54c4e8db..bfb5d33d 100644
+index 820c61dd..e8a7ddcc 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
 @@ -16,7 +16,7 @@
@@ -25,7 +25,7 @@ index 54c4e8db..bfb5d33d 100644
          <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
          <button id="nanoForceRecompile" class="custom" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
 diff --git a/src/dyna-rules.html b/src/dyna-rules.html
-index 12353f35..f08f8f13 100644
+index ab70007a..e642448a 100644
 --- a/src/dyna-rules.html
 +++ b/src/dyna-rules.html
 @@ -18,7 +18,7 @@

@@ -1,5 +1,5 @@
 diff --git a/src/js/scriptlets/element-picker.js b/src/js/scriptlets/element-picker.js
-index 5f3e6ee8..676f43c5 100644
+index 1a366c39..cb9502d7 100644
 --- a/src/js/scriptlets/element-picker.js
 +++ b/src/js/scriptlets/element-picker.js
 @@ -1186,6 +1186,7 @@ const onDialogClicked = function(ev) {
@@ -11,10 +11,10 @@ index 5f3e6ee8..676f43c5 100644
                  pageDomain: window.location.hostname,
                  killCache: isCosmetic === false,
 diff --git a/src/js/storage.js b/src/js/storage.js
-index a650a169..3f7822bd 100644
+index faf1a5d1..cc64644a 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -411,7 +411,8 @@
+@@ -422,7 +422,8 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
              this.hiddenSettings.autoCommentFilterTemplate
                  .replace('{{date}}', d.toLocaleDateString())
                  .replace('{{time}}', d.toLocaleTimeString())

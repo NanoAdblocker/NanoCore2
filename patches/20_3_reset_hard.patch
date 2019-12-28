@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 4396f3d6..3b9d3976 100644
+index 1a06ff53..e45a091e 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -938,18 +938,14 @@ const restoreUserData = async function(request) {
+@@ -946,18 +946,14 @@ const restoreUserData = async function(request) {
      vAPI.app.restart();
  };
  

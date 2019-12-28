@@ -21,7 +21,7 @@ index 899af85d..b9f8d6a1 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index 697e0676..d4f22ab0 100644
+index 9d2be21c..66d25664 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -36,7 +36,7 @@ index 697e0676..d4f22ab0 100644
          blockingProfiles: '11111/#F00 11011/#C0F 11001/#00F 00001',
          cacheStorageAPI: 'unset',
          cacheStorageCompression: true,
-@@ -50,12 +50,12 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -57,12 +57,12 @@ const µBlock = (( ) => { // jshint ignore:line
          debugScriptlets: false,
          debugScriptletInjector: false,
          disableWebAssembly: false,
@@ -51,7 +51,7 @@ index 697e0676..d4f22ab0 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -81,7 +81,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -88,7 +88,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -60,7 +60,7 @@ index 697e0676..d4f22ab0 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -131,7 +131,10 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -138,7 +138,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
@@ -72,10 +72,10 @@ index 697e0676..d4f22ab0 100644
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index a7eb65c8..e6e0fcf5 100644
+index 756606be..66afef4c 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -240,6 +240,7 @@ const createDefaultProps = function() {
+@@ -238,6 +238,7 @@ const createDefaultProps = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
@@ -84,10 +84,10 @@ index a7eb65c8..e6e0fcf5 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index b1e1bca2..12d2ea47 100644
+index 77a802a3..2b8d37be 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1307,7 +1307,7 @@
+@@ -1329,7 +1329,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
              next = 0;
              this.assets.updateStart({
                  delay: this.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 ||
@@ -96,7 +96,7 @@ index b1e1bca2..12d2ea47 100644
              });
          }, updateDelay);
      };
-@@ -1393,7 +1393,7 @@
+@@ -1415,7 +1415,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {
