@@ -6,6 +6,8 @@ sanity test need to be performed manually before each release.
 ## Setup
 
 Actions:
+1. Go to extension manager
+1. View details of sideloaded Nano Adblocker
 1. Open the background console
 1. Enable error collection
 
