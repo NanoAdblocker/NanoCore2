@@ -7,9 +7,11 @@ sanity test need to be performed manually before each release.
 
 Actions:
 1. Open the background console
+1. Enable error collection
 
 Expected:
 1. No error is ever logged to the background console
+1. No error is ever collected
 
 ## Popup Panel
 
