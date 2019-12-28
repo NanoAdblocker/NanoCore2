@@ -37,13 +37,5 @@ These may or may not be out of date.
   empty lines, but there seems to be no way for empty lines to enter this
   function.
 
-- `storage.js > µBlock.loadFilterLists > onFilterListsReady` has a typo in
-  the comments.
-
 - `storage.js > µBlock.loadRedirectResources` checks whether `results` is an
   array, but it is guaranteed to be an array as it comes from `Promise.all`.
-
-- Logger messages for invalid filters are not formatted consistently.
-
-- `redirect-engine.js > RedirectEngine.prototype.loadBuiltinResources` has an
-  extra space at the end.
