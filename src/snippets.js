@@ -256,7 +256,7 @@
     Notification = function () { };
     Notification.permission = 'default';
     Notification.requestPermission = function (callback) {
-        Notification.permission = 'grante';
+        Notification.permission = 'granted';
         if (callback) {
             setTimeout(callback, 0, 'granted');
         }
