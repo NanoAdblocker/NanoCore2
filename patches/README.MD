@@ -11,9 +11,6 @@ matters, keep them in the same order when possible.
 `00_0_textarea_spacing.patch`: Fix spacing of textarea, not all user agents
 default to a monospace font.
 
-`00_1_css_escape.patch`: Fix an escape issue with attribute selector, it is
-possible to have attributes that included double quotes.
-
 ## Group `10`: Undo Regression
 
 `10_0_user_css.patch`: Disable UserCSS. This will unbreak the DOM inspector of
