@@ -1,0 +1,13 @@
+diff --git a/src/js/contentscript.js b/src/js/contentscript.js
+index 01ed23f4..b0b7618c 100644
+--- a/src/js/contentscript.js
++++ b/src/js/contentscript.js
+@@ -952,7 +952,7 @@ vAPI.domCollapser = (function() {
+             if ( netSelectorCacheCount <= netSelectorCacheCountMax ) {
+                 const value = target.getAttribute(prop);
+                 if ( value ) {
+-                    selectors.push(tag + '[' + prop + '="' + value + '"]');
++                    selectors.push(tag + '[' + prop + '="' + value.replace(/"/g, '\\"') + '"]');
+                     netSelectorCacheCount += 1;
+                 }
+             }
