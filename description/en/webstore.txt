@@ -1,0 +1,15 @@
+Features highlight
+- Block ads and popups, works out of the box
+- Create elements hiding rules through extension icon
+- Report an issue or bug with a few clicks
+- Powerful filters editor and linter for advanced users and filters maintainers
+
+Best experience with Nano Defender.
+
+Home page: https://github.com/NanoAdblocker/NanoCore
+
+Source code: https://github.com/NanoAdblocker/NanoCore2
+
+Report issues: https://github.com/NanoAdblocker/NanoCore/issues
+
+Based on uBlock Origin: https://github.com/gorhill/uBlock
