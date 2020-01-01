@@ -43,3 +43,6 @@ filters automatic comment template.
 ## Group `90`: Other Changes
 
 `90_0_temporary_migration.patch`: Temporary migration, to be removed later.
+
+`90_1_temporary_bug_fix.patch`: Temporary bug fix for CSS escape, to be removed
+later.
