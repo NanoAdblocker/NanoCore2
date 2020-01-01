@@ -215,6 +215,23 @@ cmd_handlers.set("reset", async () => {
     term.ready();
 });
 
+cmd_handlers.set("apply", async () => {
+    busy = true;
+
+    try {
+        for (const p of config.Patches)
+            await apply(p);
+
+        await commit();
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+
+    term.ready();
+});
+
 cmd_handlers.set("sync", async () => {
     busy = true;
 
@@ -262,7 +279,7 @@ cmd_handlers.set("mark", async () => {
 
 const browsers = [
     "chromium",
-    "edge",
+    // "edge",
 ];
 
 // ----------------------------------------------------------------------------------------------------------------- //

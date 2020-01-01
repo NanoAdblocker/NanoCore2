@@ -44,7 +44,9 @@ Terminal to create and manage development environment.
 ```
 reset    Nuke development environment and create a fresh one without any
          patches applied
-sync     Resynchronize all existing patches, in order
+apply    Apply all existing patches, in order, starting from the beginning
+sync     Resynchronize all existing patches, in order, starting from the
+         beginning
 cont     Clear uncommitted changes and continue to resynchronize patches
          starting from the last one that failed (or from the beginning if
          nothing failed)
