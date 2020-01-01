@@ -83,6 +83,13 @@ exit     Exit the terminal
 1. Update the configuration file
 1. Run `reload` in the Terminal
 
+### Removing a Patch
+
+1. Delete the patch file
+1. Update the README file
+1. Update the configuration file
+1. Run `reload` in the Terminal
+
 ## Version Update Checklist
 
 1. Pull filters updates
