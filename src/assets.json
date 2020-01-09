@@ -100,14 +100,6 @@
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues",
     "instructionURL": "https://github.com/gorhill/uBlock/wiki/Badware-risks"
   },
-  "ublock-experimental": {
-    "content": "filters",
-    "group": "default",
-    "title": "uBlock filters – Experimental",
-    "off": true,
-    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/experimental.txt",
-    "instructionURL": "https://github.com/gorhill/uBlock/wiki/Experimental-filters"
-  },
   "ublock-privacy": {
     "content": "filters",
     "group": "default",
