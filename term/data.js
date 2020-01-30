@@ -47,7 +47,7 @@ exports.manifest = (browser) => {
     assert(browser === "chromium" || browser === "edge");
 
     const manifest = {
-        author: "Nano Core 2 contributors",
+        author: "Nano Core 2 Contributors",
         background: {
             page: "background.html",
         },
