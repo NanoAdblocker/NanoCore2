@@ -185,7 +185,11 @@ exports.publish = async (file, ext_id, term = null) => {
                 term.write_line(JSON.stringify(data, null, 2));
             }
 
-            assert(data.status.includes("OK") || data.status.includes("ITEM_PENDING_REVIEW"));
+            assert(
+                data.status.includes("OK") ||
+                data.status.includes("ITEM_PENDING_REVIEW") ||
+                data.status.includes("PUBLISHED_WITH_FRICTION_WARNING")
+            );
 
             resolve();
         };
