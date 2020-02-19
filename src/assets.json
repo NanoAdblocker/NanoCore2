@@ -42,17 +42,6 @@
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
   },
-  "nano-annoyance": {
-    "content": "filters",
-    "group": "default",
-    "title": "Nano filters – Annoyance",
-    "off": true,
-    "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
-    ],
-    "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
-  },
   "nano-whitelist": {
     "content": "filters",
     "group": "default",
@@ -118,14 +107,6 @@
       "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
       "assets/ThirdParty/uBlockAbuse.txt"
     ],
-    "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
-  },
-  "ublock-annoyances": {
-    "content": "filters",
-    "group": "default",
-    "title": "uBlock filters – Annoyances",
-    "off": true,
-    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
   "ublock-unbreak": {
@@ -265,6 +246,25 @@
   },
 
 
+  "nano-annoyance": {
+    "content": "filters",
+    "group": "social",
+    "title": "Nano filters – Annoyance",
+    "off": true,
+    "contentURL": [
+      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
+    ],
+    "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
+  },
+  "ublock-annoyances": {
+    "content": "filters",
+    "group": "social",
+    "title": "uBlock filters – Annoyances",
+    "off": true,
+    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+    "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
+  },
   "adguard-annoyance": {
     "content": "filters",
     "group": "social",
