@@ -78,8 +78,7 @@
 
             "./patches/30_0_link_resources.patch",
 
-            "./patches/90_0_temporary_migration.patch",
-            "./patches/90_1_temporary_bug_fix.patch",
+            "./patches/90_0_assets_migration.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 
