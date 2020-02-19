@@ -9,7 +9,7 @@ index 18b100e6..5224443a 100644
 -    <p>Copyright (c) Raymond Hill 2014-present<br>
 -        &nbsp;
 -    </p>
-+    <p>Copyright (c) Nano Adblocker Contributors 2017-2019</p>
++    <p>Copyright (c) Nano Adblocker Contributors 2017-2020</p>
      <ul>
 -        <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
 -        <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
@@ -28,7 +28,7 @@ index 18b100e6..5224443a 100644
 +
 +    <br>
 +    <p data-i18n="nano_d_about_based_on"></p>
-+    <p>Copyright (c) Raymond Hill 2014-2019</p>
++    <p>Copyright (c) Raymond Hill 2014-2020</p>
 +    <ul>
 +        <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
 +        <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
