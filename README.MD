@@ -121,6 +121,8 @@ These are the potential problems to look out for:
 1. Filters header parsing logic in `storage.js` (may need to update
    MirrorEngine)
 1. CNAME uncloaking (may need to adjust default advanced settings)
+1. Local IP detection logic in `storage.js` (may need to update NanoMeow legacy
+   server and NanoFilters build script)
 
 ## Subresource Integrity Incidence Response Protocol
 
