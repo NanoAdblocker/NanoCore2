@@ -1,8 +1,8 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index 6daec12b..d5fe5251 100644
+index 38fb1bde..cd9f575f 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
-@@ -376,7 +376,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
+@@ -374,7 +374,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
          this.compileSpecificSelector(hostname, parsed, writer);
      }
      if ( applyGlobally ) {
@@ -11,7 +11,7 @@ index 6daec12b..d5fe5251 100644
      }
  
      return true;
-@@ -396,7 +396,8 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
+@@ -394,7 +394,8 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
  
  FilterContainer.prototype.compileGenericHideSelector = function(
      parsed,
@@ -21,7 +21,7 @@ index 6daec12b..d5fe5251 100644
  ) {
      const selector = parsed.suffix;
      const type = selector.charCodeAt(0);
-@@ -450,6 +451,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+@@ -445,6 +446,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
              type: 'error',
              text: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
@@ -35,7 +35,7 @@ index 6daec12b..d5fe5251 100644
          return;
      }
  
-@@ -511,6 +519,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -501,6 +509,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: #@#${parsed.suffix}`
          });
@@ -43,7 +43,7 @@ index 6daec12b..d5fe5251 100644
          return;
      }
  
-@@ -545,6 +554,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -535,6 +544,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: ##${parsed.suffix}`
          });
@@ -76,7 +76,7 @@ index ba47229c..b0ef33e1 100644
              if ( parsed.exception ) {
                  kind |= 0b01;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index dc3a177b..34866d82 100644
+index 4037300e..958853a0 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -425,7 +425,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -94,7 +94,7 @@ index dc3a177b..34866d82 100644
  
      const des = matches[1] || '';
  
-@@ -486,14 +492,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -487,14 +493,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -117,7 +117,7 @@ index dc3a177b..34866d82 100644
  
      // Need one single type -- not negated.
      if ( type === undefined ) {
-@@ -502,6 +514,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -503,6 +515,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          } else if ( redirect === 'noopmp4-1s' ) {
              type = 'media';
          } else {
@@ -125,7 +125,7 @@ index dc3a177b..34866d82 100644
              return;
          }
      }
-@@ -517,12 +530,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -518,12 +531,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
      for ( const srchn of srchns ) {
          if ( srchn === '' ) { continue; }
@@ -191,7 +191,7 @@ index e58e0df9..eab9ff9b 100644
              } else if ( negated ) {
                  kind |= 1;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 79680a72..62f8440a 100644
+index f4448e62..f9fd11f2 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -840,14 +840,20 @@
@@ -226,10 +226,10 @@ index 79680a72..62f8440a 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 6da0318d..a972e6a1 100644
+index 58be9a62..df86979d 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2241,6 +2241,7 @@ const FilterParser = class {
+@@ -2246,6 +2246,7 @@ const FilterParser = class {
                  this.domainOpt = this.parseDomainOption(opt.slice(7));
                  if ( this.domainOpt === '' ) {
                      this.unsupported = true;
@@ -237,7 +237,7 @@ index 6da0318d..a972e6a1 100644
                      break;
                  }
                  continue;
-@@ -2252,6 +2253,7 @@ const FilterParser = class {
+@@ -2257,6 +2258,7 @@ const FilterParser = class {
              if ( /^redirect(?:-rule)?=/.test(opt) ) {
                  if ( this.redirect !== 0 ) {
                      this.unsupported = true;
@@ -245,7 +245,7 @@ index 6da0318d..a972e6a1 100644
                      break;
                  }
                  this.redirect = opt.charCodeAt(8) === 0x3D /* '=' */ ? 1 : 2;
-@@ -2278,6 +2280,7 @@ const FilterParser = class {
+@@ -2283,6 +2285,7 @@ const FilterParser = class {
              if ( opt === 'empty' || opt === 'mp4' ) {
                  if ( this.redirect !== 0 ) {
                      this.unsupported = true;
@@ -253,7 +253,7 @@ index 6da0318d..a972e6a1 100644
                      break;
                  }
                  this.redirect = 1;
-@@ -2301,12 +2304,24 @@ const FilterParser = class {
+@@ -2306,12 +2309,24 @@ const FilterParser = class {
              }
              // Unrecognized filter option: ignore whole filter.
              this.unsupported = true;
@@ -278,7 +278,7 @@ index 6da0318d..a972e6a1 100644
          }
  
          // Negated network types? Toggle on all network type bits.
-@@ -2318,6 +2333,7 @@ const FilterParser = class {
+@@ -2323,6 +2338,7 @@ const FilterParser = class {
              this.typeBits &= ~this.notTypes;
              if ( this.typeBits === 0 ) {
                  this.unsupported = true;
@@ -286,7 +286,7 @@ index 6da0318d..a972e6a1 100644
              }
          }
  
-@@ -2328,6 +2344,9 @@ const FilterParser = class {
+@@ -2333,6 +2349,9 @@ const FilterParser = class {
              this.typeBits &= ~unsupportedTypeBit;
              if ( this.typeBits === 0 ) {
                  this.unsupported = true;
@@ -296,7 +296,7 @@ index 6da0318d..a972e6a1 100644
              }
          }
      }
-@@ -2349,6 +2368,7 @@ const FilterParser = class {
+@@ -2354,6 +2373,7 @@ const FilterParser = class {
          // as unsupported.
          if ( s.length === 1 && /[0-9a-z]/i.test(s) ) {
              this.unsupported = true;
@@ -304,7 +304,7 @@ index 6da0318d..a972e6a1 100644
              return this;
          }
  
-@@ -2367,6 +2387,7 @@ const FilterParser = class {
+@@ -2372,6 +2392,7 @@ const FilterParser = class {
              if ( c === '#' || c === '@' ) {
                  console.error('static-net-filtering.js > unexpected cosmetic filters');
                  this.invalid = true;
@@ -312,7 +312,7 @@ index 6da0318d..a972e6a1 100644
                  return this;
              }
          }
-@@ -2396,6 +2417,7 @@ const FilterParser = class {
+@@ -2401,6 +2422,7 @@ const FilterParser = class {
                  //   Discard Adguard-specific `$$` filters.
                  if ( s.indexOf('$$') !== -1 ) {
                      this.unsupported = true;
@@ -320,7 +320,7 @@ index 6da0318d..a972e6a1 100644
                      return this;
                  }
                  this.parseOptions(s.slice(pos + 1));
-@@ -2418,6 +2440,7 @@ const FilterParser = class {
+@@ -2423,6 +2445,7 @@ const FilterParser = class {
              this.f = this.normalizeRegexSource(this.f);
              if ( this.f === '' ) {
                  this.unsupported = true;
@@ -328,7 +328,7 @@ index 6da0318d..a972e6a1 100644
              }
              return this;
          }
-@@ -2441,6 +2464,7 @@ const FilterParser = class {
+@@ -2446,6 +2469,7 @@ const FilterParser = class {
              // https://github.com/chrisaljoudi/uBlock/issues/1096
              if ( s.startsWith('^') ) {
                  this.unsupported = true;
@@ -336,7 +336,7 @@ index 6da0318d..a972e6a1 100644
                  return this;
              }
  
-@@ -2494,6 +2518,7 @@ const FilterParser = class {
+@@ -2499,6 +2523,7 @@ const FilterParser = class {
          //       used.
          else if ( this.redirect !== 0 && s === '/' ) {
              s = '*';
@@ -345,7 +345,7 @@ index 6da0318d..a972e6a1 100644
  
          // https://github.com/gorhill/uBlock/issues/1047
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 3a5dac03..77a802a3 100644
+index 0a954581..6cd2c136 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -391,7 +391,11 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {

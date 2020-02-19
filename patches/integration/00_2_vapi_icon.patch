@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index bf567bbe..34e58442 100644
+index e637568d..18c1c631 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
 @@ -702,8 +702,8 @@ vAPI.setIcon = (( ) => {

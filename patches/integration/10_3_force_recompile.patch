@@ -11,7 +11,7 @@ index 583596b8..820c61dd 100644
  
  <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index ce92f3b1..a1ccd080 100644
+index 940a1288..892d9fb0 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
 @@ -115,6 +115,14 @@ const applyChanges = async function() {
@@ -41,7 +41,7 @@ index ce92f3b1..a1ccd080 100644
  renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index e6eeefd0..de4ebd96 100644
+index c496d6f8..576167da 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -1180,6 +1180,10 @@ const onMessage = function(request, sender, callback) {
