@@ -11,7 +11,7 @@ index 1a366c39..cb9502d7 100644
                  pageDomain: window.location.hostname,
                  killCache: isCosmetic === false,
 diff --git a/src/js/storage.js b/src/js/storage.js
-index faf1a5d1..cc64644a 100644
+index 4a76f5d9..79e3da9f 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -422,7 +422,8 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {

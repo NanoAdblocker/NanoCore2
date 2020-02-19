@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 1a06ff53..e45a091e 100644
+index 24bd86a9..d4e5484a 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -946,18 +946,14 @@ const restoreUserData = async function(request) {

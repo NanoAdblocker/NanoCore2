@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index 34e58442..7a82bc11 100644
+index 18c1c631..121b75e3 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
 @@ -61,24 +61,12 @@ vAPI.app = {
@@ -33,7 +33,7 @@ index 34e58442..7a82bc11 100644
  
      restart: function() {
 diff --git a/src/js/start.js b/src/js/start.js
-index 6b9f3243..756606be 100644
+index d623bfe0..2bc98391 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -119,7 +119,7 @@ const onVersionReady = function(lastVersion) {

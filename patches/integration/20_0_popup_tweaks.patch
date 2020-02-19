@@ -1,5 +1,5 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index 414bd6fc..4fb84527 100644
+index e42bf06b..495c181f 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
 @@ -16,7 +16,6 @@ h2 {
@@ -81,10 +81,10 @@ index 414bd6fc..4fb84527 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 2683ccb9..d6abca26 100644
+index 34690a55..f89defc4 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -552,7 +552,7 @@ const renderTooltips = function(selector) {
+@@ -558,7 +558,7 @@ const renderTooltips = function(selector) {
  
  const tooltipTargetSelectors = new Map([
      [
@@ -93,7 +93,7 @@ index 2683ccb9..d6abca26 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -728,7 +728,7 @@ const toggleNetFilteringSwitch = function(ev) {
+@@ -734,7 +734,7 @@ const toggleNetFilteringSwitch = function(ev) {
          state: !uDom('body').toggleClass('off').hasClass('off'),
          tabId: popupData.tabId,
      });
@@ -102,7 +102,7 @@ index 2683ccb9..d6abca26 100644
      hashFromPopupData();
  };
  
-@@ -1130,10 +1130,10 @@ const onHideTooltip = function() {
+@@ -1201,10 +1201,10 @@ const onHideTooltip = function() {
      getPopupData(tabId);
  })();
  
@@ -116,10 +116,10 @@ index 2683ccb9..d6abca26 100644
  uDom('#saveRules').on('click', saveFirewallRules);
  uDom('#revertRules').on('click', ( ) => { revertFirewallRules(); });
 diff --git a/src/popup.html b/src/popup.html
-index 57366f74..97d8b974 100644
+index 85e05218..282de88d 100644
 --- a/src/popup.html
 +++ b/src/popup.html
-@@ -15,23 +15,29 @@
+@@ -14,23 +14,29 @@
  <div id="appinfo"><span id="appname">&nbsp;</span>&nbsp;<span id="version">&nbsp;</span></div>
  <div id="panes">
      <div class="tooltipContainer">

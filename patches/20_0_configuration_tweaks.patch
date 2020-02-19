@@ -21,7 +21,7 @@ index 899af85d..b9f8d6a1 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index 9d2be21c..66d25664 100644
+index e4c275ab..a7d7298c 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -51,7 +51,7 @@ index 9d2be21c..66d25664 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -88,7 +88,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -89,7 +89,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -60,7 +60,7 @@ index 9d2be21c..66d25664 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -138,7 +138,10 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -139,7 +139,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
@@ -72,7 +72,7 @@ index 9d2be21c..66d25664 100644
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 756606be..66afef4c 100644
+index 2bc98391..d2fca709 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -238,6 +238,7 @@ const createDefaultProps = function() {
@@ -84,7 +84,7 @@ index 756606be..66afef4c 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 77a802a3..2b8d37be 100644
+index 6cd2c136..dfffe978 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -1329,7 +1329,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
