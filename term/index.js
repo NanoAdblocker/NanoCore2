@@ -212,6 +212,7 @@ cmd_handlers.set("reset", async () => {
     }
 
     busy = false;
+
     term.ready();
 });
 
@@ -476,6 +477,7 @@ cmd_handlers.set("reload", async () => {
 
 cmd_handlers.set("exit", () => {
     busy = true;
+
     term.destructor();
 });
 
