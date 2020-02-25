@@ -343,6 +343,15 @@
     "contentURL": "https://hosts-file.net/ad_servers.txt",
     "supportURL": "https://hosts-file.net/"
   },
+  "mvps-0": {
+    "content": "filters",
+    "group": "multipurpose",
+    "updateAfter": 5,
+    "off": true,
+    "title": "MVPS HOSTS",
+    "contentURL": "https://winhelp2002.mvps.org/hosts.txt",
+    "supportURL": "https://winhelp2002.mvps.org/"
+  },
   "plowe-0": {
     "content": "filters",
     "group": "multipurpose",
@@ -389,8 +398,7 @@
     "off": true,
     "title": "CHN: EasyList China (中文)",
     "lang": "zh",
-    "contentURL": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
-    "supportURL": "http://abpchina.org/forum/forum.php"
+    "contentURL": "https://easylist-downloads.adblockplus.org/easylistchina.txt"
   },
   "CHN-1": {
     "content": "filters",
@@ -399,8 +407,7 @@
     "title": "CHN: CJX's EasyList Lite",
     "lang": "zh",
     "contentURL": "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt",
-    "supportURL": "https://github.com/cjx82630/cjxlist",
-    "instructionURL": "http://abpchina.org/forum/forum.php?mod=viewthread&tid=29667"
+    "supportURL": "https://github.com/cjx82630/cjxlist"
   },
   "CZE-0": {
     "content": "filters",
