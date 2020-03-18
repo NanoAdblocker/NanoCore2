@@ -37,7 +37,7 @@ If you choose to use these features, you must consent to additional privacy
 policies. These features are optional and do not affect the primary
 functionalities of the Projects.
 
-- [Quick Issue Reporter](https://github.com/jspenguin2017/uBlockProtector/blob/master/notes/issue-reporter.MD)
+- [Quick Issue Reporter](https://github.com/jspenguin2017/uBlockProtector/blob/master/notes/issue-reporter.md)
 
 ### Future Versions
 
