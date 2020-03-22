@@ -22,10 +22,10 @@ You may import other assets, in which case Nano Adblocker will connect to
 additional servers as per your instruction.
 
 Nano Adblocker will supply a cache buster when downloading assets updates,
-which may reveal your system time accurate to 1 hour. Your timezone will be
-kept private. You may configure Nano Adblocker to more aggressively bypass
+which may reveal your system time accurate to about 1 hour. Your timezone will
+be kept private. You may configure Nano Adblocker to more aggressively bypass
 cache in advanced settings, in which case Nano Adblocker will reveal your
-system time accurate to 1 second.
+system time accurate to about 1 second.
 
 Nano Defender may connect to third-party servers when doing so is required to
 fix a website, only the bare minimum data required to successfully perform the
