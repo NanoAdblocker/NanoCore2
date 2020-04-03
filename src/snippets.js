@@ -209,28 +209,6 @@
     };
 })();
 
-// Remove elements when the document gets ready, 1 required argument
-// selector - The selector for elements to remove, must be a plain CSS selector, pseudo-selectors are not supported
-//
-/// nano-remove-elements-onready.js
-(() => {
-    var selector = '{{1}}';
-    if (selector === '' || selector === '{{1}}') {
-        return;
-    }
-    var remove = function () {
-        var elements = document.querySelectorAll(selector);
-        for (var element of elements) {
-            element.remove();
-        }
-    };
-    if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        remove();
-    } else {
-        addEventListener('DOMContentLoaded', remove);
-    }
-})();
-
 // Insert an invisible elements onto the page, can be used to dodge baits, 1 required argument
 // identifier - An identifier, either an id or a class name.Like '#id' or '.class'
 //
@@ -262,6 +240,32 @@
         }
         return Promise.resolve('granted');
     };
+})();
+
+// ----------------------------------------------------------------------------------------------------------------- //
+
+// Deprecated resources, these may be removed in the future
+
+// Remove elements when the document gets ready, 1 required argument
+// selector - The selector for elements to remove, must be a plain CSS selector, pseudo-selectors are not supported
+//
+/// nano-remove-elements-onready.js
+(() => {
+    var selector = '{{1}}';
+    if (selector === '' || selector === '{{1}}') {
+        return;
+    }
+    var remove = function () {
+        var elements = document.querySelectorAll(selector);
+        for (var element of elements) {
+            element.remove();
+        }
+    };
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        remove();
+    } else {
+        addEventListener('DOMContentLoaded', remove);
+    }
 })();
 
 // ----------------------------------------------------------------------------------------------------------------- //
