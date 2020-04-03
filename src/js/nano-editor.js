@@ -368,13 +368,14 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
                     token: "keyword",
                     regex: new RegExp([
-                        "all",
                         "~?(?:" + [
                             "third-party",
                             "3p",
                             "first-party",
                             "1p"
                         ].join("|") + ")",
+                        "all",
+                        "cname",
                         "doc(?:ument)?",
                         "important",
                         "badfilter"
@@ -441,10 +442,10 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "options_redirect"
                 },
 
-                // Domains restriction
+                // Domains restrictions
                 {
                     token: "keyword",
-                    regex: /domain=(?!$)/,
+                    regex: /(?:denyallow|domain)=(?!$)/,
                     next: "options_domain"
                 },
 
