@@ -12,10 +12,10 @@ index cbfdd424..4037300e 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 5b8a8fca..58be9a62 100644
+index 3de866df..bc511f72 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -158,6 +158,8 @@ const toNormalizedType = {
+@@ -161,6 +161,8 @@ const toNormalizedType = {
      'xmlhttprequest': 'xmlhttprequest',
              'webrtc': 'unsupported',
           'websocket': 'websocket',
