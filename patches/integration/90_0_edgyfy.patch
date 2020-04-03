@@ -1,5 +1,5 @@
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 06c99cd0..6a8e3f93 100644
+index d05dde9a..c1c4ebbb 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
 @@ -1235,4 +1235,10 @@ uDom('a[href]').on('click', gotoURL);

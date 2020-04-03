@@ -1,8 +1,8 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index cbe9c0fc..e4c275ab 100644
+index 4596cac3..2301c1e1 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -91,6 +91,8 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -93,6 +93,8 @@ const µBlock = (( ) => { // jshint ignore:line
              hyperlinkAuditingDisabled: true,
              ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
              largeMediaSize: 50,

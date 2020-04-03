@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 899af85d..b9f8d6a1 100644
+index cf1eb98c..9f059e46 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -362,7 +362,7 @@ const registerAssetSource = function(assetKey, dict) {
+@@ -365,7 +365,7 @@ const registerAssetSource = function(assetKey, dict) {
          entry.contentURL = [];
      }
      if ( typeof entry.updateAfter !== 'number' ) {
@@ -11,7 +11,7 @@ index 899af85d..b9f8d6a1 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -828,7 +828,7 @@ api.rmrf = function() {
+@@ -831,7 +831,7 @@ api.rmrf = function() {
  /******************************************************************************/
  
  // Asset updater area.
@@ -21,7 +21,7 @@ index 899af85d..b9f8d6a1 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index e4c275ab..a7d7298c 100644
+index 2301c1e1..09b49e76 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -33,10 +33,10 @@ index e4c275ab..a7d7298c 100644
          autoUpdateDelayAfterLaunch: 180,
 -        autoUpdatePeriod: 7,
 +        autoUpdatePeriod: 4,
+         benchmarkDatasetURL: 'unset',
          blockingProfiles: '11111/#F00 11011/#C0F 11001/#00F 00001',
          cacheStorageAPI: 'unset',
-         cacheStorageCompression: true,
-@@ -57,12 +57,12 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -59,12 +59,12 @@ const µBlock = (( ) => { // jshint ignore:line
          debugScriptlets: false,
          debugScriptletInjector: false,
          disableWebAssembly: false,
@@ -51,7 +51,7 @@ index e4c275ab..a7d7298c 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -89,7 +89,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -91,7 +91,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -60,19 +60,19 @@ index e4c275ab..a7d7298c 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -139,7 +139,10 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -120,8 +120,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
-+            'edge-extension-scheme',
-+            'edge-scheme',
++            'edge-extension-scheme',       // For legacy Edge
+             'edge-scheme',
              'moz-extension-scheme',
 +            'ms-browser-extension-scheme', // For legacy Edge
              'opera-scheme',
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 2bc98391..d2fca709 100644
+index 04db3da1..1b82e2c5 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -238,6 +238,7 @@ const createDefaultProps = function() {
@@ -84,10 +84,10 @@ index 2bc98391..d2fca709 100644
          ].join('\n'),
          'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 6cd2c136..dfffe978 100644
+index e21a9f34..1a820855 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1329,7 +1329,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
+@@ -1305,7 +1305,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
              next = 0;
              this.assets.updateStart({
                  delay: this.hiddenSettings.autoUpdateAssetFetchPeriod * 1000 ||
@@ -96,7 +96,7 @@ index 6cd2c136..dfffe978 100644
              });
          }, updateDelay);
      };
-@@ -1415,7 +1415,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
+@@ -1391,7 +1391,7 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

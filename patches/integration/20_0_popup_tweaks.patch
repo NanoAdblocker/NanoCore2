@@ -1,5 +1,5 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index e42bf06b..495c181f 100644
+index 44aa5b16..ba21e68a 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
 @@ -16,7 +16,6 @@ h2 {
@@ -81,10 +81,10 @@ index e42bf06b..495c181f 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 34690a55..f89defc4 100644
+index d336ab16..c7290995 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -558,7 +558,7 @@ const renderTooltips = function(selector) {
+@@ -562,7 +562,7 @@ const renderTooltips = function(selector) {
  
  const tooltipTargetSelectors = new Map([
      [
@@ -93,7 +93,7 @@ index 34690a55..f89defc4 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -734,7 +734,7 @@ const toggleNetFilteringSwitch = function(ev) {
+@@ -738,7 +738,7 @@ const toggleNetFilteringSwitch = function(ev) {
          state: !uDom('body').toggleClass('off').hasClass('off'),
          tabId: popupData.tabId,
      });

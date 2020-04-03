@@ -1,8 +1,8 @@
 diff --git a/src/js/storage.js b/src/js/storage.js
-index dfffe978..4a76f5d9 100644
+index 1a820855..12eed6b4 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -790,15 +790,33 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
+@@ -764,15 +764,33 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
      }
      // Extract update frequency information
      const matches = head.match(/(?:^|\n)(?:!|# )[\t ]*Expires[\t ]*:[\t ]*(\d+)[\t ]*(h)?/i);

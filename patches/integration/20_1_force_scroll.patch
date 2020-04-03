@@ -1,5 +1,5 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 7a040de1..24bd86a9 100644
+index 6e5c956a..41bcd4a1 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
 @@ -137,6 +137,10 @@ const onMessage = function(request, sender, callback) {
@@ -14,10 +14,10 @@ index 7a040de1..24bd86a9 100644
          µb.openNewTab(request.details);
          break;
 diff --git a/src/js/popup.js b/src/js/popup.js
-index f89defc4..6a0fd245 100644
+index c7290995..05956a64 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -458,6 +458,7 @@ const renderPopup = function() {
+@@ -462,6 +462,7 @@ const renderPopup = function() {
                             popupData.netFilteringSwitch === true;
      uDom.nodeFromId('gotoPick').classList.toggle('enabled', canElementPicker);
      uDom.nodeFromId('gotoZap').classList.toggle('enabled', canElementPicker);
@@ -25,7 +25,7 @@ index f89defc4..6a0fd245 100644
  
      let blocked = popupData.pageBlockedRequestCount,
          total = popupData.pageAllowedRequestCount + blocked,
-@@ -763,6 +764,20 @@ const gotoPick = function() {
+@@ -767,6 +768,20 @@ const gotoPick = function() {
  
  /******************************************************************************/
  
