@@ -204,7 +204,7 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "Skriptinjektionssyntax som väljer alla resurser kan endast användas i undantagsfilter.",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
@@ -240,7 +240,7 @@
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano förenklade matcharen av denna regel till '*'.",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {

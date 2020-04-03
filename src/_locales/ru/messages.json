@@ -1,6 +1,6 @@
 {
   "nano_d_ui_group": {
-    "message": "Интерфейс пользователя",
+    "message": "Пользовательский интерфейс",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano поставляется с двумя наборами ресурсов, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ресурсы</a> и <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Дополнительные Ресурсы Nano</a>.",
+    "message": "Nano поставляется с двумя наборами ресурсов, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>Ресурсы uBlock Origin</a> и <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Дополнительные ресурсы Nano</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
@@ -56,7 +56,7 @@
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
+    "message": "Nano не сканировал остальные белые списки на предмет предупреждений, потому что слишком много предупреждений.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
@@ -64,7 +64,7 @@
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
+    "message": "Nano не сканировал остальные белые списки на наличие ошибок, потому что слишком много ошибок.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
@@ -80,7 +80,7 @@
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
+    "message": "Nano не сканировал остальные правила фильтрования на предмет предупреждений, потому что слишком много предупреждений.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -96,7 +96,7 @@
     "description": "Warning when negated domain used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
+    "message": "Nano отклонил опцию '{{type}}', поскольку ее нельзя отрицать.",
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
@@ -112,15 +112,15 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "Ресурс '{{res}}' не может использоваться как цель перенаправления.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "Ресурс '{{res}}' не может быть внедрен как фрагмент скрипта.",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' является псевдонимом '{{res}}', вместо этого попробуйте использовать настоящее имя.",
     "description": "Warning when resource alias used"
   },
   "nano_l_filter_comment_bracket": {
@@ -140,11 +140,11 @@
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
+    "message": "Nano не сканировал остальные правила фильтрования на предмет ошибок, потому что слишком много ошибок.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Raw JavaScript injection is not allowed due to security concerns.",
+    "message": "Внедрение необработанного JavaScript не допускается из-за проблем с безопасностью.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
@@ -180,7 +180,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "Параметр 'csp=...' не имеет аргументов или имеет недопустимые аргументы.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -200,7 +200,7 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "Это сетевое правило слишком короткое.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_generic_js_in_block": {
@@ -248,7 +248,7 @@
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "Правила перенаправления могут содержать только одну инструкцию перенаправления.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {

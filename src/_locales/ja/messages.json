@@ -1,6 +1,6 @@
 {
   "nano_d_ui_group": {
-    "message": "User interface",
+    "message": "ユーザーインターフェイス",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
@@ -24,11 +24,11 @@
     "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
-    "message": "Based on {{@data}}",
+    "message": "{{@data}} に基づく",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Filter Viewer",
+    "message": "Nano — フィルタービューアー",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
@@ -68,7 +68,7 @@
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "This hostname is not valid.",
+    "message": "このホスト名は無効です。",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
@@ -76,7 +76,7 @@
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "This URL is not valid.",
+    "message": "このURLは無効です。",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {

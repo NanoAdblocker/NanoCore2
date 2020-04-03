@@ -216,7 +216,7 @@
     "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "message": "Nano bu kuralın yönlendirme bölümünü es geçti çünkü kural çok fazla sayıda tür seçti.",
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
@@ -224,7 +224,7 @@
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "Nano bu kuralın yönlendirme bölümünü es geçti, çünkü desteklenen herhangi bir türü seçmedi.",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
@@ -232,11 +232,11 @@
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "Nano bu kuralın yönlendirme bölümünü es geçti çünkü geçerli bir hedef alanadı içermiyor.",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano bu kuralın yönlendirme bölümünü es geçti çünkü bu ağ kuralı düzenli ifadesiyle uyuşmuyor: {{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
@@ -244,11 +244,11 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Yönlendirme kuralları istisna olamazlar.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "Yönlendirme kuralları sadece bir yönlendirici yönerge içerebilir.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
