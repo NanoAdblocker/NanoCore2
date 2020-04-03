@@ -1,17 +1,14 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 24bd86a9..d4e5484a 100644
+index 41bcd4a1..e17629c3 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -946,18 +946,14 @@ const restoreUserData = async function(request) {
+@@ -945,16 +945,12 @@ const restoreUserData = async function(request) {
      vAPI.app.restart();
  };
  
 -// Remove all stored data but keep global counts, people can become
 -// quite attached to numbers
  const resetUserData = async function() {
--    vAPI.localStorage.removeItem('immediateHiddenSettings');
-+    vAPI.localStorage.clear();
- 
      await Promise.all([
          µb.cacheStorage.clear(),
          vAPI.storage.clear(),

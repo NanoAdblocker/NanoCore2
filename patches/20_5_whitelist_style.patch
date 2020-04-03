@@ -1,9 +1,9 @@
 diff --git a/src/css/codemirror.css b/src/css/codemirror.css
-index ff2de8f8..8c59ff13 100644
+index 7ef0b6c6..903ef37a 100644
 --- a/src/css/codemirror.css
 +++ b/src/css/codemirror.css
-@@ -17,7 +17,8 @@
-     height: 100%;
+@@ -21,7 +21,8 @@
+     word-break: break-all;
      }
  
 -.cm-s-default .cm-comment { color: #777; }
