@@ -123,7 +123,7 @@
     "message": "'{{alias}}' es el alias de '{{res}}', considera usar el nombre real en su lugar.",
     "description": "Warning when resource alias used"
   },
-  "nano_l_html_filtering": {
+  "nano_l_html_filtering_not_supported": {
     "message": "HTML filtering is not supported by your browser",
     "description": "Warning when HTML filtering used"
   },

@@ -246,7 +246,7 @@ index 1c2aab1a..c766abbe 100644
          if ( c0 === 0x5E /* '^' */ ) {
              µb.htmlFilteringEngine.compile(parsed, writer);
 +            if ( nano.ub.canFilterResponseData === false ) {
-+                nano.flintw('nano_l_html_filtering');
++                nano.flintw('nano_l_html_filtering_not_supported');
 +            }
              return true;
          }
