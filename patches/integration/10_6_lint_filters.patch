@@ -433,3 +433,17 @@ index 92f6fb2c..e21a9f34 100644
      nano.cf.reset();
  
      return writer.toString();
+diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
+index 58ad3bb8..6453c762 100644
+--- a/src/js/static-ext-filtering.js
++++ b/src/js/static-ext-filtering.js
+@@ -938,6 +938,9 @@
+         //       filtering syntax.
+         if ( c0 === 0x5E /* '^' */ ) {
+             µb.htmlFilteringEngine.compile(parsed, writer);
++            if ( nano.ub.canFilterResponseData === false ) {
++                nano.flintw('nano_l_html_filtering');
++            }
+             return true;
+         }
+ 
