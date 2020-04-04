@@ -123,6 +123,10 @@
     "message": "'{{alias}}' er aliaset til '{{res}}', tenk på om du vil bruke dens vanlige navn i stedet.",
     "description": "Warning when resource alias used"
   },
+  "nano_l_html_filtering": {
+    "message": "HTML filtering is not supported by your browser",
+    "description": "Warning when HTML filtering used"
+  },
   "nano_l_filter_comment_bracket": {
     "message": "Å bruke '[' til å markere en kommentar, har blitt utfaset. Bruk '!' istedet.",
     "description": "Deprecation when '[' used for comments"
@@ -179,6 +183,10 @@
     "message": "Valget 'domain=...' har ugyldige argumenter.",
     "description": "Error when 'domain=' has invalid arguments"
   },
+  "nano_l_filter_bad_denyallow_option_arguments": {
+    "message": "The option 'denyallow=...' has invalid arguments.",
+    "description": "Error when 'denyallow=' has invalid arguments"
+  },
   "nano_l_filter_bad_csp_option_arguments": {
     "message": "Alternativet 'csp=...' har ingen argumenter eller har ugyldige argumenter.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
@@ -202,6 +210,10 @@
   "nano_l_filter_too_short": {
     "message": "Denne nettverksregelen er for kort.",
     "description": "Error when network rule is too short"
+  },
+  "nano_l_filter_matcher_too_long": {
+    "message": "The matcher of this network rule is too long.",
+    "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
     "message": "Kodeskriptinjiseringssyntakser som velger alle ressurser, kan bare brukes i hvitelistinger.",

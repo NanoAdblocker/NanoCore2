@@ -123,6 +123,10 @@
     "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
     "description": "Warning when resource alias used"
   },
+  "nano_l_html_filtering": {
+    "message": "HTML filtering is not supported by your browser",
+    "description": "Warning when HTML filtering used"
+  },
   "nano_l_filter_comment_bracket": {
     "message": "Yorum belirtmek için '[' kullanmak, kullanımdan kaldırıldı, onun yerine '!' kullanın.",
     "description": "Deprecation when '[' used for comments"
@@ -179,6 +183,10 @@
     "message": "The option 'domain=...' has invalid arguments.",
     "description": "Error when 'domain=' has invalid arguments"
   },
+  "nano_l_filter_bad_denyallow_option_arguments": {
+    "message": "The option 'denyallow=...' has invalid arguments.",
+    "description": "Error when 'denyallow=' has invalid arguments"
+  },
   "nano_l_filter_bad_csp_option_arguments": {
     "message": "'csp=...' seçeneğinin argümanı yok veya geçersiz argümanları var.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
@@ -202,6 +210,10 @@
   "nano_l_filter_too_short": {
     "message": "Bu ağ kuralı çok kısa.",
     "description": "Error when network rule is too short"
+  },
+  "nano_l_filter_matcher_too_long": {
+    "message": "The matcher of this network rule is too long.",
+    "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
     "message": "Tüm kaynakları seçen komut dosyası ekleme sözdizimi yalnızca özel durum filtrelerinde kullanılabilir.",
