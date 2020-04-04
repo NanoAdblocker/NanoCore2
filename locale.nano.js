@@ -353,6 +353,11 @@
             description: "Error when network rule is too short",
         },
 
+        nano_l_filter_matcher_too_long: {
+            message: "The matcher of this network rule is too long.",
+            description: "Error when network matcher is too long",
+        },
+
         nano_l_filter_generic_js_in_block: {
             message: "Script injection syntax that selects all resources can only be used in exception filters.",
             description: "Error when '##+js()' is used",

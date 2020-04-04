@@ -467,3 +467,15 @@ index 92f6fb2c..e21a9f34 100644
      nano.cf.reset();
  
      return writer.toString();
+diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
+index 5da925d2..75372ee4 100644
+--- a/src/js/static-net-filtering.js
++++ b/src/js/static-net-filtering.js
+@@ -2593,6 +2593,7 @@ const FilterParser = class {
+ 
+         if ( s.length > 1024 ) {
+             this.unsupported = true;
++            nano.flinte('nano_l_filter_matcher_too_long');
+             return this;
+         }
+ 
