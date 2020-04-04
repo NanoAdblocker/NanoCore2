@@ -207,7 +207,7 @@ index e58e0df9..eab9ff9b 100644
              } else if ( negated ) {
                  kind |= 1;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 1c2aab1a..c766abbe 100644
+index 1c2aab1a..b2704d8f 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -885,14 +885,20 @@
