@@ -1,41 +1,20 @@
 diff --git a/src/js/cosmetic-filtering.js b/src/js/cosmetic-filtering.js
-index 66e24097..dcdc3170 100644
+index 66e24097..783fff15 100644
 --- a/src/js/cosmetic-filtering.js
 +++ b/src/js/cosmetic-filtering.js
-@@ -374,7 +374,7 @@ FilterContainer.prototype.compile = function(parsed, writer) {
-         this.compileSpecificSelector(hostname, parsed, writer);
-     }
-     if ( applyGlobally ) {
--        this.compileGenericSelector(parsed, writer);
-+        this.compileGenericSelector(parsed, writer, true);
-     }
- 
-     return true;
-@@ -394,7 +394,8 @@ FilterContainer.prototype.compileGenericSelector = function(parsed, writer) {
- 
- FilterContainer.prototype.compileGenericHideSelector = function(
-     parsed,
--    writer
-+    writer,
-+    nanoIsGlobal
- ) {
-     const selector = parsed.suffix;
-     const type = selector.charCodeAt(0);
-@@ -445,6 +446,13 @@ FilterContainer.prototype.compileGenericHideSelector = function(
+@@ -445,6 +445,11 @@ FilterContainer.prototype.compileGenericHideSelector = function(
              type: 'error',
              text: `Invalid generic cosmetic filter in ${who}: ##${selector}`
          });
 +        if ( compiled === undefined ) {
 +            nano.flinte('nano_l_filter_bad_selector');
-+        } else if ( nanoIsGlobal === true ) {
-+            nano.flintw('nano_l_filter_converted_to_exception');
 +        } else {
 +            nano.flinte('nano_l_filter_too_expensive');
 +        }
          return;
      }
  
-@@ -501,6 +509,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
+@@ -501,6 +506,7 @@ FilterContainer.prototype.compileGenericUnhideSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: #@#${parsed.suffix}`
          });
@@ -43,7 +22,7 @@ index 66e24097..dcdc3170 100644
          return;
      }
  
-@@ -535,6 +544,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
+@@ -535,6 +541,7 @@ FilterContainer.prototype.compileSpecificSelector = function(
              type: 'error',
              text: `Invalid cosmetic filter in ${who}: ##${parsed.suffix}`
          });
@@ -191,7 +170,7 @@ index e58e0df9..eab9ff9b 100644
              } else if ( negated ) {
                  kind |= 1;
 diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 1c2aab1a..58ad3bb8 100644
+index 1c2aab1a..c766abbe 100644
 --- a/src/js/static-ext-filtering.js
 +++ b/src/js/static-ext-filtering.js
 @@ -885,14 +885,20 @@
@@ -223,6 +202,16 @@ index 1c2aab1a..58ad3bb8 100644
                  suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
 +                nano.flintw('nano_l_filter_script_contains');
              }
+         }
+ 
+@@ -931,6 +938,9 @@
+         //       filtering syntax.
+         if ( c0 === 0x5E /* '^' */ ) {
+             µb.htmlFilteringEngine.compile(parsed, writer);
++            if ( nano.ub.canFilterResponseData === false ) {
++                nano.flintw('nano_l_html_filtering');
++            }
+             return true;
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
@@ -433,17 +422,3 @@ index 92f6fb2c..e21a9f34 100644
      nano.cf.reset();
  
      return writer.toString();
-diff --git a/src/js/static-ext-filtering.js b/src/js/static-ext-filtering.js
-index 58ad3bb8..6453c762 100644
---- a/src/js/static-ext-filtering.js
-+++ b/src/js/static-ext-filtering.js
-@@ -938,6 +938,9 @@
-         //       filtering syntax.
-         if ( c0 === 0x5E /* '^' */ ) {
-             µb.htmlFilteringEngine.compile(parsed, writer);
-+            if ( nano.ub.canFilterResponseData === false ) {
-+                nano.flintw('nano_l_html_filtering');
-+            }
-             return true;
-         }
- 
