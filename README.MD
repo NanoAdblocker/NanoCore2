@@ -26,9 +26,8 @@ Your language is not listed? Submit an issue to let me know.
    1. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
    1. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
    1. `git clone --depth 1 https://github.com/jspenguin2017/uBlockProtector`
-1. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
-   appropriate directory to get upstream. Check out a tag or commit as
-   appropriate.
+1. Run `git clone https://github.com/gorhill/uBlock.git` in an appropriate
+   directory to get upstream. Check out a tag or commit as appropriate.
 1. In Nano Core 2 repository:
    1. Navigate to `/term` directory and run `npm install`.
    1. Update `/config.json` as appropriate.
