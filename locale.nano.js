@@ -318,6 +318,11 @@
             description: "Error when 'domain=' has invalid arguments",
         },
 
+        nano_l_filter_bad_denyallow_option_arguments: {
+            message: "The option 'denyallow=...' has invalid arguments.",
+            description: "Error when 'denyallow=' has invalid arguments",
+        },
+
         nano_l_filter_bad_csp_option_arguments: {
             message: "The option 'csp=...' has no arguments or has invalid arguments.",
             description: "Error when 'csp=' has no arguments or has invalid arguments",
