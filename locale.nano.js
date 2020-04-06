@@ -192,8 +192,8 @@
         },
 
         nano_l_filter_negated_html_filtering: {
-            message: "Negated domain is not yet supported for HTML filtering.",
-            description: "Warning when negated domain used with HTML filtering",
+            message: "Negated domains are not yet supported for HTML filtering.",
+            description: "Warning when negated domains used with HTML filtering",
         },
 
         // TODO: Not used
