@@ -93,7 +93,7 @@
   },
   "nano_l_filter_negated_html_filtering": {
     "message": "反选域名暂时不能在 HTML 文档过滤规则中使用。",
-    "description": "Warning when negated domain used with HTML filtering"
+    "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano 弃置了 '{{type}}' 类型选项，因为它不能被反选。",

@@ -93,7 +93,7 @@
   },
   "nano_l_filter_negated_html_filtering": {
     "message": "反選網域暫時不能在 HTML 文檔過濾規則中使用。",
-    "description": "Warning when negated domain used with HTML filtering"
+    "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano 捨棄了 '{{type}}' 類型選項，因為它不能被反選。",

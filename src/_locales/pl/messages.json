@@ -93,7 +93,7 @@
   },
   "nano_l_filter_negated_html_filtering": {
     "message": "Zanegowane domeny nie są jeszcze obsługiwane w przypadku filtrowania HTML.",
-    "description": "Warning when negated domain used with HTML filtering"
+    "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano odrzucił opcję typu '{{type}}', ponieważ nie można jej zanegować.",

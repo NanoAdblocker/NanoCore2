@@ -93,7 +93,7 @@
   },
   "nano_l_filter_negated_html_filtering": {
     "message": "Los dominios negados aún no son admitidos para filtros de HTML.",
-    "description": "Warning when negated domain used with HTML filtering"
+    "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano descartó la opción de tipo {{type}} porque no puede ser negado.",
@@ -124,7 +124,7 @@
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
-    "message": "HTML filtering is not supported by your browser",
+    "message": "El filtrado de HTML no es admitido por tu navegador",
     "description": "Warning when HTML filtering used"
   },
   "nano_l_filter_comment_bracket": {
@@ -184,7 +184,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "The option 'denyallow=...' has invalid arguments.",
+    "message": "La opción 'denyallow=...' tiene argumentos inválidos.",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
@@ -212,7 +212,7 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_matcher_too_long": {
-    "message": "The matcher of this network rule is too long.",
+    "message": "La coincidencia de esta regla de red es demasiado larga.",
     "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
@@ -252,7 +252,7 @@
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano simplificó la coincidencia de esta regla a '*'.",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
