@@ -29,7 +29,7 @@ system time accurate to about 1 second.
 
 Nano Defender may connect to third-party servers when doing so is required to
 fix a website, only the bare minimum data required to successfully perform the
-request will be sent. Nano Defender will never connect to first-party servers.
+request will be sent.
 
 ### Other Features
 
