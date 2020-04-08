@@ -21,7 +21,7 @@ Built-in assets are defined
 You may import other assets, in which case Nano Adblocker will connect to
 additional servers as per your instruction.
 
-Nano Adblocker will supply a cache buster when downloading assets updates,
+Nano Adblocker may supply a cache buster when downloading assets updates,
 which may reveal your system time accurate to about 1 hour. Your timezone will
 be kept private. You may configure Nano Adblocker to more aggressively bypass
 cache in advanced settings, in which case Nano Adblocker will reveal your
