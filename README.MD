@@ -104,7 +104,7 @@ exit     Exit the terminal
 1. Add tags to repositories, and upload packages
 1. Upload packages to extension stores
 
-## Version Update Watchlist
+## Version Update Extended Checklist
 
 These are the potential problems to look out for:
 
