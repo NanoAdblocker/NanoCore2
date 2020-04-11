@@ -125,7 +125,7 @@
   },
   "nano_l_html_filtering_not_supported": {
     "message": "HTML filtering is not supported by your browser",
-    "description": "Warning when HTML filtering used"
+    "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
     "message": "Yorum belirtmek için '[' kullanmak, kullanımdan kaldırıldı, onun yerine '!' kullanın.",

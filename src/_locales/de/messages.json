@@ -125,7 +125,7 @@
   },
   "nano_l_html_filtering_not_supported": {
     "message": "HTML-Filter werden von deinem Browser nicht unterstützt",
-    "description": "Warning when HTML filtering used"
+    "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
     "message": "Das Verwenden von '[' zur Kennzeichnung von Kommentaren ist veraltet, bitte verwenden Sie stattdessen '!'.",

@@ -92,7 +92,7 @@
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Los dominios negados aún no son admitidos para filtros de HTML.",
+    "message": "Los dominios negados aún no son admitidos por el filtrado de HTML.",
     "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
@@ -125,7 +125,7 @@
   },
   "nano_l_html_filtering_not_supported": {
     "message": "El filtrado de HTML no es admitido por tu navegador",
-    "description": "Warning when HTML filtering used"
+    "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
     "message": "El uso de '[' para denotar un comentario está obsoleto. Usa '!' en su lugar.",
