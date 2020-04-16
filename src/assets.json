@@ -121,6 +121,10 @@
       "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
       "assets/ThirdParty/uBlockUnbreak.txt"
     ],
+    "cdnURLs": [
+      "https://gitcdn.xyz/repo/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/unbreak.txt"
+    ],
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
 
