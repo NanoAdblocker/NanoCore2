@@ -124,7 +124,7 @@
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
-    "message": "Filtrowanie HTML nie jest obsługiwane przez twoją przeglądarkę",
+    "message": "Filtrowanie HTML nie jest obsługiwane przez twoją przeglądarkę.",
     "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {

@@ -234,7 +234,7 @@
         },
 
         nano_l_html_filtering_not_supported: {
-            message: "HTML filtering is not supported by your browser",
+            message: "HTML filtering is not supported by your browser.",
             description: "Warning when HTML filtering is used on unsupported platforms",
         },
 

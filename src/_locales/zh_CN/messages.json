@@ -124,7 +124,7 @@
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
-    "message": "HTML filtering is not supported by your browser",
+    "message": "您的浏览器不支持 HTML 过滤。",
     "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
@@ -184,7 +184,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "The option 'denyallow=...' has invalid arguments.",
+    "message": "这个 'denyallow=...' 选项有无效的参数。",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
@@ -212,11 +212,11 @@
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_matcher_too_long": {
-    "message": "The matcher of this network rule is too long.",
+    "message": "此网络规则的匹配器太长了。",
     "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "选择了所有资源的脚本注入语法只能在例外规则中使用。",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
@@ -224,43 +224,43 @@
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the redirect portion of this rule because it must select a type option.",
+    "message": "Nano 弃置了此规则的重定向部分，因为它必须选择一个类型选项。",
     "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "message": "Nano 弃置了此规则的重定向部分，因为它选择了太多类型选项。",
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "message": "Nano 弃置了此规则的重定向部分，因为它没有参数。",
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "Nano 弃置了此规则的重定向部分，因为它没有选择任何被支持的类型选项。",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano discarded part of the redirect portion of this rule because negated domains cannot be used with redirect.",
+    "message": "Nano 弃置了此规则的重定向部分的一部分，因为反选域名不能与重定向一起使用。",
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "Nano 弃置了此规则的重定向部分，因为它没有有效的目标域名。",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "Nano 弃置了此规则的重定向部分，因为此网络规则与这个正则表达式不匹配： {{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano 将此规则的匹配器简化为 '*'。",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "重定向规则不能是例外。",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "重定向规则只能包含一个重定向指令。",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
