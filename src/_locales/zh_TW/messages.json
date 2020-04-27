@@ -188,7 +188,7 @@
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "選項 'denyallow=...' 沒有或存在無效參數。",
+    "message": "選項 'csp=...' 沒有或存在無效參數。",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
