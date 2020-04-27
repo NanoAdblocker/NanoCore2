@@ -112,19 +112,19 @@
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "資源 '{{res}}' 不能作爲重新導向的目標。",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "資源 '{{res}}' 不能作爲腳本片段注入。",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' 是 '{{res}}' 的別名，請考慮使用原名。",
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
-    "message": "HTML filtering is not supported by your browser.",
+    "message": "您的瀏覽器不支援 HTML 過濾。",
     "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
@@ -184,11 +184,11 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "The option 'denyallow=...' has invalid arguments.",
+    "message": "選項 'denyallow=...' 存在無效參數。",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "選項 'denyallow=...' 沒有或存在無效參數。",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
@@ -200,7 +200,7 @@
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
-    "message": "This filter rule explicitly selected no type options.",
+    "message": "此規則明確地選擇了無類型的選項。",
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
@@ -208,11 +208,11 @@
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "這個網路規則過短。",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_matcher_too_long": {
-    "message": "The matcher of this network rule is too long.",
+    "message": "此網路規則的匹配器過長。",
     "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
@@ -252,7 +252,7 @@
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano 簡化了此規則的匹配器至 '*'。",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
@@ -260,7 +260,7 @@
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "重新導向規則只能包含一個重新導向指示詞。",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
