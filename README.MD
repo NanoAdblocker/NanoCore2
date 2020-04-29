@@ -111,17 +111,25 @@ These are the potential problems to look out for:
 1. Development build detection logic
 1. Font Awesome related CSS
 1. Image resources
+   - Update build scripts to adapt
 1. `/assets` directory structure
 1. `scriptlets.js` format
+   - Update build scripts and extended script snippets manifest to adapt
 1. Redirect declaration maps format in `redirect-engine.js`
+   - Update `nano-background.js` to adapt
 1. Existance of `messaging` variable in `popup.js`
-1. Local IP related regular expressions in `storage.js` (may need to update
-   minimization scripts)
-1. Filters header parsing logic in `storage.js` (may need to update
-   MirrorEngine)
-1. CNAME uncloaking (may need to adjust default advanced settings)
-1. Local IP detection logic in `storage.js` (may need to update NanoMeow legacy
-   server and NanoFilters build script)
+1. Local IP related regular expressions in `storage.js`
+   - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
+1. Filters header parsing logic in `storage.js`
+   - Update MirrorEngine to adapt
+1. CNAME uncloaking
+   - Consider changing the default to disabled when Chromium supports this
+     feature
+1. Local IP detection logic in `storage.js`
+   - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
+1. Popup page
+   - Update patches to add features to the new popup page if it becomes the
+     default on Chromium
 
 ## Subresource Integrity Incidence Response Protocol
 
