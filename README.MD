@@ -108,28 +108,29 @@ exit     Exit the terminal
 
 These are the potential problems to look out for:
 
-1. Development build detection logic
-1. Font Awesome related CSS
-1. Image resources
+1. Change to development build detection logic
+1. Change to Font Awesome related CSS
+1. Change to image resources
    - Update build scripts to adapt
-1. `/assets` directory structure
-1. `scriptlets.js` format
+1. Change to `/assets` directory structure
+1. Change to `scriptlets.js` format
    - Update build scripts and extended script snippets manifest to adapt
-1. Redirect declaration maps format in `redirect-engine.js`
+1. Change to redirect declaration maps format in `redirect-engine.js`
    - Update `nano-background.js` to adapt
-1. Existance of `messaging` variable in `popup.js`
-1. Local IP related regular expressions in `storage.js`
+1. Renaming or removal of `messaging` variable in `popup.js`
+1. Change to local IP related regular expressions in `storage.js`
    - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
-1. Filters header parsing logic in `storage.js`
+1. Change to filters header parsing logic in `storage.js`
    - Update MirrorEngine to adapt
-1. CNAME uncloaking
-   - Consider changing the default to disabled when Chromium supports this
-     feature
-1. Local IP detection logic in `storage.js`
+1. Change to CNAME uncloaking Chromium support
+   - Consider changing the default to disabled
+1. Change to local IP detection logic in `storage.js`
    - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
-1. Popup page
+1. Change to default popup page
    - Update patches to add features to the new popup page if it becomes the
      default on Chromium
+1. Change to filters syntax
+   - Update NanoFilters, NanoContrib, and Nano Defender Integration to adapt
 
 ## Subresource Integrity Incidence Response Protocol
 
