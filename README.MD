@@ -126,9 +126,8 @@ These are the potential problems to look out for:
    - Consider changing the default settings to disabled
 1. Changes to local IP detection logic in `storage.js`
    - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
-1. Changes to default popup page
-   - Update patches to add features to the new popup page if it becomes the
-     default on Chromium
+1. Changes to default popup page on Chromium
+   - Update patches to add features to the new popup page
 1. Changes to filters syntax
    - Update NanoFilters, NanoContrib, and Nano Defender Integration to adapt
 
