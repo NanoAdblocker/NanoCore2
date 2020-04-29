@@ -123,7 +123,7 @@ These are the potential problems to look out for:
 1. Changes to filters header parsing logic in `storage.js`
    - Update MirrorEngine to adapt
 1. Changes to CNAME uncloaking Chromium support
-   - Consider changing the default to disabled
+   - Consider changing the default settings to disabled
 1. Changes to local IP detection logic in `storage.js`
    - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
 1. Changes to default popup page
