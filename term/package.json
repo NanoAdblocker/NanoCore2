@@ -7,7 +7,8 @@
     "archiver": "4.0.1",
     "esprima": "4.0.1",
     "fs-extra": "9.0.0",
-    "yauzl": "2.10.0"
+    "yauzl": "2.10.0",
+    "snyk": "^1.316.1"
   },
   "description": "Nano Core 2 Terminal",
   "engines": {
@@ -18,5 +19,10 @@
   "name": "nano-core-2-term",
   "private": true,
   "repository": "https://github.com/jspenguin2017/NanoCore2",
-  "version": "1.0.14"
+  "version": "1.0.14",
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
