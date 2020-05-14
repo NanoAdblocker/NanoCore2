@@ -8,5 +8,5 @@ index 897f93ec..35d1b21d 100644
      <p class="vverbose"><span data-i18n="1pFormatHint"></span> <a class="fa info" href="https://github.com/NanoAdblocker/NanoCore2/blob/master/notes/filter_syntax.md#filter-syntax" target="_blank">&#xf05a;</a></p>
 +    <p class="vverbose"><span data-i18n="nano_d_resources_links"></span></p>
      <p>
-         <button id="userFiltersApply" class="custom important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
-         <button id="userFiltersRevert" class="custom iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
+         <button id="userFiltersApply" class="important iconifiable" type="button" disabled><span class="fa">&#xf00c;</span><span data-i18n="1pApplyChanges"></span></button>
+         <button id="userFiltersRevert" class="iconifiable" type="button" disabled><span class="fa">&#xf0e2;</span><span data-i18n="genericRevert"></span></button>
