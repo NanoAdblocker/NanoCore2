@@ -1,37 +1,44 @@
 diff --git a/src/about.html b/src/about.html
-index 18b100e6..e24ff7ff 100644
+index a7861e66..16f25550 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -12,17 +12,25 @@
- 
+@@ -15,15 +15,34 @@
  <div class="body">
-     <p id="aboutNameVer"></p>
--    <p>Copyright (c) Raymond Hill 2014-present<br>
--        &nbsp;
--    </p>
-+    <p>Copyright (c) Nano Adblocker Contributors 2017-2020</p>
-     <ul>
--        <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
--        <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
--        <li><a href="https://old.reddit.com/r/uBlockOrigin/" data-i18n="aboutSupport"></a>
-+        <li><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a>
-+        <li><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a>
-             <ul>
-                 <li><a href="logger-ui.html" data-i18n="popupTipLog"></a>
-             </ul>
--        <li><a href="https://github.com/uBlockOrigin/uBlock-issues/issues" data-i18n="aboutIssues"></a>
-+        <li><a href="https://github.com/NanoAdblocker/NanoCore" data-i18n="aboutCode"></a>
-+        <li><span data-i18n="aboutDependencies"></span><ul>
-+            <li><a href="https://github.com/ajaxorg/ace">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a>
-+        </ul>
-+    </ul>
+     <div id="aboutNameVer" class="li"></div>
+     <div class="liul">
+-        <div class="li">Copyright (c) Raymond Hill 2014-present</div>
++        <div class="li">Copyright (c) Nano Adblocker Contributors 2017-2020</div>
+     </div>
+-    <div class="li"><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a></div>
+-    <div class="li"><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a></div>
+-    <div class="li"><a href="https://old.reddit.com/r/uBlockOrigin/" data-i18n="aboutSupport"></a></div>
++    <div class="li"><a href="https://github.com/NanoAdblocker/NanoCore2/releases" data-i18n="aboutChangelog"></a></div>
++    <div class="li"><a href="https://github.com/NanoAdblocker/NanoDoc" data-i18n="aboutWiki"></a></div>
++    <div class="li"><a href="https://github.com/NanoAdblocker/NanoFilters/issues" data-i18n="aboutSupport"></a></div>
+     <div class="liul">
+         <div class="li"><a href="logger-ui.html" data-i18n="popupTipLog"></a></div>
+     </div>
+-    <div class="li"><a href="https://github.com/uBlockOrigin/uBlock-issues/issues" data-i18n="aboutIssues"></a></div>
++    <div class="li"><a href="https://github.com/NanoAdblocker/NanoCore/issues" data-i18n="aboutIssues"></a></div>
++    <div class="li"><a href="https://github.com/NanoAdblocker/NanoCore2" data-i18n="aboutCode"></a></div>
++    <div class="li"><span data-i18n="aboutContributors">&nbsp;</span></div>
++    <div class="liul">
++        <div class="li"><a href="https://github.com/NanoAdblocker/NanoCore2/graphs/contributors" data-i18n="aboutSourceCode"></a></div>
++        <div class="li"><a href="https://crowdin.com/project/nano-adblocker" data-i18n="aboutTranslations"></a></div>
++        <div class="li"><a href="https://github.com/NanoAdblocker/NanoFilters/graphs/contributors" data-i18n="aboutFilterLists"></a></div>
++    </div>
++    <div class="li"><span data-i18n="aboutDependencies">&nbsp;</span></div>
++    <div class="liul">
++        <div class="li"><span><a href="https://github.com/ajaxorg/ace" target="_blank">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a></span></div>
++    </div>
 +
 +    <br>
-+    <p data-i18n="nano_d_about_based_on"></p>
-+    <p>Copyright (c) Raymond Hill 2014-2020</p>
-+    <ul>
-+        <li><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a>
-+        <li><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a>
-         <li><a href="https://github.com/gorhill/uBlock" data-i18n="aboutCode"></a>
-         <li><span data-i18n="aboutContributors"></span>
-             <ul>
++    <div class="li"><span data-i18n="nano_d_about_based_on"></span></div>
++    <div class="liul">
++        <div class="li">Copyright (c) Raymond Hill 2014-2020</div>
++    </div>
++    <div class="li"><a href="https://github.com/gorhill/uBlock/releases" data-i18n="aboutChangelog"></a></div>
++    <div class="li"><a href="https://github.com/gorhill/uBlock/wiki" data-i18n="aboutWiki"></a></div>
+     <div class="li"><a href="https://github.com/gorhill/uBlock" data-i18n="aboutCode"></a></div>
+     <div class="li"><span data-i18n="aboutContributors">&nbsp;</span></div>
+     <div class="liul">
