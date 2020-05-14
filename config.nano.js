@@ -51,9 +51,12 @@
             "./patches/integration/10_7_filter_editor.patch",
             "./patches/integration/10_8_filter_viewer.patch",
 
+            // Need to completely redo
+            /*
             "./patches/integration/20_0_popup_tweaks.patch",
             "./patches/integration/20_1_force_scroll.patch",
             "./patches/integration/20_2_bug_reporter.patch",
+            */
 
             "./patches/integration/30_0_settings_tweaks.patch",
             "./patches/integration/30_1_editor_settings.patch",

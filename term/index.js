@@ -43,6 +43,8 @@ const Term = require("./term.js");
 
 let busy = true;
 
+let last_sync_i = 0;
+
 // ----------------------------------------------------------------------------------------------------------------- //
 
 const term = new Term();
@@ -102,6 +104,8 @@ const config_load = async () => {
     validate_path(config.Output);
 
     build.src_repo = config.Target;
+
+    last_sync_i = 0;
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -176,8 +180,6 @@ const diff = async (p) => {
         });
     });
 };
-
-let last_sync_i = 0;
 
 const sync = async (cont) => {
     if (!cont)
