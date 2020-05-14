@@ -1,20 +1,21 @@
 diff --git a/src/asset-viewer.html b/src/asset-viewer.html
-index 1be7d204..c70c4fec 100644
+index 9d3eaedf..3be76b7e 100644
 --- a/src/asset-viewer.html
 +++ b/src/asset-viewer.html
-@@ -4,11 +4,8 @@
+@@ -4,12 +4,9 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title data-i18n="assetViewerPageName"></title>
 -<link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
 -<link rel="stylesheet" href="lib/codemirror/addon/search/matchesonscrollbar.css">
+ <link rel="stylesheet" type="text/css" href="css/themes/default.css">
  <link rel="stylesheet" href="css/common.css">
  <link rel="stylesheet" href="css/fa-icons.css">
 -<link rel="stylesheet" href="css/codemirror.css">
  <link rel="shortcut icon" type="image/png" href="img/icon_16.png"/>
  <style>
  body {
-@@ -17,7 +14,7 @@ body {
+@@ -18,7 +15,7 @@ body {
      overflow: hidden;
      padding: 0;
      }
@@ -23,7 +24,7 @@ index 1be7d204..c70c4fec 100644
      height: 100vh;
      width: 100vw;
      }
-@@ -27,15 +24,9 @@ body {
+@@ -28,15 +25,9 @@ body {
  
  <div id="content" class="codeMirrorContainer codeMirrorBreakAll"></div>
  
@@ -42,7 +43,7 @@ index 1be7d204..c70c4fec 100644
  
  <script src="js/fa-icons.js"></script>
  <script src="js/vapi.js"></script>
-@@ -44,7 +35,7 @@ body {
+@@ -45,7 +36,7 @@ body {
  <script src="js/udom.js"></script>
  <script src="js/i18n.js"></script>
  <script src="js/dashboard-common.js"></script>
