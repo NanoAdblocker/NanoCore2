@@ -92,10 +92,10 @@ index e9e06982..8c800b00 100644
              if ( parsed.exception ) {
                  kind |= 0b01;
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 4037300e..958853a0 100644
+index ea5b1cb8..5e009197 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -425,7 +425,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
+@@ -428,7 +428,13 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
  
  RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const matches = this.reFilterParser.exec(line);
@@ -110,7 +110,7 @@ index 4037300e..958853a0 100644
  
      const des = matches[1] || '';
  
-@@ -487,14 +493,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -490,14 +496,20 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          }
          // One and only one type must be specified.
          if ( this.supportedTypes.has(option) ) {
@@ -133,7 +133,7 @@ index 4037300e..958853a0 100644
  
      // Need one single type -- not negated.
      if ( type === undefined ) {
-@@ -503,6 +515,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -506,6 +518,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
          } else if ( redirect === 'noopmp4-1s' ) {
              type = 'media';
          } else {
@@ -141,7 +141,7 @@ index 4037300e..958853a0 100644
              return;
          }
      }
-@@ -518,12 +531,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -521,12 +534,19 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
      const out = [];
      for ( const srchn of srchns ) {
          if ( srchn === '' ) { continue; }
@@ -252,7 +252,7 @@ index 1c2aab1a..b2704d8f 100644
          }
  
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index bc511f72..75372ee4 100644
+index c08ed70c..f56e42d7 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -2287,6 +2287,7 @@ const FilterParser = class {
@@ -387,7 +387,7 @@ index bc511f72..75372ee4 100644
          }
  
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 92f6fb2c..e21a9f34 100644
+index 3e0a27a4..38978579 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -365,7 +365,11 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {

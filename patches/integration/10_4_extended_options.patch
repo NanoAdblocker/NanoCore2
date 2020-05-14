@@ -1,8 +1,8 @@
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index cbfdd424..4037300e 100644
+index fca01197..ea5b1cb8 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -543,6 +543,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
+@@ -546,6 +546,8 @@ RedirectEngine.prototype.supportedTypes = new Map([
      [ 'subdocument', 'sub_frame' ],
      [ 'xhr', 'xmlhttprequest' ],
      [ 'xmlhttprequest', 'xmlhttprequest' ],
@@ -12,7 +12,7 @@ index cbfdd424..4037300e 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index 3de866df..bc511f72 100644
+index b88e4974..c08ed70c 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -161,6 +161,8 @@ const toNormalizedType = {

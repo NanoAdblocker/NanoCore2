@@ -1,20 +1,20 @@
 diff --git a/src/advanced-settings.html b/src/advanced-settings.html
-index 583596b8..820c61dd 100644
+index 5afb9a0d..3bcbc7b1 100644
 --- a/src/advanced-settings.html
 +++ b/src/advanced-settings.html
-@@ -19,6 +19,7 @@
+@@ -20,6 +20,7 @@
      <p><span data-i18n="advancedSettingsWarning"></span> <a class="fa info important" href="https://github.com/gorhill/uBlock/wiki/Advanced-settings" target="_blank">&#xf05a;</a>
      <p>
-         <button id="advancedSettingsApply" class="custom important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
-+        <button id="nanoForceRecompile" class="custom" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
+         <button id="advancedSettingsApply" class="important" type="button" disabled data-i18n="genericApplyChanges"></button>&ensp;
++        <button id="nanoForceRecompile" type="button" data-i18n="nano_d_recompile_filters"></button>&ensp;
  </div>
  
- <div id="advancedSettings" class="codeMirrorContainer codeMirrorFillVertical"></div>
+ <div id="advancedSettings" class="codeMirrorContainer"></div>
 diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
-index 940a1288..892d9fb0 100644
+index 57f53763..7c3ea045 100644
 --- a/src/js/advanced-settings.js
 +++ b/src/js/advanced-settings.js
-@@ -115,6 +115,14 @@ const applyChanges = async function() {
+@@ -177,6 +177,14 @@ const applyChanges = async function() {
  
  /******************************************************************************/
  
@@ -29,7 +29,7 @@ index 940a1288..892d9fb0 100644
  uDom.nodeFromId('advancedSettings').addEventListener(
      'input',
      advancedSettingsChanged
-@@ -122,6 +130,10 @@ uDom.nodeFromId('advancedSettings').addEventListener(
+@@ -184,6 +192,10 @@ uDom.nodeFromId('advancedSettings').addEventListener(
  uDom.nodeFromId('advancedSettingsApply').addEventListener('click', ( ) => {
      applyChanges();
  });
@@ -41,10 +41,10 @@ index 940a1288..892d9fb0 100644
  renderAdvancedSettings(true);
  
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 9cda182e..c444eefd 100644
+index 457c38b2..de13e620 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1177,6 +1177,10 @@ const onMessage = function(request, sender, callback) {
+@@ -1188,6 +1188,10 @@ const onMessage = function(request, sender, callback) {
          µb.changeHiddenSettings(µb.hiddenSettingsFromString(request.content));
          break;
  
