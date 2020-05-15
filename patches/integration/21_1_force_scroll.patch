@@ -1,18 +1,3 @@
-diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 200c3f6f..8ecefeb0 100644
---- a/src/js/messaging.js
-+++ b/src/js/messaging.js
-@@ -137,6 +137,10 @@ const onMessage = function(request, sender, callback) {
-         µb.elementPickerExec(request.tabId, request.targetURL, request.zap);
-         break;
- 
-+    case 'nanoInjectForceScrollCSS':
-+        nano.inject_force_scroll(request.tabId);
-+        break;
-+
-     case 'gotoURL':
-         µb.openNewTab(request.details);
-         break;
 diff --git a/src/js/popup.js b/src/js/popup.js
 index 2799f0fb..feea0361 100644
 --- a/src/js/popup.js

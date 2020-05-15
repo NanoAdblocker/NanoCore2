@@ -99,6 +99,9 @@ const config_load = async () => {
 
     assert(Array.isArray(config.Patches));
 
+    const patches = new Set(config.Patches);
+    assert(patches.size === config.Patches.length);
+
     validate_path(config.Source);
     validate_path(config.Target);
     validate_path(config.Output);
@@ -213,6 +216,8 @@ cmd_handlers.set("reset", async () => {
         term.write_line(err.stack);
     }
 
+    last_sync_i = 0;
+
     busy = false;
 
     term.ready();
@@ -229,6 +234,8 @@ cmd_handlers.set("apply", async () => {
     } catch (err) {
         term.write_line(err.stack);
     }
+
+    last_sync_i = 0;
 
     busy = false;
 

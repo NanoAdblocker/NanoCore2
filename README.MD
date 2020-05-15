@@ -47,8 +47,8 @@ apply    Apply all existing patches, in order, starting from the beginning
 sync     Resynchronize all existing patches, in order, starting from the
          beginning
 cont     Clear uncommitted changes and continue to resynchronize patches
-         starting from the last one that failed (or from the beginning if
-         nothing failed)
+         starting from the last one that failed or from the beginning as
+         appropriate
 mark     Create a patch based on the difference between tip of resynchronize
          patches and current code in development environment
 
