@@ -50,13 +50,24 @@ nano.insert_mime_declaration = (map) => {
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
+nano.actually_supports_user_stylesheets = null;
+
 nano.inject_force_scroll = (tab) => {
+    if (nano.actually_supports_user_stylesheets === null) {
+        if (vAPI.supportsUserStylesheets)
+            nano.actually_supports_user_stylesheets = true;
+        else if (vAPI.webextFlavor.soup.has("chromium") && vAPI.webextFlavor.major >= 66)
+            nano.actually_supports_user_stylesheets = true;
+        else
+            nano.actually_supports_user_stylesheets = false;
+    }
+
     const payload = {
         code: "* { overflow: auto !important; }",
         runAt: "document_start",
     };
 
-    if (vAPI.supportsUserStylesheets)
+    if (nano.actually_supports_user_stylesheets)
         payload.cssOrigin = "user";
 
     vAPI.tabs.insertCSS(tab, payload);
