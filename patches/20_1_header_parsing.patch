@@ -1,5 +1,5 @@
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 1a820855..12eed6b4 100644
+index 04bae91b..272127b0 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -764,15 +764,33 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {

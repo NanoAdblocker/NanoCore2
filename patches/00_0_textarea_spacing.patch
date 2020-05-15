@@ -1,12 +1,12 @@
 diff --git a/src/css/common.css b/src/css/common.css
-index c6499ef5..a09ae70a 100644
+index f1c26292..ea21abd3 100644
 --- a/src/css/common.css
 +++ b/src/css/common.css
-@@ -25,6 +25,7 @@ code {
+@@ -84,6 +84,7 @@ hr {
      }
  textarea {
      font-size: 90%;
 +    font-family: monospace;
      }
- /* I designed the button with: http://charliepark.org/bootstrap_buttons/ */
- button.custom {
+ button {
+     align-items: center;
