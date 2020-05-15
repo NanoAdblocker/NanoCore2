@@ -1,8 +1,8 @@
 diff --git a/src/css/codemirror.css b/src/css/codemirror.css
-index 7ef0b6c6..903ef37a 100644
+index 5d3eafdc..ef548670 100644
 --- a/src/css/codemirror.css
 +++ b/src/css/codemirror.css
-@@ -21,7 +21,8 @@
+@@ -22,7 +22,8 @@
      word-break: break-all;
      }
  

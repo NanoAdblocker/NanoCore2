@@ -1,13 +1,13 @@
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index ae23ed2d..2fc5b0e9 100644
+index 99bbe9b6..8c315959 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
-@@ -657,7 +657,7 @@ uDom('#ignoreGenericCosmeticFilters').on('change', onFilteringSettingsChanged);
+@@ -678,7 +678,7 @@ uDom('#ignoreGenericCosmeticFilters').on('change', onFilteringSettingsChanged);
  uDom('#buttonApply').on('click', ( ) => { buttonApplyHandler(); });
  uDom('#buttonUpdate').on('click', ( ) => { buttonUpdateHandler(); });
  uDom('#buttonPurgeAll').on('click', ev => {
 -    buttonPurgeAllHandler(ev.ctrlKey && ev.shiftKey);
 +    buttonPurgeAllHandler(ev.ctrlKey || ev.metaKey || ev.shiftKey);
  });
- uDom('#lists').on('change', '.listEntry > input', onFilteringSettingsChanged);
- uDom('#lists').on('click', '.listEntry > a.remove', onRemoveExternalList);
+ uDom('#lists').on('change', '.listEntry input', onListsetChanged);
+ uDom('#lists').on('click', '.listEntry .remove', onRemoveExternalList);

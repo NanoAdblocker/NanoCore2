@@ -1,5 +1,5 @@
 diff --git a/src/js/scriptlets/element-picker.js b/src/js/scriptlets/element-picker.js
-index c859c114..be615ca8 100644
+index 53fd61e2..ecd4c501 100644
 --- a/src/js/scriptlets/element-picker.js
 +++ b/src/js/scriptlets/element-picker.js
 @@ -1095,6 +1095,7 @@ const onDialogClicked = function(ev) {
@@ -11,7 +11,7 @@ index c859c114..be615ca8 100644
                  pageDomain: window.location.hostname,
                  killCache: isCosmetic === false,
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 12eed6b4..16dc4a16 100644
+index 272127b0..96ce8692 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -396,7 +396,8 @@ self.addEventListener('hiddenSettingsChanged', ( ) => {
