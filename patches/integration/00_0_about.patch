@@ -1,8 +1,8 @@
 diff --git a/src/about.html b/src/about.html
-index a7861e66..16f25550 100644
+index a7861e66..838d7d44 100644
 --- a/src/about.html
 +++ b/src/about.html
-@@ -15,15 +15,34 @@
+@@ -15,15 +15,33 @@
  <div class="body">
      <div id="aboutNameVer" class="li"></div>
      <div class="liul">
@@ -31,8 +31,7 @@ index a7861e66..16f25550 100644
 +    <div class="liul">
 +        <div class="li"><span><a href="https://github.com/ajaxorg/ace" target="_blank">Ace (Ajax.org Cloud9 Editor)</a> by <a href="https://ace.c9.io/">Ajax.org</a></span></div>
 +    </div>
-+
-+    <br>
++    <hr>
 +    <div class="li"><span data-i18n="nano_d_about_based_on"></span></div>
 +    <div class="liul">
 +        <div class="li">Copyright (c) Raymond Hill 2014-2020</div>
