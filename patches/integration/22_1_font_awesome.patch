@@ -1,0 +1,15 @@
+diff --git a/src/css/popup-fenix.css b/src/css/popup-fenix.css
+index 0549a755..4daf9f42 100644
+--- a/src/css/popup-fenix.css
++++ b/src/css/popup-fenix.css
+@@ -3,6 +3,10 @@
+     bottom: auto;
+     top: -20%;
+     }
++.fa.tool {
++    font-weight: bold;
++    text-align: center;
++    }
+ 
+ /* Internal CSS values */
+ :root body,

@@ -48,9 +48,11 @@ settings page.
 
 `22_0_new_popup_tweaks.patch`: Cosmetic tweaks to the new popup.
 
-`22_1_new_force_scroll.patch`: Force scroll button for the new popup.
+`22_1_font_awesome.patch`: Integrate FontAwesome to the new popup.
 
-`22_2_new_bug_reporter.patch`: Bug reporter button for the new popup.
+`22_2_new_force_scroll.patch`: Force scroll button for the new popup.
+
+`22_3_new_bug_reporter.patch`: Bug reporter button for the new popup.
 
 ## Group `30`: Dashboard Changes
 
