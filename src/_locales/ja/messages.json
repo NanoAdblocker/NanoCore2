@@ -44,7 +44,7 @@
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "クリック：現在のページを更新\n\nCtrl +クリック：キャッシュを無視して現在のページを更新",
+    "message": "クリック：現在のページを更新\n\nCtrl + クリック：キャッシュを無視して現在のページを更新",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -108,7 +108,7 @@
     "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "リソース '{{res}}'が見つかりませんでした。スペルは正しいですか？",
+    "message": "リソース '{{res}}' が見つかりませんでした。スペルは正しいですか？",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
@@ -140,7 +140,7 @@
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "オプション'mp4'の使用は非推奨です。代わりに完全なオプションを記述してください。",
+    "message": "オプション 'mp4' の使用は非推奨です。代わりに完全なオプションを記述してください。",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
