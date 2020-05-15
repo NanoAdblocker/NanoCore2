@@ -53,7 +53,4 @@ Adblocker and uBlock Origin.
 
 ## Group `90`: Other Changes
 
-`90_0_edgyfy.patch`: Integrate with Edgyfy. Only needed for Edge browser,
-although it is safe on other browsers.
-
-`90_1_settings_migration.patch`: Fix settings migration.
+`90_0_settings_migration.patch`: Fix settings migration.

@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index 3a3d89b7..40139940 100644
+index ad7813dd..e8718424 100644
 --- a/platform/chromium/vapi-background.js
 +++ b/platform/chromium/vapi-background.js
 @@ -61,24 +61,12 @@ vAPI.app = {
@@ -33,10 +33,10 @@ index 3a3d89b7..40139940 100644
  
      restart: function() {
 diff --git a/src/js/start.js b/src/js/start.js
-index 826b7433..04db3da1 100644
+index 23db0edf..c2b3cc0d 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -119,7 +119,7 @@ const onVersionReady = function(lastVersion) {
+@@ -108,7 +108,7 @@ const onVersionReady = function(lastVersion) {
  
      // https://github.com/uBlockOrigin/uBlock-issues/issues/494
      //   Remove useless per-site switches.

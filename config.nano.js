@@ -62,8 +62,7 @@
             "./patches/integration/30_1_editor_settings.patch",
             "./patches/integration/30_2_link_differences.patch",
 
-            "./patches/integration/90_0_edgyfy.patch",
-            "./patches/integration/90_1_settings_migration.patch",
+            "./patches/integration/90_0_settings_migration.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 
