@@ -12,7 +12,7 @@
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Force recompile filters",
+    "message": "フィルターを強制的に再コンパイルする",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
@@ -20,7 +20,7 @@
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
-    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "message": "NanoフィルターエディターはAceを搭載しており、ほとんどのショートカットキーは同様に機能します。",
     "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
@@ -32,11 +32,11 @@
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Could not load content, please refresh.",
+    "message": "コンテンツを読み込めませんでした。更新してください。",
     "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "cache control",
+    "message": "キャッシュコントロール",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
@@ -44,7 +44,7 @@
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
+    "message": "クリック：現在のページを更新\n\nCtrl +クリック：キャッシュを無視して現在のページを更新",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -52,7 +52,7 @@
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Open the bug reporter",
+    "message": "(beta) バグレポーターを開く",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
@@ -60,7 +60,7 @@
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "This line is treated as a regular expression, is that intended?",
+    "message": "この行は正規表現として扱われますが、意図されたものですか？",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
@@ -72,7 +72,7 @@
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "This regular expression has syntax errors.",
+    "message": "この正規表現には構文エラーがあります。",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
@@ -84,63 +84,63 @@
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "スクリプトスニペットの例外ルールで使用できないため、Nanoは拒否されたドメインを破棄しました。",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+    "message": "拒否されたドメインのみを含むため、Nanoはこのルールを例外ルールに変換しました。",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Negated domains are not yet supported for HTML filtering.",
+    "message": "拒否されたドメインは、HTMLフィルタリングではまだサポートされていません。",
     "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
+    "message": "拒否できないため、Nanoは オプション '{{type}}' を破棄しました。",
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
+    "message": "Nanoは、オプション 'mp4' を 'media,redirect=noop-1s.mp4' に置き換えました。",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano discarded type options that are not yet supported.",
+    "message": "Nanoは、まだサポートされていないタイプオプションを破棄しました。",
     "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "message": "リソース '{{res}}'が見つかりませんでした。スペルは正しいですか？",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "The resource '{{res}}' cannot be used as a redirect target.",
+    "message": "リソース '{{res}}' はリダイレクトターゲットとして使用できません。",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
+    "message": "リソース '{{res}}' はスクリプトスニペットとして挿入できません。",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
+    "message": "'{{alias}}' は '{{res}}' のエイリアスですが、代わりに実名を使用することを検討してください。",
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
-    "message": "HTML filtering is not supported by your browser.",
+    "message": "お使いのブラウザではHTMLフィルタリングがサポートされていません。",
     "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "message": "'[' を使ってコメントを表すのは非推奨です。代わりに '!' を使用してください。",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Inline comments are deprecated.",
+    "message": "インラインコメントは非推奨です。",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+    "message": "'##script:contains(...)' は非推奨です。代わりに '##^script:has-text(...)' を使用してください。",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "message": "オプション'mp4'の使用は非推奨です。代わりに完全なオプションを記述してください。",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
@@ -152,7 +152,7 @@
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "The selector in this rule has syntax errors.",
+    "message": "このルールのセレクターには構文エラーがあります。",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
@@ -160,19 +160,19 @@
     "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "This CSS injection rule has syntax errors.",
+    "message": "このCSSインジェクションルールには構文エラーがあります。",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Unprivileged filters may not reference privileged resources.",
+    "message": "非特権フィルターは、特権リソースを参照できません。",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "This host file entry is discarded because it is localhost declaration.",
+    "message": "このホストファイルエントリはlocalhost宣言であるため破棄されます。",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
+    "message": "AdGuard構文の要素削除ルールはまだサポートされていません。代わりに '##^' を使用してください。",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
@@ -180,23 +180,23 @@
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "The option 'domain=...' has invalid arguments.",
+    "message": "オプション 'domain=...' に無効な引数があります。",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "The option 'denyallow=...' has invalid arguments.",
+    "message": "オプション 'denyallow=...' に無効な引数があります。",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+    "message": "オプション 'csp=...' に引数がないか、無効な引数があります。",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "The option '{{option}}' is not recognized.",
+    "message": "オプション '{{option}}' は認識されません。",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "This filter rule selected only unsupported type options.",
+    "message": "このフィルタールールは、サポートされていないタイプのオプションのみを選択しました。",
     "description": "Error when filter rule selected only unsupported types"
   },
   "nano_l_filter_no_type": {
@@ -204,11 +204,11 @@
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
-    "message": "This network rule has regular expression syntax errors.",
+    "message": "このネットワークルールには正規表現の構文エラーがあります。",
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "This network rule is too short.",
+    "message": "このネットワークルールは短すぎます。",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_matcher_too_long": {
@@ -216,27 +216,27 @@
     "description": "Error when network matcher is too long"
   },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "すべてのリソースを選択するスクリプトを挿入する構文は、例外フィルターでのみ使用できます。",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "The domain anchor may not be immediately followed by '^'.",
+    "message": "ドメインアンカーの直後に '^' を付けることはできません。",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano discarded the redirect portion of this rule because it must select a type option.",
+    "message": "タイプオプションを選択する必要があるため、Nanoはこのルールのリダイレクト部分を破棄しました。",
     "description": "Warning when redirect selected no types"
   },
   "nano_r_too_many_types": {
-    "message": "Nano discarded the redirect portion of this rule because it selected too many type options.",
+    "message": "選択されたタイプオプションが多すぎるため、Nanoはこのルールのリダイレクト部分を破棄しました。",
     "description": "Warning when redirect selected too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano discarded the redirect portion of this rule because it has no arguments.",
+    "message": "引数がないため、Nanoはこのルールのリダイレクト部分を破棄しました。",
     "description": "Warning when redirect has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano discarded the redirect portion of this rule because it did not select any supported type options.",
+    "message": "サポートされているタイプオプションを選択しなかったため、Nanoはこのルールのリダイレクト部分を破棄しました。",
     "description": "Warning when redirect selected no supported type"
   },
   "nano_r_negated_domain": {
@@ -244,11 +244,11 @@
     "description": "Warning when negated domain used with redirect"
   },
   "nano_r_no_destination": {
-    "message": "Nano discarded the redirect portion of this rule because it has no valid destination domain.",
+    "message": "有効な宛先のドメインがないため、Nanoはこのルールのリダイレクト部分を破棄しました。",
     "description": "Warning when redirect has no destination"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano discarded the redirect portion of this rule because this network rule does not match this regular expression: {{regexp}}",
+    "message": "このネットワークルールが次の正規表現に一致しないため、Nanoはこのルールのリダイレクト部分を破棄しました：{{regexp}}",
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
@@ -256,15 +256,15 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "リダイレクトルールを例外にすることはできません。",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Redirect rules can only contain one redirect directive.",
+    "message": "リダイレクトルールに含めることができるリダイレクトディレクティブは1つだけです。",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "このルールは現在拒否されています。 詳細：https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
