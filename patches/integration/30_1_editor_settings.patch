@@ -1,26 +1,26 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 4596cac3..2301c1e1 100644
+index 920072e6..493351f9 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -93,6 +93,8 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -96,6 +96,8 @@ const µBlock = (( ) => { // jshint ignore:line
              hyperlinkAuditingDisabled: true,
              ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
              largeMediaSize: 50,
 +            nanoEditorSoftWrap: false,
 +            nanoViewerSoftWrap: true,
              parseAllABPHideFilters: true,
+             popupPanelSections: 0b111,
              prefetchingDisabled: true,
-             requestLogMaxEntries: 1000,
 diff --git a/src/settings.html b/src/settings.html
-index b6d461c5..e4aaae5a 100644
+index 4a74cf82..bf00aea1 100644
 --- a/src/settings.html
 +++ b/src/settings.html
-@@ -20,6 +20,8 @@
-         <li class="subgroup"><span data-i18n="nano_d_ui_group"></span><ul>
-             <li><input id="tooltips-disabled" type="checkbox" data-setting-name="tooltipsDisabled" data-setting-type="bool"><label data-i18n="settingsTooltipsPrompt" for="tooltips-disabled"></label>
-             <li><input id="color-blind-friendly" type="checkbox" data-setting-name="colorBlindFriendly" data-setting-type="bool"><label data-i18n="settingsColorBlindPrompt" for="color-blind-friendly"></label>
-+            <li><input id="nano-editor-soft-wrap" type="checkbox" data-setting-name="nanoEditorSoftWrap" data-setting-type="bool"><label data-i18n="nano_d_line_wrap_e" for="nano-editor-soft-wrap"></label>
-+            <li><input id="nano-viewer-soft-wrap" type="checkbox" data-setting-name="nanoViewerSoftWrap" data-setting-type="bool"><label data-i18n="nano_d_line_wrap_v" for="nano-viewer-soft-wrap"></label>
-             </ul>
-         <li class="subgroup"><span data-i18n="3pGroupPrivacy"></span><ul>
-             <li><input id="prefetching-disabled" type="checkbox" data-setting-name="prefetchingDisabled" data-setting-type="bool"><label data-i18n="settingsPrefetchingDisabledPrompt" for="prefetching-disabled"></label> <a class="fa info" href="https://github.com/gorhill/uBlock/wiki/Dashboard:-Settings#disable-pre-fetching" target="_blank">&#xf05a;</a>
+@@ -24,6 +24,8 @@
+     <div class="fieldset-header" data-i18n="nano_d_ui_group"></div>
+     <div class="li"><label><span class="input checkbox"><input type="checkbox" data-setting-name="tooltipsDisabled" data-setting-type="bool"><svg><use href="img/material-design.svg#checkmark" /></svg></span><span data-i18n="settingsTooltipsPrompt"></span></label></div>
+     <div class="li"><label><span class="input checkbox"><input type="checkbox" data-setting-name="colorBlindFriendly" data-setting-type="bool"><svg><use href="img/material-design.svg#checkmark" /></svg></span><span data-i18n="settingsColorBlindPrompt"></span></label></div>
++    <div class="li"><label><span class="input checkbox"><input type="checkbox" data-setting-name="nanoEditorSoftWrap" data-setting-type="bool"><svg><use href="img/material-design.svg#checkmark" /></svg></span><span data-i18n="nano_d_line_wrap_e"></span></label></div>
++    <div class="li"><label><span class="input checkbox"><input type="checkbox" data-setting-name="nanoViewerSoftWrap" data-setting-type="bool"><svg><use href="img/material-design.svg#checkmark" /></svg></span><span data-i18n="nano_d_line_wrap_v"></span></label></div>
+ </div>
+ <hr>
+ <div class="fieldset">
