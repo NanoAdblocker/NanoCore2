@@ -41,8 +41,9 @@ You should not modify the upstream repository, instead, use Nano Core 2
 Terminal to create and manage development environment.
 
 ```
-reset    Nuke development environment and create a fresh one without any
-         patches applied
+reset    Delete development environment and create a fresh one using upstream
+         repository, uncommitted changes in the fresh development environment
+         will be cleared
 apply    Apply all existing patches, in order, starting from the beginning
 sync     Resynchronize all existing patches, in order, starting from the
          beginning

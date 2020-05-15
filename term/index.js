@@ -184,6 +184,10 @@ const diff = async (p) => {
     });
 };
 
+const reset = async () => {
+    await exec(0, "git", exec_opt(), "reset", "--hard");
+};
+
 const sync = async (cont) => {
     if (!cont)
         last_sync_i = 0;
@@ -206,12 +210,16 @@ cmd_handlers.set("reset", async () => {
     busy = true;
 
     try {
+        // Need to wait a bit in between or there could be problems on Windows
         await fs.remove(config.Target);
 
-        // Need to wait a bit in between or there could be problems on Windows
         await sleep(100);
 
         await fs.copy(config.Source, config.Target);
+
+        await sleep(100);
+
+        await reset();
     } catch (err) {
         term.write_line(err.stack);
     }
@@ -260,7 +268,7 @@ cmd_handlers.set("cont", async () => {
     busy = true;
 
     try {
-        await exec(0, "git", exec_opt(), "reset", "--hard");
+        await reset();
         await sync(true);
     } catch (err) {
         term.write_line(err.stack);
