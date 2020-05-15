@@ -69,14 +69,14 @@ index 6fe8b473..afc78105 100644
      }
  
 diff --git a/src/js/background.js b/src/js/background.js
-index 4262aeb8..3fd0f0db 100644
+index 920072e6..cb3fb73b 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -99,7 +99,7 @@ const µBlock = (( ) => { // jshint ignore:line
-             nanoEditorSoftWrap: false,
-             nanoViewerSoftWrap: true,
+@@ -97,7 +97,7 @@ const µBlock = (( ) => { // jshint ignore:line
+             ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
+             largeMediaSize: 50,
              parseAllABPHideFilters: true,
--            popupPanelSections: 0b01111,
+-            popupPanelSections: 0b111,
 +            popupPanelSections: 0b0,
              prefetchingDisabled: true,
              requestLogMaxEntries: 1000,
@@ -104,19 +104,6 @@ index 7007b6bc..8877cc28 100644
  
  const computedSections = ( ) =>
      popupData.popupPanelSections &
-diff --git a/src/js/start.js b/src/js/start.js
-index 4ae938e9..7dbc3c58 100644
---- a/src/js/start.js
-+++ b/src/js/start.js
-@@ -118,7 +118,7 @@ const onVersionReady = function(lastVersion) {
-     // configuration.
-     if ( lastVersionInt <= 142 ) {
-         µb.userSettings.popupPanelSections =
--            µb.userSettings.dynamicFilteringEnabled === true ? 0b11111 : 0b01111;
-+            µb.userSettings.dynamicFilteringEnabled === true ? 0b1 : 0b0;
-         µb.userSettings.dynamicFilteringEnabled = undefined;
-         µb.saveUserSettings();
-     }
 diff --git a/src/popup-fenix.html b/src/popup-fenix.html
 index 9110cfd0..0a1479e1 100644
 --- a/src/popup-fenix.html

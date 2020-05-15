@@ -21,7 +21,7 @@ index 3b0ef17c..94b0ccae 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index 493351f9..4262aeb8 100644
+index c41127c2..3fd0f0db 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -51,7 +51,7 @@ index 493351f9..4262aeb8 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -94,12 +94,12 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -94,7 +94,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -60,12 +60,6 @@ index 493351f9..4262aeb8 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-             parseAllABPHideFilters: true,
--            popupPanelSections: 0b111,
-+            popupPanelSections: 0b01111,
-             prefetchingDisabled: true,
-             requestLogMaxEntries: 1000,
-             showIconBadge: true,
 @@ -124,8 +124,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
@@ -78,7 +72,7 @@ index 493351f9..4262aeb8 100644
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 8d94d4cc..4ae938e9 100644
+index 12b54e01..7dbc3c58 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -234,6 +234,7 @@ const createDefaultProps = function() {

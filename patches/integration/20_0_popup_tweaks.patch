@@ -1,30 +1,27 @@
 diff --git a/src/css/popup.css b/src/css/popup.css
-index 44aa5b16..ba21e68a 100644
+index 49f94b6f..b3de8e90 100644
 --- a/src/css/popup.css
 +++ b/src/css/popup.css
-@@ -16,7 +16,6 @@ h2 {
-     background-color: #eee;
+@@ -11,7 +11,6 @@ h2 {
+     background-color: var(--bg-popup-cell-1);
      border: 0;
-     color: #666;
+     color: var(--fg-0-70);
 -    cursor: pointer;
      font-size: 100%;
      font-weight: normal;
      padding: 0.2em;
-@@ -98,18 +97,22 @@ p {
- #switch .fa-icon {
-     fill: #0046ff;
+@@ -94,7 +93,7 @@ p {
+     color: var(--popup-power-ink);
+     fill: var(--popup-power-ink);
      cursor: pointer;
 -    font-size: 700%;
 +    font-size: 600%;
      margin: 0;
      padding: 0;
      }
- #switch .fa-icon:hover {
--    opacity: 0.9;
-+    opacity: 0.8;
-     }
- body.off #switch .fa-icon {
-     fill: #ccc;
+@@ -106,8 +105,12 @@ body.off #switch .fa-icon {
+     color: var(--fg-0-20);
+     fill: var(--fg-0-20);
      }
 -#basicTools {
 +#basicTools, #basicTools2 {
@@ -36,21 +33,21 @@ index 44aa5b16..ba21e68a 100644
      }
  .tool:first-child {
      margin-left: 0;
-@@ -181,26 +184,22 @@ body.responsive #extraTools {
-     fill: #222;
+@@ -179,26 +182,22 @@ body.responsive #extraTools {
+     fill: inherit;
      }
  
 +#nanoCacheControlStrip {
 +    margin: 0px;
 +    }
  #refresh {
--    background-color: #ffe;
+-    background-color: var(--bg-transient-notice);
 -    border: 1px solid #ddc;
 -    border-radius: 4px;
      cursor: pointer;
 -    display: none;
 +    display: flex;
-     fill: #888;
+     fill: var(--fg-0-50);
 -    font-size: 3em;
 +    font-size: 2.3em;
      justify-content: center;
@@ -62,16 +59,16 @@ index 44aa5b16..ba21e68a 100644
      }
  body.dirty #refresh {
 -    display: flex;
-+    fill: red;
++    fill: var(--red-60);
      }
 -body.dirty #refresh:hover {
--    fill: #000
+-    fill: inherit
 +#refresh:hover {
-+    fill: #444 !important;
++    fill: var(--fg-0-80) !important;
      }
  
  #tooltip {
-@@ -230,8 +229,6 @@ body[dir="rtl"] #tooltip {
+@@ -228,8 +227,6 @@ body[dir="rtl"] #tooltip {
      direction: rtl;
      }
  #tooltip.show {
@@ -81,10 +78,10 @@ index 44aa5b16..ba21e68a 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index d336ab16..c7290995 100644
+index 5442dbb2..2799f0fb 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -562,7 +562,7 @@ const renderTooltips = function(selector) {
+@@ -558,7 +558,7 @@ const renderTooltips = function(selector) {
  
  const tooltipTargetSelectors = new Map([
      [
@@ -93,7 +90,7 @@ index d336ab16..c7290995 100644
          {
              state: 'body.off',
              i18n: 'popupPowerSwitchInfo',
-@@ -738,7 +738,7 @@ const toggleNetFilteringSwitch = function(ev) {
+@@ -734,7 +734,7 @@ const toggleNetFilteringSwitch = function(ev) {
          state: !uDom('body').toggleClass('off').hasClass('off'),
          tabId: popupData.tabId,
      });
@@ -102,7 +99,7 @@ index d336ab16..c7290995 100644
      hashFromPopupData();
  };
  
-@@ -1201,10 +1201,10 @@ const onHideTooltip = function() {
+@@ -1203,10 +1203,10 @@ const onHideTooltip = function() {
      getPopupData(tabId);
  })();
  
@@ -116,10 +113,10 @@ index d336ab16..c7290995 100644
  uDom('#saveRules').on('click', saveFirewallRules);
  uDom('#revertRules').on('click', ( ) => { revertFirewallRules(); });
 diff --git a/src/popup.html b/src/popup.html
-index 85e05218..282de88d 100644
+index 7df02d25..ebe163eb 100644
 --- a/src/popup.html
 +++ b/src/popup.html
-@@ -14,23 +14,29 @@
+@@ -15,23 +15,29 @@
  <div id="appinfo"><span id="appname">&nbsp;</span>&nbsp;<span id="version">&nbsp;</span></div>
  <div id="panes">
      <div class="tooltipContainer">

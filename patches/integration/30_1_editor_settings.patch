@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 920072e6..493351f9 100644
+index cb3fb73b..c41127c2 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -96,6 +96,8 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -9,7 +9,7 @@ index 920072e6..493351f9 100644
 +            nanoEditorSoftWrap: false,
 +            nanoViewerSoftWrap: true,
              parseAllABPHideFilters: true,
-             popupPanelSections: 0b111,
+             popupPanelSections: 0b0,
              prefetchingDisabled: true,
 diff --git a/src/settings.html b/src/settings.html
 index 4a74cf82..bf00aea1 100644
