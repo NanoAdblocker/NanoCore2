@@ -33,7 +33,7 @@ index ad7813dd..e8718424 100644
  
      restart: function() {
 diff --git a/src/js/start.js b/src/js/start.js
-index 23db0edf..c2b3cc0d 100644
+index 23db0edf..8d94d4cc 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -108,7 +108,7 @@ const onVersionReady = function(lastVersion) {
@@ -45,3 +45,29 @@ index 23db0edf..c2b3cc0d 100644
          µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.saveHostnameSwitches();
+@@ -116,20 +116,11 @@ const onVersionReady = function(lastVersion) {
+ 
+     // Configure new popup panel according to classic popup panel
+     // configuration.
+-    if ( lastVersionInt !== 0 ) {
+-        if ( lastVersionInt <= 1026003014 ) {
+-            µb.userSettings.popupPanelSections =
+-                µb.userSettings.dynamicFilteringEnabled === true ? 0b11111 : 0b01111;
+-            µb.userSettings.dynamicFilteringEnabled = undefined;
+-            µb.saveUserSettings();
+-        } else if (
+-            lastVersionInt <= 1026003016 &&
+-            (µb.userSettings.popupPanelSections & 1) !== 0
+-        ) {
+-            µb.userSettings.popupPanelSections =
+-                (µb.userSettings.popupPanelSections << 1 | 1) & 0b111111;
+-            µb.saveUserSettings();
+-        }
++    if ( lastVersionInt <= 142 ) {
++        µb.userSettings.popupPanelSections =
++            µb.userSettings.dynamicFilteringEnabled === true ? 0b11111 : 0b01111;
++        µb.userSettings.dynamicFilteringEnabled = undefined;
++        µb.saveUserSettings();
+     }
+ 
+     vAPI.storage.set({ version: vAPI.app.version });

@@ -55,7 +55,7 @@ exports.manifest = (browser) => {
             default_icon: {
                 128: "img/128_on.png",
             },
-            default_popup: "popup.html",
+            default_popup: "popup-fenix.html",
             default_title: "Nano Adblocker",
         },
         commands: {
