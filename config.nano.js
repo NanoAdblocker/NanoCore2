@@ -57,6 +57,7 @@
             "./patches/integration/20_1_force_scroll.patch",
             "./patches/integration/20_2_bug_reporter.patch",
             */
+            "./patches/integration/20_3_new_popup_tweaks.patch",
 
             "./patches/integration/30_0_settings_tweaks.patch",
             "./patches/integration/30_1_editor_settings.patch",

@@ -42,6 +42,8 @@ settings page.
 
 `20_2_bug_reporter.patch`: Open bug reporter button in popup panel.
 
+`20_3_new_popup_tweaks.patch`: Cosmetic tweaks to the new popup.
+
 ## Group `30`: Dashboard Changes
 
 `30_0_settings_tweaks.patch`: Cosmetic tweaks to dashboard settings tab.
