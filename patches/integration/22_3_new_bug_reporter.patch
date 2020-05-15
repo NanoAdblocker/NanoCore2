@@ -1,0 +1,33 @@
+diff --git a/src/js/popup-fenix.js b/src/js/popup-fenix.js
+index 11778efc..b8618f11 100644
+--- a/src/js/popup-fenix.js
++++ b/src/js/popup-fenix.js
+@@ -715,6 +715,8 @@ const nanoForceEnableScroll = function() {
+     vAPI.closePopup();
+ };
+ 
++const nanoOpenBugReporter = vAPI.nanoOpenBugReporter;
++
+ /******************************************************************************/
+ 
+ const gotoURL = function(ev) {
+@@ -1217,6 +1219,7 @@ uDom('#switch').on('click', toggleNetFilteringSwitch);
+ uDom('#gotoZap').on('click', gotoZap);
+ uDom('#gotoPick').on('click', gotoPick);
+ uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);
++uDom('#nanoOpenBugReporter').on('click', nanoOpenBugReporter);
+ uDom('.hnSwitch').on('click', ev => { toggleHostnameSwitch(ev); });
+ uDom('#saveRules').on('click', saveFirewallRules);
+ uDom('#revertRules').on('click', ( ) => { revertFirewallRules(); });
+diff --git a/src/popup-fenix.html b/src/popup-fenix.html
+index c0dcc3e8..903a40f6 100644
+--- a/src/popup-fenix.html
++++ b/src/popup-fenix.html
+@@ -60,6 +60,7 @@
+             <span id="gotoZap" class="fa-icon tool" data-i18n-title="popupTipZapper">bolt<span class="caption" data-i18n="popupTipZapper"></span></span>
+             <span id="gotoPick" class="fa-icon tool" data-i18n-title="popupTipPicker">eye-dropper<span class="caption" data-i18n="popupTipPicker"></span></span>
+             <span id="nanoForceEnableScroll" class="fa tool" data-i18n-title="nano_p_force_scroll">&#xf103;<span class="caption" data-i18n="nano_p_force_scroll"></span></span>
++            <span id="nanoOpenBugReporter" class="fa tool enabled" data-i18n-title="nano_p_bug_reporter">&#xf088;<span class="caption" data-i18n="nano_p_bug_reporter"></span></span>
+             <a href="logger-ui.html#_" class="fa-icon tool enabled" target="uBOLogger" tabindex="0" data-i18n-title="popupTipLog">list-alt<span class="caption" data-i18n="popupTipLog"></span></a>
+             <a href="dashboard.html" class="fa-icon tool enabled" target="uBODashboard" tabindex="0" data-i18n-title="popupTipDashboard">sliders<span class="caption" data-i18n="popupTipDashboard"></span></a>
+         </div>

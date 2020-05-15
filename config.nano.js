@@ -59,7 +59,7 @@
             "./patches/integration/22_0_new_popup_tweaks.patch",
             "./patches/integration/22_1_font_awesome.patch",
             "./patches/integration/22_2_new_force_scroll.patch",
-            // "./patches/integration/22_3_new_bug_reporter.patch",
+            "./patches/integration/22_3_new_bug_reporter.patch",
 
             "./patches/integration/30_0_settings_tweaks.patch",
             "./patches/integration/30_1_editor_settings.patch",
