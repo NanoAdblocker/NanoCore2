@@ -1,5 +1,5 @@
 diff --git a/src/css/popup-fenix.css b/src/css/popup-fenix.css
-index 6fe8b473..ac90d00e 100644
+index 6fe8b473..afc78105 100644
 --- a/src/css/popup-fenix.css
 +++ b/src/css/popup-fenix.css
 @@ -65,7 +65,7 @@ hr {
@@ -11,7 +11,7 @@ index 6fe8b473..ac90d00e 100644
      justify-content: center;
      margin: 0 var(--popup-gap-thin);
      padding: 0;
-@@ -99,7 +99,11 @@ body.off #switch {
+@@ -99,7 +99,15 @@ body.off #switch {
  .rulesetTools [id]:not(:first-of-type) {
      margin-top: 0.2em;
      }
@@ -21,10 +21,14 @@ index 6fe8b473..ac90d00e 100644
 +    border: none;
 +    visibility: visible;
 +    }
++body.needReload #refresh svg {
++    color: var(--red-60);
++    fill: var(--red-60);
++    }
  body.needSave #saveRules,
  body.needSave #revertRules {
      visibility: visible;
-@@ -129,6 +133,10 @@ body.needSave #revertRules {
+@@ -129,6 +137,10 @@ body.needSave #revertRules {
      text-align: end;
      white-space: nowrap;
      }
@@ -35,7 +39,7 @@ index 6fe8b473..ac90d00e 100644
  
  .toolRibbon {
      align-items: start;
-@@ -196,7 +204,7 @@ body.mobile.no-tooltips .toolRibbon .tool {
+@@ -196,7 +208,7 @@ body.mobile.no-tooltips .toolRibbon .tool {
  #lessButton {
      text-align: right;
      }
@@ -44,7 +48,7 @@ index 6fe8b473..ac90d00e 100644
      pointer-events: none;
      visibility: hidden;
      }
-@@ -481,18 +489,7 @@ body.advancedUser #firewall > div > span.noopRule.ownRule,
+@@ -481,18 +493,7 @@ body.advancedUser #firewall > div > span.noopRule.ownRule,
  :root body[data-ui~="+no-popups"] #no-popups {
      display: flex;
      }
