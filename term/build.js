@@ -136,7 +136,8 @@ exports.build_core = async (browser) => {
 
     await fs.copy(r(src, "src/css"), r(output, "css"));
     await fs.copy(r(src, "src/img/fontawesome"), r(output, "img/fontawesome"));
-    await fs.copy(r(src, "src/img"), r(output, "img"), f(r(src, "src/img"), ".svg"));
+    await fs.copy(r(src, "src/img/material-design.svg"), r(output, "img/material-design.svg"));
+    await fs.copy(r(src, "src/img/photon.svg"), r(output, "img/photon.svg"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
     await fs.copy(r(src, "src/web_accessible_resources"), r(output, "web_accessible_resources"));
