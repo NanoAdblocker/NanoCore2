@@ -118,17 +118,14 @@ These are the potential problems to look out for:
    - Update build scripts and extended script snippets manifest to adapt
 1. Changes to redirect declaration maps format in `redirect-engine.js`
    - Update `nano-background.js` to adapt
-1. Renaming or removal of `messaging` variable in `popup.js`
-1. Changes to local IP related regular expressions in `storage.js`
-   - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
+1. Renaming or removal of `messaging` variable in `popup.js` and
+   `popup-fenix.js`
 1. Changes to filters header parsing logic in `storage.js`
    - Update MirrorEngine to adapt
 1. Changes to CNAME uncloaking Chromium support
    - Consider changing the default settings to disabled
 1. Changes to local IP detection logic in `storage.js`
    - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
-1. Changes to default popup page on Chromium
-   - Update patches to add features to the new popup page
 1. Changes to filters syntax
    - Update NanoFilters, NanoContrib, and Nano Defender Integration to adapt
 
