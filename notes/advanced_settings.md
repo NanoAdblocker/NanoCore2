@@ -20,9 +20,9 @@ open is how
 attacks are carried out.
 
 Also, the behavior of some settings are different:
-- `popupPanelDisabledSections` expects a different bitfield
+- `popupPanelDisabledSections` expects a different bitfield:
   - Bit `0`: Firewall panel
-- `popupPanelLockedSections` expects a different bitfield
+- `popupPanelLockedSections` expects a different bitfield:
   - Bit `0`: Firewall panel
 
 Beside the differences above, Nano Adblocker also offers a few more
