@@ -6,8 +6,8 @@ sanity test need to be performed manually before each release.
 ## Setup
 
 **Actions**
-1. Go to extension manager
-1. View details of sideloaded Nano Adblocker
+1. Go to the extension manager
+1. Open the details page for the sideloaded Nano Adblocker
 1. Open the background console
 1. Enable error collection
 
@@ -26,22 +26,22 @@ sanity test need to be performed manually before each release.
 ### Settings Tab
 
 **Actions**
-1. Go to the settings tab
+1. Go to `Settings` tab
 1. Click `Restore to default settings...`
 1. Confirm action
 
 **Expected**
-1. Confirm prompt mentions `Nano`
-1. Settings are restored (check outdated warning markers in filter lists tab)
-1. Filter cache is purged (check timestamp in `Malware Domain List`)
-1. Filters are reloaded from the package (check `Network` tab of background
-   console)
-1. Subfilter of uBlock base filter is properly loaded
+1. The confirm prompt mentions `Nano`
+1. Settings are restored (check outdated warning markers in `Filter lists` tab)
+1. Filters cache is purged (check the timestamp of `Malware Domain List`)
+1. Filters are reloaded from the extension package (check `Network` tab of the
+   background console)
+1. The subfilter of the uBlock base filter is properly loaded
 
 ### My Filters Tab
 
 **Actions**
-1. Go to my filters tab
+1. Go to `My filters` tab
 1. Add these filters:
 ```
 ||www1.example.com^$mp4
@@ -90,7 +90,7 @@ www3.example.com##+js(nanop-click-elements-onload, a)
       1. Line `3`: `1` error
    1. Section `5`:
       1. Line `1`: `1` error
-1. Dashboard shows `5` total filters
+1. `Filter lists` tab shows `5` total filters for `My filters`
 
 **Actions**
 1. Refresh the dashboard
@@ -104,10 +104,10 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 ### About Tab
 
 **Actions**
-1. Go to about tab
+1. Go to `About` tab
 
 **Expected**
-1. Page shows correct information
+1. Page shows the correct information
 
 ## Popup Panel
 
@@ -117,21 +117,21 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Refresh button is visible
-1. 6 buttons shows in the lower toolbar
-1. Extension name and version are displayed properly
+1. 6 buttons are shown in the lower toolbar
+1. Correct extension name and version are displayed
 
 **Actions**
 1. Click `More`
 
 **Expected**
-1. Firewall pane appears
+1. The firewall pane appears
 1. `More` button disappears, `Less` button appears
 
 **Actions**
 1. Click `Less`
 
 **Expected**
-1. Firewall pane disappears
+1. The firewall pane disappears
 1. `More` button appears, `Less` button disappears
 
 **Actions**
@@ -139,7 +139,7 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Quick Issue Reporter opens
-1. URL is filled into the form automatically
+1. Correct URL is filled into the form automatically
 
 ## Logger
 
@@ -149,14 +149,14 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Appropriate network requests are logged
-1. Correct icons shows in the toolbar
+1. Correct icons are shown in the toolbar
 
 **Actions**
 1. Bring up the popup panel inside the logger
 
 **Expected**
 1. Icon in the toolbar changes properly
-1. Extension name and version are displayed properly
+1. Correct extension name and version are displayed
 1. Two rows of tools are visible
 1. Refresh button is visible
 
@@ -164,14 +164,14 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Actions**
 1. Go to `https://gorhill.github.io/uBlock/tests/`
-1. Navigate to procedural cosmetic filters page
-1. Add filters
+1. Click `Procedural cosmetic filters`
+1. Add filters as instructed
 1. Reload the page
 1. Wait 5 seconds
 
 **Expected**
-1. All boxes are green and stays green
-1. No highlight markers and no linter markers in my filters tab
+1. All boxes are green and stay green
+1. No highlight marker and no linter marker in `My filters` tab
 
 **Cleanup**
 1. Remove added filters
@@ -187,7 +187,7 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Picked text stays hidden
-1. No highlight markers and no linter markers in my filters tab
+1. No highlight marker and no linter marker in my filters tab
 
 **Cleanup**
 1. Remove added filter
