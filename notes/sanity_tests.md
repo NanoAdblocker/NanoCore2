@@ -15,27 +15,6 @@ Expected:
 1. No error is ever logged to the background console
 1. No error is ever collected
 
-## Popup Panel
-
-**Actions**
-1. Go to `example.com`
-1. Open the popup panel
-
-**Expected**
-1. Correct version shown at the top
-1. Two rows of tools are visible
-1. Refresh button is visible
-
-## Logger
-
-**Actions**
-1. Open the logger using the popup panel
-1. Go to `example.com`
-
-**Expected**
-1. Appropriate network requests are logged
-1. Correct icons showing in the toolbar
-
 ## Dashboard
 
 **Actions**
@@ -127,6 +106,41 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Page showing correct information
+
+## Popup Panel
+
+**Actions**
+1. Go to `example.com`
+1. Open the popup panel
+
+**Expected**
+1. Refresh button is visible
+1. 6 buttons shown in the lower toolbar
+1. Extension name and version are displayed properly
+
+**Actions**
+1. Click `More`
+
+**Expected**
+1. Firewall pane appears
+1. `More` button disappears, `Less` button appears
+
+**Actions**
+1. Click `Less`
+
+**Expected**
+1. Firewall pane disappears
+1. `More` button appears, `Less` button disappears
+
+## Logger
+
+**Actions**
+1. Open the logger using the popup panel
+1. Go to `example.com`
+
+**Expected**
+1. Appropriate network requests are logged
+1. Correct icons showing in the toolbar
 
 ## Cosmetic Filtering
 
