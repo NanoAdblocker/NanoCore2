@@ -38,6 +38,12 @@ sanity test need to be performed manually before each release.
    background console)
 1. The subfilter of the uBlock base filter is properly loaded
 
+**Actions**
+1. Open the advanced settings page
+
+**Expected**
+1. Correct highlighting style is used
+
 ### My Filters Tab
 
 **Actions**
@@ -100,6 +106,14 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Cleanup**
 1. Remove added filters
+
+### Whitelist Tab
+
+**Actions**
+1. Go to `Whitelist` tab
+
+**Expected**
+1. Correct highlighting style is used
 
 ### About Tab
 
