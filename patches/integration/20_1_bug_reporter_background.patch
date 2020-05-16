@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index 30e09c57..80f04903 100644
+index 38076516..d3c0044e 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -182,6 +182,23 @@ vAPI.download = function(details) {
+@@ -177,6 +177,23 @@ vAPI.download = function(details) {
  
  vAPI.getURL = browser.runtime.getURL;
  

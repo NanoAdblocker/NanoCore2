@@ -1,8 +1,8 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index 80f04903..c1cde5e8 100644
+index d3c0044e..b42b8cad 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -105,11 +105,6 @@ vAPI.webextFlavor = {
+@@ -100,11 +100,6 @@ vAPI.webextFlavor = {
          soup.add('apple').add('safari');
      }
  
