@@ -1,5 +1,5 @@
 diff --git a/src/css/popup-fenix.css b/src/css/popup-fenix.css
-index 6fe8b473..dbda9f3b 100644
+index 2b1639c6..78551eb8 100644
 --- a/src/css/popup-fenix.css
 +++ b/src/css/popup-fenix.css
 @@ -65,7 +65,7 @@ hr {
@@ -31,9 +31,9 @@ index 6fe8b473..dbda9f3b 100644
  body.needSave #saveRules,
  body.needSave #revertRules {
      visibility: visible;
-@@ -129,6 +140,10 @@ body.needSave #revertRules {
+@@ -128,6 +139,10 @@ body.needSave #revertRules {
+     justify-self: end;
      text-align: end;
-     white-space: nowrap;
      }
 +.itemRibbon > #version {
 +    justify-self: end;
@@ -42,7 +42,7 @@ index 6fe8b473..dbda9f3b 100644
  
  .toolRibbon {
      align-items: start;
-@@ -196,7 +211,7 @@ body.mobile.no-tooltips .toolRibbon .tool {
+@@ -195,7 +210,7 @@ body.mobile.no-tooltips .toolRibbon .tool {
  #lessButton {
      text-align: right;
      }
@@ -51,7 +51,7 @@ index 6fe8b473..dbda9f3b 100644
      pointer-events: none;
      visibility: hidden;
      }
-@@ -481,18 +496,7 @@ body.advancedUser #firewall > div > span.noopRule.ownRule,
+@@ -480,18 +495,7 @@ body.advancedUser #firewall > div > span.noopRule.ownRule,
  :root body[data-ui~="+no-popups"] #no-popups {
      display: flex;
      }
@@ -108,7 +108,7 @@ index 7007b6bc..8877cc28 100644
  const computedSections = ( ) =>
      popupData.popupPanelSections &
 diff --git a/src/popup-fenix.html b/src/popup-fenix.html
-index 9110cfd0..0a1479e1 100644
+index b90c5e01..08b6ad5c 100644
 --- a/src/popup-fenix.html
 +++ b/src/popup-fenix.html
 @@ -11,7 +11,7 @@
@@ -128,7 +128,7 @@ index 9110cfd0..0a1479e1 100644
 +                <span id="refresh" class="fa-icon" data-i18n-title="nano_p_refresh_button">refresh</span>
              </div>
          </div>
-         <div id="hostname"><span>ephemeralnewyork.</span>&shy;<span>wordpress.com</span></div>
+         <div id="hostname"><span></span>&shy;<span></span></div>
      </div>
      <div id="main">
 -        <hr data-more="d">
@@ -146,9 +146,9 @@ index 9110cfd0..0a1479e1 100644
 +        <hr>
 +        <div id="basicStats" class="itemRibbon">
              <span data-i18n="popupBlockedOnThisPage_v2"></span><span></span>
+             <span data-i18n="popupDomainsConnected_v2"></span><span></span>
 -            <span data-i18n="popupBlockedSinceInstall_v2" data-more="b"></span><span data-more="b"></span>
 +            <span data-i18n="popupBlockedSinceInstall_v2"></span><span></span>
-             <span data-i18n="popupDomainsConnected_v2"></span><span></span>
          </div>
 -        <hr data-more="c">
 -        <div id="basicTools" class="toolRibbon" data-more="c">

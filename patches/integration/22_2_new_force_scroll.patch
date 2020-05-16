@@ -37,7 +37,7 @@ index 8877cc28..11778efc 100644
  uDom('#saveRules').on('click', saveFirewallRules);
  uDom('#revertRules').on('click', ( ) => { revertFirewallRules(); });
 diff --git a/src/popup-fenix.html b/src/popup-fenix.html
-index 0a1479e1..c0dcc3e8 100644
+index 08b6ad5c..75b36f78 100644
 --- a/src/popup-fenix.html
 +++ b/src/popup-fenix.html
 @@ -59,6 +59,7 @@
