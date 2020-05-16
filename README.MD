@@ -129,7 +129,7 @@ These are the potential problems to look out for:
 1. Changes to filters syntax
    - Update NanoFilters, NanoContrib, and Nano Defender Integration to adapt
 1. Changes to documented behaviors
-   - Update documentation in NanoCore, NanoCore2, and NanoDoc to adapt
+   - Update documentations in NanoCore, NanoCore2, and NanoDoc to adapt
 
 ## Subresource Integrity Incidence Response Protocol
 

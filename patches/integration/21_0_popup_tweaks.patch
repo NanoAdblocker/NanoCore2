@@ -78,9 +78,18 @@ index 4537769d..c08d4f98 100644
      opacity: 1;
      }
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 5442dbb2..2799f0fb 100644
+index 5442dbb2..e0edb71e 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
+@@ -506,7 +506,7 @@ const renderPopup = function() {
+ 
+     // https://github.com/chrisaljoudi/uBlock/issues/470
+     // This must be done here, to be sure the popup is resized properly
+-    const dfPaneVisible = (popupData.popupPanelSections & 0b10000) !== 0;
++    const dfPaneVisible = (popupData.popupPanelSections & 0b1) !== 0;
+ 
+     // https://github.com/chrisaljoudi/uBlock/issues/1068
+     // Remember the last state of the firewall pane. This allows to
 @@ -558,7 +558,7 @@ const renderTooltips = function(selector) {
  
  const tooltipTargetSelectors = new Map([
@@ -99,6 +108,38 @@ index 5442dbb2..2799f0fb 100644
      hashFromPopupData();
  };
  
+@@ -792,19 +792,19 @@ const gotoURL = function(ev) {
+ /******************************************************************************/
+ 
+ const toggleFirewallPane = function() {
+-    popupData.popupPanelSections = popupData.popupPanelSections ^ 0b10000;
++    popupData.popupPanelSections = popupData.popupPanelSections ^ 0b1;
+ 
+     messaging.send('popupPanel', {
+         what: 'userSettings',
+         name: 'popupPanelSections',
+-        value: popupData.popupPanelSections | 0b01111,
++        value: popupData.popupPanelSections | 0b0,
+     });
+ 
+     // https://github.com/chrisaljoudi/uBlock/issues/996
+     // Remember the last state of the firewall pane. This allows to
+     // configure the popup size early next time it is opened, which means a
+     // less glitchy popup at open time.
+-    dfPaneVisibleStored = (popupData.popupPanelSections & 0b10000) !== 0;
++    dfPaneVisibleStored = (popupData.popupPanelSections & 0b1) !== 0;
+     vAPI.localStorage.setItem('popupFirewallPane', dfPaneVisibleStored);
+ 
+     // Dynamic filtering pane may not have been built yet
+@@ -1073,7 +1073,7 @@ const toggleHostnameSwitch = async function(ev) {
+         hostname: popupData.pageHostname,
+         state: target.classList.contains('on'),
+         tabId: popupData.tabId,
+-        persist: (popupData.popupPanelSections & 0b10000) === 0 || ev.ctrlKey || ev.metaKey,
++        persist: (popupData.popupPanelSections & 0b1) === 0 || ev.ctrlKey || ev.metaKey,
+     });
+ 
+     cachePopupData(response);
 @@ -1203,10 +1203,10 @@ const onHideTooltip = function() {
      getPopupData(tabId);
  })();
