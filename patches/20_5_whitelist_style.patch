@@ -1,14 +1,36 @@
 diff --git a/src/css/codemirror.css b/src/css/codemirror.css
-index 5d3eafdc..ef548670 100644
+index 5d3eafdc..e0979efb 100644
 --- a/src/css/codemirror.css
 +++ b/src/css/codemirror.css
-@@ -22,7 +22,8 @@
+@@ -22,7 +22,10 @@
      word-break: break-all;
      }
  
 -.cm-s-default .cm-comment { color: #777; }
++/* Order is important! */
++.cm-s-default .cm-nanokeyword { color: rgb(0, 0, 255); }
 +.cm-s-default .cm-comment { color: rgb(191, 191, 191); }
 +.cm-s-default .cm-error { background-color: rgba(255, 0, 0, 0.1); color: red; }
  .cm-directive { color: #333; font-weight: bold; }
  .cm-staticext { color: #008; }
  .cm-staticnetBlock { color: #800; }
+diff --git a/src/js/whitelist.js b/src/js/whitelist.js
+index 546308df..2db002d3 100644
+--- a/src/js/whitelist.js
++++ b/src/js/whitelist.js
+@@ -52,13 +52,13 @@ CodeMirror.defineMode("ubo-whitelist-directives", function() {
+             }
+             if ( reComment.test(line) ) {
+                 return whitelistDefaultSet.has(directiveFromLine(line))
+-                    ? 'keyword comment'
++                    ? 'nanokeyword comment'
+                     : 'comment';
+             }
+             if ( line.indexOf('/') === -1 ) {
+                 if ( reBadHostname.test(line) ) { return 'error'; }
+                 if ( whitelistDefaultSet.has(line.trim()) ) {
+-                    return 'keyword';
++                    return 'nanokeyword';
+                 }
+                 return null;
+             }
