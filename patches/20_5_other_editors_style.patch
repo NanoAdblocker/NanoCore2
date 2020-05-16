@@ -14,6 +14,19 @@ index 5d3eafdc..e0979efb 100644
  .cm-directive { color: #333; font-weight: bold; }
  .cm-staticext { color: #008; }
  .cm-staticnetBlock { color: #800; }
+diff --git a/src/js/advanced-settings.js b/src/js/advanced-settings.js
+index 7c3ea045..fc992d3c 100644
+--- a/src/js/advanced-settings.js
++++ b/src/js/advanced-settings.js
+@@ -45,7 +45,7 @@ CodeMirror.defineMode('raw-settings', function() {
+                 const match = stream.match(/\S+/);
+                 if ( match !== null && defaultSettings.has(match[0]) ) {
+                     lastSetting = match[0];
+-                    return 'keyword';
++                    return 'nanokeyword';
+                 }
+                 stream.skipToEnd();
+                 return 'line-cm-error';
 diff --git a/src/js/whitelist.js b/src/js/whitelist.js
 index 546308df..2db002d3 100644
 --- a/src/js/whitelist.js

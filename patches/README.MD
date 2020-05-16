@@ -31,7 +31,8 @@ everything.
 
 `20_4_log_script_snippet_errors.patch`: Log script snippet errors.
 
-`20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
+`20_5_other_editors_style.patch`: Change highlighting style of whitelist and
+advanced settings editors.
 
 `20_6_autocomment_href.patch`: Add the full URL as an option for the generated
 filters automatic comment template.
