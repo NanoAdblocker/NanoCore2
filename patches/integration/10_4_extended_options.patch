@@ -12,7 +12,7 @@ index fca01197..ea5b1cb8 100644
  
  /******************************************************************************/
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index b88e4974..c08ed70c 100644
+index 3958adb5..db5f2802 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
 @@ -161,6 +161,8 @@ const toNormalizedType = {
