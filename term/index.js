@@ -28,6 +28,10 @@
 
 const APP_NAME = "Nano Core 2 Terminal";
 
+process.on("unhandledRejection", (err) => {
+    throw err;
+});
+
 // ----------------------------------------------------------------------------------------------------------------- //
 
 const assert = require("assert");
@@ -499,10 +503,6 @@ cmd_handlers.set("exit", () => {
 });
 
 // ----------------------------------------------------------------------------------------------------------------- //
-
-process.on("unhandledRejection", (err) => {
-    throw err;
-});
 
 term.title(APP_NAME).write_line(APP_NAME);
 
