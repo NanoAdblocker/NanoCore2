@@ -131,21 +131,22 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. Refresh button is visible
-1. 6 buttons are shown in the lower toolbar
+1. 6 buttons are shown in the bottom toolbar
 1. Correct extension name and version are displayed
 
 **Actions**
-1. Click `More`
+1. Click `Less` until the popup panel is completely contracted
+1. Click `More` twice
 
 **Expected**
-1. The firewall pane appears
+1. The top toolbar appears, then the firewall panel appears
 1. `More` button disappears, `Less` button appears
 
 **Actions**
-1. Click `Less`
+1. Click `Less` twice
 
 **Expected**
-1. The firewall pane disappears
+1. The firewall panel disappears, then the top toolbar disappears
 1. `More` button appears, `Less` button disappears
 
 **Actions**
