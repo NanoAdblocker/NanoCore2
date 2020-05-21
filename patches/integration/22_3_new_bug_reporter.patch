@@ -1,17 +1,19 @@
 diff --git a/src/js/popup-fenix.js b/src/js/popup-fenix.js
-index c39f38bd..b95108fc 100644
+index c39f38bd..b5e67a58 100644
 --- a/src/js/popup-fenix.js
 +++ b/src/js/popup-fenix.js
-@@ -743,6 +743,8 @@ const nanoForceEnableScroll = function() {
+@@ -743,6 +743,10 @@ const nanoForceEnableScroll = function() {
      vAPI.closePopup();
  };
  
-+const nanoOpenBugReporter = vAPI.nanoOpenBugReporter;
++const nanoOpenBugReporter = function() {
++    vAPI.nanoOpenBugReporter(popupData.tabId);
++};
 +
  /******************************************************************************/
  
  const gotoURL = function(ev) {
-@@ -1249,6 +1251,7 @@ uDom('#switch').on('click', toggleNetFilteringSwitch);
+@@ -1249,6 +1253,7 @@ uDom('#switch').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
  uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);

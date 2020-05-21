@@ -1,8 +1,8 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index efbb9353..3b529bdf 100644
+index 3c85a883..2cc058f2 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
-@@ -373,7 +373,7 @@ const registerAssetSource = function(assetKey, dict) {
+@@ -370,7 +370,7 @@ const registerAssetSource = function(assetKey, dict) {
          entry.contentURL = [];
      }
      if ( typeof entry.updateAfter !== 'number' ) {
@@ -11,7 +11,7 @@ index efbb9353..3b529bdf 100644
      }
      if ( entry.submitter ) {
          entry.submitTime = Date.now(); // To detect stale entries
-@@ -851,7 +851,7 @@ api.rmrf = function() {
+@@ -848,7 +848,7 @@ api.rmrf = function() {
  /******************************************************************************/
  
  // Asset updater area.
@@ -21,7 +21,7 @@ index efbb9353..3b529bdf 100644
  const updaterFetched = new Set();
  
 diff --git a/src/js/background.js b/src/js/background.js
-index c8eed618..49c29ba0 100644
+index 493351f9..49216c5c 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -39,9 +39,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -51,7 +51,7 @@ index c8eed618..49c29ba0 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeThirdPartyFiltersPrivileged: false,
          nanoMakeUserFiltersPrivileged: false,
-@@ -95,7 +95,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -94,7 +94,7 @@ const µBlock = (( ) => { // jshint ignore:line
              externalLists: [],
              firewallPaneMinimized: true,
              hyperlinkAuditingDisabled: true,
@@ -60,7 +60,7 @@ index c8eed618..49c29ba0 100644
              largeMediaSize: 50,
              nanoEditorSoftWrap: false,
              nanoViewerSoftWrap: true,
-@@ -125,8 +125,10 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -124,8 +124,10 @@ const µBlock = (( ) => { // jshint ignore:line
              'about-scheme',
              'chrome-extension-scheme',
              'chrome-scheme',
@@ -72,10 +72,10 @@ index c8eed618..49c29ba0 100644
              'vivaldi-scheme',
              'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 12b54e01..7dbc3c58 100644
+index e080eb0e..cefa7cd7 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -234,6 +234,7 @@ const createDefaultProps = function() {
+@@ -252,6 +252,7 @@ const createDefaultProps = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [

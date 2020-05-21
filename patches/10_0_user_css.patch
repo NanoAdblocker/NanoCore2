@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index d3c0044e..b42b8cad 100644
+index 80b69fe8..2820413b 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
 @@ -100,11 +100,6 @@ vAPI.webextFlavor = {

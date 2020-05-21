@@ -1,17 +1,19 @@
 diff --git a/src/js/popup.js b/src/js/popup.js
-index 5be69dca..968f505e 100644
+index feea0361..e98927e6 100644
 --- a/src/js/popup.js
 +++ b/src/js/popup.js
-@@ -776,6 +776,8 @@ const nanoForceEnableScroll = function() {
+@@ -776,6 +776,10 @@ const nanoForceEnableScroll = function() {
      vAPI.closePopup();
  };
  
-+const nanoOpenBugReporter = vAPI.nanoOpenBugReporter;
++const nanoOpenBugReporter = function() {
++    vAPI.nanoOpenBugReporter(popupData.tabId);
++};
 +
  /******************************************************************************/
  
  const gotoURL = function(ev) {
-@@ -1222,6 +1224,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
+@@ -1222,6 +1226,7 @@ uDom('#switch .fa-icon').on('click', toggleNetFilteringSwitch);
  uDom('#gotoZap').on('click', gotoZap);
  uDom('#gotoPick').on('click', gotoPick);
  uDom('#nanoForceEnableScroll').on('click', nanoForceEnableScroll);

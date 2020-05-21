@@ -1,5 +1,5 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index 1e9d95bb..1cd6a8df 100644
+index 98278f21..920072e6 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
 @@ -65,6 +65,9 @@ const µBlock = (( ) => { // jshint ignore:line
@@ -12,7 +12,7 @@ index 1e9d95bb..1cd6a8df 100644
          popupFontSize: 'unset',
          popupPanelDisabledSections: 0,
          popupPanelLockedSections: 0,
-@@ -165,6 +168,7 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -164,6 +167,7 @@ const µBlock = (( ) => { // jshint ignore:line
          assetsBootstrapLocation: undefined,
  
          userFiltersPath: 'user-filters',
@@ -34,10 +34,10 @@ index 43806e76..1c2aab1a 100644
          if ( lpos === 0 ) {
              parsed.hostnames = emptyArray;
 diff --git a/src/js/static-net-filtering.js b/src/js/static-net-filtering.js
-index b5672088..3958adb5 100644
+index 8c75be41..b88e4974 100644
 --- a/src/js/static-net-filtering.js
 +++ b/src/js/static-net-filtering.js
-@@ -2334,6 +2334,10 @@ const FilterParser = class {
+@@ -2337,6 +2337,10 @@ const FilterParser = class {
              }
              // https://github.com/uBlockOrigin/uAssets/issues/192
              if ( opt === 'badfilter' ) {
@@ -48,7 +48,7 @@ index b5672088..3958adb5 100644
                  this.badFilter = true;
                  continue;
              }
-@@ -2419,6 +2423,10 @@ const FilterParser = class {
+@@ -2422,6 +2426,10 @@ const FilterParser = class {
          // block or allow filter?
          // Important: this must be executed before parsing options
          if ( s.startsWith('@@') ) {

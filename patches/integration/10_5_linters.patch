@@ -1,8 +1,8 @@
 diff --git a/src/js/messaging.js b/src/js/messaging.js
-index 50212840..975720a8 100644
+index de13e620..200c3f6f 100644
 --- a/src/js/messaging.js
 +++ b/src/js/messaging.js
-@@ -1196,6 +1196,13 @@ const onMessage = function(request, sender, callback) {
+@@ -1192,6 +1192,13 @@ const onMessage = function(request, sender, callback) {
          nano.recompile_filters();
          break;
  

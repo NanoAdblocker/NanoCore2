@@ -33,7 +33,7 @@ index ad7813dd..e8718424 100644
  
      restart: function() {
 diff --git a/src/js/start.js b/src/js/start.js
-index 23db0edf..12b54e01 100644
+index 23db0edf..e080eb0e 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
 @@ -108,7 +108,7 @@ const onVersionReady = function(lastVersion) {
@@ -45,7 +45,7 @@ index 23db0edf..12b54e01 100644
          µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 0);
          µb.saveHostnameSwitches();
-@@ -116,20 +116,11 @@ const onVersionReady = function(lastVersion) {
+@@ -116,19 +116,28 @@ const onVersionReady = function(lastVersion) {
  
      // Configure new popup panel according to classic popup panel
      // configuration.
@@ -59,34 +59,13 @@ index 23db0edf..12b54e01 100644
 -            lastVersionInt <= 1026003016 &&
 -            (µb.userSettings.popupPanelSections & 1) !== 0
 -        ) {
--            µb.userSettings.popupPanelSections =
--                (µb.userSettings.popupPanelSections << 1 | 1) & 0b111111;
--            µb.saveUserSettings();
--        }
-+    if ( lastVersionInt <= 142 ) {
++    if ( lastVersionInt !== 0 && lastVersionInt <= 142 ) {
 +        µb.userSettings.popupPanelSections =
 +            µb.userSettings.dynamicFilteringEnabled === true ? 0b1 : 0b0;
 +        µb.userSettings.dynamicFilteringEnabled = undefined;
 +        µb.saveUserSettings();
-     }
- 
-     vAPI.storage.set({ version: vAPI.app.version });
-diff --git a/src/js/start.js b/src/js/start.js
-index 7dbc3c58..cefa7cd7 100644
---- a/src/js/start.js
-+++ b/src/js/start.js
-@@ -116,13 +116,31 @@ const onVersionReady = function(lastVersion) {
- 
-     // Configure new popup panel according to classic popup panel
-     // configuration.
--    if ( lastVersionInt <= 142 ) {
-+    if ( lastVersionInt !== 0 && lastVersionInt <= 142 ) {
-         µb.userSettings.popupPanelSections =
-             µb.userSettings.dynamicFilteringEnabled === true ? 0b1 : 0b0;
-         µb.userSettings.dynamicFilteringEnabled = undefined;
-         µb.saveUserSettings();
-     }
- 
++    }
++
 +    // Migration specific to Nano
 +    if ( lastVersionInt !== 0 && lastVersionInt <= 145 ) {
 +        try {
@@ -95,16 +74,14 @@ index 7dbc3c58..cefa7cd7 100644
 +            µb.hiddenSettings.popupPanelLockedSections   = 0b100111;
 +            µb.saveHiddenSettings();
 +            // User settings
-+            µb.userSettings.popupPanelSections =
+             µb.userSettings.popupPanelSections =
+-                (µb.userSettings.popupPanelSections << 1 | 1) & 0b111111;
 +                µb.userSettings.popupPanelSections ? 0b11111 : 0b01111;
-+            µb.saveUserSettings();
+             µb.saveUserSettings();
 +            // Done
 +            console.log('migration finished');
 +        } catch (err) {
 +            console.error(err);
-+        }
-+    }
-+
-     vAPI.storage.set({ version: vAPI.app.version });
- };
+         }
+     }
  

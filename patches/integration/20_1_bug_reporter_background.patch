@@ -1,26 +1,19 @@
 diff --git a/platform/chromium/vapi-common.js b/platform/chromium/vapi-common.js
-index 38076516..d3c0044e 100644
+index 38076516..80b69fe8 100644
 --- a/platform/chromium/vapi-common.js
 +++ b/platform/chromium/vapi-common.js
-@@ -177,6 +177,23 @@ vAPI.download = function(details) {
+@@ -177,6 +177,16 @@ vAPI.download = function(details) {
  
  vAPI.getURL = browser.runtime.getURL;
  
-+vAPI.nanoOpenBugReporter = function() {
++vAPI.nanoOpenBugReporter = function(tabId) {
 +    const reporter = vAPI.getURL('/reporter/index.html');
 +
-+    chrome.tabs.query({
-+        active: true,
-+        currentWindow: true
-+    }, function(tabs) {
-+        if (chrome.runtime.lastError || tabs.length === 0) {
-+            return;
-+        }
-+
++    if ( typeof tabId === "number" ) {
 +        chrome.tabs.create({
-+            url: reporter + '?' + tabs[0].id
++            url: reporter + '?' + tabId
 +        });
-+    });
++    }
 +};
 +
  /******************************************************************************/
