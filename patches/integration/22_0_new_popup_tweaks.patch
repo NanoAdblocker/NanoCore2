@@ -31,6 +31,19 @@ index 20627607..3f99c13f 100644
  body.needSave #saveRules,
  body.needSave #revertRules {
      visibility: visible;
+diff --git a/src/js/background.js b/src/js/background.js
+index 920072e6..dc304bef 100644
+--- a/src/js/background.js
++++ b/src/js/background.js
+@@ -70,7 +70,7 @@ const µBlock = (( ) => { // jshint ignore:line
+         nanoMakeUserFiltersPrivileged: false,
+         popupFontSize: 'unset',
+         popupPanelDisabledSections: 0,
+-        popupPanelLockedSections: 0,
++        popupPanelLockedSections: 39, // 0b100111
+         requestJournalProcessPeriod: 1000,
+         selfieAfter: 3,
+         strictBlockingBypassDuration: 120,
 diff --git a/src/js/popup-fenix.js b/src/js/popup-fenix.js
 index 579c46b9..8b074c96 100644
 --- a/src/js/popup-fenix.js
