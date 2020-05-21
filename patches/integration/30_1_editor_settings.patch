@@ -1,18 +1,18 @@
 diff --git a/src/js/background.js b/src/js/background.js
-index cb3fb73b..c41127c2 100644
+index 1cd6a8df..c8eed618 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -96,6 +96,8 @@ const µBlock = (( ) => { // jshint ignore:line
+@@ -97,6 +97,8 @@ const µBlock = (( ) => { // jshint ignore:line
              hyperlinkAuditingDisabled: true,
              ignoreGenericCosmeticFilters: vAPI.webextFlavor.soup.has('mobile'),
              largeMediaSize: 50,
 +            nanoEditorSoftWrap: false,
 +            nanoViewerSoftWrap: true,
              parseAllABPHideFilters: true,
-             popupPanelSections: 0b0,
+             popupPanelSections: 0b111,
              prefetchingDisabled: true,
 diff --git a/src/settings.html b/src/settings.html
-index 4a74cf82..bf00aea1 100644
+index dff29650..ee35eb80 100644
 --- a/src/settings.html
 +++ b/src/settings.html
 @@ -24,6 +24,8 @@

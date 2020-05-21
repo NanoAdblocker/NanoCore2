@@ -1,29 +1,5 @@
-diff --git a/src/css/settings.css b/src/css/settings.css
-index 0e7ea939..e5e5cf9b 100644
---- a/src/css/settings.css
-+++ b/src/css/settings.css
-@@ -11,16 +11,17 @@ body.advancedUser [href="advanced-settings.html"] {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-between;
-+    max-width: 800px;
-     white-space: nowrap;
-     }
- #localData > div {
--    flex-grow: 1;
-+    flex-grow: 2;
-     margin-bottom: 1em;
-     }
- #localData > div:last-of-type {
-     display: flex;
-     flex-direction: column;
--    flex-grow: 0;
-+    flex-grow: 1;
-     flex-shrink: 0;
-     }
- #localData > div:last-of-type > button {
 diff --git a/src/settings.html b/src/settings.html
-index c64dd02c..4a74cf82 100644
+index 78a36ea2..dff29650 100644
 --- a/src/settings.html
 +++ b/src/settings.html
 @@ -16,27 +16,31 @@

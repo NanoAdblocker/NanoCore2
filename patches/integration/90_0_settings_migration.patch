@@ -71,3 +71,40 @@ index 23db0edf..12b54e01 100644
      }
  
      vAPI.storage.set({ version: vAPI.app.version });
+diff --git a/src/js/start.js b/src/js/start.js
+index 7dbc3c58..cefa7cd7 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -116,13 +116,31 @@ const onVersionReady = function(lastVersion) {
+ 
+     // Configure new popup panel according to classic popup panel
+     // configuration.
+-    if ( lastVersionInt <= 142 ) {
++    if ( lastVersionInt !== 0 && lastVersionInt <= 142 ) {
+         µb.userSettings.popupPanelSections =
+             µb.userSettings.dynamicFilteringEnabled === true ? 0b1 : 0b0;
+         µb.userSettings.dynamicFilteringEnabled = undefined;
+         µb.saveUserSettings();
+     }
+ 
++    // Migration specific to Nano
++    if ( lastVersionInt !== 0 && lastVersionInt <= 145 ) {
++        try {
++            // Hidden settings
++            µb.hiddenSettings.popupPanelDisabledSections = 0b000000;
++            µb.hiddenSettings.popupPanelLockedSections   = 0b100111;
++            µb.saveHiddenSettings();
++            // User settings
++            µb.userSettings.popupPanelSections =
++                µb.userSettings.popupPanelSections ? 0b11111 : 0b01111;
++            µb.saveUserSettings();
++            // Done
++            console.log('migration finished');
++        } catch (err) {
++            console.error(err);
++        }
++    }
++
+     vAPI.storage.set({ version: vAPI.app.version });
+ };
+ 
