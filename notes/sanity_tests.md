@@ -140,14 +140,12 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. The top toolbar appears, then the firewall panel appears
-1. `More` button disappears, `Less` button appears
 
 **Actions**
 1. Click `Less` twice
 
 **Expected**
 1. The firewall panel disappears, then the top toolbar disappears
-1. `More` button appears, `Less` button disappears
 
 **Actions**
 1. Open the bug reporter using the popup panel
