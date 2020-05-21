@@ -434,16 +434,3 @@ nano.WhitelistLinter.prototype.lint = function (line, num) {
 nano.wl = new nano.WhitelistLinter();
 
 // ----------------------------------------------------------------------------------------------------------------- //
-
-nano.debugUtils = {};
-
-nano.debugUtils.testMigration145 = function () {
-    nano.ub.userSettings.popupPanelSections = 0;
-    nano.ub.saveUserSettings();
-
-    vAPI.storage.set({
-        version: "1.0.0.144",
-    });
-};
-
-// ----------------------------------------------------------------------------------------------------------------- //
