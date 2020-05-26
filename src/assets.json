@@ -166,8 +166,8 @@
     "title": "EasyList",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/easylist.txt",
-      "https://easylist.to/easylist/easylist.txt",
       "https://secure.fanboy.co.nz/easylist.txt",
+      "https://easylist.to/easylist/easylist.txt",
       "assets/ThirdParty/EasyList.txt"
     ],
     "supportURL": "https://forums.lanik.us/"
