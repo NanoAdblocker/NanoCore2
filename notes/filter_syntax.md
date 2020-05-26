@@ -48,7 +48,7 @@ option.
 If you are a filters maintainer and this difference is causing problems for
 you, please let us know.
 
-## Filter Editor
+## The Filters Editor
 
 Nano Editor is powered by Ace, and most
 [shortcut keys](https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts)
