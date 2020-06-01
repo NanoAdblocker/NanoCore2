@@ -242,6 +242,44 @@
     };
 })();
 
+// Prevent inline scripts with specific IDs from executing, 1 required argument
+// needle - The ID matcher, can be a plain string (exact match) or a regular expression
+//
+/// nano-abort-inline-scripts-by-id.js
+(() => {
+    let needle = '{{1}}';
+    if (needle === '' || needle === '{{1}}') {
+        return;
+    } else if (needle.startsWith('/') && needle.endsWith('/')) {
+        needle = needle.slice(1, -1);
+    } else {
+        needle = '^' + needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$';
+    }
+    needle = new RegExp(needle);
+    //
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.tagName === 'SCRIPT' && needle.test(node.id)) {
+                    node.textContent = '';
+                    node.remove();
+                }
+            }
+        }
+    });
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        return; // Too late
+    } else {
+        observer.observe(document, {
+            childList: true,
+            subtree: true,
+        });
+        addEventListener('DOMContentLoaded', () => {
+            observer.disconnect();
+        });
+    }
+})();
+
 // ----------------------------------------------------------------------------------------------------------------- //
 
 // Deprecated resources, these may be removed in the future
