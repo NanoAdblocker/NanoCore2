@@ -153,9 +153,9 @@ Later, the intervention can be lifted as follows:
 
 ## External Dependencies
 
-Ace
-- `src-noconflict/ace.js` 15.04.20 (v1.4.10)
-- `src-noconflict/ext-searchbox.js` 21.02.19
+1. Ace
+   - `src-noconflict/ace.js` 15.04.20 (v1.4.10)
+   - `src-noconflict/ext-searchbox.js` 21.02.19
 
 ## Tips
 
