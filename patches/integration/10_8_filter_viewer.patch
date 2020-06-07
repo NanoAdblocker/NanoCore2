@@ -37,8 +37,8 @@ index 9d3eaedf..3be76b7e 100644
 -
 -<script src="js/codemirror/search.js"></script>
 -<script src="js/codemirror/ubo-static-filtering.js"></script>
-+<script src="lib/ace/ace-1.2.9.js"></script>
-+<script src="lib/ace/ext-searchbox-1.2.9.js"></script>
++<script src="lib/ace/ace.js"></script>
++<script src="lib/ace/ext-searchbox.js"></script>
 +<script src="js/nano-editor.js"></script>
  
  <script src="js/fa-icons.js"></script>

@@ -48,7 +48,7 @@ const validate_html = async (file) => {
 
     switch (name) {
         case "1p-filters":
-            expected = "ace/ace-1.2.9.js";
+            expected = "ace/ace.js";
             break;
 
         case "asset-viewer":

@@ -151,6 +151,12 @@ Later, the intervention can be lifted as follows:
    MirrorEngine
 1. Unlock the subresource in UltimateMirror
 
+## External Dependencies
+
+Ace
+- `src-noconflict/ace.js` 15.04.20 (v1.4.10)
+- `src-noconflict/ext-searchbox.js` 21.02.19
+
 ## Tips
 
 To update a patch, simply paste further changes to the bottom of that patch and
