@@ -47,19 +47,12 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const TextMode = ace.require("ace/mode/text").Mode;
     const HighlightRules = ace.require("ace/mode/nano_filters_hr").HighlightRules;
 
-    // The way tokenRe works seems to have changed, must test when updating Ace
-    // https://github.com/ajaxorg/ace/pull/3454/files#diff-2a8db065be808cdb78daf80b97fcb4aa
     exports.Mode = function () {
         this.HighlightRules = HighlightRules;
         this.lineCommentStart = "!";
-        this.tokenRe = new RegExp(
-            "^[" +
-            unicode.packages.L + unicode.packages.Mn + unicode.packages.Mc + unicode.packages.Nd +
-            unicode.packages.Pc +
-            "\\-_.]+",
-            "g"
-        );
+        this.tokenRe = new RegExp("^[" + unicode.wordChars + "\\-_.]+", "g");
     };
+
     oop.inherits(exports.Mode, TextMode);
 });
 
@@ -599,8 +592,6 @@ nano.Editor = function (elem, highlight, readonly) {
         this.session.setNewLineMode("windows");
     else
         this.session.setNewLineMode("unix");
-
-    this.editor.$blockScrolling = Infinity;
 
     this.on_resize = () => {
         const child_elem = document.getElementById(elem);
