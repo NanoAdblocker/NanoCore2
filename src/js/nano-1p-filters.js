@@ -75,7 +75,8 @@ nano.render_filters = async (first) => {
     nano.filters_changed(false);
     nano.render_anno();
 
-    // TODO: Clear undo history if first is true?
+    if (first)
+        nano.editor.reset_undo();
 };
 
 nano.render_anno = async () => {

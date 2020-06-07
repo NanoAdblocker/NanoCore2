@@ -634,6 +634,10 @@ nano.Editor.prototype.set_value_focus = function (val, cursor, keep_anno) {
     this.on_resize();
 };
 
+nano.Editor.prototype.reset_undo = function () {
+    this.session.$undoManager.reset();
+};
+
 nano.Editor.prototype.set_anno = function (anno) {
     this.session.setAnnotations(anno);
 };
