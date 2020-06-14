@@ -43,6 +43,7 @@ const path = require("path");
 
 const build = require("./build.js");
 const crowdin = require("./crowdin.js");
+const syntax = require("./syntax.js");
 const Term = require("./term.js");
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -372,6 +373,20 @@ cmd_handlers.set("pack", async () => {
         await make();
         await test();
         await pack();
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+
+    term.ready();
+});
+
+cmd_handlers.set("check", async () => {
+    busy = true;
+
+    try {
+        await syntax.validate_dir("./src");
     } catch (err) {
         term.write_line(err.stack);
     }

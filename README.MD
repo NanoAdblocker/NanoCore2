@@ -55,6 +55,7 @@ mark     Create a patch based on the difference between tip of resynchronize
 
 make     Build extension from development environment
 pack     Build, test, then package the extension
+check    Check the syntax of files under the "/src" directory
 publish  Build, test, package, then publish the extension
          Optionally pass browser name to publish for only one browser
 clean    Remove all build files
