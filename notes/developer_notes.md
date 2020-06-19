@@ -33,6 +33,9 @@ These may or may not be out of date.
 
 ## Other Observations
 
+- `1p-filters.js` does not check for unsaved changes when save is initiated via
+  shortcut key, and will always perform a save even if there were no changes.
+
 - `static-net-filtering.js > FilterContainer.prototype.compile` checks for
   empty lines, but there seems to be no way for empty lines to enter this
   function.
