@@ -44,3 +44,7 @@ filters automatic comment template.
 ## Group `90`: Other Changes
 
 `90_0_assets_migration.patch`: Legacy assets migration.
+
+`90_1_cherry_pick_issue_348.patch`: Cherry-pick of
+[`a5ba668`](https://github.com/gorhill/uBlock/commit/a5ba668c382a3be0ba41ce0f0a69ebb090c260a5)
+to fix issue [348](https://github.com/NanoAdblocker/NanoCore/issues/348).
