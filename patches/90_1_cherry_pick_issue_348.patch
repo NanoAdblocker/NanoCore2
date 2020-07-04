@@ -1,5 +1,5 @@
 diff --git a/platform/chromium/vapi-usercss.pseudo.js b/platform/chromium/vapi-usercss.pseudo.js
-index dbf55b72f4b..4d0fda69f35 100644
+index dbf55b72..4d0fda69 100644
 --- a/platform/chromium/vapi-usercss.pseudo.js
 +++ b/platform/chromium/vapi-usercss.pseudo.js
 @@ -365,11 +365,11 @@ vAPI.DOMFilterer = class {
