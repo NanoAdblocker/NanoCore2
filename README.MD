@@ -132,6 +132,16 @@ These are the potential problems to look out for:
 1. Changes to documented behaviors
    - Update documentations in NanoCore, NanoCore2, and NanoDoc to adapt
 
+## Assets Manifest Update Checklist
+
+1. When assets are removed
+   - Open an issue in UltimateMirror to schedule removal of matching mirrored
+     file
+   - Remove the mirrored file after a few months
+1. When assets that are enabled by default have changed
+   - Update NanoFilters build scripts
+   - Delete and refresh third party assets cache
+
 ## Subresource Integrity Incidence Response Protocol
 
 When there is a severe issue with the content of a subresource, an intervention
