@@ -177,10 +177,11 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Actions**
 1. Go to `https://gorhill.github.io/uBlock/tests/`
-1. Click `Procedural cosmetic filters`
+1. Click `CSS selector-based cosmetic filters`
 1. Add filters as instructed
 1. Reload the page
 1. Wait 5 seconds
+1. Repeat for `Procedural cosmetic filters`
 
 **Expected**
 1. All boxes are green and stay green
