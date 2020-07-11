@@ -206,31 +206,21 @@
   },
 
 
-  "malware-0": {
+  "urlhaus-1": {
     "content": "filters",
     "group": "malware",
-    "nanoUpdateAfterDefault": 5,
-    "title": "Malware Domain List",
+    "title": "Online Malicious URL Blocklist",
     "contentURL": [
-      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/hosts.txt",
-      "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/hosts.txt",
-      "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/filter.txt",
-      "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/filter.txt",
-      "assets/ThirdParty/MalwareDomain0.txt"
-    ]
-  },
-  "malware-1": {
-    "content": "filters",
-    "group": "malware",
-    "nanoUpdateAfterDefault": 5,
-    "title": "Malware domains",
-    "contentURL": [
-      "https://mirror.cedia.org.ec/malwaredomains/justdomains",
-      "https://mirror1.malwaredomains.com/files/justdomains",
-      "assets/ThirdParty/MalwareDomain1.txt"
+      "https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter-online.txt",
+      "assets/ThirdParty/MalwareDomain2.txt"
     ],
-    "supportURL": "https://www.malwaredomains.com/"
+    "cdnURLs": [
+      "https://cdn.statically.io/gl/curben/urlhaus-filter/master/urlhaus-filter-online.txt",
+      "https://glcdn.githack.com/curben/urlhaus-filter/raw/master/urlhaus-filter-online.txt",
+      "https://gitcdn.xyz/repo/curbengh/urlhaus-filter/master/urlhaus-filter-online.txt",
+      "https://repo.or.cz/urlhaus-filter.git/blob_plain/refs/heads/master:/urlhaus-filter-online.txt"
+    ],
+    "supportURL": "https://gitlab.com/curben/urlhaus-filter#urlhaus-malicious-url-blocklist"
   },
   "spam404-0": {
     "content": "filters",
