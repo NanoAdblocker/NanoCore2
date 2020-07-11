@@ -33,7 +33,7 @@ sanity test need to be performed manually before each release.
 **Expected**
 1. The confirm prompt mentions `Nano`
 1. Settings are restored (check outdated warning markers in `Filter lists` tab)
-1. Filters cache is purged (check the timestamp of `Malware Domain List`)
+1. Filters cache is purged (check the last modified timestamp of `EasyList`)
 1. Filters are reloaded from the extension package (check `Network` tab of the
    background console)
 1. The subfilter of the uBlock base filter is properly loaded
