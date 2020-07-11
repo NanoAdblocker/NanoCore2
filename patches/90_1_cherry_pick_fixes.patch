@@ -1,3 +1,16 @@
+diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
+index e8718424..1f967801 100644
+--- a/platform/chromium/vapi-background.js
++++ b/platform/chromium/vapi-background.js
+@@ -164,7 +164,7 @@ vAPI.browserSettings = (( ) => {
+                 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/privacy/network#Browser_compatibility
+                 //   Firefox 70+ supports `disable_non_proxied_udp`
+                 const value =
+-                    vAPI.webextFlavor.soup.has('firefox') &&
++                    vAPI.webextFlavor.soup.has('firefox') === false ||
+                     vAPI.webextFlavor.major < 70
+                         ? 'default_public_interface_only'
+                         : 'disable_non_proxied_udp';
 diff --git a/platform/chromium/vapi-usercss.pseudo.js b/platform/chromium/vapi-usercss.pseudo.js
 index dbf55b72..4d0fda69 100644
 --- a/platform/chromium/vapi-usercss.pseudo.js
@@ -19,24 +32,11 @@ index dbf55b72..4d0fda69 100644
              }
              node.setAttribute('style', attr + 'display:none!important;');
          }
-diff --git a/src/js/start.js b/src/js/start.js
-index 23db0edf02b..19e3184ec1b 100644
---- a/src/js/start.js
-+++ b/src/js/start.js
-@@ -379,7 +379,7 @@ if (
-             )
-         )
-     ) {
--        browser.browserAction.setPopup({ popup: vAPI.getURL('popup.html') });
-+        browser.browserAction.setPopup({ popup: 'popup.html' });
-     }
- }
- 
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 3f607cfe6a8..9a94b2fc0eb 100644
+index f2f67e83..5c550852 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
-@@ -529,7 +529,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -552,7 +552,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
  
  /******************************************************************************/
  
@@ -45,16 +45,16 @@ index 3f607cfe6a8..9a94b2fc0eb 100644
  
  RedirectEngine.prototype.supportedTypes = new Map([
      [ 'css', 'stylesheet' ],
-diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
-index fc3caa47a81..0de8a4f1a42 100644
---- a/platform/chromium/vapi-background.js
-+++ b/platform/chromium/vapi-background.js
-@@ -184,7 +184,7 @@ vAPI.browserSettings = (( ) => {
-                 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/privacy/network#Browser_compatibility
-                 //   Firefox 70+ supports `disable_non_proxied_udp`
-                 const value =
--                    vAPI.webextFlavor.soup.has('firefox') &&
-+                    vAPI.webextFlavor.soup.has('firefox') === false ||
-                     vAPI.webextFlavor.major < 70
-                         ? 'default_public_interface_only'
-                         : 'disable_non_proxied_udp';
+diff --git a/src/js/start.js b/src/js/start.js
+index cefa7cd7..bb4b9d26 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -389,7 +389,7 @@ if (
+             )
+         )
+     ) {
+-        browser.browserAction.setPopup({ popup: vAPI.getURL('popup.html') });
++        browser.browserAction.setPopup({ popup: 'popup.html' });
+     }
+ }
+ 

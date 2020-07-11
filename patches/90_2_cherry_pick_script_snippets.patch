@@ -1,55 +1,5 @@
 diff --git a/assets/resources/scriptlets.js b/assets/resources/scriptlets.js
-index d2c0bdb6754..c788ad5edc4 100644
---- a/assets/resources/scriptlets.js
-+++ b/assets/resources/scriptlets.js
-@@ -1197,14 +1197,14 @@
- // https://github.com/NanoAdblocker/NanoFilters/issues/149
- /// cookie-remover.js
- (function() {
--    let needle = '{{1}}',
--        reName = /./;
-+    const needle = '{{1}}';
-+    let reName = /./;
-     if ( /^\/.+\/$/.test(needle) ) {
-         reName = new RegExp(needle.slice(1,-1));
-     } else if ( needle !== '' && needle !== '{{1}}' ) {
-         reName = new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-     }
--    let removeCookie = function() {
-+    const removeCookie = function() {
-         document.cookie.split(';').forEach(cookieStr => {
-             let pos = cookieStr.indexOf('=');
-             if ( pos === -1 ) { return; }
-@@ -1213,8 +1213,16 @@
-             let part1 = cookieName + '=';
-             let part2a = '; domain=' + document.location.hostname;
-             let part2b = '; domain=.' + document.location.hostname;
-+            let part2c, part2d;
-             let domain = document.domain;
--            let part2c = domain && domain !== document.location.hostname ? '; domain=.' + domain : undefined;
-+            if ( domain ) {
-+                if ( domain !== document.location.hostname ) {
-+                    part2c = '; domain=.' + domain;
-+                }
-+                if ( domain.startsWith('www.') ) {
-+                    part2d = '; domain=' + domain.replace('www', '');
-+                }
-+            }
-             let part3 = '; path=/';
-             let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-             document.cookie = part1 + part4;
-@@ -1226,6 +1234,9 @@
-             if ( part2c !== undefined ) {
-                 document.cookie = part1 + part2c + part3 + part4;
-             }
-+            if ( part2d !== undefined ) {
-+                document.cookie = part1 + part2d + part3 + part4;
-+            }
-         });
-     };
-     removeCookie();
-diff --git a/assets/resources/scriptlets.js b/assets/resources/scriptlets.js
-index c788ad5edc4..c96b77cafd9 100644
+index d2c0bdb6..faca87a8 100644
 --- a/assets/resources/scriptlets.js
 +++ b/assets/resources/scriptlets.js
 @@ -278,27 +278,42 @@
@@ -115,11 +65,7 @@ index c788ad5edc4..c96b77cafd9 100644
              }
              return r;
          },
-diff --git a/assets/resources/scriptlets.js b/assets/resources/scriptlets.js
-index c96b77cafd9..faca87a89e7 100644
---- a/assets/resources/scriptlets.js
-+++ b/assets/resources/scriptlets.js
-@@ -705,9 +705,13 @@
+@@ -693,9 +705,13 @@
      const needleNot = needle.charAt(0) === '!';
      if ( needleNot ) { needle = needle.slice(1); }
      let delay = '{{2}}';
@@ -136,7 +82,7 @@ index c96b77cafd9..faca87a89e7 100644
      if ( needle === '' || needle === '{{1}}' ) {
          needle = '';
      } else if ( needle.startsWith('/') && needle.endsWith('/') ) {
-@@ -715,8 +719,7 @@
+@@ -703,8 +719,7 @@
      } else {
          needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
      }
@@ -146,7 +92,7 @@ index c96b77cafd9..faca87a89e7 100644
          ? console.log
          : undefined;
      const reNeedle = new RegExp(needle);
-@@ -724,18 +727,19 @@
+@@ -712,18 +727,19 @@
          apply: function(target, thisArg, args) {
              const a = String(args[0]);
              const b = args[1];
@@ -175,7 +121,7 @@ index c96b77cafd9..faca87a89e7 100644
              }
              return target.apply(thisArg, args);
          }
-@@ -776,9 +780,13 @@
+@@ -764,9 +780,13 @@
      const needleNot = needle.charAt(0) === '!';
      if ( needleNot ) { needle = needle.slice(1); }
      let delay = '{{2}}';
@@ -192,7 +138,7 @@ index c96b77cafd9..faca87a89e7 100644
      if ( needle === '' || needle === '{{1}}' ) {
          needle = '';
      } else if ( needle.startsWith('/') && needle.endsWith('/') ) {
-@@ -786,8 +794,7 @@
+@@ -774,8 +794,7 @@
      } else {
          needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
      }
@@ -202,7 +148,7 @@ index c96b77cafd9..faca87a89e7 100644
          ? console.log
          : undefined;
      const reNeedle = new RegExp(needle);
-@@ -795,18 +802,19 @@
+@@ -783,18 +802,19 @@
          apply: function(target, thisArg, args) {
              const a = String(args[0]);
              const b = args[1];
@@ -231,3 +177,49 @@ index c96b77cafd9..faca87a89e7 100644
              }
              return target.apply(thisArg, args);
          }
+@@ -1197,14 +1217,14 @@
+ // https://github.com/NanoAdblocker/NanoFilters/issues/149
+ /// cookie-remover.js
+ (function() {
+-    let needle = '{{1}}',
+-        reName = /./;
++    const needle = '{{1}}';
++    let reName = /./;
+     if ( /^\/.+\/$/.test(needle) ) {
+         reName = new RegExp(needle.slice(1,-1));
+     } else if ( needle !== '' && needle !== '{{1}}' ) {
+         reName = new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+     }
+-    let removeCookie = function() {
++    const removeCookie = function() {
+         document.cookie.split(';').forEach(cookieStr => {
+             let pos = cookieStr.indexOf('=');
+             if ( pos === -1 ) { return; }
+@@ -1213,8 +1233,16 @@
+             let part1 = cookieName + '=';
+             let part2a = '; domain=' + document.location.hostname;
+             let part2b = '; domain=.' + document.location.hostname;
++            let part2c, part2d;
+             let domain = document.domain;
+-            let part2c = domain && domain !== document.location.hostname ? '; domain=.' + domain : undefined;
++            if ( domain ) {
++                if ( domain !== document.location.hostname ) {
++                    part2c = '; domain=.' + domain;
++                }
++                if ( domain.startsWith('www.') ) {
++                    part2d = '; domain=' + domain.replace('www', '');
++                }
++            }
+             let part3 = '; path=/';
+             let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+             document.cookie = part1 + part4;
+@@ -1226,6 +1254,9 @@
+             if ( part2c !== undefined ) {
+                 document.cookie = part1 + part2c + part3 + part4;
+             }
++            if ( part2d !== undefined ) {
++                document.cookie = part1 + part2d + part3 + part4;
++            }
+         });
+     };
+     removeCookie();
