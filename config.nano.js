@@ -84,7 +84,8 @@
             "./patches/30_0_link_resources.patch",
 
             "./patches/90_0_assets_migration.patch",
-            "./patches/90_1_cherry_pick_issue_348.patch",
+            "./patches/90_1_cherry_pick_patches.patch",
+            "./patches/90_2_cherry_pick_script_snippets.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 

@@ -45,6 +45,13 @@ filters automatic comment template.
 
 `90_0_assets_migration.patch`: Legacy assets migration.
 
-`90_1_cherry_pick_issue_348.patch`: Cherry-pick of
-[`a5ba668`](https://github.com/gorhill/uBlock/commit/a5ba668c382a3be0ba41ce0f0a69ebb090c260a5)
-to fix issue [348](https://github.com/NanoAdblocker/NanoCore/issues/348).
+`90_1_cherry_pick_fixes.patch`: Cherry-pick of the following commits:
+- https://github.com/gorhill/uBlock/commit/a5ba668c382a3be0ba41ce0f0a69ebb090c260a5
+- https://github.com/gorhill/uBlock/commit/64cfc5779d87612f87bd5f9bd5581704d5795b64
+- https://github.com/gorhill/uBlock/commit/cb5437b1619ed4e84b7b1319b400f44f98df117a
+- https://github.com/gorhill/uBlock/commit/46197a11c511ec7f21632eb12ab7332c5e12354c
+
+`90_2_cherry_pick_script_snippets.patch`: Cherry-pick of the following commits:
+- https://github.com/gorhill/uBlock/commit/8f3d8cde7a9de45695d2706087701df59553c01b
+- https://github.com/gorhill/uBlock/commit/f433932d8602230539d3408e9946d4d70b40306c
+- https://github.com/gorhill/uBlock/commit/c4d39d37632fbee4d513116641a282ed2a48c89d
