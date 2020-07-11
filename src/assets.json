@@ -19,18 +19,6 @@
   },
 
 
-  "ublock-resources": {
-    "content": "internal",
-    "updateAfter": 5,
-    "contentURL": "assets/ThirdParty/uBlockResources.txt"
-  },
-  "nano-resources": {
-    "content": "internal",
-    "updateAfter": 5,
-    "contentURL": "assets/NanoFilters/NanoResources.txt"
-  },
-
-
   "nano-filters": {
     "content": "filters",
     "group": "default",
