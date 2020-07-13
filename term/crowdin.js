@@ -39,6 +39,7 @@ const yauzl = require("yauzl");
 const locales = new Map([
     ["es-ES", "es"],
     ["de", "de"],
+    ["fi", "fi"],
     ["it", "it"],
     ["ja", "ja"],
     ["nb", "nb"],
