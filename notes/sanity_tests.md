@@ -27,7 +27,7 @@ sanity test need to be performed manually before each release.
 
 **Actions**
 1. Go to `Settings` tab
-1. Click `Restore to default settings...`
+1. Click `Reset to default settings...`
 1. Confirm action
 
 **Expected**
