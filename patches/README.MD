@@ -46,6 +46,7 @@ filters automatic comment template.
 `90_0_assets_migration.patch`: Legacy assets migration.
 
 `90_1_cherry_pick_fixes.patch`: Cherry-pick of the following commits:
+- https://github.com/gorhill/uBlock/commit/d49a9dce66de6c3af1c31b9384293cddd96eb574
 - https://github.com/gorhill/uBlock/commit/a5ba668c382a3be0ba41ce0f0a69ebb090c260a5
 - https://github.com/gorhill/uBlock/commit/64cfc5779d87612f87bd5f9bd5581704d5795b64
 - https://github.com/gorhill/uBlock/commit/cb5437b1619ed4e84b7b1319b400f44f98df117a

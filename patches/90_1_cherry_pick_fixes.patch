@@ -33,9 +33,18 @@ index dbf55b72..4d0fda69 100644
              node.setAttribute('style', attr + 'display:none!important;');
          }
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index f2f67e83..5c550852 100644
+index f2f67e83..c9c7a6b0 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
+@@ -469,7 +469,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+     let type,
+         redirect = '',
+         srchns = [];
+-    for ( const option of matches[3].split(',') ) {
++    for ( const option of matches[3].trim().split(/,/) ) {
+         if ( option.startsWith('redirect=') ) {
+             redirect = option.slice(9);
+             continue;
 @@ -552,7 +552,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
  
  /******************************************************************************/
