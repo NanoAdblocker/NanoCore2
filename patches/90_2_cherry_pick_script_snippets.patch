@@ -1,7 +1,25 @@
 diff --git a/assets/resources/scriptlets.js b/assets/resources/scriptlets.js
-index d2c0bdb6..faca87a8 100644
+index d2c0bdb6..537190e3 100644
 --- a/assets/resources/scriptlets.js
 +++ b/assets/resources/scriptlets.js
+@@ -216,7 +216,7 @@
+         self.EventTarget.prototype.addEventListener,
+         {
+             apply: function(target, thisArg, args) {
+-                const type = args[0].toString();
++                const type = String(args[0]);
+                 const handler = String(args[1]);
+                 if (
+                     needle1.test(type) === false ||
+@@ -238,7 +238,7 @@
+         self.EventTarget.prototype.addEventListener,
+         {
+             apply: function(target, thisArg, args) {
+-                const type = args[0].toString();
++                const type = String(args[0]);
+                 const handler = String(args[1]);
+                 log('uBO: addEventListener("%s", %s)', type, handler);
+                 return target.apply(thisArg, args);
 @@ -278,27 +278,42 @@
          }
          reLogNeedle = new RegExp(needle);
