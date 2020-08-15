@@ -88,7 +88,7 @@
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
+    "message": "Nano преобразовал это правило в исключение, поскольку оно содержит только запрещенные домены.",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
@@ -184,7 +184,7 @@
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "The option 'denyallow=...' has invalid arguments.",
+    "message": "Опция 'denyallow=...' имеет неверные аргументы.",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
@@ -256,7 +256,7 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Redirect rules cannot be exceptions.",
+    "message": "Правила перенаправления не могут быть исключениями.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
