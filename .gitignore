@@ -1,5 +1,8 @@
 # Node modules
-node_modules
+node_modules/
+
+# Workspace
+temp/
 
 # Build results
-build
+build/
