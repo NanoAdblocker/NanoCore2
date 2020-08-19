@@ -92,7 +92,7 @@ const config_load = async () => {
         assert(typeof p === "string");
         assert(path.isAbsolute(p));
         {
-            const slashes = p.match(/\//g);
+            const slashes = p.match(/\\|\//g);
             assert(slashes !== null && slashes.length >= 2);
         }
     };
