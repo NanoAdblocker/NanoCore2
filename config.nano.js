@@ -93,20 +93,9 @@
 
         // --------------------------------------------------------------------------------------------------------- //
 
-        Source: {
-            Linux: "/tmp2/uBlock/",
-            Win: "D:/A_Temporary/uBlock/",
-        },
-
-        Target: {
-            Linux: "/tmp2/NanoCore2DevEnv/",
-            Win: "D:/A_Temporary/NanoCore2DevEnv/",
-        },
-
-        Output: {
-            Linux: "/tmp2/NanoCore2Latest.patch",
-            Win: "D:/A_Temporary/NanoCore2Latest.patch",
-        },
+        Source: "./temp/uBlock/",
+        Target: "./temp/NanoCore2DevEnv/",
+        Output: "./temp/NanoCore2Latest.patch",
 
         // --------------------------------------------------------------------------------------------------------- //
 

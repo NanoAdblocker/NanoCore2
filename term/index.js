@@ -38,7 +38,6 @@ const APP_NAME = "Nano Core 2 Terminal";
 
 const assert = require("assert");
 const fs = require("fs-extra");
-const os = require("os");
 const path = require("path");
 
 const build = require("./build.js");
@@ -85,15 +84,9 @@ const config_load = async () => {
 
     config.Patches = data.Patches.map((p) => path.resolve(p));
 
-    if (os.platform() === "win32") {
-        config.Source = data.Source.Win;
-        config.Target = data.Target.Win;
-        config.Output = data.Output.Win;
-    } else {
-        config.Source = data.Source.Linux;
-        config.Target = data.Target.Linux;
-        config.Output = data.Output.Linux;
-    }
+    config.Source = path.resolve(data.Source);
+    config.Target = path.resolve(data.Target);
+    config.Output = path.resolve(data.Output);
 
     const validate_path = (p) => {
         assert(typeof p === "string");
