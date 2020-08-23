@@ -52,8 +52,6 @@ filters automatic comment template.
 - https://github.com/gorhill/uBlock/commit/cb5437b1619ed4e84b7b1319b400f44f98df117a
 - https://github.com/gorhill/uBlock/commit/46197a11c511ec7f21632eb12ab7332c5e12354c
 
-`90_2_cherry_pick_script_snippets.patch`: Cherry-pick of the following commits:
-- https://github.com/gorhill/uBlock/commit/975d89441907f694303f21bd717ec80fa15a0d02
-- https://github.com/gorhill/uBlock/commit/8f3d8cde7a9de45695d2706087701df59553c01b
-- https://github.com/gorhill/uBlock/commit/f433932d8602230539d3408e9946d4d70b40306c
-- https://github.com/gorhill/uBlock/commit/c4d39d37632fbee4d513116641a282ed2a48c89d
+`90_2_resources_updates.patch`: Updates to script snippets and web accessible
+resources. Currently updated to commit
+`d25b9aa30f72c817b95455a41dfb80e2fecf58b2` or `1.29.2`.

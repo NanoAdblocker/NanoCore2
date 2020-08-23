@@ -1,5 +1,5 @@
 diff --git a/assets/resources/scriptlets.js b/assets/resources/scriptlets.js
-index d2c0bdb6..537190e3 100644
+index d2c0bdb6..0a1c835e 100644
 --- a/assets/resources/scriptlets.js
 +++ b/assets/resources/scriptlets.js
 @@ -216,7 +216,7 @@
@@ -83,7 +83,135 @@ index d2c0bdb6..537190e3 100644
              }
              return r;
          },
-@@ -693,9 +705,13 @@
+@@ -576,8 +588,9 @@
+ /// set-constant.js
+ /// alias set.js
+ (function() {
+-    const thisScript = document.currentScript;
++    const chain = '{{1}}';
+     let cValue = '{{2}}';
++    const thisScript = document.currentScript;
+     if ( cValue === 'undefined' ) {
+         cValue = undefined;
+     } else if ( cValue === 'false' ) {
+@@ -610,53 +623,83 @@
+             (typeof v !== typeof cValue);
+         return aborted;
+     };
+-    const makeProxy = function(owner, chain) {
++    // https://github.com/uBlockOrigin/uBlock-issues/issues/156
++    //   Support multiple trappers for the same property.
++    const trapProp = function(owner, prop, handler) {
++        if ( handler.init(owner[prop]) === false ) { return; }
++        const odesc = Object.getOwnPropertyDescriptor(owner, prop);
++        let prevGetter, prevSetter;
++        if ( odesc instanceof Object ) {
++            if ( odesc.get instanceof Function ) {
++                prevGetter = odesc.get;
++            }
++            if ( odesc.set instanceof Function ) {
++                prevSetter = odesc.set;
++            }
++        }
++        Object.defineProperty(owner, prop, {
++            configurable: true,
++            get() {
++                if ( prevGetter !== undefined ) {
++                    prevGetter();
++                }
++                return handler.getter(); // cValue
++            },
++            set(a) {
++                if ( prevSetter !== undefined ) {
++                    prevSetter(a);
++                }
++                handler.setter(a);
++            }
++        });
++    };
++    const trapChain = function(owner, chain) {
+         const pos = chain.indexOf('.');
+         if ( pos === -1 ) {
+-            const original = owner[chain];
+-            if ( mustAbort(original) ) { return; }
+-            const desc = Object.getOwnPropertyDescriptor(owner, chain);
+-            if ( desc === undefined || desc.get === undefined ) {
+-                Object.defineProperty(owner, chain, {
+-                    get: function() {
+-                        return document.currentScript === thisScript
+-                            ? original
+-                            : cValue;
+-                    },
+-                    set: function(a) {
+-                        if ( mustAbort(a) ) {
+-                            cValue = a;
+-                        }
+-                    }
+-                });
+-            }
++            trapProp(owner, chain, {
++                v: undefined,
++                init: function(v) {
++                    if ( mustAbort(v) ) { return false; }
++                    this.v = v;
++                    return true;
++                },
++                getter: function() {
++                    return document.currentScript === thisScript
++                        ? this.v
++                        : cValue;
++                },
++                setter: function(a) {
++                    if ( mustAbort(a) === false ) { return; }
++                    cValue = a;
++                }
++            });
+             return;
+         }
+         const prop = chain.slice(0, pos);
+-        let v = owner[prop];
++        const v = owner[prop];
+         chain = chain.slice(pos + 1);
+-        if (
+-            (v instanceof Object) ||
+-            (typeof v === 'object' && v !== null)
+-        ) {
+-            makeProxy(v, chain);
++        if ( v instanceof Object || typeof v === 'object' && v !== null ) {
++            trapChain(v, chain);
+             return;
+         }
+-        const desc = Object.getOwnPropertyDescriptor(owner, prop);
+-        if ( desc && desc.set !== undefined ) { return; }
+-        Object.defineProperty(owner, prop, {
+-            get: function() {
+-                return v;
++        trapProp(owner, prop, {
++            v: undefined,
++            init: function(v) {
++                this.v = v;
++                return true;
+             },
+-            set: function(a) {
+-                v = a;
++            getter: function() {
++                return this.v;
++            },
++            setter: function(a) {
++                this.v = a;
+                 if ( a instanceof Object ) {
+-                    makeProxy(a, chain);
++                    trapChain(a, chain);
+                 }
+             }
+         });
+     };
+-    makeProxy(window, '{{1}}');
++    trapChain(window, chain);
+ })();
+ 
+ 
+@@ -693,9 +736,13 @@
      const needleNot = needle.charAt(0) === '!';
      if ( needleNot ) { needle = needle.slice(1); }
      let delay = '{{2}}';
@@ -100,7 +228,7 @@ index d2c0bdb6..537190e3 100644
      if ( needle === '' || needle === '{{1}}' ) {
          needle = '';
      } else if ( needle.startsWith('/') && needle.endsWith('/') ) {
-@@ -703,8 +719,7 @@
+@@ -703,8 +750,7 @@
      } else {
          needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
      }
@@ -110,7 +238,7 @@ index d2c0bdb6..537190e3 100644
          ? console.log
          : undefined;
      const reNeedle = new RegExp(needle);
-@@ -712,18 +727,19 @@
+@@ -712,18 +758,19 @@
          apply: function(target, thisArg, args) {
              const a = String(args[0]);
              const b = args[1];
@@ -139,7 +267,7 @@ index d2c0bdb6..537190e3 100644
              }
              return target.apply(thisArg, args);
          }
-@@ -764,9 +780,13 @@
+@@ -764,9 +811,13 @@
      const needleNot = needle.charAt(0) === '!';
      if ( needleNot ) { needle = needle.slice(1); }
      let delay = '{{2}}';
@@ -156,7 +284,7 @@ index d2c0bdb6..537190e3 100644
      if ( needle === '' || needle === '{{1}}' ) {
          needle = '';
      } else if ( needle.startsWith('/') && needle.endsWith('/') ) {
-@@ -774,8 +794,7 @@
+@@ -774,8 +825,7 @@
      } else {
          needle = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
      }
@@ -166,7 +294,7 @@ index d2c0bdb6..537190e3 100644
          ? console.log
          : undefined;
      const reNeedle = new RegExp(needle);
-@@ -783,18 +802,19 @@
+@@ -783,18 +833,19 @@
          apply: function(target, thisArg, args) {
              const a = String(args[0]);
              const b = args[1];
@@ -195,7 +323,7 @@ index d2c0bdb6..537190e3 100644
              }
              return target.apply(thisArg, args);
          }
-@@ -1197,14 +1217,14 @@
+@@ -1197,14 +1248,14 @@
  // https://github.com/NanoAdblocker/NanoFilters/issues/149
  /// cookie-remover.js
  (function() {
@@ -213,7 +341,7 @@ index d2c0bdb6..537190e3 100644
          document.cookie.split(';').forEach(cookieStr => {
              let pos = cookieStr.indexOf('=');
              if ( pos === -1 ) { return; }
-@@ -1213,8 +1233,16 @@
+@@ -1213,8 +1264,16 @@
              let part1 = cookieName + '=';
              let part2a = '; domain=' + document.location.hostname;
              let part2b = '; domain=.' + document.location.hostname;
@@ -231,7 +359,7 @@ index d2c0bdb6..537190e3 100644
              let part3 = '; path=/';
              let part4 = '; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT';
              document.cookie = part1 + part4;
-@@ -1226,6 +1254,9 @@
+@@ -1226,6 +1285,9 @@
              if ( part2c !== undefined ) {
                  document.cookie = part1 + part2c + part3 + part4;
              }
@@ -241,3 +369,92 @@ index d2c0bdb6..537190e3 100644
          });
      };
      removeCookie();
+diff --git a/src/web_accessible_resources/window.open-defuser.js b/src/web_accessible_resources/window.open-defuser.js
+index 6a0f2468..7c4dccb6 100644
+--- a/src/web_accessible_resources/window.open-defuser.js
++++ b/src/web_accessible_resources/window.open-defuser.js
+@@ -27,7 +27,7 @@
+     if ( arg2 === '{{2}}' ) { arg2 = ''; }
+     let arg3 = '{{3}}';
+     if ( arg3 === '{{3}}' ) { arg3 = ''; }
+-    const log = arg3 !== ''
++    const log = /\blog\b/.test(arg3)
+         ? console.log.bind(console)
+         : ( ) => { };
+     const newSyntax = /^[01]?$/.test(arg1) === false;
+@@ -58,6 +58,17 @@
+         pattern = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+     }
+     const rePattern = new RegExp(pattern);
++    const createDecoy = function(tag, urlProp, url) {
++        const decoy = document.createElement(tag);
++        decoy[urlProp] = url;
++        decoy.style.setProperty('height','1px', 'important');
++        decoy.style.setProperty('position','fixed', 'important');
++        decoy.style.setProperty('top','-1px', 'important');
++        decoy.style.setProperty('width','1px', 'important');
++        document.body.appendChild(decoy);
++        setTimeout(( ) => decoy.remove(), autoRemoveAfter * 1000);
++        return decoy;
++    };
+     window.open = new Proxy(window.open, {
+         apply: function(target, thisArg, args) {
+             log('window.open:', ...args);
+@@ -66,24 +77,39 @@
+                 return target.apply(thisArg, args);
+             }
+             if ( autoRemoveAfter < 0 ) { return null; }
+-            const iframe = document.createElement('iframe');
+-            iframe.src = url;
+-            iframe.style.setProperty('display','none', 'important');
+-            iframe.style.setProperty('height','1px', 'important');
+-            iframe.style.setProperty('width','1px', 'important');
+-            document.body.appendChild(iframe);
+-            setTimeout(( ) => iframe.remove(), autoRemoveAfter * 1000);
+-            if ( arg3 === '' ) { return iframe.contentWindow; }
+-            return new Proxy(iframe.contentWindow, {
+-                get: function(target, prop) {
+-                    log('window.open / get', prop, '===', target[prop]);
+-                    return target[prop];
+-                },
+-                set: function(target, prop, value) {
+-                    log('window.open / set', prop, '=', value);
+-                    target[prop] = value;
+-                },
+-            });
++            const decoy = /\bobj\b/.test(arg3)
++                ? createDecoy('object', 'data', url)
++                : createDecoy('iframe', 'src', url);
++            let popup = decoy.contentWindow;
++            if ( typeof popup === 'object' && popup !== null ) {
++                Object.defineProperty(popup, 'closed', { value: false });
++            } else {
++                const noopFunc = (function(){}).bind(self);
++                popup = new Proxy(self, {
++                    get: function(target, prop) {
++                        if ( prop === 'closed' ) { return false; }
++                        const r = Reflect.get(...arguments);
++                        if ( typeof r === 'function' ) { return noopFunc; }
++                        return target[prop];
++                    },
++                    set: function() {
++                        return Reflect.set(...arguments);
++                    },
++                });
++            }
++            if ( /\blog\b/.test(arg3) ) {
++                popup = new Proxy(popup, {
++                    get: function(target, prop) {
++                        log('window.open / get', prop, '===', target[prop]);
++                        return Reflect.get(...arguments);
++                    },
++                    set: function(target, prop, value) {
++                        log('window.open / set', prop, '=', value);
++                        return Reflect.set(...arguments);
++                    },
++                });
++            }
++            return popup;
+         }
+     });
+ })();
