@@ -53,5 +53,5 @@ filters automatic comment template.
 - https://github.com/gorhill/uBlock/commit/46197a11c511ec7f21632eb12ab7332c5e12354c
 
 `90_2_resources_updates.patch`: Updates to script snippets and web accessible
-resources. Currently updated to commit
+resources. Currently updated to upstream commit
 `d25b9aa30f72c817b95455a41dfb80e2fecf58b2` or `1.29.2`.
