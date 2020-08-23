@@ -72,14 +72,14 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. No error thrown in the background console
-1. Highlighter marks:
+1. Highlighter markers:
    1. Section `1`:
       1. Line `3`: `redirect=` marked as invalid
    1. Section `3`:
       1. Line `1`: `xmlhtprequest` marked as invalid
    1. Section `4`:
       1. Line `2`: `##+js()` marked as invalid
-1. Linter marks:
+1. Linter markers:
    1. Section `1`:
       1. Line `3`: `1` warning
       1. Line `4`: `1` warning
@@ -185,7 +185,7 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Expected**
 1. All boxes are green and stay green
-1. No highlight marker and no linter marker in `My filters` tab
+1. No highlighter marker and no linter marker in `My filters` tab
 
 **Cleanup**
 1. Remove added filters
