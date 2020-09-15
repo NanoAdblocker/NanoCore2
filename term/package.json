@@ -11,12 +11,12 @@
   },
   "description": "Nano Core 2 Terminal",
   "engines": {
-    "node": "12.18.3"
+    "node": "12.18.4"
   },
   "homepage": "https://github.com/jspenguin2017/NanoCore2",
   "license": "GPL-3.0",
   "name": "nano-core-2-term",
   "private": true,
   "repository": "https://github.com/jspenguin2017/NanoCore2",
-  "version": "1.0.24"
+  "version": "1.0.25"
 }
