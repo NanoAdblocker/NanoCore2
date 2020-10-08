@@ -1,8 +1,8 @@
 # Privacy Policy
 
-This Privacy Policy (the "Policy") applies to the latest unmodified production
-builds of Nano Adblocker and Nano Defender (the "Projects") published and
-distributed by `@jspenguin2017` (the "Author").
+This Privacy Policy (the "Policy") only applies to the latest unmodified
+production builds of Nano Adblocker and Nano Defender (the "Projects")
+published and distributed by `@jspenguin2017` (the "Author").
 
 By using one or both of the Projects, you consent to:
 - The most recent version of the Policy
